@@ -94,11 +94,11 @@ isLoadingotp = false;
 }
   async presentAlert() {
     if(localStorage.getItem('lang')=='ar'){  const alert = await this.alertController.create({
-    //header: 'aتنبيه',
+  
     message: this.name,
     buttons: ['موافق']
   });await alert.present();}else{const alert = await this.alertController.create({
-    //header: 'dddddd',
+  
     message: this.name,
     buttons: ['ok']
   });await alert.present();}

@@ -76,22 +76,23 @@ list_langPassword=localStorage.getItem('lang')=="ar"?["أ","ب","ت","ث"]:["a",
   if(this.num.length==1){
   if(i==0){
     return '#FF0000'
-  }else{return '#FFFFFF'}
-  }else if(this.num.length==2||this.num.length==3){
+  }else{return '#E5E4E2'}
+  }else if(this.num.length==2){
   if(i<=1){
     return '#FFFF00'
-  }else{return '#FFFFFF'}
-          }else if(this.num.length==4){
+  }else{return '#E5E4E2'}
+          }else if(this.num.length==3){
   if(i<=2){
     return '#90EE90'
-  }else{return '#FFFFFF'}
-          }else if(this.num.length==5){
+  }else{return '#E5E4E2'}
+          }else if(this.num.length==4){
             if(i<=4){
     return '#006400'
-  }else{return '#FFFFFF'}
+  }else{return '#E5E4E2'}
           }
         }
-      }eye(){
+      }
+      eye(){
   if(this.password_bool==false){
     this.password_bool=true;
     this.password_icon='eye-outline';
@@ -122,20 +123,19 @@ list_langPassword=localStorage.getItem('lang')=="ar"?["أ","ب","ت","ث"]:["a",
   }
   }
   onInputChange(event: any) {
-    this.password = (event.target as HTMLInputElement).value;
-    this.num.length=0;
-    this.list[0]= /[A-Z]/.test(event.target.value);
-    this.list[1] = /[a-z]/.test(event.target.value);
-    this.list[2] = /\d/.test(event.target.value);
-    this.list[3] = /[!@#$%^&*(),.?":{}|<>]/.test(event.target.value); 
-   this.list[4] = event.target.value.length>8;
-   for(let i=0;i<this.list.length;i++){
-      if(this.list[i]===true){
-        this.num.push(true)  
-      }
-      }this.text_color(); 
-     this.password_match();
-this.text();
+    this.password=this.password = (event.target as HTMLInputElement).value;
+  this.num.length=0;
+  this.list[0] = /(?=.*[a-z])(?=.*[A-Z])/.test(event.target.value);
+  this.list[1] = /\d/.test(event.target.value);
+  this.list[2] = /[!@#$%^&*(),.?":{}|<>]/.test(event.target.value); 
+ this.list[3] = event.target.value.length>8;
+ for(let i=0;i<this.list.length;i++){
+    if(this.list[i]===true){
+      this.num.push(true)  
+    }
+    }this.password_match();
+    this.text();
+    this.text_color(); 
     }
     password_match(){
   if(this.password==''||this.repassword.text_password==''){this.text_password='';}
@@ -194,7 +194,7 @@ this.password_color="#FF0000";
 }else if(this.num.length==2){
 this.password_color='#FFFF00';
         }else if(this.num.length==3){
-this.password_color='#90EE90';
+this.password_color='#FFFF00';
         }else if(this.num.length==4){
 this.password_color='#006400';
         }

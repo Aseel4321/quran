@@ -30,7 +30,9 @@
    * Dark Colors
    * -------------------------------------------
    */
-  
+ html {
+  font-size: 3vw; /* 2% من عرض الشاشة */
+}
   body {
     --ion-color-primary: #428cff;
     --ion-color-primary-rgb: 66,140,255;

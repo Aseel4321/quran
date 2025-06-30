@@ -1,0 +1,18 @@
+.login-background {
+    --background: linear-gradient(to bottom left, #7F0012, #1B0A07);
+    color: white;
+  }
+  
+  .login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    padding: 20px;
+  
+  }
+  
+  ion-card {
+    width: 100%;
+    max-width: 400px;
+  }

@@ -1,0 +1,271 @@
+.otp-container1 {
+  display: flex;
+  flex-direction: column;
+height:100vh ;
+  
+.p{ margin-top:5%;padding-top: 10%; text-align: center;font-size:6vw;justify-content: center;
+ }
+  .circle {
+    width: 100px;
+    height: 100px;
+    background-color: #ffeb8a;
+    border-radius: 50%;
+    margin-bottom: 20px;
+  }
+  .otp{font-size:10vw; position: absolute;  font-family: Poppins;}
+  .otp-container{flex: 1;
+  display: flex;flex-direction: column;height: 100vh;
+    height: 100vh;}
+    .title1{display: flex;flex-direction: row;}
+.imagee{margin-top: 6vh; margin-left:1%;height: 20vh;width:30vw;}
+  .title2{margin-top: 1%; width: 40%;}
+.title {position: relative;margin-top:12vh;margin-right:3vw;
+    font-size: 3rem;
+    font-weight: bold;
+
+    .verify {position: absolute;margin-top:50%;margin-right:15%;
+      font-family: cursive;
+     font-size: 10vw;
+    }
+  }
+  .fle{flex:7;}
+.login-button {height:6vh ;
+  border-radius: 25px;
+  background: linear-gradient(to right, #ccc, #aaa); // لون رمادي عند invalid
+  color: #fff;
+  font-size: 18px;
+  text-shadow: 1px 1px 2px #000;
+  padding: 12px 30px;
+  margin-top:10vh;
+  width: 80%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  opacity: 0.6;
+  cursor: not-allowed;
+  transition: all 0.3s ease;
+}
+.login-button-activee { height:6vh ; ;
+  border-radius: 25px;
+  background: linear-gradient(to right, #c9d97f, #f9a24f);  // لون رمادي عند invalid
+  color: #fff;
+  font-size: 18px;
+  text-shadow: 1px 1px 2px #000;
+  padding: 12px 30px;
+  margin-top:10vh;
+  width: 80%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  opacity: 0.6;
+  cursor: not-allowed;
+  transition: all 0.3s ease;
+}
+  .subtitle {margin-top: 5vh;
+    text-align: center;
+   
+    
+    font-size: 1.3rem;
+    font-family: Monospace;
+ 
+  }
+
+  .otp-inputs {padding-top: 2%; height:20%; margin-top: 5vh;
+    display: flex;
+    gap: 12px;
+    margin: 5% 5%;
+flex-direction: row;
+    ion-input {margin-right: 3%;
+      width: 45%;
+      height: 45%;
+      text-align: center;
+      font-size: 24px;
+      background: #eee;
+      border-radius: 13px;
+    }
+  }
+
+
+  .resend {margin-top: 2%;text-align: center;
+    font-size: 4vw;
+   
+
+    .email-link {
+      color: #ff9900;
+      text-decoration: none;
+    }
+  }
+
+  .continue-button {
+    background: linear-gradient(to right, #cddc39, #ff9800);
+    color: white;
+    font-size: 1rem;
+    border-radius: 25px;
+  }
+}
+@media (min-width: 600px) {
+.otp-container {
+  display: flex;
+  flex-direction: column;
+
+  margin-top: 5vh;
+
+  .circle {
+    width: 100px;
+    height: 100px;
+    background-color: #ffeb8a;
+    border-radius: 50%;
+    margin-bottom: 10px;
+  }
+.imagee{margin-top: 1vh; margin-left:1%;height: 25vw;width:25vw;}
+  .title {position: relative;margin-top:10vh;margin-right:2vw;
+    font-size: 3rem;
+    font-weight: bold;
+
+    .verify {position: absolute;margin-top:22%;margin-right:15%;
+      font-family: cursive;
+      font-size: 3rem;
+    }
+  }
+.login-button {height:7vh ;
+  border-radius: 25px;
+  background: linear-gradient(to right, #ccc, #aaa); // لون رمادي عند invalid
+  color: #fff;
+  font-size: 18px;
+  text-shadow: 1px 1px 2px #000;
+  padding: 12px 30px;
+  margin-top:10vh;
+  width: 80%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  opacity: 0.6;
+  cursor: not-allowed;
+  transition: all 0.3s ease;
+}
+.login-button-activee {
+  height:7vh;
+  border-radius: 25px;
+  background: linear-gradient(to right, #c9d97f, #f9a24f);  // لون رمادي عند invalid
+  color: #fff;
+  font-size: 18px;
+  text-shadow: 1px 1px 2px #000;
+  padding: 12px 30px;
+  margin-top:10vh;
+  width: 80%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  opacity: 0.6;
+  cursor: not-allowed;
+  transition: all 0.3s ease;
+}
+  .subtitle {margin-top: 5vh;
+    text-align: center;
+   
+    
+    font-size: 1.3rem;
+    font-family: Monospace;
+ 
+  }
+
+  .otp-inputs {margin-top: 5vh;
+    display: flex;
+    gap: 12px;
+    margin: 10% 0;
+
+    ion-input {margin-right: 3%;
+      width: 10%;
+      height: 20%;
+      text-align: center;
+      font-size: 24px;
+      background: #eee;
+      border-radius: 13px;
+    }
+  }
+
+  .resend {
+  margin: 2% 0 10% 0;  // قللت الـ margin-top من 10% إلى 2%
+  font-size: 1rem;
+
+  .email-link {
+    color: #ff9900;
+    text-decoration: none;
+  }
+}
+
+  .continue-button {
+    background: linear-gradient(to right, #cddc39, #ff9800);
+    color: white;
+    font-size: 1rem;
+    border-radius: 25px;
+  }
+}
+}
+@media (min-width: 1023px) {
+  .otp-container { 
+    display: flex;
+  flex-direction: column;
+height:50vh;
+
+.imagee{margin-top:1%;margin-left:1%;height:15vw;width:15vw;}
+    .title {
+      font-size: 3rem;
+      margin-top: 6vw;  // تم تقليلها
+      margin-right: 1vw;
+
+      .verify {
+        font-size: 3rem;
+        margin-top: 20%;  // تقليل المسافة بين verify و title
+        margin-right: 10%;
+      }
+    }
+
+    .circle {
+      width: 120px;
+      height: 120px;
+      margin-bottom: 10px; // تقليل المسافة بينها وبين العنوان
+    }
+
+    .otp-inputs {
+      gap: 8px; // تقليل المسافات بين مربعات OTP
+      margin: 5% 0; // تقليل المسافة العمودية
+
+      ion-input {
+        width: 6vw;
+        height: 6vw;
+        font-size: 26px;
+      }
+    }
+
+    .subtitle {
+      font-size: 1.4rem;
+      margin: 5% 0; // تقليل الفراغ
+    }
+
+    .login-button{background: linear-gradient(to right, #ccc, #aaa);
+      font-size: 18px;
+      width: 30%;height:10% ;
+      margin-top: 5%; // تقليل المسافة العلوية
+    }
+    .login-button-activee {  background: linear-gradient(to right, #cddc39, #ff9800);
+      font-size: 18px;
+      width: 30%;height:10% ;
+    margin-top: 5%; // تقليل المسافة العلوية
+    }
+
+    .continue-button {
+      font-size: 1.1rem;
+      padding: 12px 28px;
+      margin-top: 10%; // تقليل المسافة قبل الزر
+    }
+
+    .resend {
+      margin-bottom: 5%; // تقليل المسافة النهائية
+    }
+  }
+}

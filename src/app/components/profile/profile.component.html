@@ -1,0 +1,151 @@
+<!--<ion-content class="login-content">
+    <h1 class="title">Profile</h1> 
+    <div class="fle1">
+      <div class="profile-image-container">
+        <img src="assets/icon/moslem-woman.png" class="profile-img" />
+      </div>
+    </div>
+    <div class="flee">
+      <div class="fle">
+        <ion-item class="input-box">
+          <ion-icon name="person-outline" slot="start"></ion-icon>
+          <ion-input></ion-input>
+          <ion-icon name="pencil" slot="end"></ion-icon>
+        </ion-item>
+        <ion-item class="input-box">
+          <ion-icon name="mail-outline" slot="start"></ion-icon>
+          <ion-input></ion-input>
+          <ion-icon name="pencil" slot="end"></ion-icon>
+        </ion-item>
+        <ion-item class="input-box">
+          <ion-select interface="alert">
+            <ion-select-option *ngFor="let country of countries" [value]="country.dial_code">
+              {{ country.name }} ({{ country.dial_code }})
+            </ion-select-option>
+          </ion-select>
+          <ion-input type="tel" placeholder="رقم الهاتف"></ion-input>
+        </ion-item>  
+
+        <ion-grid>
+          <ion-row>
+            <ion-col size="6">
+              <ion-item class="small-item">
+                <ion-icon name="calendar-outline" slot="start"></ion-icon>
+                <ion-datetime class="small-datetime" placeholder="4/11/2001" display-format="D/M/YYYY"></ion-datetime>
+              </ion-item>
+            </ion-col>
+
+            <ion-col size="6" class="gender-buttons">
+              <ion-segment value="custom">
+                <ion-segment-button value="custom">
+                  <ion-label>Male</ion-label>
+                </ion-segment-button>
+                <ion-segment-button value="segment">
+                  <ion-label>Femal</ion-label>
+                </ion-segment-button>
+              </ion-segment>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+
+      </div><button
+  [class]="validation()"
+  type="submit"
+ 
+ >
+  {{ 'LOGIN' | translate }}
+</button> 
+    </div> 
+
+
+</ion-content>!-->
+<ion-content class="login-content">
+  <form #loginForm="ngForm">
+    <br /> <ion-icon  name="arrow-back-outline"></ion-icon>
+  
+    <h1 class="title">
+      {{ 'Profile' | translate }}
+    </h1>
+
+    <div class="logo" class="logo">
+      <img src="assets/icon/moslem-woman.png" alt="Login Image" style="width:35%; height: 35%; border-radius: 50%;">
+    </div>
+
+    <!-- الاسم -->
+    <ion-item class="input-box">
+      <ion-icon name="person-outline" slot="start"></ion-icon>
+      <ion-input
+        #nameInput
+        [(ngModel)]="name"
+        name="name"
+        readonly
+        type="text"  
+        placeholder="{{ 'NAME' | translate }}" 
+      ></ion-input>
+      <ion-icon name="pencil" slot="end" (mousedown)="enableInput('name')"></ion-icon>
+    </ion-item>
+
+    <!-- البريد -->
+    <ion-item class="input-box">
+      <ion-icon name="mail-outline" slot="start"></ion-icon>
+      <ion-input
+        #emailInput
+        [(ngModel)]="email"
+        name="email"
+        readonly
+        type="email"
+        placeholder="{{ 'EMAIL' | translate }}" 
+      ></ion-input>
+      <ion-icon name="pencil" slot="end" (mousedown)="enableInput('email')"></ion-icon>
+    </ion-item>
+
+    <!-- رقم الهاتف -->
+    <ion-item class="input-box">
+      <ion-select interface="alert" name="countryCode" [(ngModel)]="selectedCountryCode" [placeholder]="selectedCountryCode">
+        <ion-select-option *ngFor="let country of countries" [value]="country.dial_code">
+          {{ country.name }} ({{ country.dial_code }})
+        </ion-select-option>
+      </ion-select>
+      <ion-input
+        #phoneInput
+        [(ngModel)]="phoneNumber"
+        name="phone"
+        readonly
+        type="tel"
+        placeholder="{{ 'Phone' | translate }}"
+      ></ion-input>
+      <ion-icon name="pencil" slot="end" (mousedown)="enableInput('phone')"></ion-icon>
+    </ion-item>
+
+    <!-- التاريخ والنوع -->
+    <ion-grid>
+      <ion-row>
+        <ion-col size="6">
+          <ion-item class="small-item">
+            <ion-icon name="calendar-outline" slot="start"></ion-icon>
+            <ion-datetime display-format="D/M/YYYY" placeholder="{{ 'Date_Of_Birth' | translate }}"></ion-datetime>
+          </ion-item>
+        </ion-col>
+
+        <ion-col size="6" class="gender-buttons">
+          <ion-segment value="custom">
+            <ion-segment-button value="custom">
+              <ion-label>{{ 'Male' | translate }}</ion-label>
+            </ion-segment-button>
+            <ion-segment-button value="segment">
+              <ion-label>{{ 'Femal' | translate }}</ion-label>
+            </ion-segment-button>
+          </ion-segment>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <!-- زر الدخول -->
+    <button class="login-button-activee" type="submit">
+      {{ 'LOGIN' | translate }}
+    </button>
+
+
+  
+  </form>
+</ion-content>

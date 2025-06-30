@@ -1,0 +1,185 @@
+
+.login-content {
+ --background: #fff;
+  display: flex; // تأكد من وجودها
+  flex-direction: column; // لضمان الترتيب عموديًا
+  justify-content: center; // تمركز عمودي
+  align-items: center; // تمركز أفقي
+  min-height: 100vh;
+ 
+  /* يقلل المسافة بين العنوان والفقرة */
+
+
+
+
+ .logo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 15%; // أو حسب المساحة التي تريدها
+  margin-bottom: 10%;
+
+ h1 {
+  //font-weight: bold;
+  font-size: 2rem;
+  text-shadow: 1px 1px 2px #aaa;
+  font-family: 'Cairo', sans-serif; /* ← هنا يتم تغيير الخط */
+}
+
+  p {margin-inline-start: 20%;
+    font-size:1em;
+    color: #444;
+  }
+}
+input:focus {
+  border: 2px solid #f9a24f;
+  box-shadow: 0 0 5px rgba(249, 162, 79, 0.5);
+}
+
+
+.input-box {height: 45px;; 
+  --background: #fff;
+  display: flex;
+  align-items: center;
+  border: 2px solid #e8e5e5; 
+  border-radius:25px;
+  padding: 0 10px; 
+  margin-left: 3%;
+  margin-right: 3%;
+  margin-bottom: 2%;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+
+
+
+
+
+  ion-icon {
+    font-size:1rem; 
+  
+    padding: 10px; 
+    //background-color: #f0f0f0; /* خلفية ناعمة حول الأيقونات */
+    border-radius: 50%; /* جعل الأيقونات دائرية */
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  /* تغيير لون الأيقونات عند التحويم */
+  &:hover ion-icon {
+    background-color: #cd8d52;
+    color: #fff;
+  }
+}
+
+.input-border {
+  flex: 1;
+  font: size 1rem;;
+  padding: 10% 10%;
+  border: none;
+  box-shadow: none;
+
+  /* إزالة الحدود الافتراضية من ion-input */
+  ion-input {
+    border: none;
+    box-shadow: none;
+  }
+}
+ion-segment-button.md::part(native) {
+  color: #000;
+}
+
+.segment-button-checked.md::part(native) {
+  color: #ea8d13;
+}
+
+ion-segment-button.md::part(indicator-background) {
+  height: 4px;
+}
+
+ion-segment-button.ios::part(native) {
+  color: #72a308;
+}
+
+.segment-button-checked.ios::part(native) {
+  color: #fff;
+}
+
+ion-segment-button.ios::part(indicator-background) {
+  border-radius: 20px;
+}
+
+ion-segment-button::part(indicator-background) {
+  background: #a38908;
+} 
+
+  }
+
+.login-button {
+  border-radius: 25px;
+  background: linear-gradient(to right, #ccc, #aaa); // لون رمادي عند invalid
+  color: #fff;
+  font-size: 18px;
+  text-shadow: 1px 1px 2px #000;
+  padding: 12px 30px;
+  margin-top: 20px;
+  width: 80%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  opacity: 0.6;
+  cursor: not-allowed;
+  transition: all 0.3s ease;
+}
+.login-button-activee {
+  border-radius: 25px;
+  background: linear-gradient(to right, #c9d97f, #f9a24f);  // لون رمادي عند invalid
+  color: #fff;
+  font-size: 18px;
+  text-shadow: 1px 1px 2px #000;
+  padding: 12px 30px;
+  margin-top: 20px;
+  width: 80%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  opacity: 0.6;
+  cursor: not-allowed;
+  transition: all 0.3s ease;
+}
+.logo{display: flex; align-items: center; gap: 15px; flex-direction: row-reverse; margin-top: 5%}
+.title{font-weight: 600; text-align: center; margin-top: 1vh;}
+/* يتم تفعيله عندما يكون valid = true */
+.login-button.active-button {
+  background: linear-gradient(to right, #c9d97f, #f9a24f); // اللون الأصلي
+  opacity: 1;
+  cursor: pointer;
+}
+
+.signup-text {
+  text-align: center;
+  margin-top: 2%;
+  font-size: 1rem;
+  color: #999;
+  direction: inherit; /* مهم! */
+
+  a {
+    color: orange;
+    font-weight: bold;
+    text-decoration: none;
+  }
+}
+
+
+:root[dir="rtl"] .signup-text {
+  direction: rtl;
+  text-align: right;
+}
+
+:root[dir="ltr"] .signup-text {
+  direction: ltr;
+  text-align: left;
+}
+

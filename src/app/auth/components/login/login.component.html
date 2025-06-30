@@ -1,0 +1,78 @@
+
+<ion-content class="login-content">
+  <form #loginForm="ngForm">
+    <br/>
+    <br/>
+    
+    <div class="logo" style="display: flex; align-items: center; gap: 15px; flex-direction: row-reverse; margin-top: 10%">
+      <img src="assets/icon/mosque.png" alt="Login Image" style="width: 50px; height: 50px;">
+      <div>
+       <h1>{{ 'WELCOME_BACK' | translate }}</h1>
+<p>{{ 'LOGIN_TO_YOUR_ACCOUNT' | translate }}</p>
+      </div>
+    </div>
+
+    <!-- Email Input -->
+    <ion-item class="input-box">
+      <ion-icon name="mail-outline" slot="start"></ion-icon>
+      <ion-input 
+        placeholder="{{ 'EMAIL' | translate }}" 
+        type="email" 
+     
+        name="email"
+        required
+        [(ngModel)]="loginData.email">
+      </ion-input>
+      <ion-icon (click)="remove()" name="close-circle" slot="end"></ion-icon>
+    </ion-item>
+
+    <br />
+
+
+    <ion-item class="input-box">
+      <ion-icon name="lock-closed-outline" slot="start"></ion-icon>
+      <ion-input 
+        placeholder="{{ 'PASSWORD' | translate }}" 
+        [type]="password_type" 
+
+        name="password"
+        required
+        [(ngModel)]="loginData.password">
+      </ion-input>
+      <ion-icon (click)="eye()" [name]="password_icon" slot="end"></ion-icon>
+    </ion-item>
+    <br />
+
+  <div class="options">
+  <div class="remember-me">
+    <ion-checkbox [(ngModel)]="loginData.rememberMe" name="rememberMe"></ion-checkbox>
+    <span>{{ 'REMEMBER_ME' | translate }}</span>
+  </div>
+  <a class="forgot" (click)="forgot_nav()"> {{ 'FORGOT_PASSWORD' | translate }} </a>
+</div>
+
+
+    <br />
+
+    <button (click)="login()"
+  class="login-button"
+  type="submit"
+  [disabled]="!loginForm.form.valid"
+  [ngClass]="{ 'active-button': loginForm.form.valid }">
+ {{ 'LOGIN' | translate }}
+</button>
+
+    <br />
+ <div *ngIf="isLoading" style="text-align: center;">
+  <img src="assets/icon/hold-on.gif" alt="Login Image"
+       style="width: 65px; height: 65px; border-radius: 10%;">
+       <br/><br/>
+</div>
+
+    <p class="signup-text" >
+      {{ 'NO_ACCOUNT' | translate }}
+      <a (click)="signup_nav()">{{ 'SIGN_UP' | translate }}</a>
+    </p>
+    
+  </form>
+</ion-content>

@@ -1,0 +1,42 @@
+<ion-content class="otp-container1" [fullscreen]="true" scroll="true">
+  <form #loginForm="ngForm">
+    <div class="title1">
+      <div class="title">
+        <img src="assets/icon/mail.gif" alt="lock image" class="imagee" />
+        <div>
+          <h2 class="otp">{{ 'otp.title' | translate }}</h2>
+          <h2 class="verify">{{ 'otp.verify' | translate }}</h2>
+        </div>
+      </div>
+    </div>
+
+    <p class="p">
+      <span>{{ 'otp.verifyEmail' | translate }} {{ 'otp.instruction' | translate }}</span>
+    </p>
+
+    <div class="otp-inputs">
+      <ion-input #input0 maxlength="1" type="tel" (ionInput)="onInputChange($event, 0)"></ion-input>
+      <ion-input #input1 maxlength="1" type="tel" (ionInput)="onInputChange($event, 1)"></ion-input>
+      <ion-input #input2 maxlength="1" type="tel" (ionInput)="onInputChange($event, 2)"></ion-input>
+      <ion-input #input3 maxlength="1" type="tel" (ionInput)="onInputChange($event, 3)"></ion-input>
+    </div>
+
+    <p class="resend" (click)="otp()">
+      لم يصل الرمز؟ <a class="email-link">اعاده الارسال</a>
+    </p>
+
+    <div *ngIf="isLoadingotp" class="loading">
+      <img src="assets/icon/hold-on.gif" alt="Login Image" class="loading-image" />
+    </div>
+
+    <div class="fle">
+      <button (click)="login()" [class]="validation()" [disabled]="disabled">
+        {{ 'otp.button' | translate }}
+      </button>
+    </div>
+
+    <div *ngIf="isLoading" class="loading">
+      <img src="assets/icon/hold-on.gif" alt="Login Image" class="loading-image" />
+    </div>
+  </form>
+</ion-content>

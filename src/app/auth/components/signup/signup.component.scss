@@ -1,0 +1,426 @@
+.login-content {
+ --background: #fff;
+  display: flex; // تأكد من وجودها
+  flex-direction: column; // لضمان الترتيب عموديًا
+  justify-content: center; // تمركز عمودي
+  align-items: center; // تمركز أفقي
+  min-height: 100vh;
+ 
+ 
+
+
+}
+
+
+.gender-button {
+  flex: 1;
+  font-size: 14px;         /* تصغير حجم الخط */
+  padding: 6px 12px;       /* تصغير الحشو */
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: bold;
+}
+
+.button-default {
+  background-color: #d3d3d3;
+  color: white;
+}
+
+.button-selected {
+  background-color: #2d9cdb;
+  color: white;
+}
+
+.gender-button:hover {
+  transform: scale(1.03);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+p {
+  margin-top: 0; /* يمنع إضافة مسافة من الأعلى */
+  font-size: 1em;
+}
+ .logo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 15%; // أو حسب المساحة التي تريدها
+  margin-bottom: 10%;
+
+ h1 {
+  //font-weight: bold;
+  font-size: 2rem;
+  text-shadow: 1px 1px 2px #aaa;
+  font-family: 'Cairo', sans-serif; /* ← هنا يتم تغيير الخط */
+}
+
+  p {margin-inline-start: 20%;
+    font-size:1em;
+    color: #444;
+  }
+}
+
+
+
+.input-box {height: 45px;; 
+  --background: #fff;
+  display: flex;
+  align-items: center;
+  border: 2px solid #e8e5e5; 
+  border-radius:25px;
+  padding: 0 10px; 
+  margin-left: 3%;
+  margin-right: 3%;
+  margin-bottom: 2%;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+
+
+ 
+
+
+  ion-icon {
+    font-size:1rem; 
+  
+    padding: 10px; 
+   
+    border-radius: 50%; 
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+ 
+  
+}
+
+.input-border {
+  flex: 1;
+  font: size 1rem;;
+  padding: 10% 10%;
+  border: none;
+  box-shadow: none;
+
+  /* إزالة الحدود الافتراضية من ion-input */
+  ion-input {
+    border: none;
+    box-shadow: none;
+  }
+}
+
+
+button {
+  font-size:16px;
+  font-weight:bold;
+  border-radius:25px; 
+  padding:10px 20px; 
+  transition:all 0.3s ease;
+  width:100%;
+  border:none; 
+  background-color:transparent; 
+  outline:none; 
+}
+
+button.button-default {
+  background-color: #d3d3d3; /* اللون الرمادي */
+  color: white;
+}
+
+button.button-selected {
+  background-color: #2d9cdb; /* اللون الأزرق */
+  color: white;
+}
+
+button:hover {
+  transform: scale(1.05); /* تكبير الزر عند التمرير */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* إضافة ظل عند التمرير */
+}
+
+button:active {
+  transform: scale(0.98); /* تصغير الزر عند الضغط */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15); /* تقليل الظل عند الضغط */
+}
+
+ion-label {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+}
+
+
+
+
+.options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 80%;
+  margin: 10px auto;
+  font-size: 14px;
+  color: #666;
+
+  .remember-me {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #333;
+  }
+
+  .forgot {
+    color: #f9a24f;
+    text-decoration: none;
+    font-weight: 500;
+    white-space: nowrap;
+  }
+}
+.gen{
+  display: flex;flex-direction: row;align-items: center;width:100% ;padding-right: 2%;padding-left:2% ;
+}
+  
+
+.login-button {
+  border-radius: 25px;
+  background: linear-gradient(to right, #ccc, #aaa); // لون رمادي عند invalid
+  color: #fff;
+  font-size: 18px;
+  text-shadow: 1px 1px 2px #000;
+  padding: 12px 30px;
+  margin-top: 20px;
+  width: 80%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  opacity: 0.6;
+  cursor: not-allowed;
+  transition: all 0.3s ease;
+}
+.login-button-activee {
+  border-radius: 25px;
+  background: linear-gradient(to right, #c9d97f, #f9a24f);  // لون رمادي عند invalid
+  color: #fff;
+  font-size: 18px;
+  text-shadow: 1px 1px 2px #000;
+  padding: 12px 30px;
+  margin-top: 20px;
+  width: 80%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  opacity: 0.6;
+  cursor: not-allowed;
+  transition: all 0.3s ease;
+}
+/* يتم تفعيله عندما يكون valid = true */
+.login-button.active-button {
+  background: linear-gradient(to right, #c9d97f, #f9a24f); // اللون الأصلي
+  opacity: 1;
+  cursor: pointer;
+}
+
+.signup-text {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 14px;
+  color: #999;
+  direction: inherit; /* مهم! */
+
+  a {
+    color: orange;
+    font-weight: bold;
+    text-decoration: none;
+  }
+}
+
+
+:root[dir="rtl"] .signup-text {
+  direction: rtl;
+  text-align: right;
+}
+
+:root[dir="ltr"] .signup-text {
+  direction: ltr;
+  text-align: left;
+}
+.gender-button {position: absolute;width:55%;text-align: center;
+  font-size:0.600rem;
+  padding: 6px 12px;
+  border-radius: 70px; /* حواف دائرية خفيفة */
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: bold;
+  background-color: #d3d3d3;
+  color: white;
+}
+.gender-button33 {position: absolute;width:55%;text-align: center;
+  font-size:0.600rem;
+  padding: 6px 12px;
+  border-radius: 70px; /* حواف دائرية خفيفة */
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: bold;
+  background-color: #d3d3d3;
+  color: white;
+}
+.gender-button1 {position: absolute;margin-inline-start: 3%;width:85%; text-align:end;
+  font-size:0.900rem;
+  padding: 6px 12px;
+  border-radius: 70px; /* حواف دائرية خفيفة */
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: bold;
+  background-color: #d3d3d3;
+  color: white;
+}
+.logo-m{width:15%; height:15%}
+.logo-f{width:30%; height:30%}
+.input-date {
+  position: relative;
+  width: 5vh;
+ 
+}
+
+.input-date input[type="date"] {
+  text-align: center; /* توسيط النص داخل الحقل */
+  width: 100%;
+  padding: 10px 15px;
+  padding-right: 35px; /* مساحة لأيقونة التقويم */
+  border-radius: 25px;
+  border: 2px solid #e8e5e5;
+  font-size: 1rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  text-align: right; /* محاذاة النص بشكل صحيح */
+  direction: rtl; /* نص من اليمين لليسار */
+  color: #444; /* لون النص */
+  transition: all 0.3s ease; /* تأثير التبديل */
+}
+
+.input-date input[type="date"]:focus {
+  border-color: #f9a24f; /* تغيير لون الحدود عند التركيز */
+  box-shadow: 0 0 5px rgba(249, 162, 79, 0.3); /* تأثير الظل */
+}
+
+.input-date .calendar-icon {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  font-size: 1.1rem;
+  color: #999;
+  cursor: pointer;
+  pointer-events: none; /* حتى لا تؤثر على التفاعل مع input */
+  transition: color 0.3s ease;
+}
+
+.input-date .calendar-icon:hover {
+  color: #f9a24f; /* تغيير اللون عند التحويم */
+}
+
+.input-date input[type="date"]:hover {
+  border-color: #f9a24f; /* تغيير اللون عند التحويم فوق الحقل */
+}
+
+.input-date input[type="date"]:focus-within {
+  border-color: #f9a24f; /* تغيير اللون عند التركيز داخل الحقل */
+  box-shadow: 0 0 5px rgba(249, 162, 79, 0.5); /* تأثير الظل عند التركيز */
+}
+
+.rectangle-container {height:1vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 10px;
+  margin: 20px 0;
+ 
+  overflow-x: auto;  
+ 
+}
+.rectangle {flex: 1; height: 10px; ;
+  width: 60px;  
+ 
+  border-radius: 8px;
+  color: white;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease;
+  flex-shrink: 0; /* مهم لمنع الضغط */
+}
+
+
+.rectangle:hover {
+  transform: scale(1.05);
+}
+.gender-birth-container{position: relative; width: 40%;
+
+  display: flex;flex-direction: row;height: 30px;margin-inline-start: 10%; ;
+}
+
+
+/* عند اختيار الجنس */
+.button-selected {
+  background-color: #6d5f1a;
+  color: white;
+}
+
+/* عند التحويم فوق الزر */
+.gender-button:hover {
+  transform: scale(1.03);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+.floating-label { width: 45%;
+  position: relative;
+}
+
+.label-placeholder {font-size:0.650rem;
+  position: absolute;
+  margin-inline-start: 20%;
+  margin-top: 9%;
+  color: #aaa;
+  pointer-events: none;
+  transition: 0.2s;
+}
+
+input:focus + .label-placeholder,
+input:not(:placeholder-shown) + .label-placeholder {
+  top: -10px;
+  font-size: 5px;
+  color: #333;
+}
+.input-date[dir="rtl"] .calendar-icon {
+  right: 12px;
+}
+
+.input-date[dir="ltr"] .calendar-icon {
+  left: 12px;
+}
+
+
+ion-segment-button {
+  --indicator-color: #c4ca1b;
+}
+
+
+ion-segment-button.md {
+  --color: #000;
+  --color-checked: #bbda0d;
+  --indicator-height: 4px;
+}
+
+
+ion-segment-button.ios {font-size:2.5vw;
+  --color: #d5db1e;
+  --color-checked: #fff;
+  --border-radius: 5px;
+}
+
+

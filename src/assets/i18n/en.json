@@ -1,0 +1,43 @@
+{
+  "NAME": "Name",
+  "WELCOME_BACK": "Welcome Back",
+  "LOGIN_TO_YOUR_ACCOUNT": "Login to your account",
+  "EMAIL": "Email",
+  "PASSWORD": "Password",
+  "REMEMBER_ME": "Remember Me",
+  "FORGOT_PASSWORD": "Forgot Password?",
+  "LOGIN": "Login",
+  "NO_ACCOUNT": "Don't have an account?",
+  "SIGN_UP": "Sign up",
+  "Male": "Male",
+  "Femal": "Female",
+  "Profile": "Profile",
+  "Phone": "Phone number",
+  "Date_Of_Birth": "Date of Birth",
+  "CONFIRM_PASSWORD": "Confirm Password",
+  "EDIT_PROFILE": "Edit Profile",
+  "CHANGE_LANGUAGE": "Change Language",
+  "SAVE_CHANGES": "Save Changes",
+  "CANCEL": "Cancel",
+  "OLD_PASSWORD": "Old Password",
+  "NEW_PASSWORD": "New Password",
+  "SECURITY_SETTINGS": "Security Settings",
+  "FORGOT_PASSWORD": "Forgot Password",
+  "FORGOT_PASSWORD_INSTRUCTIONS": "Please enter your email address to reset your password",
+  "EMAIL": "Email",
+  "CONTINUE": "Continue",
+  "DONT_REMEMBER_EMAIL": "Don't remember your email?",
+  "SEND_PHONE_NUMBER": "Send phone number",
+ 
+  "otp": {
+    "title": "OTP",
+    "verify": "Verify!",
+    "instruction": "We sent you a code to",
+    "verifyEmail": "verify your Email",
+    "resend": "Didn't receive?",
+    "resendAlt": "Send to Phone",
+    "button": "Continue"
+  
+}
+
+}

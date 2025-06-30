@@ -1,0 +1,18 @@
+.splash-container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white; 
+
+.splash-image {
+  max-width: 300px; 
+  width: 80%;
+}
+}
+@media (min-width: 768px) and (max-width: 1024px) {
+  .splash-image {
+    max-width: 400px; 
+    width: 60%;
+  }
+}

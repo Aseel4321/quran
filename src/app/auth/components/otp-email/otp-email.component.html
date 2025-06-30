@@ -4,13 +4,13 @@
       <div class="title">
         <img src="assets/icon/mail.gif" alt="lock image" class="imagee" />
         <div>
-          <h2 class="otp">{{ 'otp.title' | translate }}</h2>
-          <h2 class="verify">{{ 'otp.verify' | translate }}</h2>
+          <h2 class="otp" [ngStyle]="title()">{{ 'otp.title' | translate }}</h2>
+          <h2 class="verify" [ngStyle]="title()">{{ 'otp.verify' | translate }}</h2>
         </div>
       </div>
     </div>
 
-    <p class="p">
+    <p class="p" [ngStyle]="title()" >
       <span>{{ 'otp.verifyEmail' | translate }} {{ 'otp.instruction' | translate }}</span>
     </p>
 

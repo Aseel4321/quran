@@ -168,8 +168,6 @@ console.log(this.dob);
   
 onInputChange(event: any) {
   this.password=this.password = (event.target as HTMLInputElement).value;
-  
- 
   this.num.length=0;
   this.list[0] = /(?=.*[a-z])(?=.*[A-Z])/.test(event.target.value);
   this.list[1] = /\d/.test(event.target.value);

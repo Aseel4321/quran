@@ -47,7 +47,7 @@ list_langPassword=localStorage.getItem('lang')=="ar"?["أ","ب","ت","ث"]:["a",
      text_password:""
      }
   num:boolean[]=[];  
-    list:boolean[]=[false,false,false,false,false];  
+    list:boolean[]=[false,false,false,false];  
   login(){
     var user=localStorage.getItem('User');
      const user1 = JSON.parse(user);

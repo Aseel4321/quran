@@ -73,7 +73,13 @@ otp() {console.log('ddd');
     }
   );
 }
-
+title() {
+  if (localStorage.getItem('lang') === 'ar') {
+    return { 'font-family': '"El Messiri", sans-serif' };
+  } else {
+    return { 'font-family': '"Lucida Console", Monaco, monospace' };
+  }
+}
  /*async presentAlert() {
     if(localStorage.getItem('lang')=='ar'){  const alert = await this.alertController.create({
     //header: 'aتنبيه',

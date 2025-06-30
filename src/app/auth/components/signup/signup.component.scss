@@ -342,9 +342,8 @@ ion-label {
   overflow-x: auto;  
  
 }
-.rectangle {flex: 1; height: 10px; ;
-  width: 60px;  
- 
+.rectangle {
+  flex: 1; 
   border-radius: 8px;
   color: white;
   font-weight: bold;
@@ -353,7 +352,7 @@ ion-label {
   justify-content: center;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
   transition: transform 0.2s ease;
-  flex-shrink: 0; /* مهم لمنع الضغط */
+  flex-shrink: 0;
 }
 
 

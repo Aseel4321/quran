@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../../auth-service/auth.service';
+import { Platform } from '@ionic/angular';
 
 
 @Component({
@@ -10,7 +11,11 @@ import { AuthService } from '../../auth-service/auth.service';
   styleUrls: ['./signup.component.scss'],
 })
 export class SignupComponent implements OnInit {
-  constructor(private router: Router,private Service:AuthService) {}
+  constructor(private router: Router,private Service:AuthService,private platform: Platform) {
+this.platform.backButton.subscribeWithPriority(9999, () => {
+    
+  });
+  }
 list_langPassword=localStorage.getItem('lang')=="ar"?["أ","ب","ت","ث"]:["a",'b','c','d'];
 list_langMatch=localStorage.getItem('lang')=="ar"?["أ","ب",]:["a",'b',];
 list_langCountries=localStorage.getItem('lang')=="ar"?["أ","ب","ت","ث"]:["a",'b','c','d'];

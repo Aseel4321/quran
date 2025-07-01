@@ -49,7 +49,19 @@ ion-menu.red-menu.menu-open ion-item {
   display: flex;
   flex-direction: row;
 
-  background: radial-gradient(circle at center, #FCD25DA8 0%, #fadb89 70%, transparent 100%);
+  background: radial-gradient(
+    circle at center,
+    #FCD25DA8 0%,     /* الذهبي الشفاف في المركز */
+    #e4c9a0 50%,      /* بني فاتح جدًا - مساحة واسعة */
+    #c19a6b 75%,      /* بني فاتح متوسط */
+    #8b5e3c 90%,      /* بني متوسط غني */
+    #5c4033 100%      /* بني داكن */
+  );
+
+  box-shadow: 0 4px 12px rgba(92, 64, 51, 0.3);
 }
+
+
+
 
 

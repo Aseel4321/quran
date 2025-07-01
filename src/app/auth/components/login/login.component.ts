@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../../auth-service/auth.service';
-import { AlertController } from '@ionic/angular';
+import { AlertController, Platform } from '@ionic/angular';
 import { HttpErrorResponse } from '@angular/common/http';
 @Component({
   selector: 'app-login',
@@ -9,7 +9,11 @@ import { HttpErrorResponse } from '@angular/common/http';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
-  constructor(private router: Router,private Service:AuthService,private alertController: AlertController) {}
+  constructor(private router: Router,private Service:AuthService,private alertController: AlertController,private platform: Platform) {
+    this.platform.backButton.subscribeWithPriority(9999, () => {
+    
+  });
+  }
   isLoading:any=false;
   name:any='aaa';
   password_bool:any=false;

@@ -10,6 +10,20 @@ import { AuthService } from 'src/app/auth/auth-service/auth.service';
 export class HomePageComponent {
 items=['aa','kk','yy','yyy','hhh','aa','kk',]
   constructor(private router: Router,private Service:AuthService) {}
+  list_card:any=[
+    {name:"Quran Completion",title:'Last Read Al-Quran : ',number: 55,per:"4%",image:'assets/icon/islamic.png'},
+    {name:"Morning Adhkar",title:'Evening Adhkar : ',number:6,per:"76%",image:'assets/icon/prayer.png'},
+    {name:"Evening Adhkar",title:'Last Read Evening remembrance : ',number: 77,per:'23%',image:'assets/icon/exam.png'},
+    {name:"Quran Memorization Test",title:'Last entry for Quran Memorization :',number:66,per:"90%",image:'assets/icon/prayer.png'}]
+    list_type:any=[
+    {name:"Tesbeeh",image:'assets/icon/beads.png'},
+    {name:"Test",image:'assets/icon/exam.png'},
+    {name:"AL-Hadith",image:'assets/icon/prayer.png'},
+    {name:"Test",image:'assets/icon/teachings.png'},
+  {name:"Al-Quran",image:'assets/icon/islamic.png'},
+    {name:"Dua",image:'assets/icon/exam.png'},
+    {name:"AL-Hadith",image:'assets/icon/praying.png'}
+  ]
 list_time:any =[{
   name:"aseel",
   image:"assets/icon/sunny.png",

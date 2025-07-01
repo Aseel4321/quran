@@ -29,14 +29,14 @@
 <div class="ion-page" id="main-content" >
 
   <ion-content >
-    <div style="display: flex;height:7%;
-  flex-direction: row;width: 90vw;"><ion-menu-toggle>
-            <img src="assets/icon/aplication.png" alt="Login Image" style="width:10vw; height:4vh;">
-    </ion-menu-toggle> <div class="header-row"><img src="assets/icon/calendar.png" alt="Login Image" style="width:5vw; height:4vh;margin-inline-end: 30%;"> <img src="assets/icon/notification.png" alt="Login Image" style="width:5vw; height:4vh;"></div> 
+    <div style="display: flex;height:7%;margin-top: 2%;
+  flex-direction: row;width: 100vw"><ion-menu-toggle>
+            <img src="assets/icon/aplication.png" alt="Login Image" style="width:8vw; height:3vh;margin-inline-start: 50%;">
+    </ion-menu-toggle> <div class="header-row"><img src="assets/icon/calendar.png" alt="Login Image" style="width:4vw; height:3vh;margin-inline-end:15%;"> <img src="assets/icon/notification.png" alt="Login Image" style="width:4vw; height:3vh;margin-inline-end: 30%;"></div> 
 
 
 </div>
-<div style="display: flex;align-items: center;text-align: center;justify-content: center;padding-right:5%;padding-left:  5%;">
+<div style="display: flex;align-items: center;text-align: center;justify-content: center;padding-right:2%;padding-left:  2%;">
   <div style="width: 90%;height: 22%;background-color: #9D9D9D3D;border-radius: 30px;">
 <div  class="monotone-noise">
   
@@ -48,9 +48,9 @@
 <p style="height: 10px;font-weight: 500 ;font-size: 3vh;margin-top: 5%">1 h 24 min</p>
   </div>
      <div style="display: flex;flex-direction: column;height:10vh;flex: 2;align-items: center;justify-content: end;">
-<p style="height: 10px;font-size: 0.7vh;margin-bottom: 0%;">2:252 AM</p>
-<p style="height: 10px;font-size: 0.7vh;margin-bottom: 0%;">29 Dhul-Qadah1446 </p>
-<p style="height: 10px;font-size: 0.7vh;">29 Dhul-Qadah1446 </p>
+<p style="height: 10px;font-size: 1vh;margin-bottom: 0%;">2:252 AM</p>
+<p style="height: 10px;font-size: 1vh;margin-bottom: 0%;">29 Dhul-Qadah1446 </p>
+<p style="height: 10px;font-size:1vh;">29 Dhul-Qadah1446 </p>
   </div>
      <div style="display: flex;flex-direction: column;height:10vh;flex: 1;align-items: center;margin-top: 5%;">
 <div style="margin-top: 35%;"><img src="assets/icon/speaker.png" alt="Login Image" style="width:3vw; height:3vh;"> <img src="assets/icon/menuu.png" alt="Login Image" style="width:3vw; height:3vh;"></div> 
@@ -83,27 +83,27 @@
 <div style="display: flex; overflow-x: auto; white-space: nowrap; width: 100%; margin-top: 5%;">
   
   <!-- العنصر المتكرر -->
-  <div *ngFor="let item of items"
-       style="flex: 0 0 auto; width: 65vw; height: 12vh; background-color: blue; border-radius:8vw; margin-inline-end:2vw; display: flex; flex-direction: column; align-items: center; text-align: center;">
+  <div *ngFor="let item of list_card"
+       style="flex: 0 0 auto; width: 70vw; height: 12vh; background: linear-gradient(to right, #ceb36bb2, #ab896f); border-radius:8vw; margin-inline-end:0.7vw; display: flex; flex-direction: column; align-items: center; text-align: center;margin-inline-start: 0.7%;">
     
     <!-- المحتوى الداخلي -->
     <div style="display: flex; flex-direction: row; width: 100%; padding: 2vw;">
       
       <!-- النصوص -->
       <div style="flex: 3; display: flex; flex-direction: column; justify-content: center;  text-align: start; padding-inline-start:2vw;">
-        <p style="font-size: 4vw; margin-top: 0.5%;">Quran Completion</p>
+        <p style="font-size: 4vw; margin-top: 0.5%;">{{item.name}}</p>
 
         <div style="display: flex; align-items: center;flex-direction: row;">
-          <p style="font-size: 3vw; margin: 0;">Last Read Al-Quran:</p>
-          <p style="font-size: 2.6vw; margin-inline-start: 18%; color: white;">30%</p>
+          <p style="font-size: 2vw; margin: 0;">{{item.title}}</p> <p style="font-size: 3vw; margin: 0;font-size: 2vw;">{{item.number}}</p>
+
         </div>
 
-        <div style="height: 0.5vh; width: 90%; background-color: #D9D9D9; border-radius: 10px; margin-top: 0%;"></div>
+        <div style="height: 0.5vh; width: 93%; background-color: #D9D9D9; border-radius: 10px; margin-top: 5%;"></div>
       </div>
 
       <!-- الصورة -->
-      <div style="flex: 1; display: flex; justify-content: center; align-items: center;">
-        <img src="assets/icon/islamic.png" alt="Login Image" style="height: 10vh;">
+      <div style="flex: 1; display: flex;flex-direction: row;  justify-content: center; align-items: center;">
+                 <p style="font-size: 2.6vw; margin-inline-end: 25%;margin-top: 50%; color: white;">{{item.per}}</p> <img [src]="item.image" alt="Login Image" style="height: 10vh;margin-inline-end: 45%;">
       </div>
 
     </div>
@@ -121,25 +121,32 @@
  
 
   <!-- الحاوية التي تستخدم Grid -->
-<div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2vw; width: 100%;margin-top:5% ;">
-
+<div style="
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2vw;
+  width: 100%;
+  margin-top: 5%;
+  padding: 0 4vw;
+">
   <!-- العنصر المتكرر -->
-  <div *ngFor="let item of items"
-       style="background-color: blueviolet; height: 10vh; width: 100%; display: flex; align-items: center; flex-direction: row; padding-inline-start: 2%; border-radius: 4vw;">
+  <div *ngFor="let item of list_type"
+       style="background-color: #D9D9D9; height: 10vh; width: 100%; display: flex; align-items: center; flex-direction: row; border-radius: 4vw;">
     
     <!-- النص -->
-    <div style="display: flex; align-items: center; flex: 2;">
-      <p style="font-size: 3vw; margin-left: 25%;">Quran</p>
+    <div style="display: flex; align-items: center; flex: 2; justify-content: flex-start; margin: 0%;">
+      <p style="font-size: 3vw; margin-inline-start:25% ;">{{item.name}}</p>
     </div>
 
     <!-- الصورة -->
     <div style="flex: 1; display: flex; justify-content: center; align-items: center;">
-      <img src="assets/icon/islamic.png" alt="Login Image" style="height: 7vh;">
+      <img [src]="item.image" style="height: 7vh; margin-inline-end: 35%;">
     </div>
 
   </div>
-
 </div>
+
+
 
   </ion-content>
 </div>

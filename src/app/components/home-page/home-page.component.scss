@@ -1,17 +1,16 @@
 .profile-image-container {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-width: 100vw;
+  flex-direction: row;
+  width: 100vw;
+ 
+         /* أو تحدد ارتفاعًا ثابتًا حسب الحاجة */
 }
-ion-menu.red-menu.menu-open {
-  --background: red;
-}
+
+
 
 /* تغيير لون النصوص داخل القائمة */
 ion-menu.red-menu.menu-open ion-label {
-  color: white;
+  color: rgb(169, 20, 20);
 }
 
 /* تغيير لون الأيقونات داخل القائمة */
@@ -22,16 +21,15 @@ ion-menu.red-menu.menu-open ion-icon {
 /* لو أردت أيضاً تلوين خلفية العناصر بشكل شفاف أو مختلف */
 ion-menu.red-menu.menu-open ion-item {
   --background: transparent;
-  --color: white;
+  --color: rgb(203, 71, 71);
 }
 .header-row{display: flex;flex-direction: row;margin-inline-start: 50%;width:50% ;padding-inline-start: 30%; }
 .profile-image {
-  width: 40%;
-  height: 40%;
-
-  object-fit: cover;
+  width: 30%;
+  height: 30%;
+  flex: 3;
   border-radius: 50%; /* يجعل الصورة دائرية */
-  border: 3px solid #d91111; /* حد أسود حول الصورة */
+  border: 3px solid #2c2828; /* حد أسود حول الصورة */
   background-color: #fff; /* خلفية للصورة في حال كانت شفافة */
 }
 .monotone-noise {
@@ -60,7 +58,17 @@ ion-menu.red-menu.menu-open ion-item {
 
   box-shadow: 0 4px 12px rgba(92, 64, 51, 0.3);
 }
-
+ion-menu::part(backdrop) {
+  background-color: rgba(2, 2, 2, 0.5);
+}
+.custom-label {
+  font-size: 3.8vw; /* الحجم المطلوب */
+}
+ion-menu::part(container) {
+  border-radius: 20px 0  0 20px ;
+  --background: rgb(226, 224, 224);
+  box-shadow: 4px 0px 16px rgba(142, 144, 150, 0.18);
+}
 
 
 

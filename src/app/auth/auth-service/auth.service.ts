@@ -31,6 +31,19 @@ otp:string='5555';
   );
   
 }
+ rest_password(data: any): Observable<any> {
+  const headers = new HttpHeaders({
+    'Accept': 'application/json',
+    'Content-Type': 'application/json'
+  });
+
+  return this.http.post(
+     'https://msaralquran-g5g9bxf3fnh3bzca.canadacentral-01.azurewebsites.net/setting/change-password',  // <-- هنا استخدم البروكسي
+    data,
+    { headers }
+  );
+  
+}
  signup(data: any): Observable<any> {
   const headers = new HttpHeaders({
     'Accept': 'application/json',

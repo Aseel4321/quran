@@ -9,7 +9,7 @@ import { AuthService } from 'src/app/auth/auth-service/auth.service';
 })
 export class HomePageComponent {
 items=['aa','kk','yy','yyy','hhh','aa','kk',]
-  constructor(private router: Router,private Service:AuthService) {}
+  constructor(private router: Router,private Service:AuthService,) {}
   list_card:any=[
     {name:"Quran Completion",title:'Last Read Al-Quran : ',number: 55,per:"4%",image:'assets/icon/islamic.png'},
     {name:"Morning Adhkar",title:'Evening Adhkar : ',number:6,per:"76%",image:'assets/icon/prayer.png'},
@@ -57,5 +57,8 @@ logout(){ console.log(localStorage.getItem('login'));
  this.router.navigate(['/login']);
 
 }
-
-}
+nav(num:any){
+if(num==0){
+ 
+}else if(num==1){this.router.navigate(['/rest-password']);}else if(num==2){}else if(num==3){}
+}}

@@ -21,7 +21,7 @@ console.log(this.password);
   }
     onKeyup_conpassword(event:any){
 this.conpassword.text_password= (event.target as HTMLInputElement).value;
-console.log(this.password);
+console.log(this.conpassword.text_password);
   }
   password:any;
   password_bool:any=false;
@@ -43,13 +43,12 @@ console.log(this.password);
 num:boolean[]=[];  
   list:boolean[]=[false,false,false,false,false];  
 login(){
+  const userString = localStorage.getItem('User');
+const user = userString ? JSON.parse(userString) : null;
    this.isLoading=true;
-  this.Service.login({"emailOrPhone":this.password, "oldPassword": this.password,}).subscribe((data:any)=>{
-     this.isLoading=false;
+   this.Service. rest_password({"emailOrPhone":user.email, "oldPassword":this.conpassword.text_password,"newPassword":this.password,"confirmNewPassword":this.repassword.text_password}).subscribe((data:any)=>{
+   this.isLoading=false;
    console.log(data) ;
-   localStorage.setItem('login','true');
-   localStorage.setItem('user', JSON.stringify(data));
-     this.router.navigate(['/home-page']);
   },(e:any)=>{this.isLoading=false;
     
     console.log(e)})

@@ -17,7 +17,7 @@ this.password= (event.target as HTMLInputElement).value;
 console.log(this.password);
   }
    onKeyup_repassword(event:any){
-this.repassword.text_password= (event.target as HTMLInputElement).value;
+this.repassword.text_password= (event.target as HTMLInputElement).value;this.password_match();
 console.log(this.password);
   }
     onKeyup_conpassword(event:any){
@@ -70,15 +70,15 @@ if(this.num.length==1){
 if(i==0){
   return '#FF0000'
 }else{return '#FFFFFF'}
-}else if(this.num.length==2||this.num.length==3){
+}else if(this.num.length==2){
 if(i<=1){
   return '#FFFF00'
 }else{return '#FFFFFF'}
-        }else if(this.num.length==4){
+        }else if(this.num.length==3){
 if(i<=2){
   return '#90EE90'
 }else{return '#FFFFFF'}
-        }else if(this.num.length==5){
+        }else if(this.num.length==4){
           if(i<=4){
   return '#006400'
 }else{return '#FFFFFF'}
@@ -184,12 +184,12 @@ this.password_color="#FF0000";
 }else if(this.num.length==2){
 this.password_color='#FFFF00';
         }else if(this.num.length==3){
-this.password_color='#FFFF00';
+this.password_color='#90EE90';
         }else if(this.num.length==4){
 this.password_color='#006400';
         }
       }
 }
 validation(){
- if(this.repassword.text_password!==''&&this.conpassword.text_password!==""&&(this.repassword.text_password==this.password)&&this.num.length==5&&this.password!==''){return 'login-button-activee';}else{return 'login-button';}}
+ if(this.repassword.text_password!==''&&this.conpassword.text_password!==""&&(this.repassword.text_password==this.password)&&this.num.length==4&&this.password!==''){return 'login-button-activee';}else{return 'login-button';}}
 }

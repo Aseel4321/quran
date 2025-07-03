@@ -1,4 +1,4 @@
-.otp-container1 {
+.otp-container1 {margin-top: 10%;
   --background: #fff;
   display: flex;
   flex-direction: column;
@@ -29,23 +29,23 @@
   object-fit: contain;
 }
 
-.otp {
-  font-size: 7vw;
+.otp {margin-top: 0%;
+  font-size: 9vw;
   margin: 0;
   color: #333;
 }
 
 .verify {
-  font-size: 4.5vw;
+  font-size: 6.5vw;
   color: #f9a24f;
-  margin: 0;
+  margin-inline-end:3vw;
 }
 
 .p {
   font-size: 4vw;
   text-align: center;
   color: #666;
-  margin: 20vw 0;
+  margin: 10vw 0;
 }
 
 .otp-inputs {
@@ -87,9 +87,9 @@
   margin-top: 5vw;
 }
 
-.loading {
+.loading {height:2vw ;
   text-align: center;
-  margin-top: 4vw;
+  margin-top: 1vw;
 }
 .login-button {
   border-radius: 25px;

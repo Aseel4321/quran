@@ -3,7 +3,7 @@
     <div class="title1">
       <div class="title">
         <img src="assets/icon/mail.gif" alt="lock image" class="imagee" />
-        <div>
+        <div style="display: flex;flex-direction: row;margin-top: 5%;">
           <h2 class="otp" [ngStyle]="title()">{{ 'otp.title' | translate }}</h2>
           <h2 class="verify" [ngStyle]="title()">{{ 'otp.verify' | translate }}</h2>
         </div>
@@ -11,7 +11,8 @@
     </div>
 
     <p class="p" [ngStyle]="title()" >
-      <span>{{ 'otp.verifyEmail' | translate }} {{ 'otp.instruction' | translate }}</span>
+      <span>{{ 'otp.instruction' | translate }}</span>
+       <span>{{ 'otp.verifyEmail' | translate }} {{ 'otp.instruction' | translate }}</span>
     </p>
 
     <div class="otp-inputs">
@@ -24,10 +25,10 @@
     <p class="resend" (click)="otp()">
       لم يصل الرمز؟ <a class="email-link">اعاده الارسال</a>
     </p>
-
-    <div *ngIf="isLoadingotp" class="loading">
+<div style="height: 5px;"> <div *ngIf="isLoadingotp" class="loading">
       <img src="assets/icon/hold-on.gif" alt="Login Image" class="loading-image" />
-    </div>
+    </div></div>
+   
 
     <div class="fle">
       <button (click)="login()" [class]="validation()" [disabled]="disabled">

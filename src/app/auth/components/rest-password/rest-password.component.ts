@@ -10,7 +10,8 @@ import { AuthService } from '../../auth-service/auth.service';
 export class RestPasswordComponent implements OnInit {
 constructor(private router: Router,private Service:AuthService) {}
   isLoading:any=false;
-
+  password_color='';
+list_langMatch=localStorage.getItem('lang')=="ar"?["أ","ب",]:["a",'b',];
   onKeyup_password(event:any){
 this.password= (event.target as HTMLInputElement).value;
 console.log(this.password);
@@ -40,8 +41,11 @@ console.log(this.conpassword.text_password);
    password_type:'password',
    text_password:""
    }
+   list_langPassword=localStorage.getItem('lang')=="ar"?["أ","ب","ت","ث"]:["a",'b','c','d'];
 num:boolean[]=[];  
-  list:boolean[]=[false,false,false,false,false];  
+text_password=''
+    list:boolean[]=[false,false,false,false]; 
+     Text =''
 login(){
   const userString = localStorage.getItem('User');
 const user = userString ? JSON.parse(userString) : null;
@@ -109,21 +113,83 @@ if(this.conpassword.password_bool==false){
   this.conpassword.password_type='password';
     this.conpassword.password_icon='eye-off-outline';
 }
-}onInputChange(event: any) {
-  this.password = (event.target as HTMLInputElement).value;
+}  onInputChange(event: any) {
+    this.password=this.password = (event.target as HTMLInputElement).value;
   this.num.length=0;
-  this.list[0]= /[A-Z]/.test(event.target.value);
-  this.list[1] = /[a-z]/.test(event.target.value);
-  this.list[2] = /\d/.test(event.target.value);
-  this.list[3] = /[!@#$%^&*(),.?":{}|<>]/.test(event.target.value); 
- this.list[4] = event.target.value.length>8;
+  this.list[0] = /(?=.*[a-z])(?=.*[A-Z])/.test(event.target.value);
+  this.list[1] = /\d/.test(event.target.value);
+  this.list[2] = /[!@#$%^&*(),.?":{}|<>]/.test(event.target.value); 
+ this.list[3] = event.target.value.length>8;
  for(let i=0;i<this.list.length;i++){
     if(this.list[i]===true){
       this.num.push(true)  
     }
-    }
-   
-  }
+    }this.password_match();
+    this.text();
+    this.text_color(); 
+    }color_password() {
+  if(this.password ==""&&this.repassword.text_password==''){
+    this.text_password=' ';
+  }else{ if (this.password === this.repassword.text_password) {
+    return {
+      color:  '#006400',       
+              'align-items': 'center',
+              'text-align': 'center',
+         'font-size':'4vw '
+         
+       
+      
+    };
+  } else {
+    return {
+      color: '#FF0000',       
+       'align-items': 'center',
+  'text-align': 'center',
+  'font-size':'4vw '
+         
+        
+    };
+  }}
+ 
+}
+      password_match(){
+  if(this.password==''||this.repassword.text_password==''){this.text_password='';}
+if(this.password==this.repassword.text_password){
+  this.text_password=this.list_langMatch[0];
+}else{this.text_password=this.list_langMatch[1];}
+}
+text() {
+   if(this.num.length==0){
+    this.Text='';
+      }else{
+if(this.num.length==1){
+this.Text=this.list_langPassword[0];
+
+}else if(this.num.length==2){
+this.Text=this.list_langPassword[1];
+        }else if(this.num.length==3){
+this.Text=this.list_langPassword[2];
+        }else if(this.num.length==4){
+this.Text=this.list_langPassword[3];
+        }
+      }
+}
+text_color() {
+   if(this.num.length==0){
+    
+      }else{
+if(this.num.length==1){
+
+this.password_color="#FF0000";
+}else if(this.num.length==2){
+this.password_color='#FFFF00';
+        }else if(this.num.length==3){
+this.password_color='#FFFF00';
+        }else if(this.num.length==4){
+this.password_color='#006400';
+        }
+      }
+}
 validation(){
  if(this.repassword.text_password!==''&&this.conpassword.text_password!==""&&(this.repassword.text_password==this.password)&&this.num.length==5&&this.password!==''){return 'login-button-activee';}else{return 'login-button';}}
 }

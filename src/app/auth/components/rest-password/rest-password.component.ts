@@ -1,15 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../../auth-service/auth.service';
-
+import { AlertController, Platform } from '@ionic/angular';
+import { HttpErrorResponse } from '@angular/common/http';
 @Component({
   selector: 'app-rest-password',
   templateUrl: './rest-password.component.html',
   styleUrls: ['./rest-password.component.scss'],
 })
 export class RestPasswordComponent implements OnInit {
-constructor(private router: Router,private Service:AuthService) {}
+constructor(private alertController: AlertController,private router: Router,private Service:AuthService,private platform: Platform) {}
   isLoading:any=false;
+    disabled=true;
+    name:any='';
+    
   password_color='';
 list_langMatch=localStorage.getItem('lang')=="ar"?["أ","ب",]:["a",'b',];
   onKeyup_password(event:any){
@@ -53,9 +57,12 @@ const user = userString ? JSON.parse(userString) : null;
    this.Service. rest_password({"emailOrPhone":user.email, "oldPassword":this.conpassword.text_password,"newPassword":this.password,"confirmNewPassword":this.repassword.text_password}).subscribe((data:any)=>{
    this.isLoading=false;
    console.log(data) ;
-  },(e:any)=>{this.isLoading=false;
-    
-    console.log(e)})
+  },(error: HttpErrorResponse)=>{this.isLoading=false;
+       if(localStorage.getItem('lang')=='ar'){  this.name = error?.error?.arDescription;
+      console.error(error.error);
+
+      this.presentAlert();}else{this.name = error?.error?.enDescription;this.presentAlert(); }
+    console.log(error)})
  
  
    
@@ -191,5 +198,26 @@ this.password_color='#006400';
       }
 }
 validation(){
- if(this.repassword.text_password!==''&&this.conpassword.text_password!==""&&(this.repassword.text_password==this.password)&&this.num.length==4&&this.password!==''){return 'login-button-activee';}else{return 'login-button';}}
+ if(this.repassword.text_password!==''&&this.conpassword.text_password!==""&&(this.repassword.text_password==this.password)&&this.num.length==4&&this.password!==''){this.disabled=false; return 'login-button-activee';}else{this.disabled=true; return 'login-button';}}
+   async presentAlert() {
+    if(localStorage.getItem('lang')=='ar'){  const alert = await this.alertController.create({
+    //header: 'aتنبيه',
+    message: this.name,
+    buttons: ['موافق']
+  });await alert.present();}else{const alert = await this.alertController.create({
+    //header: 'dddddd',
+    message: this.name,
+    buttons: ['ok']
+  });await alert.present();}
+
+
+  
+}
+title() {
+  if (localStorage.getItem('lang') === 'ar') {
+    return { 'font-family': '"El Messiri", sans-serif' };
+  } else {
+    return { 'font-family': '"Lucida Console", Monaco, monospace' };
+  }
+}
 }

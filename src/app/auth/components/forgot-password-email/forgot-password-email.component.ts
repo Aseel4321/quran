@@ -33,7 +33,7 @@ otp(){
     this.Service.send_otp(this.email).subscribe((data:any)=>{
    this.isLoading=false;
   },(e:HttpErrorResponse)=>{
-   if(e.status===200){  this.Service.email=this.email;this.Service.otp_number=0;
+   if(e.status===200){   localStorage.setItem('email',this.email); ;this.Service.otp_number=0;
     this.isLoading=false; this.router.navigate(['/otp-email']);}else{
      if(localStorage.getItem('lang')=='ar'){
       this.name=e.error.arDescription

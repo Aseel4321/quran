@@ -62,8 +62,8 @@ isLoadingotp = false;
 
   login() {
     this.isLoading = true;
-
-
+const user = JSON.parse(localStorage.getItem('User'));
+    if(!user){this.Service.email= localStorage.getItem('email');}else{ this.Service.email=user.email}
 
     this.Service.verity_otp(this.Service.email, this.code).subscribe(
       (data: any) => {
@@ -84,7 +84,8 @@ isLoadingotp = false;
       }
     );
   }
-  otp(){
+  otp(){const user = JSON.parse(localStorage.getItem('User'));
+    if(!user){this.Service.email= localStorage.getItem('email');}else{ this.Service.email=user.email;}
    this.isLoadingotp=true;
     this.Service.send_otp(this.Service.email).subscribe((data:any)=>{ this.isLoadingotp=false; this.router.navigate(['/otp-email']);
   },(e:any)=>{this.isLoadingotp=false;

@@ -1,4 +1,4 @@
-.otp-container1 {margin-top: 10%;
+.otp-container1 {
   --background: #fff;
   display: flex;
   flex-direction: column;
@@ -11,7 +11,7 @@
 
 .title1 {
   width: 100%;
-  margin-top: 5vw;
+  margin-top: 15vw;
   margin-bottom: 6vw;
   display: flex;
   justify-content: center;
@@ -30,15 +30,15 @@
 }
 
 .otp {margin-top: 0%;
-  font-size: 9vw;
+  font-size: 11vw;
   margin: 0;
   color: #333;
 }
 
-.verify {
-  font-size: 6.5vw;
+.verify {margin-top: 7vw;
+  font-size: 8vw;
   color: #f9a24f;
-  margin-inline-end:3vw;
+  margin-inline-end:5vw;
 }
 
 .p {

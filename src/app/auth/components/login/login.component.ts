@@ -51,7 +51,7 @@ if(this.password_bool==false){
   ngOnInit() {
     //localStorage.setItem('login',"true");
   }
-//{"emailOrPhone":'aseelaleen@gmail.com',"password": "Aseel882000@"}
+
 login() {
   this.isLoading = true;
 
@@ -65,17 +65,15 @@ login() {
       this.isLoading = false;
       console.log(data);
 
-      // Save user data to localStorage
       localStorage.setItem('user', 'true');
       localStorage.setItem('User', JSON.stringify(data));
 
-      // Navigate to home page
       this.router.navigate(['/home-page']);
     },
     (error: HttpErrorResponse) => {
       this.isLoading = false;
 
-      // Safe error message handling
+    
       if(localStorage.getItem('lang')=='ar'){  this.name = error?.error?.arDescription;
       console.error(error.error);
 
@@ -93,7 +91,6 @@ login() {
   }
   async presentAlert() {
     if(localStorage.getItem('lang')=='ar'){  const alert = await this.alertController.create({
-    //header: 'aتنبيه',
     message: this.name,
     buttons: ['موافق']
   });await alert.present();}else{const alert = await this.alertController.create({

@@ -85,7 +85,6 @@
       <ion-icon name="pencil" slot="end" (mousedown)="enableInput('name')"></ion-icon>
     </ion-item>
 
-    <!-- البريد -->
     <ion-item class="input-box">
       <ion-icon name="mail-outline" slot="start"></ion-icon>
       <ion-input
@@ -99,7 +98,7 @@
       <ion-icon name="pencil" slot="end" (mousedown)="enableInput('email')"></ion-icon>
     </ion-item>
 
-    <!-- رقم الهاتف -->
+    
     <ion-item class="input-box">
       <ion-select interface="alert" name="countryCode" [(ngModel)]="selectedCountryCode" [placeholder]="selectedCountryCode">
         <ion-select-option *ngFor="let country of countries" [value]="country.dial_code">
@@ -116,8 +115,6 @@
       ></ion-input>
       <ion-icon name="pencil" slot="end" (mousedown)="enableInput('phone')"></ion-icon>
     </ion-item>
-
-    <!-- التاريخ والنوع -->
     <ion-grid>
       <ion-row>
         <ion-col size="6">

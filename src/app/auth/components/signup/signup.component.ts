@@ -74,7 +74,7 @@ signup(){
     "confirmPassword":this.repassword
    
 }).subscribe((data:any)=>{
-    localStorage.setItem('User', JSON.stringify(data));
+    localStorage.setItem('User',JSON.stringify(data));
     this.Service.send_otp(this.email).subscribe((data:any)=>{ this.isLoading=false;
    this.Service.otp_number=1;
   },(e:any)=>{this.isLoading=false;

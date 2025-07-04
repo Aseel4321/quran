@@ -1,0 +1,53 @@
+<ion-content class="ion-padding">
+
+    <p style="text-align:center;margin-top:15%;margin-bottom: 5%;font-weight: bold;font-size:8vw ;">Profile Details</p>
+  
+  <ion-label style="margin-inline-start: 7%;">Full Name</ion-label>
+    <ion-item  class="input-box">
+      <ion-input readonly value="Hadeel ghaleb">
+        <ion-icon name="person-outline" slot="start"></ion-icon>
+      </ion-input>
+    </ion-item>
+ <ion-label style="margin-inline-start: 7%;">Email</ion-label>
+    <ion-item class="input-box">
+      <ion-input readonly value="hadeel12ghaleb@gmail.com">
+        <ion-icon name="mail-outline" slot="start"></ion-icon>
+      </ion-input>
+      
+    </ion-item>
+<ion-label style="margin-inline-start: 7%;">Phone</ion-label>
+    <ion-item class="input-box">
+      
+      <ion-input readonly value="+620 078110832">
+        <ion-icon name="call-outline" slot="start"></ion-icon>
+      </ion-input> 
+     
+    </ion-item>
+ <ion-label style="margin-inline-start: 7%;">Password</ion-label>
+    <ion-item class="input-box">
+<ion-icon name="lock-closed-outline" slot="start"></ion-icon>
+      <ion-input [type]="showPassword ? 'text' : 'password'" value="*************" readonly>
+
+        <ion-icon [name]="showPassword ? 'eye-off-outline' : 'eye-outline'" slot="end" (click)="togglePassword()"></ion-icon>
+      </ion-input>
+    </ion-item>
+ <ion-label style="margin-inline-start: 7%;">Birthday date</ion-label>
+    <ion-item class="input-box">
+     
+      <ion-input readonly value="4/11/2001">
+        <ion-icon name="calendar-outline" slot="start"></ion-icon>
+      </ion-input>
+    </ion-item>
+<ion-label style="margin-inline-start: 7%;">Gender</ion-label>
+    <ion-item class="input-box">
+      
+      <ion-input readonly value="Female">
+        <ion-icon name="female-outline" slot="start"></ion-icon>
+      </ion-input>
+    </ion-item>
+
+ 
+
+
+ 
+</ion-content>

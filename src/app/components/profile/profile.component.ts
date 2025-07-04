@@ -74,4 +74,3 @@ export class ProfileComponent implements AfterViewInit {
     }
   }
 }
-

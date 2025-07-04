@@ -8,11 +8,12 @@ import { IonicModule } from '@ionic/angular';
 import { TranslateModule } from '@ngx-translate/core';
 import { NgxIntlTelInputModule } from 'ngx-intl-tel-input';
 import { MainRoutingModule } from './main-routing.module';
+import { ProfileDetailsComponent } from '../components/profile-details/profile-details.component';
 
 
 
 @NgModule({
-  declarations: [HomePageComponent,ProfileComponent, ],
+  declarations: [HomePageComponent,ProfileComponent,ProfileDetailsComponent ],
   imports: [  CommonModule,
       IonicModule,
       FormsModule,

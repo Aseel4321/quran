@@ -9,11 +9,12 @@ import { TranslateModule } from '@ngx-translate/core';
 import { NgxIntlTelInputModule } from 'ngx-intl-tel-input';
 import { MainRoutingModule } from './main-routing.module';
 import { ProfileDetailsComponent } from '../components/profile-details/profile-details.component';
+import { SettingsComponent } from '../components/settings/settings.component';
 
 
 
 @NgModule({
-  declarations: [HomePageComponent,ProfileComponent,ProfileDetailsComponent ],
+  declarations: [HomePageComponent,ProfileComponent,ProfileDetailsComponent,SettingsComponent ],
   imports: [  CommonModule,
       IonicModule,
       FormsModule,

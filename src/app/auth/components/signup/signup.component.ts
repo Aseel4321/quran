@@ -68,7 +68,7 @@ signup(){
     "fullName":this.name,
     "email":this.email,
     "phone":this.phoneNumber,
-    "dob":this.dateOfBirth,
+    "dob":this.birthDate,
     "gender":this.gender,
     "password":this.password,
     "confirmPassword":this.repassword
@@ -216,7 +216,6 @@ onDateChange(event: any) {
   this.birthDate = this.formatReadableDate(selectedDate);
   console.log('التاريخ المختار:', this.birthDate);
 }
-
 formatReadableDate(dateString: string): string {
   const d = new Date(dateString);
   const dd = String(d.getDate()).padStart(2, '0');
@@ -237,7 +236,8 @@ formatReadableDate(dateString: string): string {
 
   toggleConfirm() {
     this.showConfirm = !this.showConfirm;
-  }onDateChangee(event: any) {
+  }
+  onDateChangee(event: any) {
   const rawDate = event.detail?.value || event.target?.value;
 
   if (rawDate) {

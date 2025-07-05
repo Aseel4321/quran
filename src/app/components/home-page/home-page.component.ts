@@ -8,7 +8,7 @@ import { AuthService } from 'src/app/auth/auth-service/auth.service';
   styleUrls: ['./home-page.component.scss'],
 })
 export class HomePageComponent {
-items=['aa','kk','yy','yyy','hhh','aa','kk',]
+  items=['aa','kk','yy','yyy','hhh','aa','kk',]
   constructor(private router: Router,private Service:AuthService,) {}
   list_card:any=[
     {name:"Quran Completion",title:'Last Read Al-Quran : ',number: 55,per:"4%",image:'assets/icon/islamic.png'},

@@ -9,6 +9,10 @@ export class SettingsComponent {
 
 // في TypeScript
 selectedCity: string = '';
+notificationsEnabled: boolean = true;
+toggleChanged(event: any) {
+  console.log('Toggle value:', event.detail.checked);
+}
 
 
   ngOnInit() {}

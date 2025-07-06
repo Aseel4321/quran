@@ -1,48 +1,48 @@
 <ion-content>
   <div style="display: flex;flex-direction: row;text-align: center;align-items:center ;justify-content: center;">
-    <p>setting </p>
-  <img src="assets/icon/beads.png" style="height:20vw ;width: 20vw;"/>
+    <p style="font-size:8vw;">settings </p>
+  <img src="assets/icon/beads.png" style="height:15vw ;width: 15vw;"/>
   </div>
-  <div style="background-color: gray;">
-    <div style="display: flex;flex-direction: row;text-align: center;align-items:center ;justify-content: center;">
-      <img src="assets/icon/earth.png" style="height:20vw ;width: 20vw;"/><p>language</p> 
-
-  <ion-select [(ngModel)]="selectedCity">
+  <div style="background-color: gray;border-radius:10%;margin-left: 10%;margin-right:10%;">
+    <div style="display: flex;flex-direction: row;text-align: center;align-items:center ;justify-content: center;margin-inline-start: 10%;margin-inline-end: 10% ;">
+      <img src="assets/icon/earth.png" style="height:8vw ;width: 8vw;"/><p style="flex: 1;margin-inline-end:  22%;"> language</p> 
+<div style="flex: 1;">  <ion-select [(ngModel)]="selectedCity">
     <ion-select-option value="amman">عمّان</ion-select-option>
     <ion-select-option value="irbid">إربد</ion-select-option>
   
-  </ion-select>
+  </ion-select></div>
 
-
-       </div>
-         <div style="display: flex;flex-direction: row;text-align: center;align-items:center ;justify-content: center;">
-      <img src="assets/icon/notification.png" style="height:20vw ;width: 20vw;"/><p>Notification Preferences</p> 
-<ion-icon name="chevron-forward-outline"></ion-icon>
 
 
        </div>
-         <div style="display: flex;flex-direction: row;text-align: center;align-items:center ;justify-content: center;">
-      <img src="assets/icon/darkmod.png" style="height:20vw ;width: 20vw;"/><p>Dark mode</p> 
+         <div style="display: flex;flex-direction: row;text-align: center;align-items:center ;justify-content: center;margin-left: 10%;margin-right:10%;">
+      <img src="assets/icon/notification.png" style="height:8vw ;width: 8vw;"/><p style="flex: 5;font-size: 4vw;">Notification Preferences</p> 
+<ion-icon name="chevron-forward-outline" style="flex: 1;"></ion-icon>
 
-  
-<ion-toggle 
+
+       </div>
+         <div style="display: flex;flex-direction: row;text-align: center;align-items:center ;justify-content: center;margin-left: 10%;margin-right:10%;">
+      <img src="assets/icon/darkmod.png" style="height:8vw ;width: 8vw;"/><p style="flex:1;font-size: 4vw;margin-inline-end: 10%;">Dark mode</p> 
+
+  <div style="flex:1;"><ion-toggle 
   (ionChange)="toggleChanged($event)" 
-  style="--track-width:5%; --track-height: 10%; --handle-width:40%; --handle-height: 70%;">
-</ion-toggle>
+  style="margin-inline-start: 50%;--track-width:5%; --track-height: 10%; --handle-width:40%; --handle-height: 70%;">
+</ion-toggle></div>
 
 
 
-
-       </div>
-           <div style="display: flex;flex-direction: row;text-align: center;align-items:center ;justify-content: center;">
-      <img src="assets/icon/logout.gif" style="height:20vw ;width: 20vw;"/><p>Logout</p> 
-<ion-icon name="chevron-forward-outline"></ion-icon>
 
 
        </div>
-           <div style="display: flex;flex-direction: row;text-align: center;align-items:center ;justify-content: center;">
-      <img src="assets/icon/delete.png" style="height:20vw ;width: 20vw;"/><p>Delete Account</p> 
-<ion-icon name="chevron-forward-outline"></ion-icon>
+           <div style="display: flex;flex-direction: row;text-align: center;align-items:center ;justify-content: center;margin-left: 10%;margin-right:10%;">
+      <img src="assets/icon/logout.gif" style="height:10vw ;width: 10vw;"/><p style="flex:1;font-size: 4vw;">Logout</p> 
+<ion-icon name="chevron-forward-outline" style="flex:1;margin-inline-start: 50%;"></ion-icon>
+
+
+       </div>
+           <div style="display: flex;flex-direction: row;text-align: center;align-items:center ;justify-content: center;margin-left: 10%;margin-right:10%;">
+      <img src="assets/icon/delete.png" style="height:8vw ;width: 8vw;"/><p style="flex:1;font-size: 4vw;">Delete Account</p> 
+<ion-icon name="chevron-forward-outline" style="flex: 1;margin-inline-start: 50%;"></ion-icon>
 
 
        </div>

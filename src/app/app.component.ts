@@ -22,17 +22,33 @@ export class AppComponent implements OnInit {
   this.platform.ready().then(() => {
     const deviceLang = navigator.language?.split('-')[0] || 'en';
     const supportedLangs = ['en', 'ar'];
-    const langToUse = supportedLangs.includes(deviceLang) ? deviceLang : 'en';
+    const lang = localStorage.getItem('lang');
+    if (!lang) {
+  const langToUse =supportedLangs.includes(deviceLang) ? deviceLang : 'en';
 localStorage.setItem('lang',langToUse);
     //this.translate.setDefaultLang('ar');
-    this.translate.use(langToUse);
-
-  
-    if (langToUse === 'ar') {
+    this.translate.use(langToUse);  if (langToUse === 'ar') {
       document.documentElement.dir = 'rtl';
     } else {
       document.documentElement.dir = 'ltr';
     }
+}else{ const langToUse =localStorage.getItem('lang');
+localStorage.setItem('lang',langToUse);
+    //this.translate.setDefaultLang('ar');
+    this.translate.use(langToUse);  if (langToUse === 'ar') {
+      document.documentElement.dir = 'rtl';
+    } else {
+      document.documentElement.dir = 'ltr';
+    }}
+    
+
+
+  
+    /*if (langToUse === 'ar') {
+      document.documentElement.dir = 'rtl';
+    } else {
+      document.documentElement.dir = 'ltr';
+    }*/
 
     // إخفاء شاشة البداية
     SplashScreen.hide();

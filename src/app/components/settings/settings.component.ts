@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 @Component({
   selector: 'app-settings',
@@ -6,7 +7,7 @@ import { TranslateService } from '@ngx-translate/core';
   styleUrls: ['./settings.component.scss'],
 })
 export class SettingsComponent {
-  constructor(private translate: TranslateService){}
+  constructor(private translate: TranslateService,private router: Router){}
    lang_text='';
    lang=[];
 lang_en:any = [{'code':'ar','lang':'Arabic'},{'code':'en','lang':'English'}];
@@ -44,5 +45,11 @@ this.lang=this.lang_ar;
   }else{this.selectedCity='en'; this.lang=this.lang_en;}
   console.log(this.lang_text=='ar');
   }
+logout(){ console.log(localStorage.getItem('login'));
+ localStorage.setItem('login','false'); 
+ console.log(localStorage.getItem('login'));
+ const user = JSON.parse(localStorage.getItem('user') || '{}');
+ this.router.navigate(['/login']);
 
+}
 }

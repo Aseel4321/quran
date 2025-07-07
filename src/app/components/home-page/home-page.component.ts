@@ -60,5 +60,5 @@ logout(){ console.log(localStorage.getItem('login'));
 nav(num:any){
 if(num==0){
  
-}else if(num==1){this.router.navigate(['/rest-password']);}else if(num==2){}else if(num==3){}
+}else if(num==1){this.router.navigate(['/rest-password']);}else if(num==2){this.router.navigate(['/rest-password']);}else if(num==3){this.router.navigate(['/setting']);}
 }}

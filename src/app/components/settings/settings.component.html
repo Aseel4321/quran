@@ -6,9 +6,12 @@
   <div style="background-color: gray;border-radius:10%;margin-left: 10%;margin-right:10%;">
     <div style="margin-top: 3vw;margin-bottom: 5vw;display: flex;flex-direction: row;text-align: center;align-items:center ;justify-content: center;margin-inline-start: 10%;margin-inline-end: 10% ;">
       <img src="assets/icon/earth.png" style="height:8vw ;width: 8vw;"/><p style="flex: 1;margin-inline-end:  22%;"> language</p> 
-<div style="flex: 1;">  <ion-select [(ngModel)]="selectedCity">
-    <ion-select-option value="amman">عمّان</ion-select-option>
-    <ion-select-option value="irbid">إربد</ion-select-option>
+<div style="flex: 1;"> 
+  <div ></div>
+   <ion-select [(ngModel)]="selectedCity" (ionChange)="onCityChange($event)">
+    
+  <ion-select-option *ngFor="let item of lang" [value]="item.code">{{ item.lang }}</ion-select-option>
+    
   
   </ion-select></div>
 
@@ -41,8 +44,8 @@
 
        </div>
            <div style="margin-bottom: 4vw;display: flex;flex-direction: row;text-align: center;align-items:center ;justify-content: center;margin-left: 10%;margin-right:10%;">
-      <img src="assets/icon/delete.png" style="height:8vw ;width: 8vw;"/><p style="flex:4;font-size: 3.5vw;margin-inline-end: 10%;">Delete Account</p> 
-<ion-icon name="chevron-forward-outline" style="flex:1;margin-inline-start: 1%;"></ion-icon>
+      <img src="assets/icon/delete.png" style="height:8vw ;width: 8vw;"/><p style="flex:4;font-size: 3.5vw;margin-inline-end: 30%;">Delete Account</p> 
+<ion-icon name="chevron-forward-outline" style="flex:1;margin-inline-end: 3%;"></ion-icon>
 
 
        </div>

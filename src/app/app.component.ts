@@ -27,7 +27,7 @@ localStorage.setItem('lang',langToUse);
     //this.translate.setDefaultLang('ar');
     this.translate.use(langToUse);
 
-    // ✅ تعيين الاتجاه RTL أو LTR بناءً على اللغة
+  
     if (langToUse === 'ar') {
       document.documentElement.dir = 'rtl';
     } else {

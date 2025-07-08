@@ -14,8 +14,8 @@ export class LoginComponent implements OnInit {
     
   });
   }
-  isLoading:any=false;
-  name:any='aaa';
+
+  name:any='aaa';  isLoading:any=false;
   password_bool:any=false;
   password_icon:string='eye-off-outline';
   password_type:string='password';

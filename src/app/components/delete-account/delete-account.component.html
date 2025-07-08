@@ -1,0 +1,64 @@
+<ion-content class="login-content">
+  <form #loginForm="ngForm">
+    <br/>
+    <br/>
+    
+    <div class="logo" style="display: flex; align-items: center;  flex-direction: row; margin-top: 10%;justify-content: center;">
+    
+     
+
+       <img src="assets/icon/deletee.gif" alt="Login Image" style="width: 60px; height:60px;margin-inline-end: 0%;">
+       <h1 style="margin-inline-end: 15%;margin-inline-start: 0%;">{{ 'WELCOME_BACK' | translate }}</h1>
+    </div>
+
+    <!-- Email Input -->
+    <ion-item class="input-box">
+      <ion-icon name="mail-outline" style="margin-right:5px;" slot="start"></ion-icon>
+      <ion-input 
+        placeholder="{{ 'EMAIL' | translate }}" 
+        type="email" 
+     
+        name="email"
+        required
+        [(ngModel)]="email">
+      </ion-input>
+      <ion-icon (click)="remove()" name="close-circle" slot="end"></ion-icon>
+    </ion-item>
+
+    <br />
+
+
+    <ion-item class="input-box">
+      <ion-icon name="lock-closed-outline"   slot="start"></ion-icon>
+      <ion-input 
+        placeholder="{{ 'PASSWORD' | translate }}" 
+        [type]="password_type"
+        name="password"
+        required
+        [(ngModel)]="password">
+      </ion-input>
+      <ion-icon (click)="eye()" [name]="password_icon" slot="end"></ion-icon>
+    </ion-item>
+    <br />
+
+
+
+    <br />
+
+    <button (click)="login()"
+  class="login-button"
+  type="submit"
+  [disabled]="!loginForm.form.valid"
+  [ngClass]="{ 'active-button': loginForm.form.valid }">
+ {{ 'LOGIN' | translate }}
+</button>
+
+    <br />
+ <div *ngIf="isLoading" style="text-align: center;">
+  <img src="assets/icon/hold-on.gif" alt="Login Image"
+       style="width: 65px; height: 65px; border-radius: 10%;">
+       <br/><br/>
+</div>
+  
+  </form>
+</ion-content>

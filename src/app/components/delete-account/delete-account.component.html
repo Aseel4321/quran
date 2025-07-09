@@ -10,21 +10,6 @@
        <img src="assets/icon/deletee.gif" alt="Login Image" style="width: 60px; height:60px;margin-inline-end: 0%;">
        <h1 style="margin-inline-end: 15%;margin-inline-start: 0%;">{{ 'WELCOME_BACK' | translate }}</h1>
     </div>
-
-    <!-- Email Input -->
-    <ion-item class="input-box">
-      <ion-icon name="mail-outline" style="margin-right:5px;" slot="start"></ion-icon>
-      <ion-input 
-        placeholder="{{ 'EMAIL' | translate }}" 
-        type="email" 
-     
-        name="email"
-        required
-        [(ngModel)]="email">
-      </ion-input>
-      <ion-icon (click)="remove()" name="close-circle" slot="end"></ion-icon>
-    </ion-item>
-
     <br />
 
 

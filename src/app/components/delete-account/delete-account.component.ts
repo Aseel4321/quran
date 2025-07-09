@@ -1,4 +1,6 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { MainServiceService } from 'src/app/main-service/main-service.service';
 
 @Component({
   selector: 'app-delete-account',
@@ -12,13 +14,24 @@ password_bool:any=false;
 password:any;
 password_icon:string='eye-off-outline';
 password_type:string='password';
-  constructor() {}
+  constructor(private service:MainServiceService) {}
 
   ngOnInit() {}
 remove(){
 
     this.email='';
 }
+delete(){const user = JSON.parse(localStorage.getItem('User'));
+   this.isLoading=true;
+  this.service.delete({
+    "emailOrPhone":user.email,
+    "password":this.password,
+}).subscribe((data:any)=>{
+    
+
+  },(error: HttpErrorResponse)=>{this.isLoading=false;
+    console.log(error?.error?.arDescription)})
+ }
 eye(){
 if(this.password_bool==false){
   this.password_bool=true;

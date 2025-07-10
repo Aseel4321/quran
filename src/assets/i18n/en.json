@@ -28,7 +28,7 @@
   "CONTINUE": "Continue",
   "DONT_REMEMBER_EMAIL": "Don't remember your email?",
   "SEND_PHONE_NUMBER": "Send phone number",
- 
+ "Delete Account":"Delete Account",
   "otp": {
     "title": "OTP",
     "verify": "Verify!",

@@ -1,5 +1,6 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { AlertController } from '@ionic/angular';
 import { MainServiceService } from 'src/app/main-service/main-service.service';
 
 @Component({
@@ -8,13 +9,14 @@ import { MainServiceService } from 'src/app/main-service/main-service.service';
   styleUrls: ['./delete-account.component.scss'],
 })
 export class DeleteAccountComponent implements OnInit {
+name:any;
 email:any;
 isLoading:any=false;
 password_bool:any=false;
 password:any;
 password_icon:string='eye-off-outline';
 password_type:string='password';
-  constructor(private service:MainServiceService) {}
+  constructor(private service:MainServiceService,private alertController: AlertController) {}
 
   ngOnInit() {}
 remove(){
@@ -71,5 +73,22 @@ login() {
     
     }
   );*/
+}async presentAlert() {
+    if(localStorage.getItem('lang')=='ar'){  const alert = await this.alertController.create({
+    message: this.name,
+    buttons: ['موافق']
+  });await alert.present();}else{const alert = await this.alertController.create({
+    //header: 'dddddd',
+    message: this.name,
+    buttons: ['ok']
+  });await alert.present();}
+
+
+  
 }
 }
+  
+//npx cap open android
+//// npx cap sync android
+//ionic build
+//ng serve --host 0.0.0.0 --port 4200

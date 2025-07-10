@@ -55,7 +55,6 @@ logout(){ console.log(localStorage.getItem('login'));
  console.log(localStorage.getItem('login'));
  const user = JSON.parse(localStorage.getItem('user') || '{}');
  this.router.navigate(['/login']);
-
 }
 nav(num:any){
 if(num==0){

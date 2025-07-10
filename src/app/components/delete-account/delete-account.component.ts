@@ -32,7 +32,13 @@ delete(){const user = JSON.parse(localStorage.getItem('User'));
     
 
   },(error: HttpErrorResponse)=>{this.isLoading=false;
-    console.log(error?.error?.arDescription)})
+    console.log(error?.error?.arDescription)
+      if(localStorage.getItem('lang')=='ar'){  this.name = error?.error?.arDescription;
+      console.error(error.error);
+
+      this.presentAlert();}else{this.name = error?.error?.enDescription;this.presentAlert(); }
+  });
+
  }
 eye(){
 if(this.password_bool==false){

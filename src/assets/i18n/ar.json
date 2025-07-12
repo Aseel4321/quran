@@ -29,6 +29,9 @@
   "DONT_REMEMBER_EMAIL": "لا تتذكر بريدك الإلكتروني؟",
   "SEND_PHONE_NUMBER": "أرسل رقم الهاتف",
   "Delete_Account":"حذف الحساب",
+  "Registration":"إنشاء حساب",
+   "Male":"ذكر",
+ "Female":"انثى",
   "otp": {
     "title": "رمز التحقق",
     "verify": "تحقق!",

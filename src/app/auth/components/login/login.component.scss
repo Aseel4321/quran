@@ -2,18 +2,17 @@
  --background: #fff;
   display: flex; 
   flex-direction: column; 
-  justify-content: center; 
+  justify-content: flex-start;
   align-items: center; 
   min-height: 100vh;
  
-
-
 
 
 p {
   margin-top: 0; 
   font-size: 1em;
 }
+
  .logo {
   display: flex;
   flex-direction: column;
@@ -22,7 +21,10 @@ p {
   text-align: center;
   height: 15%; 
   margin-bottom: 10%;
-
+gap: 15px;  margin-top: 5%;
+.img{width: 50px; height: 50px;}
+.imgload{width: 65px; height: 65px; border-radius: 10%;}
+.divload{text-align: center}
  h1 {
 
   font-size: 2rem;
@@ -65,7 +67,7 @@ p {
  
 
 }
-
+.icon{margin-inline-end:0%;}
 .input-border {
   flex: 1;
   font: size 1rem;;

@@ -1,13 +1,13 @@
 <ion-content class="login-content"><div>{{dateOfBirth}}</div> 
   <form >
-    <div class="logo" style="display: flex; align-items: center; gap: 15px; flex-direction: row-reverse; margin-top: 10%">
-      <img [src]="img" alt="Login Image" style="width: 50px; height: 50px; border-radius: 50%;">
+    <div class="logo" style="display: flex; align-items: center;flex-direction: row-reverse; margin-top: 10%;margin-bottom: 0%;">
+      <img [src]="img" alt="Login Image" style="width: 50px; height: 50px; border-radius: 50%;margin-left: 0%;">
       <div>
-        <h1>Registration</h1>
+        <h1 style="margin-right: 0%;">{{ 'Registration' | translate }}</h1>
       </div>
     </div>
-      <ion-item class="input-box">
-      <ion-icon name="mail-outline" slot="start"></ion-icon>
+   <div  style="margin-top: 5%;">   <ion-item class="input-box">
+      <ion-icon name="person-outline" class="icon" slot="start"></ion-icon>
       <ion-input 
       [(ngModel)]="name"
         (keyup)="onKeyup_name($event)"
@@ -16,11 +16,11 @@
         type="Text"
      
       ></ion-input>
-      <ion-icon name="close-circle" slot="end" (click)="remove_name()"></ion-icon>
+      <ion-icon name="close-circle" slot="end" (click)="remove_name()" ></ion-icon>
     </ion-item>
     <ion-item class="input-box">
-      <ion-icon name="mail-outline" slot="start"></ion-icon>
-      <ion-input 
+      <ion-icon name="mail-outline" class="icon" slot="start"></ion-icon>
+      <ion-input  
       [(ngModel)]="email"
         (keyup)="onKeyup_email($event)"
         name="email"
@@ -28,7 +28,7 @@
         type="email"
      
       ></ion-input>
-      <ion-icon name="close-circle" slot="end" (click)="remove_email()"></ion-icon>
+      <ion-icon name="close-circle" slot="end"  (click)="remove_email()" ></ion-icon>
     </ion-item>
 
 <ion-item class="input-box">
@@ -39,7 +39,7 @@
     [placeholder]="selectedCountryCode"
   >
     <ion-select-option *ngFor="let country of countries" [value]="country.dial_code">
-      {{ country.name }} ({{ country.dial_code }})
+      {{ country.name }} {{ country.dial_code }}
     </ion-select-option>
   </ion-select>
   <ion-input 
@@ -47,11 +47,13 @@
       placeholder="{{ 'Phone' | translate }}" 
     (keyup)="onKeyup_phone($event)"
     name="phoneNumber"
+    [(ngModel)]="phonenumber"
   ></ion-input>
+    <ion-icon name="close-circle" slot="end"  (click)="remove_phone()" ></ion-icon>
 </ion-item>
 
     <ion-item class="input-box">
-      <ion-icon name="lock-closed-outline" slot="start"></ion-icon>
+      <ion-icon name="lock-closed-outline"  class="icon" slot="start"></ion-icon>
       <ion-input 
      (keyup)="onInputChange($event)"
         name="password"
@@ -76,10 +78,10 @@
             [style.backgroundColor]="color(i)"
           ></div>
         </div>
- <div [style.color]="password_color" style="height:4vh;font-size:4vw ;align-items: center;text-align: center;">{{Text}}</div>
+ <div [style.color]="password_color" style="height:0.9vh;font-size:2vw;margin-top: 0%;margin-bottom: 2%">{{Text}}</div>
       </div><ion-item class="input-box">
-      <ion-icon name="lock-closed-outline" slot="start"></ion-icon>
-      <ion-input 
+      <ion-icon name="lock-closed-outline" class="icon"  slot="start"></ion-icon>
+      <ion-input  
        [type]="repassword_type" 
           (keyup)="onKeyup_repassword($event)"
         name="repassword"
@@ -94,14 +96,14 @@
         (click)="eye_repassword()">
       </ion-icon>
     </ion-item>
-    <div style="height:2vh;"> <div [ngStyle]="color_password()">{{text_password}}</div></div>
+    <div style="height:0.7vh;"> <div [ngStyle]="color_password()">{{text_password}}</div></div>
 
  
    <ion-grid>
       <ion-row>
 <ion-col size="6">
   <ion-item class="small-item">
-    <ion-icon name="calendar-outline" slot="start"></ion-icon>
+    <ion-icon name="calendar-outline" class="icon" slot="start"></ion-icon>
     <ion-datetime
       [(ngModel)]="dateOfBirth"
       (ionChange)="onDateChangee($event)"
@@ -114,10 +116,10 @@
         <ion-col size="6" class="gender-segment">
     <ion-segment value="male" [(ngModel)]="selectedGender" name="selectedGender" >
   <ion-segment-button value="male" (click)="setGender('MALE')">
-   Male
+   {{ 'Male' | translate }}
   </ion-segment-button>
   <ion-segment-button value="famale" (click)="setGender('FEMALE')"> 
-   Female
+   {{ 'Female' | translate }}
   </ion-segment-button>
  
 </ion-segment>
@@ -134,7 +136,7 @@
   type="submit"
  
  >
-  {{ 'LOGIN' | translate }}
+  {{ 'SIGN_UP' | translate }}
 </button>
 <div *ngIf="isLoading" style="text-align: center;">
   <img src="assets/icon/hold-on.gif" alt="Login Image"
@@ -145,7 +147,7 @@
     <p class="signup-text">
       {{ 'NO_ACCOUNT' | translate }}
       <a href="#">{{ 'SIGN_UP' | translate }}</a>
-    </p>
+    </p></div>
   </form>
 </ion-content>
 <ng-template #Q>

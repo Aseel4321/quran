@@ -4,21 +4,21 @@
     <br/>
     <br/>
     
-    <div class="logo" style="display: flex; align-items: center; gap: 15px; flex-direction: row-reverse; margin-top: 10%">
-      <img src="assets/icon/mosque.png" alt="Login Image" style="width: 50px; height: 50px;">
+    <div class="logo" style="display: flex; align-items: center; gap: 15px; flex-direction: row-reverse; margin-top: 5%">
+      <img src="assets/icon/mosque.png" alt="Login Image" class="img" >
       <div>
        <h1>{{ 'WELCOME_BACK' | translate }}</h1>
 <p>{{ 'LOGIN_TO_YOUR_ACCOUNT' | translate }}</p>
       </div>
     </div>
 
-    <!-- Email Input -->
+   
     <ion-item class="input-box">
-      <ion-icon name="mail-outline" style="margin-right:5px;" slot="start"></ion-icon>
+      <ion-icon name="mail-outline" class="icon" slot="start"></ion-icon>
       <ion-input 
         placeholder="{{ 'EMAIL' | translate }}" 
         type="email" 
-     
+     class="icon"
         name="email"
         required
         [(ngModel)]="loginData.email">
@@ -30,7 +30,7 @@
 
 
     <ion-item class="input-box">
-      <ion-icon name="lock-closed-outline"   slot="start"></ion-icon>
+      <ion-icon name="lock-closed-outline"  class="icon" slot="start"></ion-icon>
       <ion-input 
         placeholder="{{ 'PASSWORD' | translate }}" 
         [type]="password_type"
@@ -62,9 +62,9 @@
 </button>
 
     <br />
- <div *ngIf="isLoading" style="text-align: center;">
+ <div *ngIf="isLoading" class="divload">
   <img src="assets/icon/hold-on.gif" alt="Login Image"
-       style="width: 65px; height: 65px; border-radius: 10%;">
+     class="imgload">
        <br/><br/>
 </div>
 

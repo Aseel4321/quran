@@ -11,20 +11,27 @@ import { Platform } from '@ionic/angular';
   styleUrls: ['./signup.component.scss'],
 })
 export class SignupComponent implements OnInit {
-  constructor(private router: Router,private Service:AuthService,private platform: Platform) {
-this.platform.backButton.subscribeWithPriority(9999, () => {
-    
-  });
-  }
-list_langPassword=localStorage.getItem('lang')=="ar"?["أ","ب","ت","ث"]:["a",'b','c','d'];
-list_langMatch=localStorage.getItem('lang')=="ar"?["أ","ب",]:["a",'b',];
-list_langCountries=localStorage.getItem('lang')=="ar"?["أ","ب","ت","ث"]:["a",'b','c','d'];
+  constructor(
+    private router: Router,
+    private Service: AuthService,
+    private platform: Platform
+  ) {
+    this.platform.ready().then(() => {
+      this.platform.backButton.subscribeWithPriority(9999, () => {
+        console.log('زر الرجوع معطّل في هذه الصفحة');
+      });
+    });}
+
+list_langPassword=localStorage.getItem('lang')=="ar"?["كلمه السر ضعيفه","قوه متوسطه","كلمه سر قويه","كلمه سر ممتازه"]:["Weak password",'Moderate strength','Strong password','Very strong password'];
+list_langMatch=localStorage.getItem('lang')=="ar"?["كلمه المرور متطابقه","كلمه المرور غير متطابقه",]:["Not Matched Password",'Matched Password',];
+list_langCountries=localStorage.getItem('lang')=="ar"?["ا"]:["a"];
   disabled=true;
   Text_color="";
   name:string='';
   Text:any='';
    text_password='';
    text_numpassword="";
+   phonenumber='';
   password_color='';
   selectedGender: string = 'male'; 
   isLoading:any=false;
@@ -53,11 +60,9 @@ img:string='assets/icon/man1.png';
   list:boolean[]=[false,false,false,false];
   num:boolean[]=[];
   countries = [
-    { name: this.list_langCountries[0], dial_code: '+966' },
-    { name: this.list_langCountries[1], dial_code: '+20' },
-    { name: this.list_langCountries[2], dial_code: '+971' },
-    { name: this.list_langCountries[3], dial_code: '+962' }
-    // يمكنك إزالة التكرار من قائمة الدول
+    {name:this.list_langCountries[0],flag: "assets/icon/man1.png", dial_code: '+966' },
+  
+    
   ];
 remove(){
  this.dob1=''; 
@@ -118,6 +123,7 @@ const phoneNumber1= (event.target as HTMLInputElement).value;
 console.log(this.selectedCountryCode);
 this.phoneNumber = this.selectedCountryCode + phoneNumber1;
 console.log(this.phoneNumber);
+this.phonenumber=phoneNumber1;
   }
  onCountryChange(event: any) {
   this.selectedCountryCode= (event.target as HTMLInputElement).value;
@@ -153,6 +159,12 @@ console.log(this.dob);
   remove_email(){
 
     this.email='';
+
+
+}
+ remove_phone(){
+
+    this.phonenumber='';
 
 
 }
@@ -277,7 +289,7 @@ color_password() {
       color:  '#006400',       
               'align-items': 'center',
               'text-align': 'center',
-         'font-size':'4vw '
+         'font-size':'2vw '
          
        
       
@@ -287,7 +299,7 @@ color_password() {
       color: '#FF0000',       
        'align-items': 'center',
   'text-align': 'center',
-  'font-size':'4vw '
+  'font-size':'2vw '
          
         
     };

@@ -1,7 +1,9 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { AlertController } from '@ionic/angular';
-import { MainServiceService } from 'src/app/main-service/main-service.service';
+import { MainServiceService } from 'src/app/main-service/main/main-service.service';
+
+
 
 @Component({
   selector: 'app-delete-account',

@@ -146,8 +146,10 @@
 
   </div>
 </div>
-
-
-
+{{ city }}
+Latitude: {{ city1 }}
+ <ion-button (click)="checkLocationEnabled()">Get Location</ion-button>
+  <p *ngIf="latitude && longitude">Latitude: {{ city1 }}</p>
+  <ion-button >Start Watching Location</ion-button>
   </ion-content>
 </div>

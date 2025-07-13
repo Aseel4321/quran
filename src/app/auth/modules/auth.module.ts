@@ -16,8 +16,9 @@ import { RestPasswordComponent } from '../components/rest-password/rest-password
 import { HomePageComponent } from 'src/app/components/home-page/home-page.component'; // ✅ إذا كنت تستخدمه هنا
 import { NgxIntlTelInputModule } from 'ngx-intl-tel-input';
 import { ProfileComponent } from 'src/app/components/profile/profile.component';
-import { MainModule } from 'src/app/main-modules/main.module';
+
 import { NewPasswordComponent } from '../components/new-password/new-password.component';
+import { MainModule } from 'src/app/main-modules/main.module';
 
 @NgModule({
   declarations: [

@@ -2,6 +2,10 @@
 	"appId": "io.ionic.demo.pg.cap.ng",
 	"appName": "Msar Al Quran",
 	"bundledWebRuntime": false,
-	"npmClient": "npm",
-	"webDir": "www"
+	"webDir": "www",
+	"plugins": {
+		"Keyboard": {
+			"resize": "ionic"
+		}
+	}
 }

@@ -21,5 +21,18 @@ delete(data: any): Observable<any> {
     }
   );
 }
+prayer_times(data: any): Observable<any> {
+  const headers = new HttpHeaders({
+    'Accept': 'application/json',
+    'Content-Type': 'application/json'
+  });
+
+  return this.http.post(
+    'https://msaralquran-g5g9bxf3fnh3bzca.canadacentral-01.azurewebsites.net/feature/prayer-times',
+    data,
+    { headers: headers }
+  );
+}
+
   constructor(private http: HttpClient) { }
 }

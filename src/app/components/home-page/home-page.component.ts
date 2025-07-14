@@ -3,7 +3,8 @@ import { Router } from '@angular/router';
 import { AuthService } from 'src/app/auth/auth-service/auth.service';
 import { Geolocation } from '@capacitor/geolocation';// ✅ مكتبة Capacitor فقط
 import { AlertController } from '@ionic/angular';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { MainServiceService } from 'src/app/main-service/main/main-service.service';
 
 @Component({
   selector: 'app-home-page',
@@ -15,6 +16,7 @@ export class HomePageComponent implements OnInit {
   latitude: number = 0;
   longitude: number = 0;
   city: any;
+
   city1: any;
   country: any = '';
   bool: any = false;
@@ -48,12 +50,27 @@ export class HomePageComponent implements OnInit {
     private http: HttpClient,
     private alertController: AlertController,
     private router: Router,
-    private Service: AuthService,
+    private service: MainServiceService,
   ) {}
 
   ngOnInit(): void {  
-   this.checkLocationEnabled();
+   //this.checkLocationEnabled();
+
   }
+  prayer_times(){
+     
+    this.service.prayer_times({
+  "country":"Jordan",
+  "city":"Amman"
+}).subscribe((data:any)=>{
+      console.log(data);
+  
+    },(error: HttpErrorResponse)=>{
+     console.log(error.error);
+        
+    });
+  
+   }
   async checkLocationEnabledt() {
   // 1. عرض رسالة توضيحية أولاً
   const infoAlert = await this.alertController.create({
@@ -158,7 +175,7 @@ const alert = await this.alertController.create({
         handler: async () => {
     await this.getCityFromCoordinates(this.latitude, this.longitude);
           console.log('تم الضغط على OK');
-
+this.prayer_times();
           // مثال: استدعاء دالة أخرى
           this.afterOkPressed();
         }
@@ -208,6 +225,7 @@ const alert = await this.alertController.create({
       handler: async () => {
         console.log('✅ المستخدم وافق على الوصول');
         await this.getCityFromCoordinates(this.latitude, this.longitude);
+        this.prayer_times();
         this.afterOkPressed();
       }
     }
@@ -234,7 +252,7 @@ await alert.present();
     this.http.get(url).subscribe((response: any) => {
       if (response && response.address) {
         console.log('📍 Address:', response.address);
-        this.city1 = response.address.country;
+        this.country = response.address.country;
         const city = response.address.state;
         const country = response.address.country;
         this.city = city ? `${city}, ${country}` : 'Location unknown';

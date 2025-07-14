@@ -51,12 +51,139 @@ export class HomePageComponent implements OnInit {
     private Service: AuthService,
   ) {}
 
-  ngOnInit(): void {
-    // this.checkLocationEnabled();
+  ngOnInit(): void {  
+   this.checkLocationEnabled();
   }
+  async checkLocationEnabledt() {
+  // 1. عرض رسالة توضيحية أولاً
+  const infoAlert = await this.alertController.create({
+    header: 'طلب إذن الموقع',
+    message: 'يحتاج التطبيق للوصول إلى موقعك لتحديد المدينة الحالية.',
+    buttons: [
+      {
+        text: 'موافق',
+        handler: async () => {
+          // بعد الضغط على موافق نطلب الصلاحية
+          const permission = await Geolocation.requestPermissions();
 
+          if (permission.location !== 'granted') {
+            await this.showAlertno('تم رفض إذن الموقع. يرجى تفعيله من إعدادات التطبيق.');
+            return;
+          }
+
+        try {
+            this.position = await Geolocation.getCurrentPosition();
+            this.latitude = this.position.coords.latitude;
+            this.longitude = this.position.coords.longitude;
+
+            console.log('📍 Location:', this.latitude, this.longitude);
+
+            await this.getCityFromCoordinates(this.latitude, this.longitude);
+          } catch (error: any) {
+            console.error('❌ Error getting location', error);
+            await this.showAlertno('تعذر الحصول على الموقع. تحقق من GPS أو الأذونات.');
+          }
+        },
+      },
+    ],
+  });
+
+  await infoAlert.present();
+}
+
+async checkLocationEnabledغ() {
+  // 1. نعرض تنبيه للمستخدم لطلب الموافقة المبدئية
+  const confirmAlert = await this.alertController.create({
+    header: 'طلب إذن الموقع',
+    message: 'يحتاج التطبيق للوصول إلى موقعك لتحديد المدينة الحالية. هل تسمح بذلك؟',
+    buttons: [
+      {
+        text: 'لا',
+        role: 'cancel',
+        handler: () => {
+          console.log('❌ المستخدم رفض السماح');
+        },
+      },
+      {
+        text: 'نعم',
+        handler: async () => {
+          // 2. إذا وافق، نطلب الصلاحية من النظام
+          const permission = await Geolocation.requestPermissions();
+
+          if (permission.location !== 'granted') {
+            await this.showAlertno('تم رفض إذن الموقع. يرجى تفعيله من إعدادات التطبيق.');
+            return;
+          }
+
+          // 3. نحصل على الموقع
+          try {
+            this.position = await Geolocation.getCurrentPosition();
+            this.latitude = this.position.coords.latitude;
+            this.longitude = this.position.coords.longitude;
+
+            console.log('📍 Location:', this.latitude, this.longitude);
+
+            await this.getCityFromCoordinates(this.latitude, this.longitude);
+          } catch (error: any) {
+            console.error('❌ Error getting location', error);
+            await this.showAlertno('تعذر الحصول على الموقع. تحقق من GPS أو الأذونات.');
+          }
+        },
+      },
+    ],
+  });
+
+  await confirmAlert.present();
+}
   // ✅ الحصول على الموقع وتحديد المدينة
   async checkLocationEnabled() {
+
+
+  
+    try {
+      console.log('🔍 Requesting current position...');
+
+      this.position = await Geolocation.getCurrentPosition();
+
+      this.latitude = this.position.coords.latitude;
+      this.longitude = this.position.coords.longitude;
+
+      console.log('📍 Location:', this.latitude, this.longitude);
+const alert = await this.alertController.create({
+    header: 'الموقع',
+   message:'موافق على الوصول',
+    buttons: [
+      {
+        text: 'OK',
+        handler: async () => {
+    await this.getCityFromCoordinates(this.latitude, this.longitude);
+          console.log('تم الضغط على OK');
+
+          // مثال: استدعاء دالة أخرى
+          this.afterOkPressed();
+        }
+      },    {
+        text: 'no',
+        handler: async () => {
+    
+          console.log('تم الضغط على OK');
+
+          // مثال: استدعاء دالة أخرى
+          this.afterOkPressed();
+        }
+      }
+    ],
+  });
+
+  await alert.present();
+     
+ 
+    } catch (error: any) {
+      console.error('❌ Error getting location', error);
+      await this.showAlertno('تعذر الحصول على الموقع. تحقق من الأذونات.');
+    }
+  }
+async checkLocationEnabled1() {
     try {
       console.log('🔍 Requesting current position...');
       this.position = await Geolocation.getCurrentPosition();
@@ -65,15 +192,40 @@ export class HomePageComponent implements OnInit {
       this.longitude = this.position.coords.longitude;
 
       console.log('📍 Location:', this.latitude, this.longitude);
+const alert = await this.alertController.create({
+  header: 'الموقع',
+  message: 'هل توافق على السماح للتطبيق بالوصول إلى موقعك؟',
+  buttons: [
+    {
+      text: 'لا',
+      handler: async () => {
+        console.log('❌ المستخدم رفض الوصول');
+        await this.showAlertno('تم رفض إذن الوصول للموقع.');
+      }
+    },
+    {
+      text: 'مفوافق',
+      handler: async () => {
+        console.log('✅ المستخدم وافق على الوصول');
+        await this.getCityFromCoordinates(this.latitude, this.longitude);
+        this.afterOkPressed();
+      }
+    }
+  ]
+});
 
-      await this.getCityFromCoordinates(this.latitude, this.longitude);
-      await this.showAlert('تم تحديد الموقع بنجاح');
+await alert.present();
+
+
+
+
+      
+
     } catch (error: any) {
       console.error('❌ Error getting location', error);
-      await this.showAlert('تعذر الحصول على الموقع. تحقق من الأذونات.');
+      await this.showAlertno('تعذر الحصول على الموقع. تحقق من الأذونات.');
     }
   }
-
   // ✅ استرجاع اسم المدينة من الإحداثيات
   getCityFromCoordinates(latitude: number, longitude: number) {
     console.log(`📡 Reverse geocoding...`);
@@ -96,14 +248,52 @@ export class HomePageComponent implements OnInit {
   }
 
   // ✅ عرض تنبيه
-  async showAlert(message: string) {
-    const alert = await this.alertController.create({
-      header: 'الموقع',
-      message: message,
-      buttons: ['OK'],
-    });
-    await alert.present();
-  }
+async showAlertyes(message: string) {
+  const alert = await this.alertController.create({
+    header: 'الموقع',
+    message: message,
+    buttons: [
+      {
+        text: 'OK',
+        handler: () => {
+         
+          console.log('تم الضغط على OK');
+
+          // مثال: استدعاء دالة أخرى
+          this.afterOkPressed();
+        }
+      }
+    ],
+  });
+
+  await alert.present();
+}
+
+async showAlertno(message: string) {
+  const alert = await this.alertController.create({
+    header: 'الموقع',
+    message: message,
+    buttons: [
+      {
+        text: 'OK',
+        handler: () => {
+         this.checkLocationEnabled1();
+          console.log('تم الضغط على OK');
+
+          // مثال: استدعاء دالة أخرى
+          this.afterOkPressed();
+        }
+      }
+    ],
+  });
+
+  await alert.present();
+}
+afterOkPressed() {
+  // كود إضافي يتم تنفيذه بعد الضغط على OK
+  console.log('تم تنفيذ الكود بعد الضغط على OK');
+}
+
 
   // ✅ تنبيه بسيط بلغة المستخدم
   async presentAlert() {

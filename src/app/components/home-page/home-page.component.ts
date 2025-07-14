@@ -16,7 +16,8 @@ export class HomePageComponent implements OnInit {
   latitude: number = 0;
   longitude: number = 0;
   city: any;
-
+prayer_name :any=[];
+prayer_timee :any=[];
   city1: any;
   country: any = '';
   bool: any = false;
@@ -63,8 +64,11 @@ export class HomePageComponent implements OnInit {
   "country":"Jordan",
   "city":"Amman"
 }).subscribe((data:any)=>{
-      console.log(data);
-  
+   this.prayer_name = Object.keys(data); 
+      console.log(this.prayer_name);
+       this.prayer_timee = Object.values(data);
+       
+        //console.log(this.prayer_name);
     },(error: HttpErrorResponse)=>{
      console.log(error.error);
         

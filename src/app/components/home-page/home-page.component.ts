@@ -55,20 +55,20 @@ prayer_timee :any=[];
   ) {}
 
   ngOnInit(): void {  
-   //this.checkLocationEnabled();
-
+   this.checkLocationEnabled();
+    
   }
   prayer_times(){
      
     this.service.prayer_times({
-  "country":"Jordan",
-  "city":"Amman"
+  "country":this.country,
+  "city":this.city
 }).subscribe((data:any)=>{
    this.prayer_name = Object.keys(data); 
-      console.log(this.prayer_name);
+      console.log('ff');
        this.prayer_timee = Object.values(data);
        
-        //console.log(this.prayer_name);
+        console.log(this.prayer_name);
     },(error: HttpErrorResponse)=>{
      console.log(error.error);
         
@@ -249,25 +249,21 @@ await alert.present();
     }
   }
   // ✅ استرجاع اسم المدينة من الإحداثيات
-  getCityFromCoordinates(latitude: number, longitude: number) {
-    console.log(`📡 Reverse geocoding...`);
-    const url = `https://nominatim.openstreetmap.org/reverse?lat=${latitude}&lon=${longitude}&format=json&addressdetails=1&lang=ar`;
+getCityFromCoordinates(latitude: number, longitude: number) {
+  const url = `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${latitude}&longitude=${longitude}&localityLanguage=ar`;
 
-    this.http.get(url).subscribe((response: any) => {
-      if (response && response.address) {
-        console.log('📍 Address:', response.address);
-        this.country = response.address.country;
-        const city = response.address.state;
-        const country = response.address.country;
-        this.city = city ? `${city}, ${country}` : 'Location unknown';
-      } else {
-        this.city1 = 'Unable to fetch city info';
-      }
-    }, (error) => {
-      console.error('🌐 Error with reverse geocoding API:', error);
-      this.city = 'Unable to fetch city info';
-    });
-  }
+  this.http.get(url).subscribe((response: any) => {
+    if (response && response.city && response.countryName) {
+      this.city = `${response.city}, ${response.countryName}`;
+    } else {
+      this.city = 'Location unknown';
+    }
+  }, (error) => {
+    console.error('🌐 BigDataCloud API error:', error);
+    this.city = 'Unable to fetch city info';
+  });
+}
+
 
   // ✅ عرض تنبيه
 async showAlertyes(message: string) {

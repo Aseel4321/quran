@@ -16,8 +16,11 @@ export class HomePageComponent implements OnInit {
   latitude: number = 0;
   longitude: number = 0;
   city: any;
+  city_api:any;
+  country_api:any;
 prayer_name :any=[];
 prayer_timee :any=[];
+times:Model[]=[];
   city1: any;
   country: any = '';
   bool: any = false;
@@ -46,7 +49,14 @@ prayer_timee :any=[];
     { name: "aseel", image: "assets/icon/cloud.png", time: '17:8' },
     { name: "aseel", image: "assets/icon/moon.png", time: '17:8' }
   ];
-
+  list_time1: any[] = [
+   "assets/icon/sunny.png",
+   "assets/icon/sunrise.png",
+   "assets/icon/sun.png",
+   "assets/icon/cloudy.png",
+   "assets/icon/cloud.png",
+    "assets/icon/moon.png",
+  ];
   constructor(
     private http: HttpClient,
     private alertController: AlertController,
@@ -56,21 +66,25 @@ prayer_timee :any=[];
 
   ngOnInit(): void {  
    this.checkLocationEnabled();
+ 
     
   }
   prayer_times(){
      
     this.service.prayer_times({
-  "country":this.country,
-  "city":this.city
+  "country":this.country_api,
+  "city":this.city_api
 }).subscribe((data:any)=>{
    this.prayer_name = Object.keys(data); 
       console.log('ff');
        this.prayer_timee = Object.values(data);
        
         console.log(this.prayer_name);
+       Object.keys(data).forEach((key, index)=> {
+  this.times.push({ name: key, time: data[key],image:this.list_time1[index] });
+});console.log(this.times);
     },(error: HttpErrorResponse)=>{
-     console.log(error.error);
+     
         
     });
   
@@ -158,9 +172,6 @@ async checkLocationEnabledغ() {
 }
   // ✅ الحصول على الموقع وتحديد المدينة
   async checkLocationEnabled() {
-
-
-  
     try {
       console.log('🔍 Requesting current position...');
 
@@ -170,16 +181,18 @@ async checkLocationEnabledغ() {
       this.longitude = this.position.coords.longitude;
 
       console.log('📍 Location:', this.latitude, this.longitude);
-const alert = await this.alertController.create({
+      await this.getCityFromCoordinates(this.latitude, this.longitude);
+         
+/*const alert = await this.alertController.create({
     header: 'الموقع',
    message:'موافق على الوصول',
     buttons: [
       {
         text: 'OK',
         handler: async () => {
-    await this.getCityFromCoordinates(this.latitude, this.longitude);
+    
           console.log('تم الضغط على OK');
-this.prayer_times();
+
           // مثال: استدعاء دالة أخرى
           this.afterOkPressed();
         }
@@ -195,9 +208,8 @@ this.prayer_times();
       }
     ],
   });
-
   await alert.present();
-     
+     */
  
     } catch (error: any) {
       console.error('❌ Error getting location', error);
@@ -229,7 +241,7 @@ const alert = await this.alertController.create({
       handler: async () => {
         console.log('✅ المستخدم وافق على الوصول');
         await this.getCityFromCoordinates(this.latitude, this.longitude);
-        this.prayer_times();
+       
         this.afterOkPressed();
       }
     }
@@ -254,7 +266,13 @@ getCityFromCoordinates(latitude: number, longitude: number) {
 
   this.http.get(url).subscribe((response: any) => {
     if (response && response.city && response.countryName) {
+const city=response.city;
+const country=response.countryName;
+this.city_api = this.removeDiacritics(city);
+this.country_api = this.removeDiacritics(country);
       this.city = `${response.city}, ${response.countryName}`;
+      console.log(this.city);
+      this.prayer_times();
     } else {
       this.city = 'Location unknown';
     }
@@ -266,15 +284,17 @@ getCityFromCoordinates(latitude: number, longitude: number) {
 
 
   // ✅ عرض تنبيه
-async showAlertyes(message: string) {
+
+
+async showAlertno(message: string) {
   const alert = await this.alertController.create({
     header: 'الموقع',
     message: message,
     buttons: [
       {
-        text: 'OK',
+        text: 'OKkk',
         handler: () => {
-         
+         this.checkLocationEnabled();
           console.log('تم الضغط على OK');
 
           // مثال: استدعاء دالة أخرى
@@ -286,16 +306,15 @@ async showAlertyes(message: string) {
 
   await alert.present();
 }
-
-async showAlertno(message: string) {
+async showAlertyes(message: string) {
   const alert = await this.alertController.create({
     header: 'الموقع',
     message: message,
     buttons: [
       {
-        text: 'OK',
+        text: 'OKkk',
         handler: () => {
-         this.checkLocationEnabled1();
+         this.checkLocationEnabled();
           console.log('تم الضغط على OK');
 
           // مثال: استدعاء دالة أخرى
@@ -378,4 +397,13 @@ afterOkPressed() {
       this.router.navigate(['/setting']);
     }
   }
+   removeDiacritics(text: string): string {
+  // Unicode range for Arabic diacritics: 064B–0652
+  return text.replace(/[\u064B-\u0652]/g, "");
+}
+}
+interface Model {
+  name: string;
+  time: string;
+  image: string
 }

@@ -294,7 +294,7 @@ async showAlertno(message: string) {
       {
         text: 'OKkk',
         handler: () => {
-         this.checkLocationEnabled();
+         this.checkLocationEnabled1();
           console.log('تم الضغط على OK');
 
           // مثال: استدعاء دالة أخرى

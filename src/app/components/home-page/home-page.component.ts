@@ -262,23 +262,27 @@ await alert.present();
   }
   // ✅ استرجاع اسم المدينة من الإحداثيات
 getCityFromCoordinates(latitude: number, longitude: number) {
-  const url = `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${latitude}&longitude=${longitude}&localityLanguage=ar`;
+  const apiKey = '0c9ea507ed234dfeae819d5aa377bfb3'; // استبدل بـ API Key الخاص بك
+  const url = `https://api.geoapify.com/v1/geocode/reverse?lat=${latitude}&lon=${longitude}&lang=ar&apiKey=${apiKey}`;
 
   this.http.get(url).subscribe((response: any) => {
-    if (response && response.city && response.countryName) {
-const city=response.city;
-const country=response.countryName;
-this.city_api = this.removeDiacritics(city);
-this.country_api = this.removeDiacritics(country);
-      this.city = `${response.city}, ${response.countryName}`;
+    if (response && response.features && response.features.length > 0) {
+      const props = response.features[0].properties;
+      console.log(props);
+      const city = props.state || 'غير معروف';
+      const country = props.country || 'غير معروف';
+
+      this.city_api = this.removeDiacritics(city);
+      this.country_api = this.removeDiacritics(country);
+      this.city = `${this.city_api}, ${this.country_api}`;
       console.log(this.city);
       this.prayer_times();
     } else {
-      this.city = 'Location unknown';
+      this.city = 'الموقع غير معروف';
     }
   }, (error) => {
-    console.error('🌐 BigDataCloud API error:', error);
-    this.city = 'Unable to fetch city info';
+    console.error('🌐 Geoapify API error:', error);
+    this.city = 'تعذر الحصول على معلومات المدينة';
   });
 }
 

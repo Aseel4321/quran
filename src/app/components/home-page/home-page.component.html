@@ -1,7 +1,9 @@
 <ion-menu contentId="main-content">
-  <ion-content class="ion-padding" style="--background: #8F8FA73B;" >
+  <ion-content class="ion-padding" style="--background: #8F8FA73B;  --width:20px;
+  " >
    
-  <div ><div class="profile-image-container " > <div style="flex:3;"></div> <img src="assets/icon/moslem-woman.png" alt="Splash Logo" class="profile-image">
+  <div ><div class="profile-image-container " 
+   > <div style="flex:3;"></div> <img src="assets/icon/moslem-woman.png" alt="Splash Logo" class="profile-image">
  <!--<button (click)="logout()">oooo</button>-->
   <div style="flex: 3;"></div>
     </div>  <ion-item lines="none" style="margin-top: 10%;  --background:color= none">
@@ -146,10 +148,10 @@
 
   </div>
 </div>
-{{city}}
 
- <ion-button (click)="prayer_times()">Get Location</ion-button>
+
+ <!--<ion-button (click)="prayer_times()">Get Location</ion-button>
   <p *ngIf="latitude && longitude"></p>
-  <ion-button >Start Watching Location</ion-button>
+  <ion-button >Start Watching Location</ion-button>!-->
   </ion-content>
 </div>

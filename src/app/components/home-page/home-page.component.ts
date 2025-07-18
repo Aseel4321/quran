@@ -5,6 +5,7 @@ import { Geolocation } from '@capacitor/geolocation';// ✅ مكتبة Capacitor
 import { AlertController } from '@ionic/angular';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { MainServiceService } from 'src/app/main-service/main/main-service.service';
+import { LocationAccuracy } from '@ionic-native/location-accuracy/ngx';
 
 @Component({
   selector: 'app-home-page',
@@ -57,7 +58,7 @@ times:Model[]=[];
    "assets/icon/cloud.png",
     "assets/icon/moon.png",
   ];
-  constructor(
+  constructor(private locationAccuracy: LocationAccuracy,
     private http: HttpClient,
     private alertController: AlertController,
     private router: Router,
@@ -171,7 +172,7 @@ async checkLocationEnabledغ() {
   await confirmAlert.present();
 }
   // ✅ الحصول على الموقع وتحديد المدينة
-  async checkLocationEnabled() {
+/* async checkLocationEnabled() {
     try {
       console.log('🔍 Requesting current position...');
 
@@ -209,13 +210,45 @@ async checkLocationEnabledغ() {
     ],
   });
   await alert.present();
-     */
+    
  
     } catch (error: any) {
       console.error('❌ Error getting location', error);
       await this.showAlertno('تعذر الحصول على الموقع. تحقق من الأذونات.');
     }
+  }*/
+ async checkLocationEnabled() {
+  try {
+    const perm = await Geolocation.checkPermissions();
+
+    if (perm.location !== 'granted') {
+      const req = await Geolocation.requestPermissions();
+      if (req.location !== 'granted') {
+        return this.showAlertno('تحتاج إذن الموقع.');
+      }
+    }
+
+    if (await this.locationAccuracy.canRequest()) {
+      await this.locationAccuracy.request(this.locationAccuracy.REQUEST_PRIORITY_HIGH_ACCURACY);
+    }
+
+    const pos = await Geolocation.getCurrentPosition({ enableHighAccuracy: true });
+    console.log('📍', pos.coords.latitude, pos.coords.longitude, '±', pos.coords.accuracy, 'm');
+
+    if (pos.coords.accuracy > 30) {
+      console.warn('الدقة منخفضة –', pos.coords.accuracy, 'م');
+    }
+
+    this.latitude = pos.coords.latitude;
+    this.longitude = pos.coords.longitude;
+    await this.getCityFromCoordinates(this.latitude, this.longitude);
+
+  } catch (error) {
+    console.error('❌ Error getting location', error);
+    await this.showAlertno('تعذر الحصول على الموقع. تحقق من الأذونات وإعدادات GPS.');
   }
+}
+
 async checkLocationEnabled1() {
     try {
       console.log('🔍 Requesting current position...');
@@ -298,7 +331,7 @@ async showAlertno(message: string) {
       {
         text: 'OKkk',
         handler: () => {
-         this.checkLocationEnabled1();
+         this.checkLocationEnabled();
           console.log('تم الضغط على OK');
 
           // مثال: استدعاء دالة أخرى

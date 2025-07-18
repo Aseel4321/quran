@@ -11,7 +11,7 @@ import { MainRoutingModule } from './main-routing.module';
 import { ProfileDetailsComponent } from '../components/profile-details/profile-details.component';
 import { SettingsComponent } from '../components/settings/settings.component';
 import { DeleteAccountComponent } from '../components/delete-account/delete-account.component';
-
+import { LocationAccuracy } from '@ionic-native/location-accuracy/ngx';
  
 
 @NgModule({
@@ -25,7 +25,7 @@ import { DeleteAccountComponent } from '../components/delete-account/delete-acco
       BrowserAnimationsModule,
       MainRoutingModule
    
-  ],  providers: [
+  ],  providers: [LocationAccuracy,
     Geolocation
   ],
 })

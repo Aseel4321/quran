@@ -21,6 +21,19 @@ delete(data: any): Observable<any> {
     }
   );
 }
+update_profile(data: any): Observable<any> {
+  const headers = new HttpHeaders({
+    'Accept': 'application/json',
+    'Content-Type': 'application/json'
+  });
+
+  return this.http.post(
+    'https://msaralquran-g5g9bxf3fnh3bzca.canadacentral-01.azurewebsites.net/setting/update-profile',
+    data,
+    { headers: headers }
+  );
+}
+
 prayer_times(data: any): Observable<any> {
   const headers = new HttpHeaders({
     'Accept': 'application/json',

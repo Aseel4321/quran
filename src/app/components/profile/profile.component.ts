@@ -1,5 +1,7 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, ViewChild, AfterViewInit } from '@angular/core';
 import { IonInput } from '@ionic/angular';
+import { MainServiceService } from 'src/app/main-service/main/main-service.service';
 
 @Component({
   selector: 'app-profile',
@@ -11,14 +13,86 @@ export class ProfileComponent implements AfterViewInit {
   email: string = '';
   phoneNumber: string = '';
   selectedCountryCode = '+962';
-
+  dateOfBirth: string | null = null;
+  phonenumber='';
+   birthDate: string = 'NaN-NaN-NaN';
+  list_langCountries=localStorage.getItem('lang')=="ar"?["ا"]:["a"]; 
   countries = [
-    { name: 'السعودية', dial_code: '+966' },
-    { name: 'مصر', dial_code: '+20' },
-    { name: 'الإمارات', dial_code: '+971' },
-    { name: 'الأردن', dial_code: '+962' }
+    {name:this.list_langCountries[0],flag: "assets/icon/man1.png", dial_code: '+962' },
+  
+    
   ];
+constructor( private service: MainServiceService){
+  this.update();
+}
+   remove_phone(){
 
+    this.phonenumber='';
+
+
+}
+   onKeyup_name(event:any){
+this.name= (event.target as HTMLInputElement).value;
+console.log(this.name)
+
+  }
+ onKeyup_email(event: KeyboardEvent){
+this.email = (event.target as HTMLInputElement).value;
+console.log(this.email);
+  }
+onDateChange(event: any) {
+
+  const selectedDate = event.target.value;
+  this.birthDate = this.formatReadableDate(selectedDate);
+  console.log('التاريخ المختار:', this.birthDate);
+}
+formatReadableDate(dateString: string): string {
+  const d = new Date(dateString);
+  const dd = String(d.getDate()).padStart(2, '0');
+  const mm = String(d.getMonth() + 1).padStart(2, '0');
+  const yyyy = d.getFullYear();
+  return `${dd}-${mm}-${yyyy}`;
+}
+  onDateChangee(event: any) {
+  const rawDate = event.detail?.value || event.target?.value;
+
+  if (rawDate) {
+    const dob = new Date(rawDate);
+    if (!isNaN(dob.getTime())) {
+      const formattedDate = `${dob.getDate()}/${dob.getMonth() + 1}/${dob.getFullYear()}`;
+      this.birthDate=formattedDate;
+      console.log("التاريخ المنسق:", formattedDate);
+    } else {
+      console.error("تاريخ غير صالح:", rawDate);
+    }
+  } else {
+    console.error("لم يتم اختيار تاريخ");
+  }
+}
+  update(){
+     
+    this.service.update_profile({
+  "oldEmail":"aseelghaleb2088@gmail.com",
+  "newFullName":"aseelsl",
+  "newEmail":"",
+  "newPhone":"34347544",
+  "newDob":"1/1/1970",
+  "newGender":"MALE"
+}).subscribe((data:any)=>{
+console.log(data);
+    },(error: HttpErrorResponse)=>{
+     console.log(error);
+        
+    });
+  
+   }
+     onKeyup_phone(event:any){
+const phoneNumber1= (event.target as HTMLInputElement).value;
+console.log(this.selectedCountryCode);
+this.phoneNumber = this.selectedCountryCode + phoneNumber1;
+console.log(this.phoneNumber);
+this.phonenumber=phoneNumber1;
+  }
   @ViewChild('nameInput', { static: false }) nameInputRef!: IonInput;
   @ViewChild('emailInput', { static: false }) emailInputRef!: IonInput;
   @ViewChild('phoneInput', { static: false }) phoneInputRef!: IonInput;
@@ -73,4 +147,5 @@ export class ProfileComponent implements AfterViewInit {
       });
     }
   }
+
 }

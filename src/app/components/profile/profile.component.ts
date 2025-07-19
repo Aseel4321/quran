@@ -11,6 +11,8 @@ import { MainServiceService } from 'src/app/main-service/main/main-service.servi
 export class ProfileComponent implements AfterViewInit {
   name: string = '';
   email: string = '';
+  gender:any;
+  selectedGender: string = 'male'; 
   phoneNumber: string = '';
   selectedCountryCode = '+962';
   dateOfBirth: string | null = null;
@@ -74,7 +76,7 @@ formatReadableDate(dateString: string): string {
     this.service.update_profile({
   "oldEmail":"aseelghaleb2088@gmail.com",
   "newFullName":"aseelsl",
-  "newEmail":"",
+  "newEmail":"aseelghdaleb2088d@gmail.com",
   "newPhone":"34347544",
   "newDob":"1/1/1970",
   "newGender":"MALE"
@@ -86,6 +88,11 @@ console.log(data);
     });
   
    }
+   
+  setGender(gender: string) {
+    this.gender=gender;
+      console.log(this.gender);
+  }
      onKeyup_phone(event:any){
 const phoneNumber1= (event.target as HTMLInputElement).value;
 console.log(this.selectedCountryCode);

@@ -237,7 +237,7 @@ formatReadableDate(dateString: string): string {
 }
 
   setGender(gender: string) {console.log(this.booll);
-    
+    this.gender=gender;
     if(gender==="FEMALE"){this.img='assets/icon/woman1.png';
       this.booll="female" ,console.log(this.booll);}else{this.booll="male" ;this.img='assets/icon/man1.png';}
   }

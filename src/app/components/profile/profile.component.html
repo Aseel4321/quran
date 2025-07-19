@@ -129,15 +129,17 @@
   </ion-item>
 </ion-col>
 
-        <ion-col size="6" class="gender-buttons">
-          <ion-segment value="custom">
-            <ion-segment-button value="custom">
-              <ion-label>{{ 'Male' | translate }}</ion-label>
-            </ion-segment-button>
-            <ion-segment-button value="segment">
-              <ion-label>{{ 'Femal' | translate }}</ion-label>
-            </ion-segment-button>
-          </ion-segment>
+        <ion-col size="6" class="gender-segment">
+    <ion-segment value="male" [(ngModel)]="selectedGender" name="selectedGender" >
+  <ion-segment-button value="male" (click)="setGender('MALE')">
+   {{ 'Male' | translate }}
+  </ion-segment-button>
+  <ion-segment-button value="famale" (click)="setGender('FEMALE')"> 
+   {{ 'Female' | translate }}
+  </ion-segment-button>
+ 
+</ion-segment>
+
         </ion-col>
       </ion-row>
     </ion-grid>

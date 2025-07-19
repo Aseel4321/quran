@@ -60,7 +60,7 @@ img:string='assets/icon/man1.png';
   list:boolean[]=[false,false,false,false];
   num:boolean[]=[];
   countries = [
-    {name:this.list_langCountries[0],flag: "assets/icon/man1.png", dial_code: '+966' },
+    {name:this.list_langCountries[0],flag: "assets/icon/man1.png", dial_code: '+962' },
   
     
   ];

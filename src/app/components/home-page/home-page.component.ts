@@ -27,6 +27,7 @@ times:Model[]=[];
   bool: any = false;
   position: any;
   city11: any = '';
+time_now:any;
   list_card: any[] = [
     { name: "Quran Completion", title: 'Last Read Al-Quran : ', number: 55, per: "4%", image: 'assets/icon/islamic.png' },
     { name: "Morning Adhkar", title: 'Evening Adhkar : ', number: 6, per: "76%", image: 'assets/icon/prayer.png' },
@@ -65,10 +66,10 @@ times:Model[]=[];
     private service: MainServiceService,
   ) {}
 
-  ngOnInit(): void {  
+  ngOnInit(): void {   const now = new Date(); this.time_now=now.toLocaleTimeString();
    this.checkLocationEnabled();
  
-    
+   
   }
   prayer_times(){
      
@@ -82,7 +83,8 @@ times:Model[]=[];
        
         console.log(this.prayer_name);
        Object.keys(data).forEach((key, index)=> {
-  this.times.push({ name: key, time: data[key],image:this.list_time1[index] });
+        if(index<6){this.times.push({ name: key, time: data[key],image:this.list_time1[index] });}
+  
 });console.log(this.times);
     },(error: HttpErrorResponse)=>{
      

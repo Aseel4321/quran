@@ -79,7 +79,7 @@
   name="name"
   [(ngModel)]="name"
   (ionInput)="onKeyup_name($event)"
-  placeholder="الاسم"
+  placeholder="{{user.fullName}}"
   type="text">
 </ion-input>
       <ion-icon name="pencil" slot="end" (mousedown)="enableInput('name')"></ion-icon>
@@ -92,13 +92,13 @@
   name="email"
   [(ngModel)]="email"
   (ionInput)="onKeyup_email($event)"
-  placeholder="البريد الإلكتروني"
+  placeholder="{{user.email}}"
   type="email">
 </ion-input>
       <ion-icon name="pencil" slot="end" (mousedown)="enableInput('email')"></ion-icon>
     </ion-item>
 
-    
+     
     <ion-item class="input-box">
       <ion-select interface="alert" name="countryCode" [(ngModel)]="selectedCountryCode" [placeholder]="selectedCountryCode">
         <ion-select-option *ngFor="let country of countries" [value]="country.dial_code">
@@ -110,7 +110,7 @@
   name="phone"
   [(ngModel)]="phonenumber"
   (ionInput)="onKeyup_phone($event)"
-  placeholder="رقم الهاتف"
+  placeholder="{{user.phone}}"
   type="tel">
 </ion-input>
       <ion-icon name="pencil" slot="end" (mousedown)="enableInput('phone')"></ion-icon>
@@ -124,7 +124,7 @@
       [(ngModel)]="dateOfBirth"
       (ionChange)="onDateChangee($event)"
       display-format="D/M/YYYY"
-      placeholder="{{ 'Date_Of_Birth' | translate }}">
+    placeholder="{{user.dob}}">
     </ion-datetime>
   </ion-item>
 </ion-col>
@@ -134,7 +134,7 @@
   <ion-segment-button value="male" (click)="setGender('MALE')">
    {{ 'Male' | translate }}
   </ion-segment-button>
-  <ion-segment-button value="famale" (click)="setGender('FEMALE')"> 
+  <ion-segment-button value="female" (click)="setGender('FEMALE')"> 
    {{ 'Female' | translate }}
   </ion-segment-button>
  
@@ -145,7 +145,7 @@
     </ion-grid>
 
     <!-- زر الدخول -->
-    <button class="login-button-activee" type="submit" (click)="update()">
+    <button [class]="valid()" type="submit" (click)="update()">
       {{ 'LOGIN' | translate }}
     </button>
 

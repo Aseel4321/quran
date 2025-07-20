@@ -17,6 +17,7 @@ export class ProfileComponent implements AfterViewInit ,OnInit{  user:any
   selectedCountryCode = '+962';
   dateOfBirth: string | null = null;
   phonenumber='';
+  genderr:any;
    birthDate: string = 'NaN-NaN-NaN';
   list_langCountries=localStorage.getItem('lang')=="ar"?["ا"]:["a"]; 
   countries = [
@@ -27,7 +28,11 @@ export class ProfileComponent implements AfterViewInit ,OnInit{  user:any
 constructor( private service: MainServiceService){
   
 }
-  ngOnInit(): void {this.user= JSON.parse(localStorage.getItem('User'));
+  ngOnInit(): void {
+    this.user= JSON.parse(localStorage.getItem('User'));
+    console.log(this.user.gender);
+    this.gender=this.user.gender;this.birthDate=this.user.dob;
+    if(this.user.gender=='MALE'){this.selectedGender='male';}else{this.selectedGender='female';}
    
   }
    remove_phone(){
@@ -92,8 +97,9 @@ console.log(data);
   
    }
    
-  setGender(gender: string) {
+  setGender(gender: string) { 
     this.gender=gender;
+    
       console.log(this.gender);
   }
      onKeyup_phone(event:any){
@@ -157,5 +163,9 @@ this.phonenumber=phoneNumber1;
       });
     }
   }
-
+valid(){
+  if(this.name==''&&this.email==""&&this.phonenumber==''&&this.user.gender==this.gender&&this.user.dob==this.birthDate){
+    return 'login-button';
+  }else{ return 'login-button-activee';}
+}
 }

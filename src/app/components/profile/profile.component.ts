@@ -1,5 +1,5 @@
 import { HttpErrorResponse } from '@angular/common/http';
-import { Component, ViewChild, AfterViewInit } from '@angular/core';
+import { Component, ViewChild, AfterViewInit, OnInit } from '@angular/core';
 import { IonInput } from '@ionic/angular';
 import { MainServiceService } from 'src/app/main-service/main/main-service.service';
 
@@ -8,7 +8,7 @@ import { MainServiceService } from 'src/app/main-service/main/main-service.servi
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.scss'],
 })
-export class ProfileComponent implements AfterViewInit {
+export class ProfileComponent implements AfterViewInit ,OnInit{  user:any 
   name: string = '';
   email: string = '';
   gender:any;
@@ -25,8 +25,11 @@ export class ProfileComponent implements AfterViewInit {
     
   ];
 constructor( private service: MainServiceService){
-  this.update();
+  
 }
+  ngOnInit(): void {this.user= JSON.parse(localStorage.getItem('User'));
+   
+  }
    remove_phone(){
 
     this.phonenumber='';
@@ -72,14 +75,14 @@ formatReadableDate(dateString: string): string {
   }
 }
   update(){
-     
+    
     this.service.update_profile({
-  "oldEmail":"aseelghaleb2088@gmail.com",
-  "newFullName":"aseelsl",
-  "newEmail":"aseelghdaleb2088d@gmail.com",
-  "newPhone":"34347544",
-  "newDob":"1/1/1970",
-  "newGender":"MALE"
+  "oldEmail":this.user.email,
+  "newFullName":this.name,
+  "newEmail":this.email,
+  "newPhone":this.phonenumber,
+  "newDob":this.birthDate,
+  "newGender":this.gender
 }).subscribe((data:any)=>{
 console.log(data);
     },(error: HttpErrorResponse)=>{

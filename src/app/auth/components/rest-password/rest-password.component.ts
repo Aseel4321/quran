@@ -199,7 +199,7 @@ if(this.conpassword.text_password==this.repassword.text_password){
 color_password() {
   if(this.conpassword.text_password ==""&&this.repassword.text_password==''){
     this.text_password=' ';
-  }else{ if (this.password === this.repassword) {
+  }else{ if (this.conpassword.text_password === this.repassword.text_password) {
     return {
       color:  '#006400',       
               'align-items': 'center',

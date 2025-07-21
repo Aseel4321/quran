@@ -16,24 +16,26 @@ constructor(private alertController: AlertController,private router: Router,priv
     
   password_color='';
 list_langPassword=localStorage.getItem('lang')=="ar"?["كلمه السر ضعيفه","قوه متوسطه","كلمه سر قويه","كلمه سر ممتازه"]:["Weak password",'Moderate strength','Strong password','Very strong password'];
-list_langMatch=localStorage.getItem('lang')=="ar"?["كلمه المرور متطابقه","كلمه المرور غير متطابقه",]:["Not Matched Password",'Matched Password',];
-  onKeyup_password(event:any){
-this.password= (event.target as HTMLInputElement).value;
+list_langMatch=localStorage.getItem('lang')=="ar"?["كلمه المرور متطابقه","كلمه المرور غير متطابقه",]:['Matched Password',"Not Matched Password"];
+  /*onKeyup_password(event:any){
+this.password.text_password= (event.target as HTMLInputElement).value;
+console.log(this.password);
+  }*/
+   onKeyup_password(event:any){
+this.password.text_password= (event.target as HTMLInputElement).value;
 console.log(this.password);
   }
-   onKeyup_repassword(event:any){
-this.repassword.text_password= (event.target as HTMLInputElement).value;this.password_match();
-console.log(this.password);
-  }
-    onKeyup_conpassword(event:any){
+    onKeyup_conpassword(event:any){this.password_match();
 this.conpassword.text_password= (event.target as HTMLInputElement).value;
 console.log(this.conpassword.text_password);
   }
-  password:any;
-  password_bool:any=false;
-   password_icon:string='eye-off-outline';
-   password_type:string='password';
-
+  
+ 
+password:any={ 
+  password_bool:false,
+   password_icon:'eye-off-outline',
+   password_type:'password',
+   text_password:""}
   repassword:any={
    password_bool:false,
    password_icon:'eye-off-outline',
@@ -92,14 +94,15 @@ if(i<=2){
 }else{return '#FFFFFF'}
         }
       }
-    }eye(){
-if(this.password_bool==false){
-  this.password_bool=true;
-  this.password_icon='eye-outline';
-  this.password_type='type';
-}else{this.password_bool=false;
-  this.password_type='password';
-    this.password_icon='eye-off-outline';
+    }
+    eye(){
+if(this.password.password_bool==false){
+  this.password.password_bool=true;
+  this.password.password_icon='eye-outline';
+  this.password.password_type='type';
+}else{this.password.password_bool=false;
+  this.password.password_type='password';
+    this.password.password_icon='eye-off-outline';
 }
 }
 re_eye(){
@@ -122,7 +125,8 @@ if(this.conpassword.password_bool==false){
     this.conpassword.password_icon='eye-off-outline';
 }
 }  onInputChange(event: any) {
-    this.password=this.password = (event.target as HTMLInputElement).value;
+    this.repassword.text_password = (event.target as HTMLInputElement).value;
+    console.log(this.repassword.text_password);
   this.num.length=0;
   this.list[0] = /(?=.*[a-z])(?=.*[A-Z])/.test(event.target.value);
   this.list[1] = /\d/.test(event.target.value);
@@ -136,12 +140,7 @@ if(this.conpassword.password_bool==false){
     this.text();
     this.text_color(); 
     }
-      password_match(){
-  if(this.password==''||this.repassword.text_password==''){this.text_password='';}
-if(this.password==this.repassword.text_password){
-  this.text_password=this.list_langMatch[0];
-}else{this.text_password=this.list_langMatch[1];}
-}
+    
 text() {
    if(this.num.length==0){
     this.Text='';
@@ -190,8 +189,15 @@ validation(){
 
   
 }
+password_match(){
+  if(this.conpassword.text_password==''||this.repassword.text_password==''){this.text_password='';}else
+if(this.conpassword.text_password==this.repassword.text_password){
+  console.log('yes');
+  this.text_password=this.list_langMatch[0];
+}else{this.text_password=this.list_langMatch[1];}
+}
 color_password() {
-  if(this.password ==""&&this.repassword==''){
+  if(this.conpassword.text_password ==""&&this.repassword.text_password==''){
     this.text_password=' ';
   }else{ if (this.password === this.repassword) {
     return {

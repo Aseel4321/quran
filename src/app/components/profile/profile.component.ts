@@ -129,40 +129,36 @@ this.phonenumber=phoneNumber1;
     });
   }
 
-  enableInput(field: string) {
-    let inputRef: IonInput | undefined;
+enableInput(field: string) {
+  let inputRef: IonInput | undefined;
 
-    if (field === 'name') inputRef = this.nameInputRef;
-    else if (field === 'email') inputRef = this.emailInputRef;
-    else if (field === 'phone') inputRef = this.phoneInputRef;
+  if (field === 'name') inputRef = this.nameInputRef;
+  else if (field === 'email') inputRef = this.emailInputRef;
+  else if (field === 'phone') inputRef = this.phoneInputRef;
 
-    if (inputRef) {
-      inputRef.getInputElement().then((el: HTMLInputElement) => {
-        if (document.activeElement === el) {
-          el.blur();
+  if (inputRef) {
+    inputRef.getInputElement().then((el: HTMLInputElement) => {
+      el.readOnly = false;
+
+      requestAnimationFrame(() => {
+        el.focus();
+        el.setSelectionRange(el.value.length, el.value.length);
+
+        if (!el.dataset.blurSet) {
+          el.dataset.blurSet = 'true';
+          el.addEventListener('blur', () => {
+            setTimeout(() => {
+              el.readOnly = true;
+            }, 200);
+          });
         }
-
-        setTimeout(() => {
-          if (!el.readOnly) return;
-
-          el.readOnly = false;
-
-          setTimeout(() => {
-            el.focus();
-          }, 50);
-
-          if (!el.dataset.blurSet) {
-            el.dataset.blurSet = 'true';
-            el.addEventListener('blur', () => {
-              setTimeout(() => {
-                el.readOnly = true;
-              }, 200);
-            });
-          }
-        }, 50);
       });
-    }
+    });
   }
+}
+
+
+
 valid(){
   if(this.name==''&&this.email==""&&this.phonenumber==''&&this.user.gender==this.gender&&this.user.dob==this.birthDate){
     return 'login-button';

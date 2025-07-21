@@ -174,7 +174,7 @@ this.password_color='#006400';
       }
 }
 validation(){
- if(this.repassword.text_password!==''&&this.conpassword.text_password!==""&&(this.repassword.text_password==this.password)&&this.num.length==4&&this.password!==''){this.disabled=false; return 'login-button-activee';}else{this.disabled=true; return 'login-button';}}
+ if(this.repassword.text_password!==''&&this.conpassword.text_password!==""&&(this.repassword.text_password==this.conpassword.text_password)&&this.num.length==4&&this.password.text_password!==''){this.disabled=false; return 'login-button-activee';}else{this.disabled=true; return 'login-button';}}
    async presentAlert() {
     if(localStorage.getItem('lang')=='ar'){  const alert = await this.alertController.create({
     //header: 'aتنبيه',

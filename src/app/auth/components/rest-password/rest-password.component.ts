@@ -53,11 +53,11 @@ num:boolean[]=[];
 text_password=''
     list:boolean[]=[false,false,false,false]; 
      Text =''
-login(){
+update(){
   const userString = localStorage.getItem('User');
 const user = userString ? JSON.parse(userString) : null;
    this.isLoading=true;
-   this.Service. rest_password({"emailOrPhone":user.email, "oldPassword":this.conpassword.text_password,"newPassword":this.password,"confirmNewPassword":this.repassword.text_password}).subscribe((data:any)=>{
+   this.Service. rest_password({"emailOrPhone":user.email, "oldPassword":this.password.text_password,"newPassword":this.repassword.text_password,"confirmNewPassword":this.conpassword.text_password}).subscribe((data:any)=>{
    this.isLoading=false;
    console.log(data) ;
   },(error: HttpErrorResponse)=>{this.isLoading=false;

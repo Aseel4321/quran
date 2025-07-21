@@ -11,7 +11,9 @@ export class NewPasswordComponent {
 text_password='';
 Text:any='';
 password_color='';
-list_langPassword=localStorage.getItem('lang')=="ar"?["أ","ب","ت","ث"]:["a",'b','c','d'];
+
+list_langPassword=localStorage.getItem('lang')=="ar"?["كلمه السر ضعيفه","قوه متوسطه","كلمه سر قويه","كلمه سر ممتازه"]:["Weak password",'Moderate strength','Strong password','Very strong password'];
+list_langMatch=localStorage.getItem('lang')=="ar"?["كلمه المرور متطابقه","كلمه المرور غير متطابقه",]:["Not Matched Password",'Matched Password',];
   constructor(private router: Router,private Service:AuthService) {}
     isLoading:any=false;
   
@@ -28,7 +30,7 @@ list_langPassword=localStorage.getItem('lang')=="ar"?["أ","ب","ت","ث"]:["a",
   this.conpassword.text_password= (event.target as HTMLInputElement).value;
   console.log(this.password);
     }
-    list_langMatch=localStorage.getItem('lang')=="ar"?["أ","ب",]:["a",'b',];
+   
     password:any;
     password_bool:any=false;
      password_icon:string='eye-off-outline';

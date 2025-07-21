@@ -15,7 +15,8 @@ constructor(private alertController: AlertController,private router: Router,priv
     name:any='';
     
   password_color='';
-list_langMatch=localStorage.getItem('lang')=="ar"?["أ","ب",]:["a",'b',];
+list_langPassword=localStorage.getItem('lang')=="ar"?["كلمه السر ضعيفه","قوه متوسطه","كلمه سر قويه","كلمه سر ممتازه"]:["Weak password",'Moderate strength','Strong password','Very strong password'];
+list_langMatch=localStorage.getItem('lang')=="ar"?["كلمه المرور متطابقه","كلمه المرور غير متطابقه",]:["Not Matched Password",'Matched Password',];
   onKeyup_password(event:any){
 this.password= (event.target as HTMLInputElement).value;
 console.log(this.password);
@@ -45,7 +46,7 @@ console.log(this.conpassword.text_password);
    password_type:'password',
    text_password:""
    }
-   list_langPassword=localStorage.getItem('lang')=="ar"?["أ","ب","ت","ث"]:["a",'b','c','d'];
+
 num:boolean[]=[];  
 text_password=''
     list:boolean[]=[false,false,false,false]; 
@@ -134,31 +135,7 @@ if(this.conpassword.password_bool==false){
     }this.password_match();
     this.text();
     this.text_color(); 
-    }color_password() {
-  if(this.password ==""&&this.repassword.text_password==''){
-    this.text_password=' ';
-  }else{ if (this.password === this.repassword.text_password) {
-    return {
-      color:  '#006400',       
-              'align-items': 'center',
-              'text-align': 'center',
-         'font-size':'4vw '
-         
-       
-      
-    };
-  } else {
-    return {
-      color: '#FF0000',       
-       'align-items': 'center',
-  'text-align': 'center',
-  'font-size':'4vw '
-         
-        
-    };
-  }}
- 
-}
+    }
       password_match(){
   if(this.password==''||this.repassword.text_password==''){this.text_password='';}
 if(this.password==this.repassword.text_password){
@@ -212,6 +189,31 @@ validation(){
 
 
   
+}
+color_password() {
+  if(this.password ==""&&this.repassword==''){
+    this.text_password=' ';
+  }else{ if (this.password === this.repassword) {
+    return {
+      color:  '#006400',       
+              'align-items': 'center',
+              'text-align': 'center',
+         'font-size':'2vw '
+         
+       
+      
+    };
+  } else {
+    return {
+      color: '#FF0000',       
+       'align-items': 'center',
+  'text-align': 'center',
+  'font-size':'2vw '
+         
+        
+    };
+  }}
+ 
 }
 title() {
   if (localStorage.getItem('lang') === 'ar') {

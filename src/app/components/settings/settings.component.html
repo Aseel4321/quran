@@ -20,7 +20,7 @@
        </div>
          <div style="margin-bottom: 5vw;display: flex;flex-direction: row;text-align: center;align-items:center ;justify-content: center;margin-left: 10%;margin-right:10%;">
       <img src="assets/icon/notification.png" style="height:8vw ;width: 8vw;"/><p style="flex: 5;font-size: 4vw;">Notification Preferences</p> 
-<ion-icon name="chevron-forward-outline" style="flex: 1;"></ion-icon>
+<ion-icon name="arrow-forward" [ngClass]="{'flip-horizontal': selectedCity === 'ar'}" style="flex: 1;"></ion-icon>
 
 
        </div>
@@ -39,13 +39,13 @@
        </div>
            <div style="margin-bottom: 5vw;display: flex;flex-direction: row;text-align: center;align-items:center ;justify-content: center;margin-left: 10%;margin-right:10%;">
       <img src="assets/icon/logout.gif" style="height:10vw ;width: 10vw;"/><p style="flex:1;font-size: 4vw;" (click)="logout()">Logout</p> 
-<ion-icon name="chevron-forward-outline" style="flex:1;margin-inline-start: 50%;"></ion-icon>
+<ion-icon  name="arrow-forward" [ngClass]="{'flip-horizontal': selectedCity === 'ar'}" style="flex:1;margin-inline-start: 50%;"></ion-icon>
 
 
        </div>
            <div style="margin-bottom: 4vw;display: flex;flex-direction: row;text-align: center;align-items:center ;justify-content: center;margin-left: 10%;margin-right:10%;">
       <img src="assets/icon/delete.png" style="height:8vw ;width: 8vw;"/><p style="flex:4;font-size: 3.5vw;margin-inline-end: 30%;">Delete Account</p> 
-<ion-icon name="chevron-forward-outline" style="flex:1;margin-inline-end: 3%;"></ion-icon>
+<ion-icon name="arrow-forward" [ngClass]="{'flip-horizontal': selectedCity === 'ar'}" style="flex:1;margin-inline-end: 3%;"></ion-icon>
 
 
        </div>

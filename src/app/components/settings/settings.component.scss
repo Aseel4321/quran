@@ -1,0 +1,11 @@
+.arrow-icon {
+  transition: transform 0.3s ease;
+}
+
+[dir="rtl"] .arrow-icon {
+  transform: rotateY(180deg);
+}
+.flip-horizontal {
+  transform: rotateY(180deg);
+  transition: transform 0.3s ease;
+}

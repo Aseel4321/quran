@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 @Component({
@@ -7,7 +7,7 @@ import { TranslateService } from '@ngx-translate/core';
   styleUrls: ['./settings.component.scss'],
 })
 export class SettingsComponent {
-  constructor(private translate: TranslateService,private router: Router){}
+  constructor(private translate: TranslateService,private router: Router,private cdRef: ChangeDetectorRef){}
    lang_text='';
    lang=[];
 lang_en:any = [{'code':'ar','lang':'Arabic'},{'code':'en','lang':'English'}];
@@ -18,26 +18,29 @@ notificationsEnabled: boolean = true;
 toggleChanged(event: any) {
   console.log('Toggle value:', event.detail.checked);
 }
- onCityChange(event: any) { 
-    const city = event.detail.value;
-  
-    if (city === 'en') { 
-      this.lang=this.lang_en;
-      this.selectedCity='en';
-      localStorage.setItem('lang',city);
-      //this.lang_text= localStorage.getItem(city);
-       this.translate.use(city);
+iconDirection: string = 'arrow-forward';
 
-  // إذا كنت تستعمل اللغة العربية
-  document.documentElement.dir = city === 'ar' ? 'rtl' : 'ltr';
-    }else{localStorage.setItem('lang',city); this.selectedCity='ar';this.lang=this.lang_ar;  //
-    // this.lang_text= localStorage.getItem(city);
-       this.translate.use(city);
+onCityChange(event: any) {
+  const city = event.detail.value;
 
-  // إذا كنت تستعمل اللغة العربية
-  document.documentElement.dir = city === 'ar' ? 'rtl' : 'ltr';}
+  if (city === 'en') {
+    this.lang = this.lang_en;
+    this.selectedCity = 'en';
+    this.iconDirection = 'arrow-forward';  // سهم لليمين للإنجليزية
+    document.documentElement.dir = 'ltr';
+  } else {
+    this.lang = this.lang_ar;
+    this.selectedCity = 'ar';
+    this.iconDirection = 'arrow-back';  // سهم لليسار للعربية
+    document.documentElement.dir = 'rtl';
   }
 
+  localStorage.setItem('lang', city);
+  this.translate.use(city);
+}
+icon(){
+     if(localStorage.getItem('lang')=='ar'){ return 'arrow-back';}else{return 'arrow-forward';}
+ }
   ngOnInit() {//this.lang_text="en";
   this.lang_text= localStorage.getItem('lang');
   if(this.lang_text=='ar'){this.selectedCity='ar';

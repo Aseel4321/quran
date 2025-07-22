@@ -25,8 +25,9 @@ console.log(this.password);
 this.password.text_password= (event.target as HTMLInputElement).value;
 console.log(this.password);
   }
-    onKeyup_conpassword(event:any){this.password_match();
+    onKeyup_conpassword(event:any){
 this.conpassword.text_password= (event.target as HTMLInputElement).value;
+this.password_match();
 console.log(this.conpassword.text_password);
   }
   
@@ -71,6 +72,7 @@ const user = userString ? JSON.parse(userString) : null;
    
  
  }
+ 
   ngOnInit() {}
     color(i:any){
       if(this.num.length==0){

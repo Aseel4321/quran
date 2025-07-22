@@ -1,17 +1,17 @@
 <ion-content class="login-content">
   <form #loginForm="ngForm">
     <br/>
-    <br/>
-    <div style="display: flex;flex-direction: row;margin-inline-start: 5%;"> <ion-icon name="chevron-back-outline"></ion-icon> </div>
+    
+    <div style="display: flex;flex-direction: row;margin-inline-start: 5%;margin-bottom: 0%;margin-top: 0%;"> <ion-icon name="chevron-back-outline"></ion-icon> </div>
     <div class="logo" >
        <img src="assets/icon/deletee.gif" alt="Login Image" class="img">
        <h1>{{ "Delete Account" | translate }}</h1>
     </div>
-    <br />
+
 
 
     <ion-item class="input-box">
-      <ion-icon name="lock-closed-outline"   slot="start"></ion-icon>
+      <ion-icon name="lock-closed-outline"  class="icon" slot="start"></ion-icon>
       <ion-input 
         placeholder="{{ 'PASSWORD' | translate }}" 
         [type]="password_type"

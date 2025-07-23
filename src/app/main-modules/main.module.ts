@@ -12,10 +12,11 @@ import { ProfileDetailsComponent } from '../components/profile-details/profile-d
 import { SettingsComponent } from '../components/settings/settings.component';
 import { DeleteAccountComponent } from '../components/delete-account/delete-account.component';
 import { LocationAccuracy } from '@ionic-native/location-accuracy/ngx';
+import { AddCalendarComponent } from '../components/add-calendar/add-calendar.component';
  
 
 @NgModule({
-  declarations: [HomePageComponent,ProfileComponent,ProfileDetailsComponent,SettingsComponent,DeleteAccountComponent ],
+  declarations: [HomePageComponent,ProfileComponent,ProfileDetailsComponent,SettingsComponent,DeleteAccountComponent,AddCalendarComponent ],
   imports: [  CommonModule,
       IonicModule,
       FormsModule,

@@ -1,0 +1,56 @@
+<ion-content class="login-content">
+  <form #loginForm="ngForm">
+    <br/>
+    <br/>
+    
+    <div style="display: flex;flex-direction: column;text-align: center;align-items: center;">
+   
+      <div style="display: flex;flex-direction: column;text-align: center;" >
+      <div style="display: flex;flex-direction: row;align-items: stretch;"><div style="margin-inline-end: 20vw;">cancel</div><div>add calendar</div><div style="margin-inline-start: 20vw;">save</div></div> 
+<div style="display: flex;flex-direction: column;text-align: center;margin-top: 10%;margin-bottom: 5%;" > <div>{{ 'LOGIN_TO_YOUR_ACCOUNT' | translate }}</div><div>{{ 'LOGIN_TO_YOUR_ACCOUNT' | translate }}</div></div>
+     
+      </div>
+    </div>
+
+   
+    <ion-item class="input-box">
+      <ion-icon name="mail-outline" class="icon" slot="start"></ion-icon>
+      <ion-input 
+        placeholder="{{ 'EMAIL' | translate }}" 
+        type="email" 
+     class="icon"
+        name="email"
+        
+        >
+      </ion-input>
+      <ion-icon  name="close-circle" slot="end"></ion-icon>
+    </ion-item>
+
+    <br />
+
+
+    <ion-item class="input-box">
+      <ion-icon name="lock-closed-outline"  class="icon" slot="start"></ion-icon>
+      <ion-input 
+        placeholder="{{ 'PASSWORD' | translate }}" 
+      
+        name="password"
+        
+      >
+      </ion-input>
+      <ion-icon  slot="end"></ion-icon>
+    </ion-item>
+  
+
+
+
+
+
+
+
+
+
+
+    
+  </form>
+</ion-content>

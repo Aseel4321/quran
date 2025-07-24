@@ -49,7 +49,12 @@
     name="phoneNumber"
     [(ngModel)]="phonenumber"
   ></ion-input>
-    <ion-icon name="close-circle" slot="end"  (click)="remove_phone()" ></ion-icon>
+  <ion-icon
+  name="close-circle"
+  slot="end"
+  (click)="remove_phone()"
+  style="margin-inline-start: 0%;margin-inline-end: 0% ;"
+></ion-icon>
 </ion-item>
 
     <ion-item class="input-box">
@@ -102,15 +107,25 @@
    <ion-grid>
       <ion-row>
 <ion-col size="6">
-  <ion-item class="small-item">
-    <ion-icon name="calendar-outline" class="icon" slot="start"></ion-icon>
+ 
+
+  
+<ion-label position="floating" style="margin-inline-start: 25%;">{{ 'Date_Of_Birth' | translate }}</ion-label>
+<ion-datetime-button datetime="datetime"></ion-datetime-button>
+
+<ion-modal [keepContentsMounted]="true" [(isOpen)]="isModalOpen">
+  <ng-template>
     <ion-datetime
+      id="datetime"
+      presentation="date"
       [(ngModel)]="dateOfBirth"
-      (ionChange)="onDateChangee($event)"
-      display-format="D/M/YYYY"
-      placeholder="{{ 'Date_Of_Birth' | translate }}">
-    </ion-datetime>
-  </ion-item>
+      (ionChange)="onDateChange($event)"
+      show-default-buttons="true"
+    ></ion-datetime>
+  </ng-template>
+</ion-modal>
+
+
 </ion-col>
 
         <ion-col size="6" class="gender-segment">

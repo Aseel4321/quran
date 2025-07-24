@@ -10,7 +10,8 @@ import { Platform } from '@ionic/angular';
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.scss'],
 })
-export class SignupComponent implements OnInit {
+export class SignupComponent implements OnInit { isModalOpen = false;
+
   constructor(
     private router: Router,
     private Service: AuthService,

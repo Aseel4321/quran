@@ -36,18 +36,44 @@ gap: 15px;  margin-top: 5%;
     color: #444;
   }
 }
+.small-time-modal::part(content) {
+  height: auto !important;
+  max-height: 250px;
+  width: 300px;
+  border-radius: 10px;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-
+.datetime-wrapper {
+  width: 100%;
+  max-height: 200px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+}
+.button {
+  margin-inline-start: 20vw;
+  font-size: 3.5vw;
+  background-color: white;
+  text-decoration: line-through; /* هذا يضيف الخط */
+}
+.button-activee {
+margin-inline-start: 20vw;font-size:3.5vw;  background-color: white;
+}
 .input-box {height: 50px;
   --background: #fff;
   display: flex;
+  flex-direction: row;
   align-items: center;
   border: 2px solid #e8e5e5; 
   border-radius:15px;
   padding: 0 10px; 
   margin-left: 7%;
   margin-right: 7%;
-  margin-bottom: 2%;
+  margin-bottom: 1%;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
 
@@ -66,7 +92,7 @@ gap: 15px;  margin-top: 5%;
  
 
 }
-.icon{margin-inline-end:0%;}
+.icon{margin-inline-end:0%;width: 5vw;height:5vw ;}
 .input-border {
   flex: 1;
   font: size 1rem;;

@@ -24,8 +24,8 @@ export class SignupComponent implements OnInit { isModalOpen = false;
     });}
 
 list_langPassword=localStorage.getItem('lang')=="ar"?["كلمه السر ضعيفه","قوه متوسطه","كلمه سر قويه","كلمه سر ممتازه"]:["Weak password",'Moderate strength','Strong password','Very strong password'];
-list_langMatch=localStorage.getItem('lang')=="ar"?["كلمه المرور متطابقه","كلمه المرور غير متطابقه",]:["Not Matched Password",'Matched Password',];
-list_langCountries=localStorage.getItem('lang')=="ar"?["ا"]:["a"];
+list_langMatch=localStorage.getItem('lang')=="ar"?["كلمه المرور متطابقه","كلمه المرور غير متطابقه",]:['Matched Password',"Not Matched Password"];
+list_langCountries=localStorage.getItem('lang')=="ar"?["الاردن"]:["Jordan"];
   disabled=true;
   Text_color="";
   name:string='';
@@ -183,7 +183,9 @@ console.log(this.dob);
     //this.birthDate = this.formatReadableDate(this.today);
 
   }
-  
+  login(){
+    this.router.navigate(['/login']);
+  }
 onInputChange(event: any) {
   this.password=this.password = (event.target as HTMLInputElement).value;
   this.num.length=0;

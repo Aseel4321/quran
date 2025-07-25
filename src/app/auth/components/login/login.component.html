@@ -13,7 +13,7 @@
     </div>
 
    
-    <ion-item class="input-box">
+    <div class="input-box">
       <ion-icon name="mail-outline" class="icon" slot="start"></ion-icon>
       <ion-input 
         placeholder="{{ 'EMAIL' | translate }}" 
@@ -24,12 +24,12 @@
         [(ngModel)]="loginData.email">
       </ion-input>
       <ion-icon (click)="remove()" name="close-circle" slot="end"></ion-icon>
-    </ion-item>
+    </div>
 
     <br />
 
 
-    <ion-item class="input-box">
+    <div class="input-box">
       <ion-icon name="lock-closed-outline"  class="icon" slot="start"></ion-icon>
       <ion-input 
         placeholder="{{ 'PASSWORD' | translate }}" 
@@ -39,7 +39,7 @@
         [(ngModel)]="loginData.password">
       </ion-input>
       <ion-icon (click)="eye()" [name]="password_icon" slot="end"></ion-icon>
-    </ion-item>
+    </div>
     <br />
 
   <div class="options">
@@ -62,7 +62,7 @@
 </button>
 
     <br />
- <div *ngIf="isLoading" style="text-align: center;margin-top: 5%;">
+ <div *ngIf="isLoading" style="text-align: center;margin-top: 1%;">
   <img src="assets/icon/hold-on.gif" alt="Login Image"
        style="width: 65px; height: 65px;">
        <br/><br/>

@@ -6,7 +6,7 @@
         <h1 style="margin-right: 0%;">{{ 'Registration' | translate }}</h1>
       </div>
     </div>
-   <div  style="margin-top: 5%;">   <ion-item class="input-box">
+   <div  style="margin-top: 5%;">   <div class="input-box">
       <ion-icon name="person-outline" class="icon" slot="start"></ion-icon>
       <ion-input 
       [(ngModel)]="name"
@@ -17,8 +17,8 @@
      
       ></ion-input>
       <ion-icon name="close-circle" slot="end" (click)="remove_name()" ></ion-icon>
-    </ion-item>
-    <ion-item class="input-box">
+   </div>
+    <div class="input-box">
       <ion-icon name="mail-outline" class="icon" slot="start"></ion-icon>
       <ion-input  
       [(ngModel)]="email"
@@ -29,9 +29,9 @@
      
       ></ion-input>
       <ion-icon name="close-circle" slot="end"  (click)="remove_email()" ></ion-icon>
-    </ion-item>
+    </div>
 
-<ion-item class="input-box">
+<div class="input-box">
   <ion-select
     name="countryCode"
     [(ngModel)]="selectedCountryCode"
@@ -55,9 +55,9 @@
   (click)="remove_phone()"
   style="margin-inline-start: 0%;margin-inline-end: 0% ;"
 ></ion-icon>
-</ion-item>
+</div>
 
-    <ion-item class="input-box">
+    <div class="input-box">
       <ion-icon name="lock-closed-outline"  class="icon" slot="start"></ion-icon>
       <ion-input 
      (keyup)="onInputChange($event)"
@@ -72,7 +72,7 @@
         slot="end" 
         (click)="eye()">
       </ion-icon>
-    </ion-item>
+    </div>
        <div
         style="margin-top: 2%; text-align: center; margin-left: 4%; margin-right: 4%; align-items: center; justify-content: center; width: 90%;"
       >
@@ -84,7 +84,7 @@
           ></div>
         </div>
  <div [style.color]="password_color" style="height:0.9vh;font-size:2vw;margin-top: 0%;margin-bottom: 2%">{{Text}}</div>
-      </div><ion-item class="input-box">
+      </div><div class="input-box">
       <ion-icon name="lock-closed-outline" class="icon"  slot="start"></ion-icon>
       <ion-input  
        [type]="repassword_type" 
@@ -100,17 +100,17 @@
         slot="end" 
         (click)="eye_repassword()">
       </ion-icon>
-    </ion-item>
+    </div>
     <div style="height:0.7vh;"> <div [ngStyle]="color_password()">{{text_password}}</div></div>
 
  
    <ion-grid>
-      <ion-row>
+      <ion-row >
 <ion-col size="6">
  
 
   
-<ion-label position="floating" style="margin-inline-start: 25%;">{{ 'Date_Of_Birth' | translate }}</ion-label>
+<ion-label position="floating" style="margin-inline-start: 21%;font-weight: 200;">{{ 'Date_Of_Birth' | translate }}</ion-label>
 <ion-datetime-button datetime="datetime"></ion-datetime-button>
 
 <ion-modal [keepContentsMounted]="true" [(isOpen)]="isModalOpen">
@@ -160,8 +160,8 @@
 </div>
     <!-- رابط التسجيل -->
     <p class="signup-text">
-      {{ 'NO_ACCOUNT' | translate }}
-      <a href="#">{{ 'SIGN_UP' | translate }}</a>
+      {{ 'you_have_account' | translate }}
+      <a (click)="login()">{{ 'LOGIN' | translate }}</a>
     </p></div>
   </form>
 </ion-content>

@@ -1,7 +1,6 @@
 <ion-menu contentId="main-content">
   <ion-content class="ion-padding" style="--background: #8F8FA73B;  --width:20px;
   " >
-   
   <div ><div class="profile-image-container " 
    > <div style="flex:3;"></div> <img src="assets/icon/moslem-woman.png" alt="Splash Logo" class="profile-image">
  <!--<button (click)="logout()">oooo</button>-->
@@ -87,7 +86,7 @@
 <div style="display: flex; overflow-x: auto; white-space: nowrap; width: 100%; margin-top: 5%;">
   
   <!-- العنصر المتكرر -->
-  <div *ngFor="let item of list_card"
+  <div *ngFor="let item of list_card()"
        style="flex: 0 0 auto; width: 70vw; height: 12vh; background: linear-gradient(to right, #ceb36bb2, #ab896f); border-radius:8vw; margin-inline-end:0.7vw; display: flex; flex-direction: column; align-items: center; text-align: center;margin-inline-start: 0.7%;">
     
     <!-- المحتوى الداخلي -->
@@ -149,7 +148,7 @@
 
   </div>
 </div>
-
+{{timePeriod}}
 
  <!--<ion-button (click)="prayer_times()">Get Location</ion-button>
   <p *ngIf="latitude && longitude"></p>

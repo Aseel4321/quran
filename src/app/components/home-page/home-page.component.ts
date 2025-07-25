@@ -27,13 +27,11 @@ times:Model[]=[];
   bool: any = false;
   position: any;
   city11: any = '';
-time_now:any;
-  list_card: any[] = [
-    { name: "Quran Completion", title: 'Last Read Al-Quran : ', number: 55, per: "4%", image: 'assets/icon/islamic.png' },
-    { name: "Morning Adhkar", title: 'Evening Adhkar : ', number: 6, per: "76%", image: 'assets/icon/prayer.png' },
-    { name: "Evening Adhkar", title: 'Last Read Evening remembrance : ', number: 77, per: '23%', image: 'assets/icon/exam.png' },
-    { name: "Quran Memorization Test", title: 'Last entry for Quran Memorization :', number: 66, per: "90%", image: 'assets/icon/prayer.png' }
-  ];
+time_now:any; 
+  currentTime: string = '';
+  timePeriod: string = '';
+ num=0;
+  //list_card: any[];
   list_type: any[] = [
     { name: "Tesbeeh", image: 'assets/icon/beads.png' },
     { name: "Test", image: 'assets/icon/exam.png' },
@@ -58,18 +56,54 @@ time_now:any;
    "assets/icon/cloudy.png",
    "assets/icon/cloud.png",
     "assets/icon/moon.png",
-  ];
+  ]; ngOnInit(): void {   
+   
+ this.checkLocationEnabled();
+
+ 
+  }
   constructor(private locationAccuracy: LocationAccuracy,
     private http: HttpClient,
     private alertController: AlertController,
     private router: Router,
     private service: MainServiceService,
-  ) {}
+  ) {   
+   setInterval(() => {
+    
+      const now = new Date(); 
+      this.time_now=now.toLocaleTimeString();
+   if (this.time_now.startsWith("12:00") && this.time_now.includes("AM")) {
+  this.updateTime(); console.log("منتصف الليل (00:00)"); 
+} else if (this.time_now.startsWith("12:00") && this.time_now.includes("PM")) {
+  this.updateTime();
+  console.log("الظهر (12:00 PM)");
+}
+    ;
+    }, 1000);
 
-  ngOnInit(): void {   const now = new Date(); this.time_now=now.toLocaleTimeString();
-   this.checkLocationEnabled();
+  }
+
  
+    updateTime() {
+    const now = new Date();
+    this.currentTime = now.toLocaleTimeString('en-US'); 
+    const hour = now.getHours();
+    const period = this.currentTime.includes('AM') ? 'AM' : (hour < 18 ? 'PM' : 'PM');
+    this.timePeriod = period;
    
+    console.log(this.timePeriod);
+
+  }
+  list_card(){
+     if(this.timePeriod=="AM"){return [
+    { name: "Quran Completion", title: 'Last Read Al-Quran : ', number: 55, per: "4%", image: 'assets/icon/islamic.png' },
+    { name: "Morning Adhkar", title: 'Evening Adhkar : ', number: 6, per: "76%", image: 'assets/icon/prayer.png' },
+    { name: "Quran Memorization Test", title: 'Last entry for Quran Memorization :', number: 66, per: "90%", image: 'assets/icon/prayer.png' }
+  ]}else{return [
+    { name: "Quran Completion", title: 'Last Read Al-Quran : ', number: 55, per: "4%", image: 'assets/icon/islamic.png' },
+    { name: "Evening Adhkar", title: 'Last Read Evening remembrance : ', number: 77, per: '23%', image: 'assets/icon/exam.png' },
+    { name: "Quran Memorization Test", title: 'Last entry for Quran Memorization :', number: 66, per: "90%", image: 'assets/icon/prayer.png' }
+  ]}
   }
   prayer_times(){
      

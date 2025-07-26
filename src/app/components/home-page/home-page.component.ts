@@ -6,7 +6,7 @@ import { AlertController } from '@ionic/angular';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { MainServiceService } from 'src/app/main-service/main/main-service.service';
 import { LocationAccuracy } from '@ionic-native/location-accuracy/ngx';
-
+import cron from 'node-cron';
 @Component({
   selector: 'app-home-page',
   templateUrl: './home-page.component.html',
@@ -31,7 +31,8 @@ time_now:any;
   currentTime: string = '';
   timePeriod: string = '';
  num=0;
-  //list_card: any[];
+  userRoles: Map<string, string> = new Map();
+  
   list_type: any[] = [
     { name: "Tesbeeh", image: 'assets/icon/beads.png' },
     { name: "Test", image: 'assets/icon/exam.png' },
@@ -67,21 +68,26 @@ time_now:any;
     private alertController: AlertController,
     private router: Router,
     private service: MainServiceService,
-  ) {   
-   setInterval(() => {
-    
-      const now = new Date(); 
-      this.time_now=now.toLocaleTimeString();
-   if (this.time_now.startsWith("12:00") && this.time_now.includes("AM")) {
-  this.updateTime(); console.log("منتصف الليل (00:00)"); 
-} else if (this.time_now.startsWith("12:00") && this.time_now.includes("PM")) {
-  this.updateTime();
-  console.log("الظهر (12:00 PM)");
-}
-    ;
-    }, 1000);
+  ) {
+  let lastPeriod = ''; 
 
-  }
+  setInterval(() => {
+    const now = new Date();
+    this.time_now = now.toLocaleTimeString('en-US');
+
+    
+    const currentPeriod = this.time_now.includes('AM') ? 'AM' : 'PM';
+
+  
+    if (lastPeriod && lastPeriod !== currentPeriod) {
+      this.updateTime(); 
+      console.log('🔔 تغيرت الفترة إلى:', currentPeriod);
+    }
+
+    lastPeriod = currentPeriod;
+
+  }, 1000); 
+}
 
  
     updateTime() {
@@ -207,52 +213,7 @@ async checkLocationEnabledغ() {
 
   await confirmAlert.present();
 }
-  // ✅ الحصول على الموقع وتحديد المدينة
-/* async checkLocationEnabled() {
-    try {
-      console.log('🔍 Requesting current position...');
 
-      this.position = await Geolocation.getCurrentPosition();
-
-      this.latitude = this.position.coords.latitude;
-      this.longitude = this.position.coords.longitude;
-
-      console.log('📍 Location:', this.latitude, this.longitude);
-      await this.getCityFromCoordinates(this.latitude, this.longitude);
-         
-/*const alert = await this.alertController.create({
-    header: 'الموقع',
-   message:'موافق على الوصول',
-    buttons: [
-      {
-        text: 'OK',
-        handler: async () => {
-    
-          console.log('تم الضغط على OK');
-
-          // مثال: استدعاء دالة أخرى
-          this.afterOkPressed();
-        }
-      },    {
-        text: 'no',
-        handler: async () => {
-    
-          console.log('تم الضغط على OK');
-
-          // مثال: استدعاء دالة أخرى
-          this.afterOkPressed();
-        }
-      }
-    ],
-  });
-  await alert.present();
-    
- 
-    } catch (error: any) {
-      console.error('❌ Error getting location', error);
-      await this.showAlertno('تعذر الحصول على الموقع. تحقق من الأذونات.');
-    }
-  }*/
  async checkLocationEnabled() {
   try {
     const perm = await Geolocation.checkPermissions();

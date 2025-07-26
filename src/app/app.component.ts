@@ -8,11 +8,11 @@ import { Platform } from '@ionic/angular';
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.scss']
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit {time_now:any;
   constructor(
     private platform: Platform,
     private translate: TranslateService
-  ) {
+  ) { 
     this.initializeApp();
   }
 

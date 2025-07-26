@@ -32,7 +32,7 @@ time_now:any;
   timePeriod: string = '';
  num=0;
   userRoles: Map<string, string> = new Map();
-  
+   lastPeriod = ''; 
   list_type: any[] = [
     { name: "Tesbeeh", image: 'assets/icon/beads.png' },
     { name: "Test", image: 'assets/icon/exam.png' },
@@ -69,7 +69,7 @@ time_now:any;
     private router: Router,
     private service: MainServiceService,
   ) {
-  let lastPeriod = ''; 
+ 
 
   setInterval(() => {
     const now = new Date();
@@ -78,13 +78,13 @@ time_now:any;
     
     const currentPeriod = this.time_now.includes('AM') ? 'AM' : 'PM';
 
-  
-    if (lastPeriod && lastPeriod !== currentPeriod) {
+  console.log(this.lastPeriod);console.log('currentPeriod'); console.log(currentPeriod);
+    if (this.lastPeriod !== currentPeriod) {
       this.updateTime(); 
-      console.log('🔔 تغيرت الفترة إلى:', currentPeriod);
+    
     }
-
-    lastPeriod = currentPeriod;
+ 
+    this.lastPeriod = currentPeriod;
 
   }, 1000); 
 }
@@ -96,8 +96,8 @@ time_now:any;
     const hour = now.getHours();
     const period = this.currentTime.includes('AM') ? 'AM' : (hour < 18 ? 'PM' : 'PM');
     this.timePeriod = period;
-   
-    console.log(this.timePeriod);
+   console.log('gggg');
+    
 
   }
   list_card(){
@@ -105,7 +105,7 @@ time_now:any;
     { name: "Quran Completion", title: 'Last Read Al-Quran : ', number: 55, per: "4%", image: 'assets/icon/islamic.png' },
     { name: "Morning Adhkar", title: 'Evening Adhkar : ', number: 6, per: "76%", image: 'assets/icon/prayer.png' },
     { name: "Quran Memorization Test", title: 'Last entry for Quran Memorization :', number: 66, per: "90%", image: 'assets/icon/prayer.png' }
-  ]}else{return [
+  ]}else if(this.timePeriod=="PM"){return [
     { name: "Quran Completion", title: 'Last Read Al-Quran : ', number: 55, per: "4%", image: 'assets/icon/islamic.png' },
     { name: "Evening Adhkar", title: 'Last Read Evening remembrance : ', number: 77, per: '23%', image: 'assets/icon/exam.png' },
     { name: "Quran Memorization Test", title: 'Last entry for Quran Memorization :', number: 66, per: "90%", image: 'assets/icon/prayer.png' }

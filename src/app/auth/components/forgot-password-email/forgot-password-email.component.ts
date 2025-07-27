@@ -31,8 +31,8 @@ otp(){
    this.isLoading=true;
 
     this.Service.send_otp(this.email).subscribe((data:any)=>{
-   this.isLoading=false;
-  },(e:HttpErrorResponse)=>{
+   this.isLoading=false;console.log(data);
+  },(e:HttpErrorResponse)=>{console.log('data');
    if(e.status===200){   localStorage.setItem('email',this.email); ;this.Service.otp_number=0;
     this.isLoading=false; this.router.navigate(['/otp-email']);}else{
      if(localStorage.getItem('lang')=='ar'){

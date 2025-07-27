@@ -8,6 +8,8 @@ import { ProfileDetailsComponent } from '../components/profile-details/profile-d
 import { SettingsComponent } from '../components/settings/settings.component';
 import { DeleteAccountComponent } from '../components/delete-account/delete-account.component';
 import { AddCalendarComponent } from '../components/add-calendar/add-calendar.component';
+import { QuranComponent } from '../quran/quran.component';
+
 
 
 
@@ -17,7 +19,8 @@ const routes: Routes = [
  {path:'profile-details',component:ProfileDetailsComponent},
  {path:'setting',component:SettingsComponent},
  {path:'delete',component:DeleteAccountComponent},
- {path:'add-calendar',component:AddCalendarComponent}
+ {path:'add-calendar',component:AddCalendarComponent},
+ {path:'quran',component:QuranComponent},
 ];
 
 @NgModule({

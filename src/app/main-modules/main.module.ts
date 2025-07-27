@@ -15,8 +15,11 @@ import { LocationAccuracy } from '@ionic-native/location-accuracy/ngx';
 import { AddCalendarComponent } from '../components/add-calendar/add-calendar.component';
 
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { QuranComponent } from '../quran/quran.component';
+
+
 @NgModule({
-  declarations: [HomePageComponent,ProfileComponent,ProfileDetailsComponent,SettingsComponent,DeleteAccountComponent,AddCalendarComponent ],
+  declarations: [QuranComponent,HomePageComponent,ProfileComponent,ProfileDetailsComponent,SettingsComponent,DeleteAccountComponent,AddCalendarComponent ],
   imports: [  CommonModule,
       IonicModule,
       FormsModule,
@@ -24,8 +27,8 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
       TranslateModule,
       NgxIntlTelInputModule,
       BrowserAnimationsModule,
-      MainRoutingModule
-   
+      MainRoutingModule,
+     
   ], schemas: [CUSTOM_ELEMENTS_SCHEMA],  providers: [LocationAccuracy,
     Geolocation
   ],

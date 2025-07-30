@@ -8,7 +8,7 @@ import { ProfileDetailsComponent } from '../components/profile-details/profile-d
 import { SettingsComponent } from '../components/settings/settings.component';
 import { DeleteAccountComponent } from '../components/delete-account/delete-account.component';
 import { AddCalendarComponent } from '../components/add-calendar/add-calendar.component';
-import { QuranComponent } from '../quran/quran.component';
+import { QuranComponent } from '../components/quran/quran/quran.component';
 
 
 

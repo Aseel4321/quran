@@ -15,11 +15,14 @@ import { LocationAccuracy } from '@ionic-native/location-accuracy/ngx';
 import { AddCalendarComponent } from '../components/add-calendar/add-calendar.component';
 
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { QuranComponent } from '../quran/quran.component';
+import { QuranComponent } from '../components/quran/quran/quran.component';
+import { PartComponent } from '../components/quran/part/part.component';
+import { SurahComponent } from '../components/quran/surah/surah.component';
+import { PageComponent } from '../components/quran/page/page.component';
 
 
 @NgModule({
-  declarations: [QuranComponent,HomePageComponent,ProfileComponent,ProfileDetailsComponent,SettingsComponent,DeleteAccountComponent,AddCalendarComponent ],
+  declarations: [PageComponent,SurahComponent,PartComponent,QuranComponent,HomePageComponent,ProfileComponent,ProfileDetailsComponent,SettingsComponent,DeleteAccountComponent,AddCalendarComponent ],
   imports: [  CommonModule,
       IonicModule,
       FormsModule,

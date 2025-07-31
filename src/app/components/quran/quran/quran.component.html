@@ -1,23 +1,23 @@
 <div style="display: flex;flex-direction: column;width: 100vw;height: 100vh;">
     <ion-icon name="arrow-forward"></ion-icon>
  <h1 style=" align-items: center;text-align: center;justify-content: center;">Quran</h1>
-<div style="margin-left: 14vw; margin-right: 14vw; height: 20vh;padding: 2%; background-color: #F5DA8C; border-radius: 15px;">
+<div style=" margin-left: 10vw; margin-right: 10vw; height: 37vw;padding-left: 5%;padding-right:5%;padding-top: 3%; background-color: #F5DA8C; border-radius: 15px;">
  <div style="display: flex;flex-direction: row;"><div style="display: flex;flex-direction:column;flex: 1;">
    <div style="display: flex; flex-direction: row; align-items: center;margin-bottom: 5%;">
   <img src="assets/icon/book.png" style="height: 4vw; width: 4vw; margin-right: 1vw;" />
-  <div>ddddd</div>
+  <div style="color: #686868;font-size: 3vw;font-weight: 100;">Last Read</div>
 </div>
 
-    <div >surah</div>
-    <div style="margin-top: 7%;margin-bottom: 7%;">Al - Fatihah</div>
+    <div style="font-size:3.3vw;margin-top: 3%;margin-bottom: 3%;">surah</div>
+    <div style="margin-top: 4%;margin-bottom: 10%;font-weight: bold;font-size: 5vw;">Al - Fatihah</div>
   <button style="border-radius: 12px; padding: 1vw; border: none; background-color: #E2E2E2B2;height: 8vw;">
-  <div style="display: flex; flex-direction: row; align-items: center;"> <div style="flex:4;">ddddd</div>
+  <div style="display: flex; flex-direction: row; align-items: center;"> <div style="flex:4;">Back to reading</div>
   <ion-icon name="arrow-forward"></ion-icon>
    
   </div>
 </button>
  </div> <div style="display: flex; justify-content: center; align-items: center; flex: 1; text-align: center;">
-  <img src="assets/icon/book1.png" style="height: 25vw; width: 25vw;" />
+  <img src="assets/icon/book1.png" style="height: 30vw; width: 30vw;" />
 </div></div>
 
 </div><div style="display: flex; flex-direction: row; justify-content: center;">
@@ -29,7 +29,7 @@
   {{ item }}
 </div>
 </div>
-<div style="flex: 1;background-color: blue;width: 100vw;height: 100vh;" >
+<div style="flex: 1;width: 100vw;height: 100vh;" >
  <app-surah *ngIf="show==='surah'"></app-surah>
   <app-page *ngIf="show==='page'"></app-page>
   <app-part *ngIf="show==='part'"></app-part>

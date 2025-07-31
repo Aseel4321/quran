@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./part.component.scss'],
 })
 export class PartComponent {
-
+user=['t','f']
   constructor() { }
 
 

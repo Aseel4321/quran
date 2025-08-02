@@ -19,10 +19,11 @@ import { QuranComponent } from '../components/quran/quran/quran.component';
 import { PartComponent } from '../components/quran/part/part.component';
 import { SurahComponent } from '../components/quran/surah/surah.component';
 import { PageComponent } from '../components/quran/page/page.component';
+import { NotificationsComponent } from '../components/notifications/notifications.component';
 
 
 @NgModule({
-  declarations: [PageComponent,SurahComponent,PartComponent,QuranComponent,HomePageComponent,ProfileComponent,ProfileDetailsComponent,SettingsComponent,DeleteAccountComponent,AddCalendarComponent ],
+  declarations: [NotificationsComponent,PageComponent,SurahComponent,PartComponent,QuranComponent,HomePageComponent,ProfileComponent,ProfileDetailsComponent,SettingsComponent,DeleteAccountComponent,AddCalendarComponent ],
   imports: [  CommonModule,
       IonicModule,
       FormsModule,

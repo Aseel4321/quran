@@ -1,0 +1,39 @@
+<ion-content class="login-content">
+<div style="display: flex;
+            height: 7%;
+            margin-top: 2%;
+    
+            flex-direction: row;
+            width: 100vw;
+            align-items: center;
+            box-sizing: border-box;
+           
+           ">
+
+  <!-- يسار -->
+<div style="flex: 1;margin-inline-start: 0%;align-items: end;text-align: end;"><img src="assets/icon/notification.png"
+         alt="Notification"
+         style="width: 8vw; height: 4vh;"></div>
+    
+    
+ 
+  <!-- النص في المنتصف -->
+  <div style="flex:2; text-align: center; font-weight: bold;margin-inline-end: 20%;">
+    notifications
+  </div>
+
+ 
+</div>
+
+<ion-datetime  [min]="minDate"
+[preferWheel]="false"
+   presentation="day-month"
+  [multiple]="true"
+  [value]=""
+  (ionChange)="onDatesSelected($event)">
+</ion-datetime>
+
+<p>عدد التواريخ المختارة: {{ selectedDates }}</p>
+
+
+</ion-content>

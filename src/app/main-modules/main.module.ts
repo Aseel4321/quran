@@ -20,11 +20,14 @@ import { PartComponent } from '../components/quran/part/part.component';
 import { SurahComponent } from '../components/quran/surah/surah.component';
 import { PageComponent } from '../components/quran/page/page.component';
 import { NotificationsComponent } from '../components/notifications/notifications.component';
+import { CalendarComponent } from '../components/calendar/calendar.component';
+import { CalendarModule } from 'ion2-calendar';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 
 
 @NgModule({
-  declarations: [NotificationsComponent,PageComponent,SurahComponent,PartComponent,QuranComponent,HomePageComponent,ProfileComponent,ProfileDetailsComponent,SettingsComponent,DeleteAccountComponent,AddCalendarComponent ],
-  imports: [  CommonModule,
+  declarations: [CalendarComponent,NotificationsComponent,PageComponent,SurahComponent,PartComponent,QuranComponent,HomePageComponent,ProfileComponent,ProfileDetailsComponent,SettingsComponent,DeleteAccountComponent,AddCalendarComponent ],
+  imports: [ CalendarModule, CommonModule, 
       IonicModule,
       FormsModule,
       ReactiveFormsModule,

@@ -10,6 +10,7 @@ import { DeleteAccountComponent } from '../components/delete-account/delete-acco
 import { AddCalendarComponent } from '../components/add-calendar/add-calendar.component';
 import { QuranComponent } from '../components/quran/quran/quran.component';
 import { NotificationsComponent } from '../components/notifications/notifications.component';
+import { CalendarComponent } from '../components/calendar/calendar.component';
 
 
 
@@ -22,7 +23,8 @@ const routes: Routes = [
  {path:'delete',component:DeleteAccountComponent},
  {path:'add-calendar',component:AddCalendarComponent},
  {path:'quran',component:QuranComponent},
- {path:'notifi',component:NotificationsComponent}
+ {path:'notifi',component:NotificationsComponent},
+ {path:'calendar',component:CalendarComponent}
 ];
 
 @NgModule({

@@ -12,6 +12,7 @@ import { AppComponent } from './app.component';
 import { AuthRoutingModule } from './auth/modules/auth-routing.module';
 import { Device } from '@ionic-native/device/ngx';
 import { AuthModule } from './auth/modules/auth.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -32,7 +33,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     BrowserModule,
     HttpClientModule,  
     IonicModule.forRoot(),
-    AppRoutingModule,AuthModule
+    AppRoutingModule,AuthModule, BrowserAnimationsModule
   ],
   providers: [Device],
   bootstrap: [AppComponent]

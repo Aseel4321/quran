@@ -3,3 +3,17 @@
   pointer-events: none;
   opacity: 0.5; /* للظهور كغير مفعل */
 }
+ion-datetime::part(calendar-day) {
+  transition: all 0.3s ease;
+}
+
+ion-datetime::part(calendar-day):hover {
+  background-color: #eeeeee;
+}
+/*ion-datetime {
+  --background: #f5f5f5;             
+  --color: #000000;                  
+  --ion-color-base: #6200ea;          
+  --ion-color-primary: #ff5722;      
+  --ion-color-contrast: #ffffff;      
+}*/

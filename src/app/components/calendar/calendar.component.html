@@ -32,6 +32,12 @@
   [value]=""
   (ionChange)="onDatesSelected($event)">
 </ion-datetime>
+<!--<ion-datetime
+  #myCalendar
+  presentation="date"
+  (ionRender)="customizeCalendarColors()"
+  (ionChange)="onDatesSelected($event)">
+</ion-datetime>!-->
 
 <p>عدد التواريخ المختارة: {{ selectedDates }}</p>
 

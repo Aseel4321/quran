@@ -5,8 +5,96 @@ import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angula
   templateUrl: './calendar.component.html',
   styleUrls: ['./calendar.component.scss'],
 })
-export class CalendarComponent implements AfterViewInit{  @ViewChild('myCalendar', { static: false }) myCalendar!: ElementRef;
-selectedDates: string[] = [];
+export class CalendarComponent implements AfterViewInit ,OnInit{
+ currentMonth: number;
+  currentYear: number;
+
+  monthDays: (Date | null)[] = [];
+  weekDays = ['الأحد', 'الإثنين', 'الثلاثاء', 'الأربعاء', 'الخميس', 'الجمعة', 'السبت'];
+  selectedDates:date[] = [];
+
+  selectedFullDate: string | null = null;
+
+  ngOnInit() {
+    const today = new Date();
+    this.currentMonth = today.getMonth();
+    this.currentYear = today.getFullYear();
+    this.generateMonth(this.currentYear, this.currentMonth);
+  }
+
+  generateMonth(year: number, month: number) {
+    const firstDay = new Date(year, month, 1);
+    const lastDay = new Date(year, month + 1, 0);
+    const days: (Date | null)[] = [];
+
+    // فراغات قبل أول يوم في الأسبوع (مراعاة أن الأحد = 0)
+    for (let i = 0; i < firstDay.getDay(); i++) {
+      days.push(null);
+    }
+
+    for (let d = 1; d <= lastDay.getDate(); d++) {
+      days.push(new Date(year, month, d));
+    }
+
+    this.monthDays = days;
+  }
+
+  prevMonth() {
+    if (this.currentMonth === 0) {
+      this.currentMonth = 11;
+      this.currentYear--;
+    } else {
+      this.currentMonth--;
+    }
+    this.generateMonth(this.currentYear, this.currentMonth);
+    this.selectedFullDate = null; // مسح التاريخ المختار عند تغير الشهر
+  }
+
+  nextMonth() {
+    if (this.currentMonth === 11) {
+      this.currentMonth = 0;
+      this.currentYear++;
+    } else {
+      this.currentMonth++;
+    }
+    this.generateMonth(this.currentYear, this.currentMonth);
+    this.selectedFullDate = null; // مسح التاريخ المختار عند تغير الشهر
+  }
+
+  getMonthName(monthIndex: number): string {
+    const monthNames = [
+      'يناير', 'فبراير', 'مارس', 'أبريل', 'مايو', 'يونيو',
+      'يوليو', 'أغسطس', 'سبتمبر', 'أكتوبر', 'نوفمبر', 'ديسمبر'
+    ];
+    return monthNames[monthIndex];
+  }
+
+  formatFullDate(date: Date): string {
+    const options: Intl.DateTimeFormatOptions = {
+      weekday: 'long',
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    };
+    return date.toLocaleDateString('ar-EG', options);
+  }
+
+  onDateClick(date: Date) {
+    if (!date) return;
+
+    const key = date.toISOString().split('T')[0];
+
+ this.selectedDates.push({date:this.formatFullDate(date),colors:[]});
+;console.log(this.selectedDates)
+    //this.selectedFullDate.push()
+  }
+
+  /*getDayColors(date: Date): string[] {
+    const key = date.toISOString().split('T')[0];
+    return this.selectedDates[key] || [];
+  }*/
+  @ViewChild('calendar', { static: false }) calendarRef!: ElementRef;  @ViewChild('myCalendar', { static: false }) myCalendar!: ElementRef;
+//selectedDates: string[] = [];
 
 minDate: string;
  ngAfterViewInit() {
@@ -24,18 +112,30 @@ customizeCalendarColors() {
     }
 
     const buttons = shadow.querySelectorAll('button');
-    console.log('أزرار داخل shadowRoot:', buttons);
 
     buttons.forEach((btn: HTMLElement, index: number) => {
-      console.log(`زر رقم ${index + 1}:`, btn.textContent?.trim());
+      // فقط إذا كان الزر يمثل يوم (يحتوي على data-day)
+      if (btn.hasAttribute('data-day')) {
+        // استمع للضغط عليه لتحديث اللون
+        btn.addEventListener('click', () => {
+          setTimeout(() => {
+            // احصل على جميع الأيام المختارة بعد التحديث
+            const activeButtons = shadow.querySelectorAll('.calendar-day-active');
 
-      // هنا نلون كل الأزرار بنفس اللون:
-      btn.style.backgroundColor = '#4caf50'; // أخضر
-      btn.style.color = 'white';
-      btn.style.borderRadius = '8px';
+            // نظف الكل وطبق اللون الجديد
+            activeButtons.forEach((activeBtn: any) => {
+              activeBtn.classList.remove('calendar-day-active');
+              activeBtn.style.backgroundColor = '#17ee34ff'; // اللون الأخضر بدل الأزرق
+              activeBtn.style.color = 'white';
+              activeBtn.style.borderRadius = '20%';
+            });
+          }, 10); // تأخير بسيط للسماح لـ DOM بالتحديث
+        });
+      }
     });
   });
 }
+
 
 
   constructor() {
@@ -51,13 +151,31 @@ onDatesSelected(event: any) {
   const value = event.detail.value;
   
   if (Array.isArray(value)) {
-    this.selectedDates = value;
+    //this.selectedDates = value;
     console.log('التواريخ المختارة:', this.selectedDates);
   } else {
     console.warn('التاريخ المفرد:', value);
   }
 }
- 
+ onDatesSelected1(event: any) {
+  const selectedValues = event.detail.value;
+  console.log('التواريخ المحددة:', selectedValues);
+
+  // ننتظر قليلًا حتى تنتهي DOM من التحديث
+  setTimeout(() => {
+    const hostEl = this.calendarRef.nativeElement;
+
+    // نحصل على كل الأيام المحددة (تحتوي على كلاس معين)
+    const activeDays = hostEl.shadowRoot?.querySelectorAll('.calendar-day-active');
+
+    activeDays?.forEach((day: any) => {
+      // نغير لون الخلفية (الدائرة)
+      //day.style.backgroundColor = '#2d5d4d'; // أخضر
+      day.style.color = 'white';             // لون الرقم داخل الدائرة
+      day.style.borderRadius = '50%';        // تأكيد أنها دائرية
+    });
+  }, 100); // تأخير بسيط للسماح للـ DOM بالتحديث
+}
 highlightDates() {
   const specialDate = '2025-08-10'; // اليوم المراد تمييزه
   requestAnimationFrame(() => {
@@ -74,4 +192,7 @@ highlightDates() {
 
 }
 
-
+ interface date{
+  date:string;
+  colors:[]
+ }

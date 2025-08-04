@@ -25,21 +25,51 @@
  
 </div>
 
-<ion-datetime  [min]="minDate"
+<!--<ion-datetime   size="cover"
+ class="custom-button"
 [preferWheel]="false"
    presentation="day-month"
   [multiple]="true"
   [value]=""
   (ionChange)="onDatesSelected($event)">
-</ion-datetime>
+</ion-datetime>!-->
 <!--<ion-datetime
-  #myCalendar
+  #myCalendar [min]="minDate" 
   presentation="date"
   (ionRender)="customizeCalendarColors()"
   (ionChange)="onDatesSelected($event)">
 </ion-datetime>!-->
+<div class="calendar-header">
+  <ion-button fill="clear" (click)="prevMonth()">⏮</ion-button>
+  <h4 (click)="nextMonth()" class="month-title">
+    {{ getMonthName(currentMonth) }} {{ currentYear }}
+  </h4>
+  <ion-button fill="clear" (click)="nextMonth()">⏭</ion-button>
+</div>
 
-<p>عدد التواريخ المختارة: {{ selectedDates }}</p>
+<!-- تقويم شهر واحد فقط -->
+<div class="calendar-grid">
+  <div class="week-days">
+    <div *ngFor="let day of weekDays" class="day-header">{{ day }}</div>
+  </div>
+
+  <div class="days-grid">
+    <div
+      *ngFor="let day of monthDays"
+      class="day-cell"
+      [ngClass]="{ empty: !day }"
+      (click)="onDateClick(day)"
+    >
+      <div *ngIf="day">
+        {{ day.getDate() }}
+   
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<p>عدد التواريخ المختارة: 📅 التاريخ المختار: {{selectedDates}}</p>
 
 
 </ion-content>

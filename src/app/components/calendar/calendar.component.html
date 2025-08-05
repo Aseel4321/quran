@@ -54,22 +54,21 @@
   </div>
 
   <div class="days-grid">
-    <div
+    <div 
       *ngFor="let day of monthDays"
       class="day-cell"
       [ngClass]="{ empty: !day }"
       (click)="onDateClick(day)"
     >
-      <div *ngIf="day">
-        {{ day.getDate() }}
-   
-      </div>
+     <div [style.color]="color_day(day)" *ngIf="day">
+  {{ day.getDate() }}
+</div>
     </div>
   </div>
 </div>
+<div style="display: flex;flex-direction:row;"><div>{{indx}}</div><ion-icon name= 'add-outline'></ion-icon> <ion-icon name='trash-outline'></ion-icon></div>
 
 
-<p>عدد التواريخ المختارة: 📅 التاريخ المختار: {{selectedDates}}</p>
 
 
 </ion-content>

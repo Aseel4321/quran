@@ -8,7 +8,7 @@ import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angula
 export class CalendarComponent implements AfterViewInit ,OnInit{
  currentMonth: number;
   currentYear: number;
-
+indx:any;
   monthDays: (Date | null)[] = [];
   weekDays = ['الأحد', 'الإثنين', 'الثلاثاء', 'الأربعاء', 'الخميس', 'الجمعة', 'السبت'];
   selectedDates:date[] = [];
@@ -83,9 +83,9 @@ export class CalendarComponent implements AfterViewInit ,OnInit{
     if (!date) return;
 
     const key = date.toISOString().split('T')[0];
-
- this.selectedDates.push({date:this.formatFullDate(date),colors:[]});
-;console.log(this.selectedDates)
+this.indx=this.formatFullDate(date);
+ //this.selectedDates.push({date:,colors:[]});
+console.log(this.indx);
     //this.selectedFullDate.push()
   }
 
@@ -136,7 +136,10 @@ customizeCalendarColors() {
   });
 }
 
+color_day(day){
 
+if(this.formatFullDate(day)==this.indx){return '#8F8FA7'}
+}
 
   constructor() {
     // ضبط الحد الأدنى لتاريخ اليوم (مثلاً)

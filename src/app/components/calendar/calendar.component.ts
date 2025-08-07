@@ -8,14 +8,15 @@ import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angula
 export class CalendarComponent implements AfterViewInit ,OnInit{
  currentMonth: number;
   currentYear: number;
-indx:any;
+indx:string='';
   monthDays: (Date | null)[] = [];
-  weekDays = ['الأحد', 'الإثنين', 'الثلاثاء', 'الأربعاء', 'الخميس', 'الجمعة', 'السبت'];
+  weekDays = localStorage.getItem('lang')=='ar'?['الأحد', 'الإثنين', 'الثلاثاء', 'الأربعاء', 'الخميس', 'الجمعة', 'السبت']:['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+;
   selectedDates:date[] = [];
 
   selectedFullDate: string | null = null;
 
-  ngOnInit() {
+  ngOnInit() {this.date();
     const today = new Date();
     this.currentMonth = today.getMonth();
     this.currentYear = today.getFullYear();
@@ -38,7 +39,7 @@ indx:any;
 
     this.monthDays = days;
   }
-
+user=['t','f']
   prevMonth() {
     if (this.currentMonth === 0) {
       this.currentMonth = 11;
@@ -49,7 +50,24 @@ indx:any;
     this.generateMonth(this.currentYear, this.currentMonth);
     this.selectedFullDate = null; // مسح التاريخ المختار عند تغير الشهر
   }
-
+date(){const days = localStorage.getItem('lang')=='ar'?['الأحد', 'الإثنين', 'الثلاثاء', 'الأربعاء', 'الخميس', 'الجمعة', 'السبت']:['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+const months = localStorage.getItem('lang')=='ar'?[
+      'يناير', 'فبراير', 'مارس', 'أبريل', 'مايو', 'يونيو',
+      'يوليو', 'أغسطس', 'سبتمبر', 'أكتوبر', 'نوفمبر', 'ديسمبر'
+    ]:[
+  'January', 'February', 'March', 'April', 'May', 'June',
+  'July', 'August', 'September', 'October', 'November', 'December'
+];
+  if(this.indx==''){
+   const today = new Date();
+const dayIndex = today.getDay(); // 0-6
+const dayName = days[dayIndex];
+const date = today.getDate();
+const monthName = months[today.getMonth()];
+const year = today.getFullYear();
+this.indx = `${dayName}, ${monthName} ${date}, ${year}`;
+  }
+}
   nextMonth() {
     if (this.currentMonth === 11) {
       this.currentMonth = 0;
@@ -62,14 +80,18 @@ indx:any;
   }
 
   getMonthName(monthIndex: number): string {
-    const monthNames = [
+    const monthNames = localStorage.getItem('lang')=='ar'?[
       'يناير', 'فبراير', 'مارس', 'أبريل', 'مايو', 'يونيو',
       'يوليو', 'أغسطس', 'سبتمبر', 'أكتوبر', 'نوفمبر', 'ديسمبر'
-    ];
+    ]:[
+  'January', 'February', 'March', 'April', 'May', 'June',
+  'July', 'August', 'September', 'October', 'November', 'December'
+]
+;
     return monthNames[monthIndex];
   }
 
-  formatFullDate(date: Date): string {
+  formatFullDatear(date: Date): string {
     const options: Intl.DateTimeFormatOptions = {
       weekday: 'long',
       year: 'numeric',
@@ -78,12 +100,21 @@ indx:any;
     };
     return date.toLocaleDateString('ar-EG', options);
   }
+formatFullDateen(date: Date): string {
+  const options: Intl.DateTimeFormatOptions = {
+    weekday: 'long',
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+  };
+  return date.toLocaleDateString('en-US', options);
+}
 
   onDateClick(date: Date) {
     if (!date) return;
 
     const key = date.toISOString().split('T')[0];
-this.indx=this.formatFullDate(date);
+this.indx=localStorage.getItem('lang')=='ar'?this.formatFullDatear(date):this.formatFullDateen(date);
  //this.selectedDates.push({date:,colors:[]});
 console.log(this.indx);
     //this.selectedFullDate.push()
@@ -138,7 +169,7 @@ customizeCalendarColors() {
 
 color_day(day){
 
-if(this.formatFullDate(day)==this.indx){return '#8F8FA7'}
+if(this.formatFullDatear(day)==this.indx){return '#8F8FA7'}else if(this.formatFullDateen(day)==this.indx){return '#8F8FA7'}
 }
 
   constructor() {

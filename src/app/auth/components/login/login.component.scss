@@ -5,6 +5,11 @@
   justify-content: flex-start;
   align-items: center; 
   min-height: 100vh;
+--background: linear-gradient(217deg,
+   			#003333,#037575,   /* يبدأ اللون الداكن ويمتد حتى 20٪ */
+  	hsl(180, 88%, 7%) ,  /* الثاني يبدأ عند 20٪ ويصل إلى 60٪ */
+  	#000000 /* اللون الثالث */
+);
   
 
    /* --background: linear-gradient(

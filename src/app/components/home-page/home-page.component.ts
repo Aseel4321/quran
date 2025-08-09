@@ -31,8 +31,23 @@ time_now:any;
   currentTime: string = '';
   timePeriod: string = '';
  num=0;
-  userRoles: Map<string, string> = new Map();
+  userRoles: Map<string,string> = new Map();
    lastPeriod = ''; 
+   prayerName=localStorage.getItem('lang')=='ar'?[
+  "الفجر",
+  "الشروق",
+  "الظهر",
+  "العصر",
+  "المغرب",
+  "العشاء"
+]:[
+  "Fajr",
+  "Sunrise",
+  "Dhuhr",
+  "Asr",
+  "Maghrib",
+  "Isha"
+];
   list_type: any[] = [
     { name: "Tesbeeh", image: 'assets/icon/beads.png' },
     { name: "Test", image: 'assets/icon/exam.png' },

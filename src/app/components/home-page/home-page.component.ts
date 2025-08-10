@@ -100,7 +100,7 @@ time_now:any;
     }
  
     this.lastPeriod = currentPeriod;
-
+   this.prayer_times();
   }, 1000); 
 }
 
@@ -127,6 +127,7 @@ time_now:any;
   ]}
   }
   prayer_times(){
+    
      
     this.service.prayer_times({
   "country":this.country_api,
@@ -138,7 +139,8 @@ time_now:any;
        
         console.log(this.prayer_name);
        Object.keys(data).forEach((key, index)=> {
-        if(index<6){this.times.push({ name: key, time: data[key],image:this.list_time1[index] });}
+        if(this.times.length===6){}else{  if(index<6){this.times.push({ name: key, time: data[key],image:this.list_time1[index] });}}
+      
   
 });console.log(this.times);
     },(error: HttpErrorResponse)=>{
@@ -321,7 +323,7 @@ getCityFromCoordinates(latitude: number, longitude: number) {
       this.country_api = this.removeDiacritics(country);
       this.city = `${this.city_api}, ${this.country_api}`;
       console.log(this.city);
-      this.prayer_times();
+      //this.prayer_times();
     } else {
       this.city = 'الموقع غير معروف';
     }

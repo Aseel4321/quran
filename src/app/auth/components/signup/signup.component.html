@@ -1,6 +1,10 @@
-<ion-content class="login-content"><div>{{dateOfBirth}}</div> 
-  <form >
-    <div class="logo" style="display: flex; align-items: center;flex-direction: row-reverse; margin-top: 10%;margin-bottom: 0%;">
+<ion-content class="login-content">
+  <form ><img 
+  src="assets/icon/rectt.png" 
+  alt="Login Image" 
+  style="display: block; margin: 0 0 -10px 10%; width: 90%;"
+>
+    <div class="logo" style="display: flex; align-items: center;flex-direction: row-reverse; margin-top:1%;margin-bottom: 0%;">
       <img [src]="img" alt="Login Image" style="width: 50px; height: 50px; border-radius: 50%;margin-left: 0%;">
       <div>
         <h1 style="margin-right: 0%;">{{ 'Registration' | translate }}</h1>
@@ -83,7 +87,7 @@
             [style.backgroundColor]="color(i)"
           ></div>
         </div>
- <div [style.color]="password_color" style="height:0.9vh;font-size:2vw;margin-top: 0%;margin-bottom: 2%">{{Text}}</div>
+ <div [style.color]="password_color" style="height:0.9vh;font-size:2vw;margin-top: 0%;margin-bottom: 3%">{{Text}}</div>
       </div><div class="input-box">
       <ion-icon name="lock-closed-outline" class="icon"  slot="start"></ion-icon>
       <ion-input  

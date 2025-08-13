@@ -3,18 +3,21 @@ import { Router } from '@angular/router';
 import { AuthService } from '../../auth-service/auth.service';
 import { AlertController, Platform } from '@ionic/angular';
 import { HttpErrorResponse } from '@angular/common/http';
+import { ScreenOrientation } from '@capacitor/screen-orientation';
+import { Capacitor } from '@capacitor/core';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
-  constructor(private router: Router,private Service:AuthService,private alertController: AlertController,private platform: Platform) {
+  constructor(private screenOrientation: ScreenOrientation,private router: Router,private Service:AuthService,private alertController: AlertController,private platform: Platform) {
     this.platform.backButton.subscribeWithPriority(9999, () => {
     
   });
   }
-
+private lockInProgress = false;
   name:any='aaa';  isLoading:any=false;
   password_bool:any=false;
   password_icon:string='eye-off-outline';
@@ -47,11 +50,23 @@ if(this.password_bool==false){
     this.password_icon='eye-off-outline';
 }
 }
-
-  ngOnInit() {
-    //localStorage.setItem('login',"true");
-  }
-
+ngOnInit() {this.lockInProgress = false;  this.platform.ready().then(() => {
+      if (Capacitor.isNativePlatform() && !this.lockInProgress) {
+        this.lockInProgress = true;
+        // نضيف تأخير بسيط لتفادي مشاكل التداخل
+        setTimeout(() => {
+          ScreenOrientation.lock({ orientation: 'portrait' })
+            .then(() => console.log('Orientation locked'))
+            .catch(err => {
+              console.error('Lock failed', err);
+            });
+        }, 150);
+      }
+    });
+}
+ionViewWillLeave() {
+ 
+}
 login() {
   this.isLoading = true;
 

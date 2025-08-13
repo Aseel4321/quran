@@ -42,6 +42,8 @@ import { MainModule } from 'src/app/main-modules/main.module';
     TranslateModule,
     NgxIntlTelInputModule,
     BrowserAnimationsModule
-  ]
+  ], providers: [
+    ScreenOrientation
+  ],
 })
 export class AuthModule {}

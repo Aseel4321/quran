@@ -3,6 +3,9 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../../auth-service/auth.service';
 import { Platform } from '@ionic/angular';
+import { Capacitor } from '@capacitor/core';
+// ✅ الصحيح
+import { ScreenOrientation } from '@capacitor/screen-orientation';
 
 
 @Component({
@@ -12,7 +15,7 @@ import { Platform } from '@ionic/angular';
 })
 export class SignupComponent implements OnInit { isModalOpen = false;
 
-  constructor(
+  constructor(private screenOrientation: ScreenOrientation,
     private router: Router,
     private Service: AuthService,
     private platform: Platform
@@ -22,7 +25,7 @@ export class SignupComponent implements OnInit { isModalOpen = false;
         console.log('زر الرجوع معطّل في هذه الصفحة');
       });
     });}
-
+private lockInProgress = false;
 list_langPassword=localStorage.getItem('lang')=="ar"?["كلمه السر ضعيفه","قوه متوسطه","كلمه سر قويه","كلمه سر ممتازه"]:["Weak password",'Moderate strength','Strong password','Very strong password'];
 list_langMatch=localStorage.getItem('lang')=="ar"?["كلمه المرور متطابقه","كلمه المرور غير متطابقه",]:['Matched Password',"Not Matched Password"];
 list_langCountries=localStorage.getItem('lang')=="ar"?["الاردن"]:["Jordan"];
@@ -177,10 +180,19 @@ console.log(this.dob);
 }
   ngOnInit() {
     
-    //const now = new Date();
-    //this.today = now.toISOString().split('T')[0]; // YYYY-MM-DD
-    //this.dob = `yyyy`;
-    //this.birthDate = this.formatReadableDate(this.today);
+  this.lockInProgress = false;  this.platform.ready().then(() => {
+      if (Capacitor.isNativePlatform() && !this.lockInProgress) {
+        this.lockInProgress = true;
+        // نضيف تأخير بسيط لتفادي مشاكل التداخل
+        setTimeout(() => {
+          ScreenOrientation.lock({ orientation: 'portrait' })
+            .then(() => console.log('Orientation locked'))
+            .catch(err => {
+              console.error('Lock failed', err);
+            });
+        }, 150);
+      }
+    });
 
   }
   login(){

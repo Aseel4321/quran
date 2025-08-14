@@ -14,7 +14,7 @@
 
 
 <div class="logo" 
-     style="display: flex; align-items: center; gap: 10px; flex-direction: row-reverse; margin-top: 3%;">
+     style="display: flex; align-items: center; gap: 10px; flex-direction: row-reverse; margin-top: 1.5%;">
   <img src="assets/icon/mosque.png" alt="Login Image" class="img" >
   <div >
     <h1>{{ 'WELCOME_BACK' | translate }}</h1>
@@ -83,6 +83,11 @@
       {{ 'NO_ACCOUNT' | translate }}
       <a (click)="signup_nav()">{{ 'SIGN_UP' | translate }}</a>
     </p>
-    
+<img 
+  src="assets/icon/Group89.png" 
+  alt="Login Image" 
+  class="login-image"
+  style="width: 50%; position: fixed; bottom: 0; left:  0; z-index: 10;text-align: left;"
+/>
   </form>
 </ion-content>

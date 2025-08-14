@@ -17,6 +17,9 @@ export class LoginComponent implements OnInit {
     
   });
   }
+  initialHeight: number = window.innerHeight;
+keyboardOpen: boolean = false;
+
 private lockInProgress = false;
   name:any='aaa';  isLoading:any=false;
   password_bool:any=false;
@@ -63,6 +66,31 @@ ngOnInit() {this.lockInProgress = false;  this.platform.ready().then(() => {
         }, 150);
       }
     });
+      this.lockInProgress = false;
+
+  this.platform.ready().then(() => {
+    if (Capacitor.isNativePlatform() && !this.lockInProgress) {
+      this.lockInProgress = true;
+      setTimeout(() => {
+        ScreenOrientation.lock({ orientation: 'portrait' })
+          .then(() => console.log('Orientation locked'))
+          .catch(err => console.error('Lock failed', err));
+      }, 150);
+    }
+
+    // مراقبة فتح الكيبورد
+    window.addEventListener('resize', () => {
+      const currentHeight = window.innerHeight;
+      this.keyboardOpen = currentHeight < this.initialHeight - 100;
+
+      // تحديث CSS يدويًا لو أردت
+      const img = document.querySelector('.login-image2') as HTMLElement;
+      if (img) {
+        img.style.cssText = this.style_image2();
+      }
+    });
+  });
+
 }
 ionViewWillLeave() {
  
@@ -116,5 +144,19 @@ login() {
 
 
   
+}
+style_image2() {
+  if (this.keyboardOpen) {
+    return 'display: none;';
+  }
+
+  const baseStyle = 'width: 50%; position: fixed; bottom: 0; z-index: 10;';
+  const lang = localStorage.getItem('lang');
+
+  if (lang === 'ar') {
+    return baseStyle + ' right: 0;';
+  } else {
+    return baseStyle + ' left: 0;';
+  }
 }
 }

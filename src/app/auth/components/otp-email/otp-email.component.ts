@@ -1,15 +1,16 @@
-import { AfterViewInit, Component, QueryList, ViewChildren } from '@angular/core';
+import { AfterViewInit, Component, OnInit, QueryList, ViewChildren } from '@angular/core';
 import { Router } from '@angular/router';
-import { AlertController, IonInput } from '@ionic/angular';
+import { AlertController, IonInput, Platform } from '@ionic/angular';
 import { AuthService } from '../../auth-service/auth.service';
 import { HttpErrorResponse } from '@angular/common/http';
-
+import { Capacitor } from '@capacitor/core';
+import { ScreenOrientation } from '@capacitor/screen-orientation';
 @Component({
   selector: 'app-otp-email',
   templateUrl: './otp-email.component.html',
   styleUrls: ['./otp-email.component.scss'],
 })
-export class OtpEmailComponent implements AfterViewInit {
+export class OtpEmailComponent implements AfterViewInit ,OnInit {
   name: any = "ggg"; 
   disabled = true;
   isLoading = false;
@@ -22,10 +23,39 @@ isLoadingotp = false;
     2: false,
     3: false
   };
+  initialHeight: number = window.innerHeight;
+keyboardOpen: boolean = false;
 
+private lockInProgress = false;
   @ViewChildren(IonInput) inputs!: QueryList<IonInput>;
 
-  constructor(private router: Router, private Service: AuthService,private alertController: AlertController) {}
+  constructor(private screenOrientation: ScreenOrientation,private platform: Platform,private router: Router, private Service: AuthService,private alertController: AlertController) {}
+  ngOnInit(): void {
+        this.lockInProgress = false;
+
+  this.platform.ready().then(() => {
+    if (Capacitor.isNativePlatform() && !this.lockInProgress) {
+      this.lockInProgress = true;
+      setTimeout(() => {
+        ScreenOrientation.lock({ orientation: 'portrait' })
+          .then(() => console.log('Orientation locked'))
+          .catch(err => console.error('Lock failed', err));
+      }, 150);
+    }
+
+    // مراقبة فتح الكيبورد
+    window.addEventListener('resize', () => {
+      const currentHeight = window.innerHeight;
+      this.keyboardOpen = currentHeight < this.initialHeight - 100;
+
+      // تحديث CSS يدويًا لو أردت
+      const img = document.querySelector('.login-image2') as HTMLElement;
+      if (img) {
+        img.style.cssText = this.style_image2();
+      }
+    });
+  });
+  }
 
   ngAfterViewInit() {
     setTimeout(() => {
@@ -113,6 +143,19 @@ title() {
   } else {
     return { 'font-family': '"Lucida Console", Monaco, monospace' };
   } 
+}style_image2() {
+  if (this.keyboardOpen) {
+    return 'display: none;';
+  }
+
+  const baseStyle = 'width: 100%; position: fixed; bottom: 0; z-index: 10;';
+  const lang = localStorage.getItem('lang');
+
+  if (lang === 'ar') {
+    return baseStyle + ' right: 0;';
+  } else {
+    return baseStyle + ' left: 0;';
+  }
 }
 }
 /*otp(){

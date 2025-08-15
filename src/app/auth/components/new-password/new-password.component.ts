@@ -1,20 +1,51 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../auth-service/auth.service';
 import { Router } from '@angular/router';
-
+import { Capacitor } from '@capacitor/core';
+import { Platform } from '@ionic/angular';
+import { ScreenOrientation } from '@capacitor/screen-orientation';
 @Component({
   selector: 'app-new-password',
   templateUrl: './new-password.component.html',
   styleUrls: ['./new-password.component.scss'],
 })
-export class NewPasswordComponent {
+export class NewPasswordComponent implements OnInit{
 text_password='';
 Text:any='';
 password_color='';
+  initialHeight: number = window.innerHeight;
+keyboardOpen: boolean = false;
 
+private lockInProgress = false;
 list_langPassword=localStorage.getItem('lang')=="ar"?["كلمه السر ضعيفه","قوه متوسطه","كلمه سر قويه","كلمه سر ممتازه"]:["Weak password",'Moderate strength','Strong password','Very strong password'];
 list_langMatch=localStorage.getItem('lang')=="ar"?["كلمه المرور متطابقه","كلمه المرور غير متطابقه",]:["Not Matched Password",'Matched Password',];
-  constructor(private router: Router,private Service:AuthService) {}
+  constructor(private screenOrientation: ScreenOrientation,private platform: Platform,private router: Router,private Service:AuthService) {}
+   ngOnInit(): void {
+  this.lockInProgress = false;
+
+  this.platform.ready().then(() => {
+    this.initialHeight = window.innerHeight; // حفظ الارتفاع الأصلي
+
+    if (Capacitor.isNativePlatform() && !this.lockInProgress) {
+      this.lockInProgress = true;
+      setTimeout(() => {
+        ScreenOrientation.lock({ orientation: 'portrait' })
+          .then(() => console.log('Orientation locked'))
+          .catch(err => console.error('Lock failed', err));
+      }, 150);
+    }
+
+    window.addEventListener('resize', () => {
+      const currentHeight = window.innerHeight;
+      this.keyboardOpen = currentHeight < this.initialHeight - 100;
+
+      const img = document.querySelector('.login-image2') as HTMLElement;
+      if (img) {
+        img.style.cssText = this.style_image2();
+      }
+    });
+  });
+}
     isLoading:any=false;
   
     onKeyup_password(event:any){
@@ -212,4 +243,19 @@ title() {
 
 validation(){
  if(this.repassword.text_password!==''&&this.password!==""&&(this.repassword.text_password==this.password)&&this.num.length==5){return 'login-button-activee';}else{return 'login-button';}}
+
+ style_image2() {
+  if (this.keyboardOpen) {
+    return 'display: none;';
+  }
+
+  const baseStyle = 'width: 100%; position: fixed; bottom: 0; z-index: 10;';
+  const lang = localStorage.getItem('lang');
+
+  if (lang === 'ar') {
+    return baseStyle + ' right: 0;';
+  } else {
+    return baseStyle + ' left: 0;';
+  }
+}
 }

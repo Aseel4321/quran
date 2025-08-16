@@ -65,6 +65,8 @@ time_now:any;
     { name: "aseel", image: "assets/icon/cloud.png", time: '17:8' },
     { name: "aseel", image: "assets/icon/moon.png", time: '17:8' }
   ];
+  initialHeight: number = window.innerHeight;
+keyboardOpen: boolean = false;
   list_time1: any[] = [
    "assets/icon/sunny.png",
    "assets/icon/sunrise.png",
@@ -75,7 +77,16 @@ time_now:any;
   ]; ngOnInit(): void {   
    
  this.checkLocationEnabled();
+   window.addEventListener('resize', () => {
+      const currentHeight = window.innerHeight;
+      this.keyboardOpen = currentHeight < this.initialHeight - 100;
 
+      // تحديث CSS يدويًا لو أردت
+      const img = document.querySelector('.login-image2') as HTMLElement;
+      if (img) {
+        img.style.cssText = this.style_image2();
+      }
+    });
  
   }
   constructor(private locationAccuracy: LocationAccuracy,
@@ -451,6 +462,34 @@ afterOkPressed() {
    removeDiacritics(text: string): string {
   // Unicode range for Arabic diacritics: 064B–0652
   return text.replace(/[\u064B-\u0652]/g, "");
+}
+style_image2() {
+  if (this.keyboardOpen) {
+    return 'display: none;';
+  }
+
+  const baseStyle = 'width: 50%; position: fixed; bottom: 0; z-index: 10;';
+  const lang = localStorage.getItem('lang');
+
+  if (lang === 'ar') {
+    return baseStyle + ' right: 0;';
+  } else {
+    return baseStyle + ' left: 0;';
+  }
+}
+style_image3() {
+  if (this.keyboardOpen) {
+    return 'display: none;';
+  }
+
+  const baseStyle = 'width: 50%; position: fixed; bottom: 0; z-index: 10;';
+  const lang = localStorage.getItem('lang');
+
+  if (lang === 'ar') {
+    return baseStyle + 'left : 0;';
+  } else {
+    return baseStyle + 'right: 0;';
+  }
 }
 }
 interface Model {

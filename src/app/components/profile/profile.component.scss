@@ -84,7 +84,11 @@ input:focus {
   /* تغيير لون الأيقونات عند التحويم */
 
 }
-
+:host-context([dir="rtl"]) .login-image2 {
+  transform: rotateY(180deg);
+}[dir="rtl"] .login-image2 {
+  transform: rotateY(180deg);
+}
 .input-border {
   flex: 1;
   font: size 1rem;;

@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { Capacitor } from '@capacitor/core';
 import { Platform } from '@ionic/angular';
 import { ScreenOrientation } from '@capacitor/screen-orientation';
+import { Keyboard } from '@capacitor/keyboard';
 @Component({
   selector: 'app-new-password',
   templateUrl: './new-password.component.html',
@@ -15,7 +16,10 @@ Text:any='';
 password_color='';
   initialHeight: number = window.innerHeight;
 keyboardOpen: boolean = false;
+ isKeyboardOpen: boolean = false;
 
+  keyboardWillShowListener: any;
+  keyboardWillHideListener: any;
 private lockInProgress = false;
 list_langPassword=localStorage.getItem('lang')=="ar"?["كلمه السر ضعيفه","قوه متوسطه","كلمه سر قويه","كلمه سر ممتازه"]:["Weak password",'Moderate strength','Strong password','Very strong password'];
 list_langMatch=localStorage.getItem('lang')=="ar"?["كلمه المرور متطابقه","كلمه المرور غير متطابقه",]:["Not Matched Password",'Matched Password',];
@@ -45,6 +49,18 @@ list_langMatch=localStorage.getItem('lang')=="ar"?["كلمه المرور متط
       }
     });
   });
+   this.keyboardWillShowListener = Keyboard.addListener('keyboardWillShow', () => {
+      this.isKeyboardOpen = true; // السماح بالتمرير
+    });
+
+    this.keyboardWillHideListener = Keyboard.addListener('keyboardWillHide', () => {
+      this.isKeyboardOpen = false;
+       const activeElement = document.activeElement as HTMLElement;
+    if (activeElement && typeof activeElement.blur === 'function') {
+      activeElement.blur();
+    }
+       // منع التمرير عند إغلاق الكيبورد
+    });
 }
     isLoading:any=false;
   

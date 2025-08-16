@@ -1,17 +1,21 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, ViewChild, AfterViewInit, OnInit } from '@angular/core';
-import { IonInput } from '@ionic/angular';
+import { Capacitor } from '@capacitor/core';
+import { IonInput, Platform } from '@ionic/angular';
 import { MainServiceService } from 'src/app/main-service/main/main-service.service';
-
+import { ScreenOrientation } from '@capacitor/screen-orientation';
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.scss'],
 })
-export class ProfileComponent implements AfterViewInit ,OnInit{  user:any 
+export class ProfileComponent implements AfterViewInit ,OnInit{ isModalOpen = false; user:any 
   name: string = '';
   email: string = '';
   gender:any;
+   initialHeight: number = window.innerHeight;
+  keyboardOpen: boolean = false;
+  private lockInProgress = false;
   selectedGender: string = 'male'; 
   phoneNumber: string = '';
   selectedCountryCode = '+962';
@@ -25,7 +29,7 @@ export class ProfileComponent implements AfterViewInit ,OnInit{  user:any
   
     
   ];
-constructor( private service: MainServiceService){
+constructor(private platform: Platform, private service: MainServiceService){
   
 }
   ngOnInit(): void {
@@ -33,7 +37,30 @@ constructor( private service: MainServiceService){
     console.log(this.user.gender);
     this.gender=this.user.gender;this.birthDate=this.user.dob;
     if(this.user.gender=='MALE'){this.selectedGender='male';}else{this.selectedGender='female';}
-   
+     this.lockInProgress = false;
+
+  this.platform.ready().then(() => {
+    this.initialHeight = window.innerHeight; // حفظ الارتفاع الأصلي
+
+    if (Capacitor.isNativePlatform() && !this.lockInProgress) {
+      this.lockInProgress = true;
+      setTimeout(() => {
+        ScreenOrientation.lock({ orientation: 'portrait' })
+          .then(() => console.log('Orientation locked'))
+          .catch(err => console.error('Lock failed', err));
+      }, 150);
+    }
+
+    window.addEventListener('resize', () => {
+      const currentHeight = window.innerHeight;
+      this.keyboardOpen = currentHeight < this.initialHeight - 100;
+
+      const img = document.querySelector('.login-image2') as HTMLElement;
+      if (img) {
+        img.style.cssText = this.style_image2();
+      }
+    });
+  });
   }
    remove_phone(){
 
@@ -157,7 +184,20 @@ enableInput(field: string) {
   }
 }
 
+style_image2() {
+  if (this.keyboardOpen) {
+    return 'display: none;';
+  }
 
+  const baseStyle = 'width: 100%; position: fixed; bottom: 0; z-index: 10;';
+  const lang = localStorage.getItem('lang');
+
+  if (lang === 'ar') {
+    return baseStyle + ' right: 0;';
+  } else {
+    return baseStyle + ' left: 0;';
+  }
+}
 
 valid(){
   if(this.name==''&&this.email==""&&this.phonenumber==''&&this.user.gender==this.gender&&this.user.dob==this.birthDate){

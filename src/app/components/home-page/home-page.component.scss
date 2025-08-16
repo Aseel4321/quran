@@ -70,6 +70,15 @@ ion-menu::part(container) {width: 60%;
   box-shadow: 4px 0px 16px rgba(142, 144, 150, 0.18);
 }
 
-
+:host-context([dir="rtl"]) .login-image2 {
+  transform: rotateY(180deg);
+}[dir="rtl"] .login-image2 {
+  transform: rotateY(180deg);
+}
+:host-context([dir="ltr"]) .login-image3 {
+  transform: rotateY(180deg);
+}[dir="ltr"] .login-image3 {
+  transform: rotateY(180deg);
+}
 
 

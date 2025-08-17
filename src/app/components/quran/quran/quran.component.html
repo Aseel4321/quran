@@ -1,6 +1,14 @@
-<div style="display: flex;flex-direction: column;width: 100vw;height: 100vh;">
-    <ion-icon name="arrow-forward"></ion-icon>
- <h1 style=" align-items: center;text-align: center;justify-content: center;">Quran</h1>
+<div style="display: flex;flex-direction: column;width: 100vw;height: 100vh;"> 
+  <div style="display: flex; flex-direction: row;text-align: center;align-items: center;height: 12vw;width:100vw ;">
+  <img 
+    src="assets/icon/Group68.png" 
+    alt="Login Image" 
+    class="login-image"
+    
+    style="display: block; width: 37%;margin-inline-end: 65%;"
+  />
+</div>
+  <div style="margin-top: 0% ;"> <h1 style=" align-items: center;text-align: center;justify-content: center;">Quran</h1>
 <div style=" margin-left: 10vw; margin-right: 10vw; height: 37vw;padding-left: 5%;padding-right:5%;padding-top: 3%; background-color: #F5DA8C; border-radius: 15px;">
  <div style="display: flex;flex-direction: row;"><div style="display: flex;flex-direction:column;flex: 1;">
    <div style="display: flex; flex-direction: row; align-items: center;margin-bottom: 5%;">
@@ -34,5 +42,12 @@
   <app-page *ngIf="show==='page'"></app-page>
   <app-part *ngIf="show==='part'"></app-part>
 
-</div>
+</div></div> 
+   <img 
+  src="assets/icon/Group3.png" 
+   class="login-image2"
+  alt="Login Image" 
+ [style]="style_image2()"
+
+/>
 </div>

@@ -189,7 +189,7 @@ style_image2() {
     return 'display: none;';
   }
 
-  const baseStyle = 'width: 100%; position: fixed; bottom: 0; z-index: 10;';
+  const baseStyle = 'width: 50%; position: fixed; bottom: 0; z-index: 10;';
   const lang = localStorage.getItem('lang');
 
   if (lang === 'ar') {

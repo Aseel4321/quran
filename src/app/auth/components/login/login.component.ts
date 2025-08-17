@@ -5,7 +5,7 @@ import { AlertController, Platform } from '@ionic/angular';
 import { HttpErrorResponse } from '@angular/common/http';
 import { ScreenOrientation } from '@capacitor/screen-orientation';
 import { Capacitor } from '@capacitor/core';
-
+import { Keyboard } from '@capacitor/keyboard';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -19,8 +19,13 @@ export class LoginComponent implements OnInit {
   }
   initialHeight: number = window.innerHeight;
 keyboardOpen: boolean = false;
+  
+ isKeyboardOpen: boolean = false;
 
+  keyboardWillShowListener: any;
+  keyboardWillHideListener: any;
 private lockInProgress = false;
+
   name:any='aaa';  isLoading:any=false;
   password_bool:any=false;
   password_icon:string='eye-off-outline';
@@ -90,7 +95,18 @@ ngOnInit() {this.lockInProgress = false;  this.platform.ready().then(() => {
       }
     });
   });
+   this.keyboardWillShowListener = Keyboard.addListener('keyboardWillShow', () => {
+      this.isKeyboardOpen = true; // السماح بالتمرير
+    });
 
+    this.keyboardWillHideListener = Keyboard.addListener('keyboardWillHide', () => {
+      this.isKeyboardOpen = false;
+       const activeElement = document.activeElement as HTMLElement;
+    if (activeElement && typeof activeElement.blur === 'function') {
+      activeElement.blur();
+    }
+       // منع التمرير عند إغلاق الكيبورد
+    });
 }
 ionViewWillLeave() {
  

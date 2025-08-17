@@ -6,7 +6,7 @@ import { Platform } from '@ionic/angular';
 import { Capacitor } from '@capacitor/core';
 // ✅ الصحيح
 import { ScreenOrientation } from '@capacitor/screen-orientation';
-
+import { Keyboard } from '@capacitor/keyboard';
 
 @Component({
   selector: 'app-signup',
@@ -25,7 +25,15 @@ export class SignupComponent implements OnInit { isModalOpen = false;
         console.log('زر الرجوع معطّل في هذه الصفحة');
       });
     });}
+     initialHeight: number = window.innerHeight;
+keyboardOpen: boolean = false;
+  
+ isKeyboardOpen: boolean = false;
+
+  keyboardWillShowListener: any;
+  keyboardWillHideListener: any;
 private lockInProgress = false;
+
 list_langPassword=localStorage.getItem('lang')=="ar"?["كلمه السر ضعيفه","قوه متوسطه","كلمه سر قويه","كلمه سر ممتازه"]:["Weak password",'Moderate strength','Strong password','Very strong password'];
 list_langMatch=localStorage.getItem('lang')=="ar"?["كلمه المرور متطابقه","كلمه المرور غير متطابقه",]:['Matched Password',"Not Matched Password"];
 list_langCountries=localStorage.getItem('lang')=="ar"?["الاردن"]:["Jordan"];
@@ -33,6 +41,7 @@ list_langCountries=localStorage.getItem('lang')=="ar"?["الاردن"]:["Jordan"
   Text_color="";
   name:string='';
   Text:any='';
+
    text_password='';
    text_numpassword="";
    phonenumber='';
@@ -58,6 +67,7 @@ img:string='assets/icon/man1.png';
   birthDate: string = 'NaN-NaN-NaN';  // التاريخ المختار كـ نص
   selectedCountryCode = '+962';
   phoneNumber = '';
+ 
   gender: string = 'MALE';
   showPassword = false;
   showConfirm = false;
@@ -179,7 +189,16 @@ console.log(this.dob);
 
 }
   ngOnInit() {
-    
+        window.addEventListener('resize', () => {
+      const currentHeight = window.innerHeight;
+      this.keyboardOpen = currentHeight < this.initialHeight - 100;
+
+      // تحديث CSS يدويًا لو أردت
+      const img = document.querySelector('.login-image2') as HTMLElement;
+      if (img) {
+        img.style.cssText = this.style_image2();
+      }
+    });
   this.lockInProgress = false;  this.platform.ready().then(() => {
       if (Capacitor.isNativePlatform() && !this.lockInProgress) {
         this.lockInProgress = true;
@@ -193,7 +212,42 @@ console.log(this.dob);
         }, 150);
       }
     });
+this.lockInProgress = false;
 
+  this.platform.ready().then(() => {
+    if (Capacitor.isNativePlatform() && !this.lockInProgress) {
+      this.lockInProgress = true;
+      setTimeout(() => {
+        ScreenOrientation.lock({ orientation: 'portrait' })
+          .then(() => console.log('Orientation locked'))
+          .catch(err => console.error('Lock failed', err));
+      }, 150);
+    }
+
+    // مراقبة فتح الكيبورد
+    window.addEventListener('resize', () => {
+      const currentHeight = window.innerHeight;
+      this.keyboardOpen = currentHeight < this.initialHeight - 100;
+
+      // تحديث CSS يدويًا لو أردت
+      const img = document.querySelector('.login-image2') as HTMLElement;
+      if (img) {
+        img.style.cssText = this.style_image2();
+      }
+    });
+  });
+   this.keyboardWillShowListener = Keyboard.addListener('keyboardWillShow', () => {
+      this.isKeyboardOpen = true; // السماح بالتمرير
+    });
+
+    this.keyboardWillHideListener = Keyboard.addListener('keyboardWillHide', () => {
+      this.isKeyboardOpen = false;
+       const activeElement = document.activeElement as HTMLElement;
+    if (activeElement && typeof activeElement.blur === 'function') {
+      activeElement.blur();
+    }
+       // منع التمرير عند إغلاق الكيبورد
+    });
   }
   login(){
     this.router.navigate(['/login']);
@@ -352,5 +406,19 @@ this.password_color='#90EE90';
 this.password_color='#006400';
         }
       }
+}
+style_image2() {
+  if (this.keyboardOpen) {
+    return 'display: none;';
+  }
+
+  const baseStyle = 'width: 40%; position: fixed; bottom: 0; z-index: 10;';
+  const lang = localStorage.getItem('lang');
+
+  if (lang === 'ar') {
+    return baseStyle + ' right: 0;';
+  } else {
+    return baseStyle + ' left: 0;';
+  }
 }
 }

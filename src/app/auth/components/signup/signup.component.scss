@@ -12,8 +12,17 @@
 }
 .icon{margin-inline-end:0%;}
 
-
-
+:host-context([dir="rtl"]) .login-image2 {
+  transform: rotateY(180deg);
+}[dir="rtl"] .login-image2 {
+  transform: rotateY(180deg);
+}
+:host-context([dir="rtl"]) .login-image {
+  transform: rotateY(180deg);
+}[dir="rtl"] .login-image {
+  transform: rotateY(180deg);
+}
+.login-image{display: block; width: 90%;margin-inline-start: 10%;}
 p {
   margin-top: 0; /* يمنع إضافة مسافة من الأعلى */
   font-size: 1em;
@@ -164,7 +173,7 @@ ion-label {
   font-size: 18px;
   text-shadow: 1px 1px 2px #000;
   padding: 12px 30px;
-  margin-top: 20px;
+  margin-top: 10px;
   width: 80%;
   display: block;
   margin-left: auto;
@@ -181,7 +190,7 @@ ion-label {
   font-size: 18px;
   text-shadow: 1px 1px 2px #000;
   padding: 12px 30px;
-  margin-top: 20px;
+  margin-top: 10px;
   width: 80%;
   display: block;
   margin-left: auto;

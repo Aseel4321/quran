@@ -32,6 +32,8 @@
   "Registration":"إنشاء حساب",
    "Male":"ذكر",
  "Female":"انثى",
+"Didntreceive":"لم يصل الرمز؟ " ,
+"SendtoEmail":"اعاده الارسال ",
   "otp": {
     "title": "رمز التحقق",
     "verify": "تحقق!",
@@ -41,4 +43,6 @@
     "resendAlt": "إرسال إلى الهاتف",
     "button": "متابعة"
   }
+ 
 }
+  

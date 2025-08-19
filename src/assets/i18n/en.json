@@ -33,6 +33,8 @@
  "Registration":"Registration",
  "Male":"Male",
  "Female":"Female",
+ "Didntreceive":"Didn't receive ?" ,
+"SendtoEmail":"Send to Email ",
   "otp": {
     "title": "OTP",
     "verify": "Verify!",

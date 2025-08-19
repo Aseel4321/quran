@@ -23,11 +23,11 @@
     </div>
 
     <p class="resend" (click)="otp()">
-      لم يصل الرمز؟ <a class="email-link">اعاده الارسال</a>
+      {{ 'Didntreceive' | translate }}<a class="email-link">{{ 'SendtoEmail' | translate }} </a>
     </p>
-<div style="height: 5px;"> <div *ngIf="isLoadingotp" class="loading">
+<!--<div style="height: 5px;"> <div *ngIf="isLoadingotp" class="loading">
       <img src="assets/icon/hold-on.gif" alt="Login Image" class="loading-image" />
-    </div></div>
+    </div></div>!-->
    
 
     <div class="fle">
@@ -43,6 +43,7 @@
   <img 
   src="assets/icon/Group3.png" 
   alt="Login Image" 
+  class="login-image2"
  [style]="style_image2()"
 
 />

@@ -5,6 +5,7 @@ import { AuthService } from '../../auth-service/auth.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Capacitor } from '@capacitor/core';
 import { ScreenOrientation } from '@capacitor/screen-orientation';
+import { Keyboard } from '@capacitor/keyboard';
 @Component({
   selector: 'app-otp-email',
   templateUrl: './otp-email.component.html',
@@ -16,7 +17,9 @@ export class OtpEmailComponent implements AfterViewInit ,OnInit {
   isLoading = false;
 isLoadingotp = false;
   code: string = '';
-
+   isKeyboardOpen: boolean = false;
+  keyboardWillShowListener: any;
+  keyboardWillHideListener: any;
   num: { [key: number]: boolean } = {
     0: false,
     1: false,
@@ -54,7 +57,18 @@ private lockInProgress = false;
         img.style.cssText = this.style_image2();
       }
     });
-  });
+  }); this.keyboardWillShowListener = Keyboard.addListener('keyboardWillShow', () => {
+      this.isKeyboardOpen = true; // السماح بالتمرير
+    });
+
+    this.keyboardWillHideListener = Keyboard.addListener('keyboardWillHide', () => {
+      this.isKeyboardOpen = false;
+       const activeElement = document.activeElement as HTMLElement;
+    if (activeElement && typeof activeElement.blur === 'function') {
+      activeElement.blur();
+    }
+       // منع التمرير عند إغلاق الكيبورد
+    });
   }
 
   ngAfterViewInit() {

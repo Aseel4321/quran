@@ -22,7 +22,7 @@ keyboardOpen: boolean = false;
   keyboardWillHideListener: any;
 private lockInProgress = false;
 list_langPassword=localStorage.getItem('lang')=="ar"?["كلمه السر ضعيفه","قوه متوسطه","كلمه سر قويه","كلمه سر ممتازه"]:["Weak password",'Moderate strength','Strong password','Very strong password'];
-list_langMatch=localStorage.getItem('lang')=="ar"?["كلمه المرور متطابقه","كلمه المرور غير متطابقه",]:["Not Matched Password",'Matched Password',];
+list_langMatch=localStorage.getItem('lang')=="ar"?["كلمه المرور متطابقه","كلمه المرور غير متطابقه",]:['Matched Password',"Not Matched Password"];
   constructor(private screenOrientation: ScreenOrientation,private platform: Platform,private router: Router,private Service:AuthService) {}
    ngOnInit(): void {
   this.lockInProgress = false;
@@ -216,7 +216,7 @@ color_password() {
       color:  '#006400',       
               'align-items': 'center',
               'text-align': 'center',
-         'font-size':'4vw '
+         'font-size':'2vw '
          
        
       
@@ -226,7 +226,7 @@ color_password() {
       color: '#FF0000',       
        'align-items': 'center',
   'text-align': 'center',
-  'font-size':'4vw '
+  'font-size':'2vw '
          
         
     };
@@ -241,9 +241,9 @@ if(this.num.length==1){
 
 this.password_color="#FF0000";
 }else if(this.num.length==2){
-this.password_color='#FFFF00';
+this.password_color='#a8a814ff';
         }else if(this.num.length==3){
-this.password_color='#FFFF00';
+this.password_color='#3ca737ff';
         }else if(this.num.length==4){
 this.password_color='#006400';
         }

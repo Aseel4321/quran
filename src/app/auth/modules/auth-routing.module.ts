@@ -20,7 +20,7 @@ import { NewPasswordComponent } from '../components/new-password/new-password.co
 
 
 const routes: Routes = [ 
-       { path: '', component:OtpEmailComponent},
+       { path: '', component:ProfileComponent},
        { path: 'login', component:LoginComponent},
        { path: 'signup', component: SignupComponent },
        { path: 'splash-screen', component: SplashScreenComponent },

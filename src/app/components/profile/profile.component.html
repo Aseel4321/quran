@@ -1,5 +1,4 @@
-
-<ion-content class="login-content">
+<!--<ion-content class="login-content">
   <form #loginForm="ngForm">
     <br /> <ion-icon  name="arrow-back-outline"></ion-icon>
   
@@ -11,8 +10,8 @@
       <img src="assets/icon/moslem-woman.png" alt="Login Image" style="width:35%; height: 35%; border-radius: 50%;">
     </div>
 
-    <!-- الاسم -->
- <!-- الاسم -->
+
+
 <ion-item class="input-box">
   <ion-icon name="person-outline" slot="start"></ion-icon>
   <ion-input
@@ -21,13 +20,13 @@
     [(ngModel)]="name"
     (ionInput)="onKeyup_name($event)"
     [readonly]="true"
-    placeholder="{{user.fullName}}"
+  
     type="text">
   </ion-input>
   <ion-icon name="pencil" slot="end" (mousedown)="enableInput('name')"></ion-icon>
 </ion-item>
 
-<!-- البريد -->
+
 <ion-item class="input-box">
   <ion-icon name="mail-outline" slot="start"></ion-icon>
   <ion-input
@@ -36,13 +35,13 @@
     [(ngModel)]="email"
     (ionInput)="onKeyup_email($event)"
     [readonly]="true"
-    placeholder="{{user.email}}"
+
     type="text">
   </ion-input>
   <ion-icon name="pencil" slot="end" (mousedown)="enableInput('email')"></ion-icon>
 </ion-item>
 
-<!-- الهاتف -->
+
 <ion-item class="input-box">
   <ion-select interface="alert" name="countryCode" [(ngModel)]="selectedCountryCode" [placeholder]="selectedCountryCode">
     <ion-select-option *ngFor="let country of countries" [value]="country.dial_code">
@@ -56,7 +55,7 @@
     [(ngModel)]="phonenumber"
     (ionInput)="onKeyup_phone($event)"
     [readonly]="true"
-    placeholder="{{user.phone}}"
+  
     type="tel">
   </ion-input>
   <ion-icon name="pencil" slot="end" (mousedown)="enableInput('phone')"></ion-icon>
@@ -100,7 +99,7 @@
       </ion-row>
     </ion-grid>
 
-    <!-- زر الدخول -->
+  
     <button [class]="valid()" type="submit" (click)="update()">
       {{ 'LOGIN' | translate }}
     </button>
@@ -112,5 +111,115 @@
  [style]="style_image2()"
 />
 
+  </form>
+</ion-content>*/
+<ion-content class="login-content">
+  <form #loginForm="ngForm">
+    <br /> <ion-icon  name="arrow-back-outline"></ion-icon>
+  
+    <h1 class="title">
+      {{ 'Profile' | translate }}
+    </h1>
+
+    <div class="logo" class="logo">
+      <img src="assets/icon/moslem-woman.png" alt="Login Image" style="width:35%; height: 35%; border-radius: 50%;">
+    </div>!-->
+
+  
+   <ion-content class="login-content">
+  <form #loginForm="ngForm">
+    <br /> <ion-icon  name="arrow-back-outline"></ion-icon>
+  
+    <h1 [ngStyle]="title()">
+      {{ 'Profile' | translate }}
+    </h1>
+
+    <div class="logo" class="logo">
+      <img src="assets/icon/moslem-woman.png" alt="Login Image" style="width:35%; height: 35%; border-radius: 50%;">
+    </div>
+
+    <!-- الاسم -->
+    <div class="input-box">
+      <ion-icon name="person-outline" slot="start"></ion-icon>
+      <ion-input
+        #nameInput
+        [(ngModel)]="name"
+        name="name"
+        readonly
+        type="text"  
+        placeholder="{{ 'NAME' | translate }}" 
+      ></ion-input>
+      <ion-icon name="pencil" slot="end" (mousedown)="enableInput('name')"></ion-icon>
+    </div>
+
+    <div class="input-box">
+      <ion-icon name="mail-outline" slot="start"></ion-icon>
+      <ion-input
+        #emailInput
+        [(ngModel)]="email"
+        name="email"
+        readonly
+        type="email"
+        placeholder="{{ 'EMAIL' | translate }}" 
+      ></ion-input>
+      <ion-icon name="pencil" slot="end" (mousedown)="enableInput('email')"></ion-icon>
+    </div>
+
+    
+    <div class="input-box">
+      <ion-select interface="alert" name="countryCode" [(ngModel)]="selectedCountryCode" [placeholder]="selectedCountryCode">
+        <ion-select-option *ngFor="let country of countries" [value]="country.dial_code">
+          {{ country.name }} ({{ country.dial_code }})
+        </ion-select-option>
+      </ion-select>
+      <ion-input
+        #phoneInput
+        [(ngModel)]="phoneNumber"
+        name="phone"
+        readonly
+        type="tel"
+        placeholder="{{ 'Phone' | translate }}"
+      ></ion-input>
+      <ion-icon name="pencil" slot="end" (mousedown)="enableInput('phone')"></ion-icon>
+    </div>
+    <ion-grid>
+      <ion-row>
+        <ion-col>      <ion-label position="floating" style="margin-inline-start:30%;font-weight: 200;">{{ 'Date_Of_Birth' | translate }}</ion-label>
+<ion-datetime-button datetime="datetime"></ion-datetime-button>
+
+<ion-modal [keepContentsMounted]="true" [(isOpen)]="isModalOpen">
+  <ng-template>
+    <ion-datetime
+      id="datetime"
+      presentation="date"
+      [(ngModel)]="dateOfBirth"
+      (ionChange)="onDateChangee($event)"
+      show-default-buttons="true"
+    ></ion-datetime>
+  </ng-template>
+</ion-modal></ion-col>
+
+
+        <ion-col size="6" class="gender-buttons">
+          <ion-segment value="custom">
+            <ion-segment-button value="custom">
+              <ion-label>{{ 'Male' | translate }}</ion-label>
+            </ion-segment-button>
+            <ion-segment-button value="segment">
+              <ion-label>{{ 'Femal' | translate }}</ion-label>
+            </ion-segment-button>
+          </ion-segment>
+        </ion-col>
+      </ion-row>
+      
+    </ion-grid>
+
+    <!-- زر الدخول -->
+    <button class="login-button-activee" type="submit">
+      {{ 'LOGIN' | translate }}
+    </button>
+
+
+  
   </form>
 </ion-content>

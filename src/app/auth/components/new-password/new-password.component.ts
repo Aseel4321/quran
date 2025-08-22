@@ -258,7 +258,7 @@ title() {
 }
 
 validation(){
- if(this.repassword.text_password!==''&&this.password!==""&&(this.repassword.text_password==this.password)&&this.num.length==5){return 'login-button-activee';}else{return 'login-button';}}
+ if(this.repassword.text_password!==''&&this.password!==""&&(this.repassword.text_password==this.password)&&this.num.length==4){return 'login-button-activee';}else{return 'login-button';}}
 
  style_image2() {
   if (this.keyboardOpen) {

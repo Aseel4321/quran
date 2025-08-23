@@ -13,6 +13,7 @@ import { OtpEmailComponent } from 'src/app/auth/components/otp-email/otp-email.c
 import { RestPasswordComponent } from '../components/rest-password/rest-password.component';
 import { ProfileComponent } from 'src/app/components/profile/profile.component';
 import { NewPasswordComponent } from '../components/new-password/new-password.component';
+import { DeleteAccountComponent } from 'src/app/components/delete-account/delete-account.component';
 
 
 
@@ -20,7 +21,7 @@ import { NewPasswordComponent } from '../components/new-password/new-password.co
 
 
 const routes: Routes = [ 
-       { path: '', component:NewPasswordComponent},
+       { path: '', component:DeleteAccountComponent},
        { path: 'login', component:LoginComponent},
        { path: 'signup', component: SignupComponent },
        { path: 'splash-screen', component: SplashScreenComponent },

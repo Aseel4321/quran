@@ -5,10 +5,14 @@
   justify-content: center; 
   align-items: center; 
   min-height: 100vh;
- 
 
 
 
+:host-context([dir="rtl"]) .login-image2 {
+  transform: rotateY(180deg);
+}[dir="rtl"] .login-image2 {
+  transform: rotateY(180deg);
+}
 
 p {
   margin-top: 0; 
@@ -40,33 +44,43 @@ display: flex; align-items: center;
 .imgload{width: 65px; height: 65px; border-radius: 10%;}
 h1{margin-inline-end: 15%;margin-inline-start: 0%;color:#A51010 ;}
 .img{width: 60px; height:60px;margin-inline-end: 0%;}
-.input-box {height: 45px;margin-top: 0%;margin-bottom:3%;
+.input-box {
+  margin-inline-start: 6%;
   --background: #fff;
+  --padding-start: 2px;
+  --inner-padding-end: 2px;
+
+  border: 2px solid #e8e5e5;
+  border-radius: 25px;
+  height: 45px;
+  width: 85vw;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2%;
   display: flex;
   align-items: center;
-  border: 2px solid #e8e5e5; 
-  border-radius:25px;
-  padding: 0 10px; 
-  margin-left: 9%;
-  margin-right: 9%;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  padding: 0 8px; /* إضافة padding داخلي للحاوية لتوفير مسافة ثابتة */
 
-
-
-
-  ion-icon {
-    font-size:1rem; 
-    
-    padding: 10px; 
-
-    border-radius: 50%; 
-    transition: background-color 0.3s ease, color 0.3s ease;
+  ion-icon.icon-start {
+    margin-left: 0; /* إزالة المسافة السالبة */
+    margin-right: 6px; /* إضافة مسافة بين الأيقونة والبداية */
+    font-size: 1.2rem;
   }
 
- 
+  ion-icon.icon-end {
+    margin-left: 6px; /* مسافة بين الإدخال والأيقونة اليمنى */
+    margin-right: 0;
+    font-size: 1.2rem;
+  }
 
+  ion-input {
+    padding: 0;
+    flex: 1; /* يأخذ المساحة المتبقية */
+    min-width: 0;
+  }
 }
+
+
+
 
 .input-border {
   flex: 1;

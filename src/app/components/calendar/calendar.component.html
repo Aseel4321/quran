@@ -11,16 +11,14 @@
            ">
 
   <!-- يسار -->
-<div style="flex: 1;margin-inline-start: 0%;align-items: end;text-align: end;"><img src="assets/icon/notification.png"
-         alt="Notification"
-         style="width: 8vw; height: 4vh;"></div>
+ <div style="display: flex;flex-direction: row;margin-inline-start:5%; margin-top: 15%;"><ion-icon name="arrow-back-outline"></ion-icon></div>
     
     
  
   <!-- النص في المنتصف -->
-  <div style="flex:2; text-align: center; font-weight: bold;margin-inline-end: 20%;">
+  <!--<div style="flex:2; text-align: center; font-weight: bold;margin-inline-end: 20%;">
     notifications
-  </div>
+  </div>!-->
 
  
 </div>
@@ -66,7 +64,16 @@
     </div>
   </div>
 </div>
-<div style="display: flex;flex-direction:row;"><div>{{indx}}</div><ion-icon name= 'add-outline'></ion-icon> <ion-icon name='trash-outline'></ion-icon></div>
+<div class="action-row">
+  <div style="margin-inline-start: 10%;">{{indx}}</div>
+  
+  <img src="assets/icon/addd.png"
+         alt="Notification"
+        style="margin-inline-start:25%;height:8% ;width: 8%;">
+ <img src="assets/icon/removee.png"
+         alt="Notification"
+     style="height:8% ;width: 8%;"  >
+</div>
 
 <div style="width: 100vw;">
   <div style="margin-bottom: 2%;margin-top: 2%; margin-left: 5%;margin-right: 5%; height:7vh;background-color: #E8E0C8;border-radius: 45px;" *ngFor="let user of user;"></div>

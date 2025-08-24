@@ -27,7 +27,7 @@ p {
   height: 15%; 
   margin-bottom: 6%;
 display: flex; align-items: center; 
- flex-direction: row; margin-top: 5%;
+ flex-direction: row; margin-top:10%;
  justify-content: center;
  h1 {
 
@@ -58,26 +58,27 @@ h1{margin-inline-end: 15%;margin-inline-start: 0%;color:#A51010 ;}
   margin-bottom: 2%;
   display: flex;
   align-items: center;
-  padding: 0 8px; /* إضافة padding داخلي للحاوية لتوفير مسافة ثابتة */
+  padding: 0 8px;
 
   ion-icon.icon-start {
-    margin-left: 0; /* إزالة المسافة السالبة */
-    margin-right: 6px; /* إضافة مسافة بين الأيقونة والبداية */
+    margin-inline-start: 0;
+    margin-inline-end: 6px;
     font-size: 1.2rem;
   }
 
   ion-icon.icon-end {
-    margin-left: 6px; /* مسافة بين الإدخال والأيقونة اليمنى */
-    margin-right: 0;
+    margin-inline-start: 6px;
+    margin-inline-end: 0;
     font-size: 1.2rem;
   }
 
   ion-input {
     padding: 0;
-    flex: 1; /* يأخذ المساحة المتبقية */
+    flex: 1;
     min-width: 0;
   }
 }
+
 
 
 

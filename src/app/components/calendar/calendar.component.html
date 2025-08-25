@@ -65,19 +65,32 @@
   </div>
 </div>
 <div class="action-row">
-  <div style="margin-inline-start: 10%;">{{indx}}</div>
-  
+  <div>{{ indx }}</div>
+<div style="display: flex; flex-direction: row; width: 50%; height: 50%; justify-content: end;">
   <img src="assets/icon/addd.png"
-         alt="Notification"
-        style="margin-inline-start:25%;height:8% ;width: 8%;">
- <img src="assets/icon/removee.png"
-         alt="Notification"
-     style="height:8% ;width: 8%;"  >
+       alt="Add Icon"
+       style="height: 60%; width: 10%; margin-inline-end: 3%;">
+
+  <img src="assets/icon/removee.png"
+       alt="Remove Icon"
+       style="height: 50%; width: 10%; ">
+</div>
+
+
 </div>
 
 <div style="width: 100vw;">
-  <div style="margin-bottom: 2%;margin-top: 2%; margin-left: 5%;margin-right: 5%; height:7vh;background-color: #E8E0C8;border-radius: 45px;" *ngFor="let user of user;"></div>
+  <div *ngFor="let user of user;"
+       style="display: flex; justify-content: flex-end; align-items: center; padding-right: 5%; margin: 2% 5%; height: 7vh; background-color: #E8E0C8; border-radius: 45px;">
+
+    <ion-toggle 
+      style="--track-width: 2vw; --track-height: 3vw; --handle-width: 3vw; --handle-height: 4vw;">
+    </ion-toggle>
+
+  </div>
 </div>
+
+
 
 
 </ion-content>

@@ -39,7 +39,7 @@ indx:string='';
 
     this.monthDays = days;
   }
-user=['t','f']
+user=['t','f','f','g','g','g','t','f','f','g','g','g','t','f','f','g','g','g']
   prevMonth() {
     if (this.currentMonth === 0) {
       this.currentMonth = 11;

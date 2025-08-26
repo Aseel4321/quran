@@ -9,7 +9,7 @@
 
 
 <ion-item class="input-box">
-  <ion-icon name="mail" class="icon-start" slot="start"></ion-icon>
+  <ion-icon name="password" class="icon-start" slot="start"></ion-icon>
   <ion-input 
     placeholder="{{ 'PASSWORD' | translate }}" 
     [type]="password_type"
@@ -17,7 +17,7 @@
     required
     [(ngModel)]="password">
   </ion-input>
-  <ion-icon (click)="eye()" name="close" class="icon-end" slot="end"></ion-icon>
+  <ion-icon (click)="eye()" [name]="password_icon" slot="end"></ion-icon>
 </ion-item>
 
     <br />

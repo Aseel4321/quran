@@ -14,6 +14,7 @@ import { RestPasswordComponent } from '../components/rest-password/rest-password
 import { ProfileComponent } from 'src/app/components/profile/profile.component';
 import { NewPasswordComponent } from '../components/new-password/new-password.component';
 import { DeleteAccountComponent } from 'src/app/components/delete-account/delete-account.component';
+import { AddCalendarComponent } from 'src/app/components/add-calendar/add-calendar.component';
 
 
 
@@ -21,7 +22,7 @@ import { DeleteAccountComponent } from 'src/app/components/delete-account/delete
 
 
 const routes: Routes = [ 
-       { path: '', component:DeleteAccountComponent},
+       { path: '', component:AddCalendarComponent},
        { path: 'login', component:LoginComponent},
        { path: 'signup', component: SignupComponent },
        { path: 'splash-screen', component: SplashScreenComponent },

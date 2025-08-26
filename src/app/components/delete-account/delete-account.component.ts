@@ -67,7 +67,7 @@ private lockInProgress = false;
     });}
 remove(){
 
-    this.email='';
+    this.password='';
 }
 delete(){const user = JSON.parse(localStorage.getItem('User'));
    this.isLoading=true;

@@ -11,6 +11,7 @@ import { AddCalendarComponent } from '../components/add-calendar/add-calendar.co
 import { QuranComponent } from '../components/quran/quran/quran.component';
 import { NotificationsComponent } from '../components/notifications/notifications.component';
 import { CalendarComponent } from '../components/calendar/calendar.component';
+import { TasbeehComponent } from '../components/tasbeeh/tasbeeh.component';
 
 
 
@@ -24,7 +25,7 @@ const routes: Routes = [
  {path:'add-calendar',component:AddCalendarComponent},
  {path:'quran',component:QuranComponent},
  {path:'notifi',component:NotificationsComponent},
- {path:'calendar',component:CalendarComponent}
+ {path:'calendar',component:CalendarComponent},{path:'tasbeeh',component:TasbeehComponent}
 ];
 
 @NgModule({

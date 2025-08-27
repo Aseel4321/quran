@@ -15,6 +15,7 @@ import { ProfileComponent } from 'src/app/components/profile/profile.component';
 import { NewPasswordComponent } from '../components/new-password/new-password.component';
 import { DeleteAccountComponent } from 'src/app/components/delete-account/delete-account.component';
 import { AddCalendarComponent } from 'src/app/components/add-calendar/add-calendar.component';
+import { QuranComponent } from 'src/app/components/quran/quran/quran.component';
 
 
 
@@ -22,7 +23,7 @@ import { AddCalendarComponent } from 'src/app/components/add-calendar/add-calend
 
 
 const routes: Routes = [ 
-       { path: '', component:AddCalendarComponent},
+       { path: '', component:QuranComponent},
        { path: 'login', component:LoginComponent},
        { path: 'signup', component: SignupComponent },
        { path: 'splash-screen', component: SplashScreenComponent },

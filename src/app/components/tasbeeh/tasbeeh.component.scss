@@ -1,0 +1,9 @@
+:host-context([dir="ltr"]) .login-image {
+  transform: rotateY(180deg);
+}[dir="ltr"] .login-image {
+  transform: rotateY(180deg);
+}:host-context([dir="rtl"]) .login-image2 {
+  transform: rotateY(180deg);
+}[dir="rtl"] .login-image2 {
+  transform: rotateY(180deg);
+}

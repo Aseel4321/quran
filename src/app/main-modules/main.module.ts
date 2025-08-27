@@ -23,11 +23,12 @@ import { NotificationsComponent } from '../components/notifications/notification
 import { CalendarComponent } from '../components/calendar/calendar.component';
 import { CalendarModule } from 'ion2-calendar';
 import { MatDatepickerModule } from '@angular/material/datepicker';
+import { TasbeehComponent } from '../components/tasbeeh/tasbeeh.component';
 
 
 @NgModule({
-  declarations: [CalendarComponent,NotificationsComponent,PageComponent,SurahComponent,PartComponent,QuranComponent,HomePageComponent,ProfileComponent,ProfileDetailsComponent,SettingsComponent,DeleteAccountComponent,AddCalendarComponent ],
-  imports: [ CalendarModule, CommonModule, 
+  declarations: [ TasbeehComponent,CalendarComponent,NotificationsComponent,PageComponent,SurahComponent,PartComponent,QuranComponent,HomePageComponent,ProfileComponent,ProfileDetailsComponent,SettingsComponent,DeleteAccountComponent,AddCalendarComponent ],
+  imports: [ CalendarModule, CommonModule,
       IonicModule,
       FormsModule,
       ReactiveFormsModule,

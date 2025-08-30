@@ -1,18 +1,52 @@
-<div style="display: flex;flex-direction: column;width: 100vw;height: 100vh;"> <img 
-  src="assets/icon/Rectangle127.png" 
-
-  alt="Login Image" 
- [style]="style_image3()"
-
-/> <img 
-  src="assets/icon/Grou89.png" 
-  alt="Login Image" 
- class="login-image2"
-  alt="Login Image" 
- [style]="style_image2()"
-
-/> 
-
-
+<div style="display: flex; flex-direction: column; width: 100vw; height: 100vh;">
   
+  <!-- جزء السلايدر -->
+<ion-content style="height: 70vh"> <!-- اجعل المحتوى يأخذ كامل الشاشة -->
+<swiper
+  [slidesPerView]="1"
+  [spaceBetween]="10"
+  [loop]="true"
+  (swiper)="onSwiper($event)"
+  (slideChange)="onSlideChange()"
+  style="height:85%; width: 100%;"
+  class="mySwiper"
+>
+  <ng-template swiperSlide>
+    <div class="slide-box">Slide 1</div>
+  </ng-template>
+  <ng-template swiperSlide>
+    <div class="slide-box">Slide 2</div>
+  </ng-template>
+  <ng-template swiperSlide>
+    <div class="slide-box">Slide 3</div>
+  </ng-template>
+  <ng-template swiperSlide>
+    <div class="slide-box">Slide 4</div>
+  </ng-template>
+  <ng-template swiperSlide>
+    <div class="slide-box">Slide 5</div>
+  </ng-template>
+</swiper><div style="margin-inline-start:20%;display: flex;flex-direction: row;">
+    <div style="background-color: rgb(211, 200, 186);">ffff</div> <div style="background-color: rgb(211, 200, 186);margin-inline-start: 1%;">|</div>
+    <div style="background-color: rgb(211, 200, 186);margin-inline-start: 1%;">fjff</div></div>
+</ion-content>
+
+
+  <!-- جزء الصور -->
+  
+    <img 
+      src="assets/icon/Rectangle127.png" 
+      alt="Login Image" 
+      [style]="style_image3()"
+    
+    /> 
+    <img 
+      src="assets/icon/Grou89.png" 
+      alt="Login Image" 
+      class="login-image2"
+      [style]="style_image2()"
+    
+    /> 
+
+
 </div>

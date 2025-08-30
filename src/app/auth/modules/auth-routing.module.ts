@@ -23,7 +23,7 @@ import { QuranComponent } from 'src/app/components/quran/quran/quran.component';
 
 
 const routes: Routes = [ 
-       { path: '', component:QuranComponent},
+       { path: '', component:LoginComponent},
        { path: 'login', component:LoginComponent},
        { path: 'signup', component: SignupComponent },
        { path: 'splash-screen', component: SplashScreenComponent },

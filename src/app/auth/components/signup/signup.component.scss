@@ -22,7 +22,7 @@
 }[dir="rtl"] .login-image {
   transform: rotateY(180deg);
 }
-.login-image{display: block; width: 90%;margin-inline-start: 10%;}
+.login-image{ display: block;height:35vw;; width: 90%;margin-inline-start: 10%;}
 p {
   margin-top: 0; /* يمنع إضافة مسافة من الأعلى */
   font-size: 1em;
@@ -373,7 +373,7 @@ ion-label {
   pointer-events: none;
   transition: 0.2s;
 }
-
+signup-text
 input:focus + .label-placeholder,
 input:not(:placeholder-shown) + .label-placeholder {
   top: -10px;

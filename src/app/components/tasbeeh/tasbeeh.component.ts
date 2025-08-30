@@ -3,6 +3,9 @@ import { Capacitor } from '@capacitor/core';
 import { Keyboard } from '@capacitor/keyboard';
 import { Platform } from '@ionic/angular';
 import { ScreenOrientation } from '@capacitor/screen-orientation';
+import SwiperCore, { Swiper, SwiperOptions } from 'swiper';
+
+
 @Component({
   selector: 'app-tasbeeh',
   templateUrl: './tasbeeh.component.html',
@@ -12,7 +15,9 @@ export class TasbeehComponent  implements OnInit{
     initialHeight: number = window.innerHeight;
 keyboardOpen: boolean = false;
  isKeyboardOpen: boolean = false;
-
+swiperRef!: Swiper;
+  totalSlides: number = 0;
+  currentSlide: number = 0;
   keyboardWillShowListener: any;
   keyboardWillHideListener: any;
 private lockInProgress = false;
@@ -98,8 +103,25 @@ style_image2() {
     return 'display: none;';
   }
 
-  const baseStyle = ' width: 70%; position: fixed; bottom: 4vh; z-index: 10; left: 50%; transform: translateX(-50%);';
+  const baseStyle = 'width:70%; position: fixed; bottom: 4vh; z-index: 10; left: 50%; transform: translateX(-50%);';
   return baseStyle;
 }
+  slides = ['A', 'B', 'C', 'D', 'E']; // يمكنك وضع أي بيانات بدلًا من A وB وC...
+ 
+
+  onSwiper(swiper: Swiper) {
+    this.swiperRef = swiper;
+    this.totalSlides = swiper.params.loop
+      ? swiper.slides.length - 2
+      : swiper.slides.length;
+    this.currentSlide = swiper.realIndex;
+  }
+
+  onSlideChange() {
+    if (this.swiperRef) {
+      this.currentSlide = this.swiperRef.realIndex;
+    }
+  }
+
 
 }

@@ -36,7 +36,10 @@ private lockInProgress = false;
 
 list_langPassword=localStorage.getItem('lang')=="ar"?["كلمه السر ضعيفه","قوه متوسطه","كلمه سر قويه","كلمه سر ممتازه"]:["Weak password",'Moderate strength','Strong password','Very strong password'];
 list_langMatch=localStorage.getItem('lang')=="ar"?["كلمه المرور متطابقه","كلمه المرور غير متطابقه",]:['Matched Password',"Not Matched Password"];
-list_langCountries=localStorage.getItem('lang')=="ar"?["الاردن"]:["Jordan"];
+ list_langCountries = localStorage.getItem('lang') == "ar" 
+  ? ["الأردن", "السعودية", "مصر", "الإمارات", "الكويت", "قطر", "عُمان", "البحرين"]
+  : ["Jordan", "Saudi Arabia", "Egypt", "UAE", "Kuwait", "Qatar", "Oman", "Bahrain"];
+
   disabled=true;
   Text_color="";
   name:string='';
@@ -74,10 +77,16 @@ img:string='assets/icon/man1.png';
   list:boolean[]=[false,false,false,false];
   num:boolean[]=[];
   countries = [
-    {name:this.list_langCountries[0],flag: "assets/icon/man1.png", dial_code: '+962' },
-  
-    
-  ];
+  { name: this.list_langCountries[0], flag: "assets/icon/man1.png", dial_code: '+962' }, // الأردن
+  { name: this.list_langCountries[1], flag: "assets/icon/man2.png", dial_code: '+966' }, // السعودية
+  { name: this.list_langCountries[2], flag: "assets/icon/man3.png", dial_code: '+20' },  // مصر
+  { name: this.list_langCountries[3], flag: "assets/icon/man4.png", dial_code: '+971' }, // الإمارات
+  { name: this.list_langCountries[4], flag: "assets/icon/man5.png", dial_code: '+965' }, // الكويت
+  { name: this.list_langCountries[5], flag: "assets/icon/man6.png", dial_code: '+974' }, // قطر
+  { name: this.list_langCountries[6], flag: "assets/icon/man7.png", dial_code: '+968' }, // عُمان
+  { name: this.list_langCountries[7], flag: "assets/icon/man8.png", dial_code: '+973' }, // البحرين
+];
+
 remove(){
  this.dob1=''; 
 }
@@ -412,7 +421,7 @@ style_image2() {
     return 'display: none;';
   }
 
-  const baseStyle = 'width: 40%; position: fixed; bottom: 0; z-index: 10;';
+  const baseStyle = 'width: 33%; position: fixed; bottom: 0; z-index: 10;';
   const lang = localStorage.getItem('lang');
 
   if (lang === 'ar') {

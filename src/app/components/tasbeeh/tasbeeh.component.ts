@@ -90,21 +90,69 @@ style_image2() {
     return 'display: none;';
   }
 
-  const baseStyle = 'width: 30%; position: fixed; bottom: 4vh; z-index: 10;';
+  const baseStyle = 'width:33%; position: fixed; bottom: 0; z-index: 10;';
   const lang = localStorage.getItem('lang');
 
   if (lang === 'ar') {
-    return baseStyle + 'left : 0;';
+    return baseStyle + ' right: 0;';
   } else {
-    return baseStyle + 'right: 0;';
+    return baseStyle + ' left: 0;';
   }
-}style_image3() {
+}style_image3(){
   if (this.keyboardOpen) {
     return 'display: none;';
   }
 
-  const baseStyle = 'width:70%; position: fixed; bottom: 4vh; z-index: 10; left: 50%; transform: translateX(-50%);';
-  return baseStyle;
+  const baseStyle = ' position: fixed; bottom:5%; z-index: 10;';
+  const lang = localStorage.getItem('lang');
+
+  if (lang === 'ar') {
+    return baseStyle + ' left: 0;';
+  } else {
+    return baseStyle + ' right: 0;';
+  }
+}
+c1_image(){
+  if (this.keyboardOpen) {
+    return 'display: none;';
+  }
+
+  const baseStyle = 'width:33%; position: fixed; bottom: 0; z-index: 10;';
+  const lang = localStorage.getItem('lang');
+
+  if (lang === 'ar') {
+    return baseStyle + ' right: 0;';
+  } else {
+    return baseStyle + ' left: 0;';
+  }
+}
+c2_image(){
+  if (this.keyboardOpen) {
+    return 'display: none;';
+  }
+
+  const baseStyle = 'width:33%; position: fixed; bottom: 0; z-index: 10;';
+  const lang = localStorage.getItem('lang');
+
+  if (lang === 'ar') {
+    return baseStyle + ' right: 0;';
+  } else {
+    return baseStyle + ' left: 0;';
+  }
+}
+c3_image(){
+  if (this.keyboardOpen) {
+    return 'display: none;';
+  }
+
+  const baseStyle = 'width:33%; position: fixed; bottom: 0; z-index: 10;';
+  const lang = localStorage.getItem('lang');
+
+  if (lang === 'ar') {
+    return baseStyle + ' right: 0;';
+  } else {
+    return baseStyle + ' left: 0;';
+  }
 }
   slides = ['A', 'B', 'C', 'D', 'E']; // يمكنك وضع أي بيانات بدلًا من A وB وC...
  

@@ -1,8 +1,8 @@
 @import 'swiper/swiper-bundle.css';
 
-:host-context([dir="ltr"]) .login-image {
+:host-context([dir="rtl"]) .login-image {
   transform: rotateY(180deg);
-}[dir="ltr"] .login-image {
+}[dir="rtl"] .login-image {
   transform: rotateY(180deg);
 }:host-context([dir="rtl"]) .login-image2 {
   transform: rotateY(180deg);
@@ -10,6 +10,18 @@
   transform: rotateY(180deg);
 }
 
+.triangle-with-text {
+ 
+background: linear-gradient(to top, hsla(39, 100%, 63%, 1), hsla(31, 99%, 29%, 1));
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  clip-path: polygon(0 50%, 100% 0, 100% 100%);
+  font-weight: bold;
+  text-align: center;
+
+}
 
 swiper-slide {height: 70%;
   
@@ -29,3 +41,10 @@ swiper-slide {height: 70%;
   color: rgb(197, 30, 30);
 
 }
+  .circle {
+      width: 13vw;
+      height: 13vw;
+      background-color: hsla(0, 0%, 85%, 1);
+      border-radius: 50%;
+     
+    }

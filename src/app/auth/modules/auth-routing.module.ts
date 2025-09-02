@@ -16,6 +16,7 @@ import { NewPasswordComponent } from '../components/new-password/new-password.co
 import { DeleteAccountComponent } from 'src/app/components/delete-account/delete-account.component';
 import { AddCalendarComponent } from 'src/app/components/add-calendar/add-calendar.component';
 import { QuranComponent } from 'src/app/components/quran/quran/quran.component';
+import { TasbeehComponent } from 'src/app/components/tasbeeh/tasbeeh.component';
 
 
 
@@ -23,7 +24,7 @@ import { QuranComponent } from 'src/app/components/quran/quran/quran.component';
 
 
 const routes: Routes = [ 
-       { path: '', component:LoginComponent},
+       { path: '', component:TasbeehComponent},
        { path: 'login', component:LoginComponent},
        { path: 'signup', component: SignupComponent },
        { path: 'splash-screen', component: SplashScreenComponent },

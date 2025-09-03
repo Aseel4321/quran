@@ -131,14 +131,10 @@ c2_image(){
     return 'display: none;';
   }
 
-  const baseStyle = 'width:33%; position: fixed; bottom: 0; z-index: 10;';
+  const baseStyle = 'width:50%;position: absolute;margin-right:20vw;margin-top:5vw';
   const lang = localStorage.getItem('lang');
 
-  if (lang === 'ar') {
-    return baseStyle + ' right: 0;';
-  } else {
-    return baseStyle + ' left: 0;';
-  }
+return baseStyle;
 }
 c3_image(){
   if (this.keyboardOpen) {

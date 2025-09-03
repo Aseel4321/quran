@@ -9,18 +9,16 @@
 }[dir="rtl"] .login-image2 {
   transform: rotateY(180deg);
 }
-
-.triangle-with-text {
- 
-background: linear-gradient(to top, hsla(39, 100%, 63%, 1), hsla(31, 99%, 29%, 1));
-  color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  clip-path: polygon(0 50%, 100% 0, 100% 100%);
-  font-weight: bold;
-  text-align: center;
-
+:host-context([dir="ltr"]) .login-image1 {
+  transform: rotateY(180deg);
+}[dir="ltr"] .login-image {
+  transform: rotateY(180deg);
+}
+.half-circle-left {position: relative;
+width:24vw; height:50vw;
+  background: blue;
+  border-top-left-radius: 200px;
+  border-bottom-left-radius: 200px;
 }
 
 swiper-slide {height: 70%;

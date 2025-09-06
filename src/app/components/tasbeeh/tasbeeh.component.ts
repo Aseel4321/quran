@@ -131,23 +131,27 @@ c2_image(){
     return 'display: none;';
   }
 
-  const baseStyle = 'width:50%;position: absolute;margin-right:20vw;margin-top:5vw';
+  
   const lang = localStorage.getItem('lang');
+  if (lang === 'ar') {
+    return  'border-radius: 50%;background-color: hsla(0, 0%, 85%, 1);margin-top: 7%;height: 13vw;width: 13vw;margin-inline-start: 20vw;width:50%;position: absolute;margin-top:3vw';
+  } else {
+    return 'border-radius: 50%;background-color: hsla(0, 0%, 85%, 1);margin-top: 7%;height: 13vw;width: 13vw;margin-inline-end: 20vw;position: absolute;margin-top:3vw';
+  }
 
-return baseStyle;
 }
 c3_image(){
   if (this.keyboardOpen) {
     return 'display: none;';
   }
 
-  const baseStyle = 'width:33%; position: fixed; bottom: 0; z-index: 10;';
+ 
   const lang = localStorage.getItem('lang');
 
-  if (lang === 'ar') {
-    return baseStyle + ' right: 0;';
+   if (lang === 'ar') {
+    return  'border-radius: 50%;background-color: hsla(0, 0%, 85%, 1);margin-top: 7%;height: 13vw;width: 13vw;margin-inline-start: 20vw;width:50%;position: absolute;margin-top:3vw';
   } else {
-    return baseStyle + ' left: 0;';
+    return 'border-radius: 50%;background-color: hsla(0, 0%, 85%, 1);margin-top: 7%;height: 13vw;width: 13vw;margin-inline-end: 20vw;position: absolute;margin-top:3vw';
   }
 }
   slides = ['A', 'B', 'C', 'D', 'E']; // يمكنك وضع أي بيانات بدلًا من A وB وC...

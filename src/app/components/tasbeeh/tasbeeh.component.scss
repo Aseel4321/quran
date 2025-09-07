@@ -16,7 +16,11 @@
 }
 .half-circle-left {position: relative;
 width:20vw; height:46vw;
-  background: blue;
+  background: linear-gradient(
+  to right, 
+  hsla(39, 100%, 63%, 1), 
+  hsla(31, 99%, 29%, 1)
+);;
   border-top-left-radius: 200px;
   border-bottom-left-radius: 200px;
 }

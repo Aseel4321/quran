@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { Capacitor } from '@capacitor/core';
 import { Keyboard } from '@capacitor/keyboard';
 import { Platform } from '@ionic/angular';
@@ -21,7 +21,7 @@ swiperRef!: Swiper;
   keyboardWillShowListener: any;
   keyboardWillHideListener: any;
 private lockInProgress = false;
-  constructor(private platform: Platform){}
+  constructor(private platform: Platform,private cdr: ChangeDetectorRef){}
   ngOnInit(): void {
     this.lockInProgress = false;
 
@@ -157,19 +157,37 @@ c3_image(){
   slides = ['A', 'B', 'C', 'D', 'E']; // يمكنك وضع أي بيانات بدلًا من A وB وC...
  
 
-  onSwiper(swiper: Swiper) {
-    this.swiperRef = swiper;
-    this.totalSlides = swiper.params.loop
-      ? swiper.slides.length - 2
-      : swiper.slides.length;
-    this.currentSlide = swiper.realIndex;
-  }
+ list1 = [1, 2, 3,]; // بعدد السلايدات
 
+onSwiper(swiper: Swiper) {
+  this.swiperRef = swiper;
+  this.totalSlides = swiper.params.loop
+    ? swiper.slides.length - 2
+    : swiper.slides.length;
+
+  // ضبط البداية للـ first slide
+  this.currentSlide = 0;
+
+  console.log('init:', this.currentSlide);
+}
   onSlideChange() {
     if (this.swiperRef) {
       this.currentSlide = this.swiperRef.realIndex;
+      console.log('change:', this.currentSlide);this.cdr.detectChanges(); 
     }
   }
-
-
+  Color(i: number) {;
+    return {
+      width: '8vw',
+      height: '1vw',
+      'margin-inline-end': '10%',
+      'background-color':
+        this.currentSlide === i
+          ? 'hsla(39, 100%, 73%, 1)'
+          : 'rgb(216, 222, 222)',
+    };
+  }
 }
+
+
+

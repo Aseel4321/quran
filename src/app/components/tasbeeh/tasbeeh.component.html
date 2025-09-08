@@ -1,7 +1,7 @@
 <div style="display: flex; flex-direction: column; width: 100vw; height: 100vh;">
 
   <!-- جزء السلايدر -->
-<ion-content style="height: 70vh">   <div style="display: flex; flex-direction: row;text-align: center;align-items: center;height: 12vw;width:100vw ;">
+<ion-content style="height: 70vh ;">   <div style="display: flex; flex-direction: row;text-align: center;align-items: center;height: 12vw;width:100vw ;">
   <img 
     src="assets/icon/Group68.png" 
     alt="Login Image" 
@@ -18,8 +18,8 @@
   [loop]="true"
   (swiper)="onSwiper($event)"
   (slideChange)="onSlideChange()"
-  style="height:85%; width: 100%;"
   class="mySwiper"
+  style="height:85%; width:100%;"
 >
   <ng-template swiperSlide>
     <div class="slide-box">Slide 1</div>
@@ -36,9 +36,17 @@
   <ng-template swiperSlide>
     <div class="slide-box">Slide 5</div>
   </ng-template>
-</swiper><div style="margin-inline-start:20%; display: flex; flex-direction: row;">
-  <div *ngFor="let item of list; let i = index">
-    {{ item }}
+</swiper>
+
+<!-- المؤشرات -->
+<div
+  style="text-align:center; align-items:center; justify-content:center; display:flex; flex-direction:row; width:100vw; margin-top:10px;"
+>
+  <div
+    *ngFor="let item of list; let i = index"
+    style="display:flex; flex-direction:row; width:10vw;"
+  >
+    <div [ngStyle]="Color(i)"></div>
   </div>
 </div>
 </ion-content>

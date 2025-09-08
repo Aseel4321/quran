@@ -176,7 +176,7 @@ onSwiper(swiper: Swiper) {
       console.log('change:', this.currentSlide);this.cdr.detectChanges(); 
     }
   }
-  Color(i: number) {;
+  Color(i: number) {
     return {
       width: '8vw',
       height: '1vw',

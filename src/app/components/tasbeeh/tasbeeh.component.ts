@@ -19,6 +19,7 @@ export class TasbeehComponent  implements OnInit{
   'Slide 4',
   'Slide 5'
 ];
+num=0;
     initialHeight: number = window.innerHeight;
 keyboardOpen: boolean = false;
  isKeyboardOpen: boolean = false;
@@ -177,7 +178,7 @@ onSwiper(swiper: Swiper) {
 
   console.log('init:', this.currentSlide);
 }
-  onSlideChange() {
+  onSlideChange() {this.num=0;
     if (this.swiperRef) {
       this.currentSlide = this.swiperRef.realIndex;
       console.log('change:', this.currentSlide);this.cdr.detectChanges(); 
@@ -196,7 +197,11 @@ onSwiper(swiper: Swiper) {
     'margin-inline-end': '10%',
     'background-color': bgColor,
   };
-}}
+}
+count(){
+this.num=this.num+1;
+}
+}
 
 
 

@@ -12,6 +12,13 @@ import SwiperCore, { Swiper, SwiperOptions } from 'swiper';
   styleUrls: ['./tasbeeh.component.scss'],
 })
 export class TasbeehComponent  implements OnInit{
+  slide: string[] = [
+  'Slide 1',
+  'Slide 2',
+  'Slide 3',
+  'Slide 4',
+  'Slide 5'
+];
     initialHeight: number = window.innerHeight;
 keyboardOpen: boolean = false;
  isKeyboardOpen: boolean = false;
@@ -176,18 +183,20 @@ onSwiper(swiper: Swiper) {
       console.log('change:', this.currentSlide);this.cdr.detectChanges(); 
     }
   }
-  Color(i: number) {
-    return {
-      width: '8vw',
-      height: '1vw',
-      'margin-inline-end': '10%',
-      'background-color':
-        this.currentSlide === i
-          ? 'hsla(39, 100%, 73%, 1)'
-          : 'rgb(216, 222, 222)',
-    };
-  }
-}
+ Color(i: number) {
+  let bgColor = 'rgb(216, 222, 222)';
+ if (this.currentSlide === 0&&this.currentSlide === i) {
+    bgColor = 'hsla(39, 100%, 73%, 1)';
+  }else if(this.currentSlide <this.slide.length-1&&this.currentSlide >0&&i === 1){bgColor = 'hsla(39, 100%, 73%, 1)';}
+  else if(this.slide.length-1===this.currentSlide&&i===2){bgColor = 'hsla(39, 100%, 73%, 1)';}
+  
+  return {
+    width: '8vw',
+    height: '1vw',
+    'margin-inline-end': '10%',
+    'background-color': bgColor,
+  };
+}}
 
 
 

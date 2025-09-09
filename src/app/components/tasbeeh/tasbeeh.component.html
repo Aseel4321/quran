@@ -21,22 +21,11 @@
   class="mySwiper"
   style="height:85%; width:100%;"
 >
-  <ng-template swiperSlide>
-    <div class="slide-box">Slide 1</div>
-  </ng-template>
-  <ng-template swiperSlide>
-    <div class="slide-box">Slide 2</div>
-  </ng-template>
-  <ng-template swiperSlide>
-    <div class="slide-box">Slide 3</div>
-  </ng-template>
-  <ng-template swiperSlide>
-    <div class="slide-box">Slide 4</div>
-  </ng-template>
-  <ng-template swiperSlide>
-    <div class="slide-box">Slide 5</div>
+  <ng-template swiperSlide *ngFor="let slide of slide">
+    <div class="slide-box">{{ slide }}</div>
   </ng-template>
 </swiper>
+
 
 <!-- المؤشرات -->
 <div

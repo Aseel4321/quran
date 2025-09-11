@@ -181,7 +181,8 @@ onSwiper(swiper: Swiper) {
   onSlideChange() {this.num=0;
     if (this.swiperRef) {
       this.currentSlide = this.swiperRef.realIndex;
-      console.log('change:', this.currentSlide);this.cdr.detectChanges(); 
+      console.log('change:', this.currentSlide);
+      this.cdr.detectChanges(); 
     }
   }
  Color(i: number) {

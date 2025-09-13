@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./surah.component.scss'],
 })
 export class SurahComponent  {
-user=['t','f']
+user=['t','f','y']
   constructor() { }
 
 

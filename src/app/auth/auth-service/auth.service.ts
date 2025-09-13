@@ -25,7 +25,7 @@ otp:string='5555';
   });
 
   return this.http.post(
-     'https://msaralquran-g5g9bxf3fnh3bzca.canadacentral-01.azurewebsites.net/account/login',  // <-- هنا استخدم البروكسي
+     'https://back-end-ztpn.onrender.com/account/login',  
     data,
     { headers }
   );

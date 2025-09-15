@@ -1,7 +1,7 @@
-import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
 import { Capacitor } from '@capacitor/core';
 import { Keyboard } from '@capacitor/keyboard';
-import { Platform } from '@ionic/angular';
+import { IonSlides, Platform } from '@ionic/angular';
 import { ScreenOrientation } from '@capacitor/screen-orientation';
 import SwiperCore, { Swiper, SwiperOptions } from 'swiper';
 
@@ -11,7 +11,13 @@ import SwiperCore, { Swiper, SwiperOptions } from 'swiper';
   templateUrl: './tasbeeh.component.html',
   styleUrls: ['./tasbeeh.component.scss'],
 })
-export class TasbeehComponent  implements OnInit{
+export class TasbeehComponent  implements OnInit{ @ViewChild(IonSlides) slides!: IonSlides;
+  slideOpts = {
+  initialSlide: 0,
+  slidesPerView: 1,
+  spaceBetween: 10,
+  loop: false,
+};
   slide: string[] = [
   'Slide 1',
   'Slide 2',
@@ -142,9 +148,9 @@ c2_image(){
   
   const lang = localStorage.getItem('lang');
   if (lang === 'ar') {
-    return  'border-radius: 50%;background-color: hsla(0, 0%, 85%, 1);margin-top: 7%;height: 13vw;width: 13vw;margin-inline-start: 20vw;width:50%;position: absolute;margin-top:3vw';
+    return  'border-radius: 50%;background-color: hsla(0, 0%, 85%, 1);margin-top: 7%;height: 13vw;width: 13vw;margin-inline-start: 20vw;position: absolute;margin-top:3vw';
   } else {
-    return 'border-radius: 50%;background-color: hsla(0, 0%, 85%, 1);margin-top: 7%;height: 13vw;width: 13vw;margin-inline-end: 20vw;position: absolute;margin-top:3vw';
+    return 'border-radius: 50%;background-color: hsla(0, 0%, 85%, 1);margin-top: 7%;height: 13vw;width:13vw;margin-inline-end: 20vw;position: absolute;margin-top:3vw';
   }
 
 }
@@ -162,7 +168,7 @@ c3_image(){
     return 'border-radius: 50%;background-color: hsla(0, 0%, 85%, 1);margin-top: 7%;height: 13vw;width: 13vw;margin-inline-end: 20vw;position: absolute;margin-top:3vw';
   }
 }
-  slides = ['A', 'B', 'C', 'D', 'E']; // يمكنك وضع أي بيانات بدلًا من A وB وC...
+  slid = ['A', 'B', 'C', 'D', 'E']; // يمكنك وضع أي بيانات بدلًا من A وB وC...
  
 
  list1 = [1, 2, 3,]; // بعدد السلايدات
@@ -178,12 +184,11 @@ onSwiper(swiper: Swiper) {
 
   console.log('init:', this.currentSlide);
 }
-  onSlideChange() {this.num=0;
-    if (this.swiperRef) {
-      this.currentSlide = this.swiperRef.realIndex;
-      console.log('change:', this.currentSlide);
-      this.cdr.detectChanges(); 
-    }
+ onSlideChange() {
+    this.slides.getActiveIndex().then(index => {
+      this.currentSlide = index;
+      console.log('Current slide:', this.currentSlide);
+    });
   }
  Color(i: number) {
   let bgColor = 'rgb(216, 222, 222)';

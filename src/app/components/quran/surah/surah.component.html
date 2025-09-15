@@ -1,3 +1,33 @@
 <div style="width: 100vw;">
-  <div style="margin-bottom: 2%;margin-top: 2%; margin-left: 5%;margin-right: 5%; height:7vh;background-color: #E8E0C8;border-radius: 45px;" *ngFor="let user of user;"></div>
+  <div style=" margin-bottom: 2%;margin-top: 2%; margin-left: 5%;margin-right: 5%; height:6vh;background-color: #E8E0C8;border-radius: 45px;" *ngFor="let user of user;let i = index">
+<div style="display: flex;flex-direction: row;justify-content: space-between;text-align: center;text-align:center ;">
+  <div style="text-align: center; margin-top: 3%;margin-inline-start:3vw;">
+  <svg width="9vw" height="9vw" viewBox="0 0 100 100">
+    <!-- النجمة -->
+    <polygon
+      points="
+        50,0
+        65,35
+        100,50
+        65,65
+        50,100
+        35,65
+        0,50
+        35,35
+      "
+      fill="gold"
+      stroke="black"
+      stroke-width="2"
+    />
+    
+    <!-- النص داخل النجمة -->
+    <text x="50%" y="55%" text-anchor="middle" dominant-baseline="middle"
+      font-size="30" fill="black" font-family="Arial, sans-serif">
+  {{i+1}}
+</text>
+  </svg>
+</div><div style="margin-top: 4%;">d</div> <div style="margin-top: 4%;">d</div> <img src="assets\icon\play.png" alt="Star Image" style="width:10%;height: 10%;margin-top: 3%;margin-inline-end:3vw;">
+
+</div>
+  </div>
 </div>

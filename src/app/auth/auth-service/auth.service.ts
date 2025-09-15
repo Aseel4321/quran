@@ -13,7 +13,7 @@ export class AuthService {
 otp:string='5555';
   constructor( private http: HttpClient) { }
   get_data(collectionName: string): Observable<any> {
-    return this.http.get('http://localhost:3000/${collectionName}');
+    return this.http.get('http://localhost:3000/${collectionName}'); 
   }
  post_accept(data:any):Observable<any>{
   return this.http.post('http://localhost:3000/users',data);

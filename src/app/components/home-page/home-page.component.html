@@ -38,21 +38,21 @@
 
 
 </div>
-<div style="display: flex;align-items: center;text-align: center;justify-content: center;padding-right:2%;padding-left:  2%;">
-  <div style="width: 90%;height: 22%;background-image: url('assets/icon/home.jpg'); ;border-radius: 30px;">
+<div style="display: flex;align-items: center;text-align: center;justify-content: center;background-color: #9D9D9D3D;border-radius: 30px;margin-left: 8%;margin-right:8%;">
+  <div style="width: 100%;height: 22%;background-image: url('assets/icon/home.jpg'); ;border-radius: 30px;">
 <div  class="monotone-noise">
   
  <div style="display: flex;flex-direction: column;">
 
   </div>
-   <div style="display: flex;flex-direction: column;height:10vh;flex:4 ;align-items: center;margin-top: 2%;">
-<p style="height: 10px;font-size: 1.5vh;margin-bottom: 2% ;">{{prayer_timee[8]}} - {{city_api}}</p>
+   <div style="display: flex;flex-direction: column;height:10vh;flex:4 ;align-items: center;margin-top: 7%;">
+<p style="height: 10px;font-size: 1.5vh;margin-bottom: 5% ;">{{prayer_timee[8]}} - {{city_api}}</p>
 <p style="height: 10px;font-weight: 500 ;font-size: 3vh;margin-top: 5%">{{prayer_timee[9]}}</p>
   </div>
-     <div style="display: flex;flex-direction: column;height:10vh;flex: 2;align-items: center;justify-content: end;">
-      <p style="height: 10px;font-size:1vh;margin-bottom: 0%;">{{time_now}}</p>
-<p style="height: 10px;font-size: 1vh;margin-bottom: 0%;">{{prayer_timee[6]}}</p>
-<p style="height: 10px;font-size: 1vh;margin-bottom: 0%;"> {{prayer_timee[7]}}</p>
+     <div style="display: flex;flex-direction: column;height:10vh;flex: 2;align-items: center;justify-content: center;margin-top: 3%;">
+      <p style="height: 10px;font-size:1vh;margin-bottom:5%;">{{time_now}}</p>
+<p style="height: 10px;font-size: 1vh;margin-bottom: 5%;">{{prayer_timee[6]}}</p>
+<p style="height: 10px;font-size: 1vh;margin-bottom: 5%;"> {{prayer_timee[7]}}</p>
 
   </div>
      <div style="display: flex;flex-direction: column;height:10vh;flex: 1;align-items: center;margin-top: 5%;">
@@ -65,7 +65,7 @@
     <p  style="font-size: 3vw; margin-bottom: 5%;">{{prayerName[i]}}</p>
     
     <img [src]="item.image" alt="{{ item.name }}" style="width: 6vw; height: 3vh; margin-bottom: 5%;">
-    
+   
     <p style="font-size: 3vw; margin-top: 0%;">{{ item.time }}</p>
   </div>
 </div>

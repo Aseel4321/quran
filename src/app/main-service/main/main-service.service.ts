@@ -41,7 +41,7 @@ prayer_times(data: any): Observable<any> {
   });
 
   return this.http.post(
-    'https://msaralquran-g5g9bxf3fnh3bzca.canadacentral-01.azurewebsites.net/feature/prayer-times',
+    'https://api-project-6hj8.onrender.com/feature/prayer-times',
     data,
     { headers: headers }
   );

@@ -60,10 +60,14 @@
   </div>
 </div>
 <div style="display: flex; flex-direction: row; width: 100%; gap: 2%;">
+  <div *ngFor="let item of prayerName(); let i = index" style="flex: 1; display: flex; flex-direction: column; align-items: center; text-align: center;">
+    
+    <p  style="font-size: 3vw; margin-bottom: 5%;">{{item}}</p>
+    
+  </div>
+</div>
+<div style="display: flex; flex-direction: row; width: 100%; gap: 2%;">
   <div *ngFor="let item of times; let i = index" style="flex: 1; display: flex; flex-direction: column; align-items: center; text-align: center;">
-    
-    <p  style="font-size: 3vw; margin-bottom: 5%;">{{prayerName[i]}}</p>
-    
     <img [src]="item.image" alt="{{ item.name }}" style="width: 6vw; height: 3vh; margin-bottom: 5%;">
    
     <p style="font-size: 3vw; margin-top: 0%;">{{ item.time }}</p>
@@ -120,8 +124,8 @@
   </div>
 
 
-</div>
- 
+</div>fff
+{{prayerName1}}
 
   <!-- الحاوية التي تستخدم Grid -->
 <div style="

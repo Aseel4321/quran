@@ -35,21 +35,8 @@ time_now:any;
  num=0;
   userRoles: Map<string,string> = new Map();
    lastPeriod = ''; 
-   prayerName=localStorage.getItem('lang')=='ar'?[
-  "الفجر",
-  "الشروق",
-  "الظهر",
-  "العصر",
-  "المغرب",
-  "العشاء"
-]:[
-  "Fajr",
-  "Sunrise",
-  "Dhuhr",
-  "Asr",
-  "Maghrib",
-  "Isha"
-];
+   prayerName1=localStorage.getItem('lang');
+ 
   list_type: any[] = [
     { name: "Tesbeeh", image: 'assets/icon/beads.png' },
     { name: "Test", image: 'assets/icon/exam.png' },
@@ -141,7 +128,7 @@ keyboardOpen: boolean = false;
   }
   prayer_times(){
     
-     
+     console.log(localStorage.getItem('lang'));
     this.service.prayer_times({
   "country":this.country_api,
   "city":this.city_api
@@ -324,7 +311,7 @@ await alert.present();
   // ✅ استرجاع اسم المدينة من الإحداثيات
 getCityFromCoordinates(latitude: number, longitude: number) {      console.log('this.citDDDDDDDDDDDDDDDDDDDDDDy');
   const apiKey = '0c9ea507ed234dfeae819d5aa377bfb3'; // استبدل بـ API Key الخاص بك
- const url = `https://api.geoapify.com/v1/geocode/reverse?lat=${latitude}&lon=${longitude}&lang=en&apiKey=${apiKey}`;
+ const url = `https://api.geoapify.com/v1/geocode/reverse?lat=${latitude}&lon=${longitude}&lang=${localStorage.getItem('lang')}&apiKey=${apiKey}`;
 ;
 
   this.http.get(url).subscribe((response: any) => {
@@ -503,8 +490,26 @@ sp(){const baseStyle = 'width:3vw; height:3vh; ';
   } else {
     return baseStyle;
   }
+}prayerName(){ 
+  if(localStorage.getItem('lang')=='ar'){
+  return [
+  "الفجر",
+  "الشروق",
+  "الظهر",
+  "العصر",
+  "المغرب",
+  "العشاء"
+];
+}else{return [
+  "Fajr",
+  "Sunrise",
+  "Dhuhr",
+  "Asr",
+  "Maghrib",
+  "Isha"
+]}}
 }
-}
+
 interface Model {
   name: string;
   time: string;

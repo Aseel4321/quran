@@ -35,7 +35,8 @@ localStorage.setItem('lang',langToUse);
 }else{ const langToUse =localStorage.getItem('lang');
 localStorage.setItem('lang',langToUse);
     //this.translate.setDefaultLang('ar');
-    this.translate.use(langToUse);  if (langToUse === 'ar') {
+    this.translate.use(langToUse); 
+     if (langToUse === 'ar') {
       document.documentElement.dir = 'rtl';
     } else {
       document.documentElement.dir = 'ltr';

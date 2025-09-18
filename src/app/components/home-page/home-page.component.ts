@@ -7,6 +7,7 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { MainServiceService } from 'src/app/main-service/main/main-service.service';
 import { LocationAccuracy } from '@ionic-native/location-accuracy/ngx';
 import cron from 'node-cron';
+
 @Component({
   selector: 'app-home-page',
   templateUrl: './home-page.component.html',
@@ -123,7 +124,7 @@ keyboardOpen: boolean = false;
     const hour = now.getHours();
     const period = this.currentTime.includes('AM') ? 'AM' : (hour < 18 ? 'PM' : 'PM');
     this.timePeriod = period;
-   console.log('gggg');
+
     
 
   }
@@ -267,6 +268,7 @@ async checkLocationEnabledغ() {
 
     this.latitude = pos.coords.latitude;
     this.longitude = pos.coords.longitude;
+    
     await this.getCityFromCoordinates(this.latitude, this.longitude);
 
   } catch (error) {
@@ -320,9 +322,10 @@ await alert.present();
     }
   }
   // ✅ استرجاع اسم المدينة من الإحداثيات
-getCityFromCoordinates(latitude: number, longitude: number) {
+getCityFromCoordinates(latitude: number, longitude: number) {      console.log('this.citDDDDDDDDDDDDDDDDDDDDDDy');
   const apiKey = '0c9ea507ed234dfeae819d5aa377bfb3'; // استبدل بـ API Key الخاص بك
-  const url = `https://api.geoapify.com/v1/geocode/reverse?lat=${latitude}&lon=${longitude}&lang=ar&apiKey=${apiKey}`;
+ const url = `https://api.geoapify.com/v1/geocode/reverse?lat=${latitude}&lon=${longitude}&lang=en&apiKey=${apiKey}`;
+;
 
   this.http.get(url).subscribe((response: any) => {
     if (response && response.features && response.features.length > 0) {
@@ -490,6 +493,15 @@ style_image3() {
     return baseStyle + 'left : 0;';
   } else {
     return baseStyle + 'right: 0;';
+  }
+}
+sp(){const baseStyle = 'width:3vw; height:3vh; ';
+   const lang = localStorage.getItem('lang');
+
+  if (lang === 'ar') {
+    return baseStyle + 'transform:rotate(-180deg); ';
+  } else {
+    return baseStyle;
   }
 }
 }

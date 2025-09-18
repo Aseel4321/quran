@@ -100,6 +100,7 @@ keyboardOpen: boolean = false;
     }
  
     this.lastPeriod = currentPeriod;
+    
    this.prayer_times();
   }, 1000); 
 }
@@ -508,6 +509,28 @@ sp(){const baseStyle = 'width:3vw; height:3vh; ';
   "Maghrib",
   "Isha"
 ]}}
+list_prayer=[]
+prayer() {
+  const myMap = new Map<string, string>();
+  myMap.set('Fajr', 'الفجر');
+  myMap.set('Sunrise', 'الشروق');
+  myMap.set('Dhuhr', 'الظهر');
+  myMap.set('Asr', 'العصر');
+  myMap.set('Maghrib', 'المغرب');
+  myMap.set('Isha', 'العشاء');
+
+  const lang = localStorage.getItem('lang');
+
+  if (lang === 'ar') {
+    for (const name of Array.from(myMap.keys())) {
+      if (name === this.prayer_timee[8]) {
+        return myMap.get(name); // ✅ استخدم get بدلاً من [name]
+      }
+    }
+  } else {
+    return this.prayer_timee[8];
+  }
+}
 }
 
 interface Model {

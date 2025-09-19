@@ -36,7 +36,7 @@ time_now:any;
   userRoles: Map<string,string> = new Map();
    lastPeriod = ''; 
    prayerName1=localStorage.getItem('lang');
- 
+ i:any;
   list_type: any[] = [
     { name: "Tesbeeh", image: 'assets/icon/beads.png' },
     { name: "Test", image: 'assets/icon/exam.png' },
@@ -127,29 +127,46 @@ keyboardOpen: boolean = false;
     { name: "Quran Memorization Test", title: 'Last entry for Quran Memorization :', number: 66, per: "90%", image: 'assets/icon/prayer.png' }
   ]}
   }
-  prayer_times(){
-    
-     console.log(localStorage.getItem('lang'));
-    this.service.prayer_times({
-  "country":this.country_api,
-  "city":this.city_api
-}).subscribe((data:any)=>{
-   this.prayer_name = Object.keys(data); 
-      console.log('ff');
-       this.prayer_timee = Object.values(data);
-       
-        console.log(this.prayer_name);
-       Object.keys(data).forEach((key, index)=> {
-        if(this.times.length===6){}else{  if(index<6){this.times.push({ name: key, time: data[key],image:this.list_time1[index] });}}
-      
-  
-});console.log(this.times);
-    },(error: HttpErrorResponse)=>{
-     
-        
+async prayer_times() {
+  try {
+    console.log(localStorage.getItem('lang'));
+
+    // استخدام await لانتظار البيانات من الخدمة
+    const data: any = await this.service.prayer_times({
+      country: this.country_api,
+      city: this.city_api
+    }).toPromise(); // تحويل الـ Observable إلى Promise
+
+    // استخراج أسماء الصلوات
+    this.prayer_name = Object.keys(data);
+
+    // استخراج أوقات الصلوات
+    this.prayer_timee = Object.values(data);
+
+    // حفظ كامل البيانات
+    this.i = data;
+
+    // تفريغ المصفوفة قبل إعادة تعبئتها
+    this.times = [];
+
+    // تعبئة أول 6 صلوات فقط مع الصور
+    Object.keys(data).forEach((key, index) => {
+      if (index < 6) {
+        this.times.push({
+          name: key,
+          time: data[key],
+          image: this.list_time1[index]
+        });
+      }
     });
-  
-   }
+
+    console.log('أوقات الصلاة:', this.times);
+
+  } catch (error) {
+    console.error('حدث خطأ أثناء جلب أوقات الصلاة:', error);
+  }
+}
+
   async checkLocationEnabledt() {
   // 1. عرض رسالة توضيحية أولاً
   const infoAlert = await this.alertController.create({

@@ -65,7 +65,8 @@ keyboardOpen: boolean = false;
     "assets/icon/moon.png",
   ]; ngOnInit(): void {   
    
- this.checkLocationEnabled();
+ this.checkLocationEnabled();  
+ 
    window.addEventListener('resize', () => {
       const currentHeight = window.innerHeight;
       this.keyboardOpen = currentHeight < this.initialHeight - 100;
@@ -342,7 +343,9 @@ getCityFromCoordinates(latitude: number, longitude: number) {      console.log('
       this.city_api = this.removeDiacritics(city);
       this.country_api = this.removeDiacritics(country);
       this.city = `${this.city_api}, ${this.country_api}`;
+       this.prayer_times();
       console.log(this.city);
+
       //this.prayer_times();
     } else {
       this.city = 'الموقع غير معروف';

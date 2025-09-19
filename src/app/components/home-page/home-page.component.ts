@@ -37,15 +37,7 @@ time_now:any;
    lastPeriod = ''; 
    prayerName1=localStorage.getItem('lang');
  i:any;
-  list_type: any[] = [
-    { name: "Tesbeeh", image: 'assets/icon/beads.png' },
-    { name: "Test", image: 'assets/icon/exam.png' },
-    { name: "AL-Hadith", image: 'assets/icon/prayer.png' },
-    { name: "Test", image: 'assets/icon/teachings.png' },
-    { name: "Al-Quran", image: 'assets/icon/islamic.png' },
-    { name: "Dua", image: 'assets/icon/exam.png' },
-    { name: "AL-Hadith", image: 'assets/icon/praying.png' }
-  ];
+
   list_time: any[] = [
     { name: "aseel", image: "assets/icon/sunny.png", time: '17:8' },
     { name: "aseel", image: "assets/icon/sunrise.png", time: '17:8' },
@@ -101,12 +93,30 @@ keyboardOpen: boolean = false;
     }
  
     this.lastPeriod = currentPeriod;
-    
+
    this.prayer_times();
   }, 1000); 
 }
 
- 
+ list_type(){
+  return  localStorage.getItem('lang') === 'ar' ?[
+    { name: " التسبيح", image: 'assets/icon/beads.png' },
+    { name: "اختبار", image: 'assets/icon/exam.png' },
+    { name: "الحديث الشريف", image: 'assets/icon/prayer.png' },
+    { name: "التفسير", image: 'assets/icon/teachings.png' },
+    { name: "القرآن الكريم", image: 'assets/icon/islamic.png' },
+    { name: "الدعاء", image: 'assets/icon/exam.png' },
+    { name: "الاذكار", image: 'assets/icon/praying.png' }
+  ]:[
+    { name: "Tesbeeh", image: 'assets/icon/beads.png' },
+    { name: "Test", image: 'assets/icon/exam.png' },
+    { name: "AL-Hadith", image: 'assets/icon/prayer.png' },
+    { name: "Tafsir", image: 'assets/icon/teachings.png' },
+    { name: "Al-Quran", image: 'assets/icon/islamic.png' },
+    { name: "Dua", image: 'assets/icon/exam.png' },
+    { name: "Adhkar", image: 'assets/icon/praying.png' }
+  ]
+ }
     updateTime() {
     const now = new Date();
     this.currentTime = now.toLocaleTimeString('en-US'); 
@@ -118,16 +128,30 @@ keyboardOpen: boolean = false;
 
   }
   list_card(){
-     if(this.timePeriod=="AM"){return [
+     if(this.timePeriod=="AM"){
+   return  localStorage.getItem('lang') === 'ar' ? [
+    { name: "إتمام القرآن", title: 'آخر قراءة للقرآن: ', number: 55, per: "4%", image: 'assets/icon/islamic.png' },
+    { name: "أذكار الصباح", title: 'آخر أذكار تم قراءتها:', number: 6, per: "76%", image: 'assets/icon/prayer.png' },
+    { name: "اختبار حفظ القرآن", title: 'آخر مشاركة في اختبار الحفظ: 06-03-2025', number: 66, per: "90%", image: 'assets/icon/prayer.png' }
+  ]:[
     { name: "Quran Completion", title: 'Last Read Al-Quran : ', number: 55, per: "4%", image: 'assets/icon/islamic.png' },
-    { name: "Morning Adhkar", title: 'Evening Adhkar : ', number: 6, per: "76%", image: 'assets/icon/prayer.png' },
+    { name: "Morning Adhkar", title:'Last Read Morning remembrance : ', number: 6, per: "76%", image: 'assets/icon/prayer.png' },
     { name: "Quran Memorization Test", title: 'Last entry for Quran Memorization :', number: 66, per: "90%", image: 'assets/icon/prayer.png' }
-  ]}else if(this.timePeriod=="PM"){return [
+  ]
+      }else if(this.timePeriod=="PM"){
+       return  localStorage.getItem('lang') === 'ar' ?[
+ 
+    { name: "إتمام القرآن",  title: 'آخر قراءة للقرآن: ', number: 55, per: "4%", image: 'assets/icon/islamic.png' },
+    { name: "أذكار المساء", title: 'آخر أذكار تم قراءتها:', number: 6, per: "76%", image: 'assets/icon/prayer.png' },
+    { name: "اختبار حفظ القرآن", title: 'آخر أذكار تم قراءتها:', number: 66, per: "90%", image: 'assets/icon/prayer.png' }
+  
+  ]:[
     { name: "Quran Completion", title: 'Last Read Al-Quran : ', number: 55, per: "4%", image: 'assets/icon/islamic.png' },
     { name: "Evening Adhkar", title: 'Last Read Evening remembrance : ', number: 77, per: '23%', image: 'assets/icon/exam.png' },
     { name: "Quran Memorization Test", title: 'Last entry for Quran Memorization :', number: 66, per: "90%", image: 'assets/icon/prayer.png' }
   ]}
-  }
+     }
+  
 async prayer_times() {
   try {
     console.log(localStorage.getItem('lang'));

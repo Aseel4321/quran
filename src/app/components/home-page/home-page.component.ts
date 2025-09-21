@@ -82,19 +82,22 @@ keyboardOpen: boolean = false;
   setInterval(() => {
     const now = new Date();
     this.time_now = now.toLocaleTimeString('en-US');
-
-    
-    const currentPeriod = this.time_now.includes('AM') ? 'AM' : 'PM';
-
-  console.log(this.lastPeriod);console.log('currentPeriod'); console.log(currentPeriod);
-    if (this.lastPeriod !== currentPeriod) {
+    if(localStorage.getItem('lang') === 'ar'){
+    this.time_now =this.time_now.replace('AM', 'ص').replace('PM', 'م');
+    const currentPeriod = this.time_now.includes('ص') ? 'ص' : 'م';
+      if (this.lastPeriod !== currentPeriod){
       this.updateTime(); 
-    
     }
- 
     this.lastPeriod = currentPeriod;
-
-   this.prayer_times();
+   this.prayer_times();}else{const currentPeriod = this.time_now.includes('AM') ? 'AM' : 'PM';
+  
+  if (this.lastPeriod !== currentPeriod){
+      this.updateTime(); 
+    }
+    this.lastPeriod = currentPeriod;
+   this.prayer_times();}
+    
+ 
   }, 1000); 
 }
 
@@ -167,6 +170,13 @@ async prayer_times() {
 
     // استخراج أوقات الصلوات
     this.prayer_timee = Object.values(data);
+    const date = new Date('2025-09-22');
+
+    const options = {
+    day: 'numeric',
+   month: 'long',
+   year: 'numeric'
+   };
 
     // حفظ كامل البيانات
     this.i = data;

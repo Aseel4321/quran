@@ -169,9 +169,36 @@ async prayer_times() {
     this.prayer_name = Object.keys(data);
 
     // استخراج أوقات الصلوات
-    this.prayer_timee = Object.values(data);
-    const date = new Date('2025-09-22');
+this.prayer_timee = Object.values(data);
 
+// نأخذ التاريخ (سواء "4-4-2025" أو "24 Sep 2025")
+const rawDate = this.prayer_timee[6];
+
+// نصنع كائن Date
+const dateValue = new Date(rawDate);
+
+// لو كان التاريخ مكتوب بصيغة غير مفهومة من Date (مثلاً "4-4-2025" يفسرها شهر 4 يوم 4)
+
+if (rawDate.includes("-") && rawDate.split("-").length === 3) {
+  const [day, month, year] = rawDate.split("-");
+  // ننتبه: الأشهر تبدأ من 0
+  const parsed = new Date(Number(year), Number(month) - 1, Number(day));
+  this.prayer_timee[6] = new Intl.DateTimeFormat("ar-EG", {
+    weekday: "long",
+    year: "numeric",
+    month: "long",
+    day: "numeric"
+  }).format(parsed);
+} else {
+  if(localStorage.getItem('lang') === 'ar'){  this.prayer_timee[6] = new Intl.DateTimeFormat("ar-EG", {
+    weekday: "long",
+    year: "numeric",
+    month: "long",
+    day: "numeric"
+  }).format(dateValue);}
+  // إذا كان التاريخ أصلاً مفهوم (زي Sep أو غيره)
+
+}
     const options = {
     day: 'numeric',
    month: 'long',

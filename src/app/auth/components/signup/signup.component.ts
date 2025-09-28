@@ -2,11 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../../auth-service/auth.service';
-import { Platform } from '@ionic/angular';
+import { AlertController, Platform } from '@ionic/angular';
 import { Capacitor } from '@capacitor/core';
 // ✅ الصحيح
 import { ScreenOrientation } from '@capacitor/screen-orientation';
 import { Keyboard } from '@capacitor/keyboard';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-signup',
@@ -18,7 +19,7 @@ export class SignupComponent implements OnInit { isModalOpen = false;
   constructor(private screenOrientation: ScreenOrientation,
     private router: Router,
     private Service: AuthService,
-    private platform: Platform
+    private platform: Platform,private alertController: AlertController
   ) {
     this.platform.ready().then(() => {
       this.platform.backButton.subscribeWithPriority(9999, () => {
@@ -70,7 +71,7 @@ img:string='assets/icon/man1.png';
   birthDate: string = 'NaN-NaN-NaN';  // التاريخ المختار كـ نص
   selectedCountryCode = '+962';
   phoneNumber = '';
- 
+ name1:any;
   gender: string = 'MALE';
   showPassword = false;
   showConfirm = false;
@@ -108,14 +109,29 @@ signup(){
   },(e:any)=>{this.isLoading=false;
     this.router.navigate(['/otp-email']);
     console.log(e)})
-  },(e:any)=>{this.isLoading=false;
-    console.log(e)})
+  },(error: HttpErrorResponse)=>{this.isLoading=false;
+      if(localStorage.getItem('lang')=='ar'){this.name1 = error?.error?.arDescription;
+      console.error(error.error);
+
+      this.presentAlert();}else{this.name1 = error?.error?.enDescription;this.presentAlert(); }})
  }
 
      
  
  
-   
+     async presentAlert() {
+    if(localStorage.getItem('lang')=='ar'){  const alert = await this.alertController.create({
+    message: this.name1,
+    buttons: ['موافق']
+  });await alert.present();}else{const alert = await this.alertController.create({
+    //header: 'dddddd',
+    message: this.name1,
+    buttons: ['ok']
+  });await alert.present();}
+
+
+  
+}
  
 
   rectangles = [

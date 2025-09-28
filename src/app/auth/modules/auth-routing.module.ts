@@ -24,7 +24,7 @@ import { TasbeehComponent } from 'src/app/components/tasbeeh/tasbeeh.component';
 
 
 const routes: Routes = [ 
-       { path: '', component:HomePageComponent},
+       { path: '', component:SplashScreenComponent},
        { path: 'login', component:LoginComponent},
        { path: 'signup', component: SignupComponent },
        { path: 'splash-screen', component: SplashScreenComponent },

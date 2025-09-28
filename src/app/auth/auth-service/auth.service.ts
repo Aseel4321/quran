@@ -51,7 +51,7 @@ otp:string='5555';
   });
 
   return this.http.post(
-     'https://msaralquran-g5g9bxf3fnh3bzca.canadacentral-01.azurewebsites.net/account/register',  // <-- هنا استخدم البروكسي
+     'https://api-project-6hj8.onrender.com/account/register',  // <-- هنا استخدم البروكسي
     data,
     { headers }
   );
@@ -61,7 +61,7 @@ send_otp(email:string): Observable<any> {
     'Accept': 'application/json',
     'Content-Type': 'application/json'
   });
-  const url = `https://msaralquran-g5g9bxf3fnh3bzca.canadacentral-01.azurewebsites.net/send-otp/send-to-email?email=${email}`;
+  const url = `https://api-project-6hj8.onrender.com/send-otp/send-to-email?email=${email}`;
 
   return this.http.post(url, null, { headers });
 }
@@ -70,7 +70,7 @@ verity_otp(email:any,otp:any): Observable<any> {
     'Accept': 'application/json',
     'Content-Type': 'application/json'
   });
-  const url = `https://msaralquran-g5g9bxf3fnh3bzca.canadacentral-01.azurewebsites.net/verify-otp/verify-to-email?email=${email}&otp=${otp}`;
+  const url = `https://api-project-6hj8.onrender.com/verify-otp/verify-to-email?email=${email}&otp=${otp}`;
 
   return this.http.post(url, null, { headers });
 }
@@ -81,7 +81,7 @@ verity_otp(email:any,otp:any): Observable<any> {
   });
 
   return this.http.post(
-     'https://msaralquran-g5g9bxf3fnh3bzca.canadacentral-01.azurewebsites.net/setting/forgot-password',  // <-- هنا استخدم البروكسي
+     'https://api-project-6hj8.onrender.com/setting/forgot-password',  // <-- هنا استخدم البروكسي
     data,
     { headers }
   );

@@ -45,14 +45,13 @@ list_langMatch=localStorage.getItem('lang')=="ar"?["كلمه المرور متط
   Text_color="";
   name:string='';
   Text:any='';
-
    text_password='';
    text_numpassword="";
    phonenumber='';
   password_color='';
   selectedGender: string = 'male'; 
   isLoading:any=false;
- dateOfBirth: string | null = null;
+  dateOfBirth: string | null = null;
   password_bool:any=false;
   password_icon:string='eye-off-outline';
   password_type:string='password';
@@ -63,9 +62,9 @@ list_langMatch=localStorage.getItem('lang')=="ar"?["كلمه المرور متط
   dob: any;
   repassword:any='';
   booll:string="male"
-password11:any;
-password:string='';
-img:string='assets/icon/man1.png';
+  password11:any;
+  password:string='';
+  img:string='assets/icon/man1.png';
    dob1: string='تاريخ الميلاد';
   today: string;
   birthDate: string = 'NaN-NaN-NaN';  // التاريخ المختار كـ نص
@@ -364,10 +363,10 @@ validation(){
    const dob = new Date(this.dateOfBirth);
     const formattedDate = `${dob.getDate()}/${dob.getMonth() + 1}/${dob.getFullYear()}`;
   console.log(formattedDate);
-  if(this.email!==""){if((this.repassword==this.password)&&this.num.length==4&&this.birthDate!=='NaN-NaN-NaN'){
+  if(this.email!==""){if((this.repassword==this.password)&&this.num.length==4&&this.birthDate!=='NaN-NaN-NaN'&&this.name){
     this.disabled=false;this.Service.otp_number=1;
     return 'login-button-activee';}else{this.disabled=true; return 'login-button';}}
-  else{if((this.repassword==this.password)&&this.num.length==4&&this.birthDate!=='NaN-NaN-NaN'&&this.email!==""){this.Service.otp_number=1; this.disabled=false; return 'login-button-activee';}else{ this.disabled=true; return 'login-button';}}
+  else{if((this.repassword==this.password)&&this.num.length==4&&this.birthDate!=='NaN-NaN-NaN'&&this.email!==""&&this.name){this.Service.otp_number=1; this.disabled=false; return 'login-button-activee';}else{ this.disabled=true; return 'login-button';}}
 }
 password_match(){
   if(this.password==''||this.repassword==''){this.text_password='';}

@@ -135,7 +135,7 @@ keyboardOpen: boolean = false;
    return  localStorage.getItem('lang') === 'ar' ? [
     { name: "إتمام القرآن", title: 'آخر قراءة للقرآن: ', number: 55, per: "4%", image: 'assets/icon/islamic.png' },
     { name: "أذكار الصباح", title: 'آخر أذكار تم قراءتها:', number: 6, per: "76%", image: 'assets/icon/prayer.png' },
-    { name: "اختبار حفظ القرآن", title: 'آخر مشاركة في اختبار الحفظ: 06-03-2025', number: 66, per: "90%", image: 'assets/icon/prayer.png' }
+    { name: "اختبار حفظ القرآن", title: 'آخر مشاركة في اختبار الحفظ: 06-03-2025', number: null, per: "90%", image: 'assets/icon/prayer.png' }
   ]:[
     { name: "Quran Completion", title: 'Last Read Al-Quran : ', number: 55, per: "4%", image: 'assets/icon/islamic.png' },
     { name: "Morning Adhkar", title:'Last Read Morning remembrance : ', number: 6, per: "76%", image: 'assets/icon/prayer.png' },
@@ -541,7 +541,7 @@ style_image2() {
     return 'display: none;';
   }
 
-  const baseStyle = 'width: 35%; position: fixed; bottom: 0; z-index: 10;';
+  const baseStyle = 'width: 34%; position: fixed; bottom: 0; z-index: 10;';
   const lang = localStorage.getItem('lang');
 
   if (lang === 'ar') {

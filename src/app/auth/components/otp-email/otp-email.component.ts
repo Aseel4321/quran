@@ -112,9 +112,9 @@ const user = JSON.parse(localStorage.getItem('User'));
     this.Service.verity_otp(this.Service.email, this.code).subscribe(
       (data: any) => {
         this.isLoading = false;
-        if(this.Service.otp_number==0){this.router.navigate(['/new-password']);}else{this.router.navigate(['/home-page']);}
+        if(this.Service.otp_number==0){this.router.navigate(['/new-password']);}else{this.router.navigate(['/login']);}
         this.name = data;
-         console.log('data');
+        console.log('data');
         console.log(data);
       },
       (e: HttpErrorResponse) => {

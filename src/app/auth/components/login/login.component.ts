@@ -131,12 +131,23 @@ login() {
     },
     (error: HttpErrorResponse) => {
       this.isLoading = false;
-
+      
     
       if(localStorage.getItem('lang')=='ar'){  this.name = error?.error?.arDescription;
       console.error(error.error);
 
-      this.presentAlert();}else{this.name = error?.error?.enDescription;this.presentAlert(); }
+      this.presentAlert();}else{
+        if(error?.error?.enDescription=='The account is not verified'){ 
+          //localStorage.setItem('email',this.loginData.email);   
+           this.Service.send_otp(this.loginData.email).subscribe((data:any)=>{ this.Service.otp_number=1;
+  this.router.navigate(['/otp-email']);
+  },(e:any)=>{
+    
+    console.log(e)})
+          this.router.navigate(['/otp-email']);}else{this.name = error?.error?.enDescription;
+
+        this.presentAlert(); }
+        }
     
     }
   );

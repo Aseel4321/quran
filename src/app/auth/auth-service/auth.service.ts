@@ -38,7 +38,7 @@ otp:string='5555';
   });
 
   return this.http.post(
-     'https://msaralquran-g5g9bxf3fnh3bzca.canadacentral-01.azurewebsites.net/setting/change-password',  // <-- هنا استخدم البروكسي
+     'https://api-project-6hj8.onrender.com/setting/change-password',  // <-- هنا استخدم البروكسي
     data,
     { headers }
   );

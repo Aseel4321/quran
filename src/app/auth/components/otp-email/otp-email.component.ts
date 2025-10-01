@@ -129,7 +129,7 @@ const user = JSON.parse(localStorage.getItem('User'));
     );
   }
   otp(){const user = JSON.parse(localStorage.getItem('User'));
-    if(!user){this.Service.email= localStorage.getItem('email');}else{ this.Service.email=user.email;}
+    if(!user){this.Service.email= localStorage.getItem('email'); console.log(this.Service.email)}else{this.Service.email=user.email;console.log(this.Service.email)}
    this.isLoadingotp=true;
     this.Service.send_otp(this.Service.email).subscribe((data:any)=>{ this.isLoadingotp=false; this.router.navigate(['/otp-email']);
   },(e:any)=>{this.isLoadingotp=false;

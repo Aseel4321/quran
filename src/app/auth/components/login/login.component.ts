@@ -133,20 +133,15 @@ login() {
       this.isLoading = false;
       
     
-      if(localStorage.getItem('lang')=='ar'){  this.name = error?.error?.arDescription;
-      console.error(error.error);
+      if(localStorage.getItem('lang')=='ar'){
+        if(error?.error?.enDescription=='The account is not verified'){ this.name = error?.error?.arDescription; this.presentAlert();}
+       
+        
+     
 
-      this.presentAlert();}else{
-        if(error?.error?.enDescription=='The account is not verified'){ 
-          //localStorage.setItem('email',this.loginData.email);   
-           this.Service.send_otp(this.loginData.email).subscribe((data:any)=>{ this.Service.otp_number=1;
-  this.router.navigate(['/otp-email']);
-  },(e:any)=>{
-    
-    console.log(e)})
-          this.router.navigate(['/otp-email']);}else{this.name = error?.error?.enDescription;
-
-        this.presentAlert(); }
+    }else{
+    this.name = error?.error?.enDescription;
+        this.presentAlert(); 
         }
     
     }
@@ -160,13 +155,45 @@ login() {
     }
   }
   async presentAlert() {
-    if(localStorage.getItem('lang')=='ar'){  const alert = await this.alertController.create({
+    if(localStorage.getItem('lang')=='ar'){ 
+    const alert = await this.alertController.create({
+   
     message: this.name,
-    buttons: ['موافق']
-  });await alert.present();}else{const alert = await this.alertController.create({
-    //header: 'dddddd',
+     buttons: [
+    {
+      text: 'موافق',
+      handler: () => {if(this.name=='الحساب غير موثق'){  
+  this.Service.send_otp(this.loginData.email).subscribe((data:any)=>{ this.Service.otp_number=1;
+  this.router.navigate(['/otp-email']);
+  },(e:any)=>{
+    
+    console.log(e)})
+          this.router.navigate(['/otp-email']);}
+   
+     
+      }
+    }
+  ]
+  });await alert.present();}else{
+ 
+    const alert = await this.alertController.create({
+   
     message: this.name,
-    buttons: ['ok']
+     buttons: [
+    {
+      text: 'OK',
+      handler: () => {if(this.name=='The account is not verified'){  
+  this.Service.send_otp(this.loginData.email).subscribe((data:any)=>{ this.Service.otp_number=1;
+  this.router.navigate(['/otp-email']);
+  },(e:any)=>{
+    
+    console.log(e)})
+          this.router.navigate(['/otp-email']);}
+   
+     
+      }
+    }
+  ]
   });await alert.present();}
 
 

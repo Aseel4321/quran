@@ -9,7 +9,7 @@
   />
 </div>
     <div class="logo" style="display: flex; align-items: center;flex-direction: row-reverse; margin-top:-1%;margin-bottom: 0%;">
-      <img [src]="img" alt="Login Image" style="width: 50px; height: 50px; border-radius: 50%;margin-left: 0%;margin-top:-3%;">
+      <img [src]="img" alt="Login Image" style="width: 45px; height: 45px; border-radius: 50%;margin-left: 0%;margin-top:-1%;">
       <div>
         <h1 style="margin-right: 0%;">{{ 'Registration' | translate }}</h1>
       </div>
@@ -91,7 +91,7 @@
             [style.backgroundColor]="color(i)"
           ></div>
         </div>
- <div [style.color]="password_color" style="height:0.9vh;font-size:2vw;margin-top: 0%;margin-bottom: 3%">{{Text}}</div>
+ <div [style.color]="password_color" style="height:0.9vh;font-size:2vw;margin-top: -2%;margin-bottom: 3%">{{Text}}</div>
       </div><div class="input-box">
       <ion-icon name="lock-closed-outline" class="icon"  slot="start"></ion-icon>
       <ion-input  
@@ -109,7 +109,7 @@
         (click)="eye_repassword()">
       </ion-icon>
     </div>
-    <div style="height:0.7vh;"> <div [ngStyle]="color_password()">{{text_password}}</div></div>
+    <div style="height:0.7vh;margin-top: -2%;"> <div [ngStyle]="color_password()">{{text_password}}</div></div>
 
  
    <ion-grid>
@@ -118,7 +118,7 @@
  
 
   
-<ion-label position="floating" style="margin-inline-start: 21%;font-weight: 200;">{{ 'Date_Of_Birth' | translate }}</ion-label>
+<ion-label position="floating" style="margin-inline-start: 25%;font-weight: 200;">{{ 'Date_Of_Birth' | translate }}</ion-label>
 <ion-datetime-button datetime="datetime"></ion-datetime-button>
 
 <ion-modal [keepContentsMounted]="true" [(isOpen)]="isModalOpen">

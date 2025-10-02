@@ -591,6 +591,9 @@ sp(){const baseStyle = 'width:3vw; height:3vh; ';
   "Isha"
 ]}}
 list_prayer=[]
+img(){
+  
+}
 prayer() {
   const myMap = new Map<string, string>();
   myMap.set('Fajr', 'الفجر');

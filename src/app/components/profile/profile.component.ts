@@ -204,7 +204,8 @@ valid(){
     return 'login-button';
   }else{ return 'login-button-activee';}
 }
-}*/import { Component, ViewChild, AfterViewInit, OnInit } from '@angular/core';
+}*/
+import { Component, ViewChild, AfterViewInit, OnInit } from '@angular/core';
 import { Keyboard } from '@capacitor/keyboard';
 import { IonInput } from '@ionic/angular';
 
@@ -213,7 +214,11 @@ import { IonInput } from '@ionic/angular';
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.scss'],
 })
-export class ProfileComponent implements AfterViewInit,OnInit {  keyboardWillShowListener: any;
+export class ProfileComponent implements AfterViewInit,OnInit {user:any;  keyboardWillShowListener: any; name: string = '';
+  email: string = '';
+  phoneNumber: string = '';
+  selectedCountryCode = '+962';
+  dateOfBirth: string | null = null;
   keyboardWillHideListener: any;
 private lockInProgress = false; isKeyboardOpen: boolean = false;
   ngOnInit(): void {
@@ -229,12 +234,15 @@ private lockInProgress = false; isKeyboardOpen: boolean = false;
     }
        // منع التمرير عند إغلاق الكيبورد
     });
+    const userData = localStorage.getItem('User');
+     this.user = JSON.parse(userData);
+     this.name=this.user.fullName;
+     this.email=this.user.email;
+     this.phoneNumber=this.user.phone;
+     this.dateOfBirth=this.user.dob;
+     console.log(this.user.dob);
   }
-  name: string = '';
-  email: string = '';
-  phoneNumber: string = '';
-  selectedCountryCode = '+962';
-  dateOfBirth: string | null = null;
+ 
   countries = [
     { name: 'السعودية', dial_code: '+966' },
     { name: 'مصر', dial_code: '+20' },
@@ -263,7 +271,6 @@ isModalOpen = false;
   }
 onDateChangee(event: any) {
   const rawDate = event.detail?.value || event.target?.value;
-
   if (rawDate) {
     const dob = new Date(rawDate);
     if (!isNaN(dob.getTime())) {
@@ -277,6 +284,7 @@ onDateChangee(event: any) {
     console.error("لم يتم اختيار تاريخ");
   }
 }
+
   enableInput(field: string) {
     let inputRef: IonInput | undefined;
 

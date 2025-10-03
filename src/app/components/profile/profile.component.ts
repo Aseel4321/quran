@@ -240,7 +240,13 @@ private lockInProgress = false; isKeyboardOpen: boolean = false;
      this.email=this.user.email;
      this.phoneNumber=this.user.phone;
      this.dateOfBirth=this.user.dob;
-     console.log(this.user.dob);
+       const date = new Date(this.dateOfBirth);
+  const day = String(date.getDate()).padStart(2, '0');
+  const month = String(date.getMonth() + 1).padStart(2, '0');
+  const year = date.getFullYear();
+
+  const formatted = `${day}-${month}-${year}`;
+  console.log("التاريخ بالعكس:", formatted);
   }
  
   countries = [
@@ -284,7 +290,14 @@ onDateChangee(event: any) {
     console.error("لم يتم اختيار تاريخ");
   }
 }
-
+value(){     const date = new Date(this.user.dob);
+  const day = String(date.getDate()).padStart(2, '0');
+  const month = String(date.getMonth() + 1).padStart(2, '0');
+  const year = date.getFullYear();
+  const formatted = `${year}-${month}-${day}`;
+  return formatted;
+}
+v="";
   enableInput(field: string) {
     let inputRef: IonInput | undefined;
 

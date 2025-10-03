@@ -134,7 +134,7 @@ login() {
       
     
       if(localStorage.getItem('lang')=='ar'){
-        if(error?.error?.enDescription=='The account is not verified'){ this.name = error?.error?.arDescription; this.presentAlert();}
+         this.name = error?.error?.arDescription; this.presentAlert();
        
         
      

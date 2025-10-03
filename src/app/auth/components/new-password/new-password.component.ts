@@ -108,7 +108,7 @@ list_langMatch=localStorage.getItem('lang')=="ar"?["كلمه المرور متط
    
      localStorage.setItem('login','true');
      localStorage.setItem('user', JSON.stringify(data));
-       this.router.navigate(['/home-page']);
+       this.router.navigate(['/login']);
     },(e:any)=>{this.isLoading=false;
       
       console.log(e)})

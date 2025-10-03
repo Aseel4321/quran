@@ -185,17 +185,18 @@
     <ion-grid>
       <ion-row>
         <ion-col>      <ion-label position="floating" style="margin-inline-start:30%;font-weight: 200;">{{ 'Date_Of_Birth' | translate }}</ion-label>
-<ion-datetime-button datetime="datetime"></ion-datetime-button>
+<ion-datetime-button   datetime="datetime"></ion-datetime-button>
 
 <ion-modal [keepContentsMounted]="true" [(isOpen)]="isModalOpen">
   <ng-template>
-    <ion-datetime
-      id="datetime"
-      presentation="date"
-      [(ngModel)]="dateOfBirth"
-      (ionChange)="onDateChangee($event)"
-      show-default-buttons="true"
-    ></ion-datetime>
+<ion-datetime
+  id="datetime"
+  [value]="value()"
+  presentation="date"
+  [(ngModel)]="dateOfBirth"
+  (ionChange)="onDateChangee($event)"
+  show-default-buttons="true"
+></ion-datetime>
   </ng-template>
 </ion-modal></ion-col>
 

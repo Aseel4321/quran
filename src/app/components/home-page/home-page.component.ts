@@ -37,7 +37,8 @@ time_now:any;
    lastPeriod = ''; 
    prayerName1=localStorage.getItem('lang');
  i:any;
-
+user:any; 
+imgg='';
   list_time: any[] = [
     { name: "aseel", image: "assets/icon/sunny.png", time: '17:8' },
     { name: "aseel", image: "assets/icon/sunrise.png", time: '17:8' },
@@ -46,6 +47,7 @@ time_now:any;
     { name: "aseel", image: "assets/icon/cloud.png", time: '17:8' },
     { name: "aseel", image: "assets/icon/moon.png", time: '17:8' }
   ];
+
   initialHeight: number = window.innerHeight;
 keyboardOpen: boolean = false;
   list_time1: any[] = [
@@ -69,7 +71,8 @@ keyboardOpen: boolean = false;
         img.style.cssText = this.style_image2();
       }
     });
- 
+    const userData = localStorage.getItem('User');
+     this.user = JSON.parse(userData);
   }
   constructor(private locationAccuracy: LocationAccuracy,
     private http: HttpClient,
@@ -592,7 +595,10 @@ sp(){const baseStyle = 'width:3vw; height:3vh; ';
 ]}}
 list_prayer=[]
 img(){
-  
+ if(this.user.gender=='MALE'){
+  console.log('this.user.gender');
+  return 'assets/icon/man3.png';
+ } else{return 'assets/icon/moslem-woman.png'}
 }
 prayer() {
   const myMap = new Map<string, string>();

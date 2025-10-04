@@ -135,7 +135,7 @@
     </h1>
 
     <div class="logo" class="logo">
-      <img src="assets/icon/moslem-woman.png" alt="Login Image" style="width:35%; height: 35%; border-radius: 50%;">
+      <img [src]="img2" alt="Login Image" style="width:35%; height: 35%; border-radius: 50%;">
     </div>
 
     <!-- الاسم -->
@@ -148,6 +148,7 @@
         readonly
         type="text"  
         placeholder="{{ 'NAME' | translate }}" 
+        (ionInput)="onKeyup_name($event)"
       ></ion-input>
       <ion-icon name="pencil" slot="end"  (mousedown)="enableInput('name')"></ion-icon>
     </div>
@@ -201,22 +202,24 @@
 </ion-modal></ion-col>
 
 
-        <ion-col size="6" class="gender-buttons">
-          <ion-segment value="custom">
-            <ion-segment-button value="custom">
-              <ion-label>{{ 'Male' | translate }}</ion-label>
-            </ion-segment-button>
-            <ion-segment-button value="segment">
-              <ion-label>{{ 'Femal' | translate }}</ion-label>
-            </ion-segment-button>
-          </ion-segment>
+           <ion-col size="6" class="gender-segment">
+    <ion-segment value="male" [(ngModel)]="selectedGender" name="selectedGender" >
+  <ion-segment-button value="male" (click)="setGender('MALE')">
+   {{ 'Male' | translate }}
+  </ion-segment-button>
+  <ion-segment-button value="famale" (click)="setGender('FEMALE')"> 
+   {{ 'Female' | translate }}
+  </ion-segment-button>
+ 
+</ion-segment>
+
         </ion-col>
       </ion-row>
       
     </ion-grid>
 
     <!-- زر الدخول -->
-    <button class="login-button-activee" type="submit">
+    <button [class]="valid()" type="submit">
       {{ 'LOGIN' | translate }}
     </button>
 

@@ -205,22 +205,26 @@ valid(){
   }else{ return 'login-button-activee';}
 }
 }*/
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, ViewChild, AfterViewInit, OnInit } from '@angular/core';
 import { Keyboard } from '@capacitor/keyboard';
-import { IonInput } from '@ionic/angular';
+import { IonInput, Platform } from '@ionic/angular';
+import { MainServiceService } from 'src/app/main-service/main/main-service.service';
 
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.scss'],
 })
-export class ProfileComponent implements AfterViewInit,OnInit {user:any;  keyboardWillShowListener: any; name: string = '';
+export class ProfileComponent implements AfterViewInit,OnInit {user:any;  keyboardWillShowListener: any; name: string = '';gender:any;
   email: string = '';
   phoneNumber: string = '';
   selectedCountryCode = '+962';
-  dateOfBirth: string | null = null;
+  dateOfBirth: string | null = null;booll:string="male"
   keyboardWillHideListener: any;
-private lockInProgress = false; isKeyboardOpen: boolean = false;
+private lockInProgress = false; isKeyboardOpen: boolean = false; selectedGender: string = 'male'; 
+img2:any;
+constructor(private platform: Platform, private service: MainServiceService){}
   ngOnInit(): void {
    this.keyboardWillShowListener = Keyboard.addListener('keyboardWillShow', () => {
       this.isKeyboardOpen = true; // السماح بالتمرير
@@ -239,7 +243,10 @@ private lockInProgress = false; isKeyboardOpen: boolean = false;
      this.name=this.user.fullName;
      this.email=this.user.email;
      this.phoneNumber=this.user.phone;
-     this.dateOfBirth=this.user.dob;
+     this.dateOfBirth=this.user.dob;if(this.user.gender=='MALE'){this.booll="male";this.selectedGender='male';this.gender="MALE" ;
+  console.log('this.user.gender');
+  this.img2='assets/icon/man3.png';
+ } else{this.selectedGender='famale';this.gender="FEMALE" ;this.booll="female";this.img2= 'assets/icon/moslem-woman.png'}
        const date = new Date(this.dateOfBirth);
   const day = String(date.getDate()).padStart(2, '0');
   const month = String(date.getMonth() + 1).padStart(2, '0');
@@ -247,8 +254,26 @@ private lockInProgress = false; isKeyboardOpen: boolean = false;
 
   const formatted = `${day}-${month}-${year}`;
   console.log("التاريخ بالعكس:", formatted);
+  }  onKeyup_phone(event:any){
+const phoneNumber1= (event.target as HTMLInputElement).value;
+console.log(this.selectedCountryCode);
+this.phoneNumber = this.selectedCountryCode + phoneNumber1;
+console.log(this.phoneNumber);
+//this.phonenumber=phoneNumber1;
+  } onKeyup_email(event: KeyboardEvent){
+this.email = (event.target as HTMLInputElement).value;
+console.log(this.email);
   }
- 
+   setGender(gender: string) {
+    this.gender=gender;
+    if(gender==="FEMALE"){this.img2='assets/icon/moslem-woman.png';
+      this.booll="female" }else{this.booll="male" ;this.img2='assets/icon/man3.png';}
+  }
+ onKeyup_name(event:any){
+this.name= (event.target as HTMLInputElement).value;
+console.log(this.name)
+
+  }
   countries = [
     { name: 'السعودية', dial_code: '+966' },
     { name: 'مصر', dial_code: '+20' },
@@ -289,7 +314,23 @@ onDateChangee(event: any) {
   } else {
     console.error("لم يتم اختيار تاريخ");
   }
-}
+} /*update(){
+    
+    this.service.update_profile({
+  "oldEmail":this.user.email,
+  "newFullName":this.name,
+  "newEmail":this.email,
+  "newPhone":this.phonenumber,
+  "newDob":this.birthDate,
+  "newGender":this.gender
+}).subscribe((data:any)=>{
+console.log(data);
+    },(error: HttpErrorResponse)=>{
+     console.log(error);
+        
+    });
+  
+   }*/
 value(){     const date = new Date(this.user.dob);
   const day = String(date.getDate()).padStart(2, '0');
   const month = String(date.getMonth() + 1).padStart(2, '0');
@@ -348,4 +389,14 @@ title() {
     };
   }
 }
+valid(){
+  if(this.name==this.user.fullName&&this.email==this.user.email&&this.phoneNumber==this.user.phone&&this.gender==this.user.gender&&this.dateOfBirth==this.user.dob){
+    return 'login-button'
+  }else{ return 'login-button-activee'}
+}
+/*valid(){
+  if(this.name!=this.user.fullName&&this.email!=this.user.email&&this.phoneNumber!=this.user.phone&&this.gender!=this.user.gender&&this.dateOfBirth!=this.user.dob){
+    return 'login-button'
+  }else{ return 'login-button-activee'}
+}*/
 }

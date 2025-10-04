@@ -86,7 +86,7 @@ list_langMatch=localStorage.getItem('lang')=="ar"?["كلمه المرور متط
   { name: this.list_langCountries[6], flag: "assets/icon/man7.png", dial_code: '+968' }, // عُمان
   { name: this.list_langCountries[7], flag: "assets/icon/man8.png", dial_code: '+973' }, // البحرين
 ];
-
+//setGender(){}
 remove(){
  this.dob1=''; 
 }

@@ -223,6 +223,7 @@ export class ProfileComponent implements AfterViewInit,OnInit {user:any;  keyboa
   dateOfBirth: string | null = null;booll:string="male"
   keyboardWillHideListener: any;
 private lockInProgress = false; isKeyboardOpen: boolean = false; selectedGender: string = 'male'; 
+disabled=true;
 img2:any;
 constructor(private platform: Platform, private service: MainServiceService){}
   ngOnInit(): void {
@@ -314,14 +315,14 @@ onDateChangee(event: any) {
   } else {
     console.error("لم يتم اختيار تاريخ");
   }
-} /*update(){
+} update(){
     
     this.service.update_profile({
   "oldEmail":this.user.email,
   "newFullName":this.name,
   "newEmail":this.email,
-  "newPhone":this.phonenumber,
-  "newDob":this.birthDate,
+  "newPhone":this.phoneNumber,
+  "newDob":this.dateOfBirth,
   "newGender":this.gender
 }).subscribe((data:any)=>{
 console.log(data);
@@ -330,7 +331,7 @@ console.log(data);
         
     });
   
-   }*/
+   }
 value(){     const date = new Date(this.user.dob);
   const day = String(date.getDate()).padStart(2, '0');
   const month = String(date.getMonth() + 1).padStart(2, '0');
@@ -390,9 +391,9 @@ title() {
   }
 }
 valid(){
-  if(this.name==this.user.fullName&&this.email==this.user.email&&this.phoneNumber==this.user.phone&&this.gender==this.user.gender&&this.dateOfBirth==this.user.dob){
+  if(this.name==this.user.fullName&&this.email==this.user.email&&this.phoneNumber==this.user.phone&&this.gender==this.user.gender&&this.dateOfBirth==this.user.dob){this.disabled=true;
     return 'login-button'
-  }else{ return 'login-button-activee'}
+  }else{this.disabled=false; return 'login-button-activee'}
 }
 /*valid(){
   if(this.name!=this.user.fullName&&this.email!=this.user.email&&this.phoneNumber!=this.user.phone&&this.gender!=this.user.gender&&this.dateOfBirth!=this.user.dob){

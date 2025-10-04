@@ -28,7 +28,7 @@ update_profile(data: any): Observable<any> {
   });
 
   return this.http.post(
-    'https://msaralquran-g5g9bxf3fnh3bzca.canadacentral-01.azurewebsites.net/setting/update-profile',
+    'https://api-project-6hj8.onrender.com/setting/update-profile',
     data,
     { headers: headers }
   );

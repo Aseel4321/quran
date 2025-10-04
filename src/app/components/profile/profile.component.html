@@ -219,7 +219,7 @@
     </ion-grid>
 
     <!-- زر الدخول -->
-    <button [class]="valid()" type="submit">
+    <button [class]="valid()" type="submit" (click)=" update()" [disabled]="disabled">
       {{ 'LOGIN' | translate }}
     </button>
 

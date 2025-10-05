@@ -126,7 +126,7 @@ login() {
 
       localStorage.setItem('user', 'true');
       localStorage.setItem('User', JSON.stringify(data));
-
+localStorage.setItem('email', this.loginData.email);
       this.router.navigate(['/home-page']);
     },
     (error: HttpErrorResponse) => {

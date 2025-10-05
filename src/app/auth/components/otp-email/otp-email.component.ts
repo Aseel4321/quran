@@ -106,8 +106,8 @@ private lockInProgress = false;
 
   login() {
     this.isLoading = true;
-const user = JSON.parse(localStorage.getItem('User'));
-    if(!user){this.Service.email= localStorage.getItem('email');}else{ this.Service.email=user.email}
+
+  this.Service.email= localStorage.getItem('email');
 
     this.Service.verity_otp(this.Service.email, this.code).subscribe(
       (data: any) => {

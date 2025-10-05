@@ -52,6 +52,7 @@ logout(){ console.log(localStorage.getItem('login'));
  localStorage.setItem('login','false'); 
  console.log(localStorage.getItem('login'));
  const user = JSON.parse(localStorage.getItem('user') || '{}');
+localStorage.removeItem('User');
  this.router.navigate(['/login']);
 
 }

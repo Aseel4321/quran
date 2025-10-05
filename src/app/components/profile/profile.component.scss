@@ -331,6 +331,13 @@ ion-segment-button::part(indicator-background) {
   opacity: 0.6;
   cursor: not-allowed;
   transition: all 0.3s ease;
+}.loading {height:10vw ;
+  text-align: center;
+  margin-top: 1vw;
+}.loading-image {
+  width: 65px;
+  height: 65px;
+  border-radius: 10%;
 }
 .login-button-activee {
   border-radius: 25px;

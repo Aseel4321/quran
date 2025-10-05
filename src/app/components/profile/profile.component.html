@@ -143,7 +143,7 @@
       <ion-icon name="person-outline" slot="start"></ion-icon>
       <ion-input
         #nameInput
-        [(ngModel)]="name"
+        [(ngModel)]="name1"
         name="name"
         readonly
         type="text"  
@@ -217,7 +217,9 @@
       </ion-row>
       
     </ion-grid>
-
+ <div *ngIf="isLoading" class="loading">
+      <img src="assets/icon/hold-on.gif" alt="Login Image" class="loading-image" />
+    </div>
     <!-- زر الدخول -->
     <button [class]="valid()" type="submit" (click)=" update()" [disabled]="disabled">
       {{ 'LOGIN' | translate }}

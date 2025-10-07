@@ -7,17 +7,17 @@
   <div style="flex: 3;"></div>
     </div>  <ion-item lines="none" style="margin-top: 10%;  --background:color= none">
           <ion-icon name="person-outline" style="margin-inline-end: 5%;"></ion-icon>
-          <ion-label class="custom-label">Profile</ion-label>
+          <ion-label class="custom-label" routerLink="/profile">Profile</ion-label>
            <ion-icon name="chevron-forward-outline" slot="end" size="small"></ion-icon>
         </ion-item>
         <ion-item lines="none" style="margin-top: 10%;  --background:color= none "(click)="nav(1)">
           <ion-icon name="lock-closed-outline" style="margin-inline-end: 5%;"></ion-icon>
-          <ion-label class="custom-label" >Password and Security</ion-label>
+          <ion-label class="custom-label" routerLink="/rest-password">Password and Security</ion-label>
            <ion-icon name="chevron-forward-outline" slot="end" size="small"></ion-icon>
         </ion-item > 
         <ion-item lines="none" style="margin-top: 10%;  --background:color= none" (click)="nav(1)">
           <ion-icon name="id-card-outline" size="small" style="margin-inline-end: 5%;"></ion-icon>
-          <ion-label class="custom-label" >Profile Details</ion-label>
+          <ion-label class="custom-label"routerLink="/profile-details">Profile Details</ion-label>
            <ion-icon name="chevron-forward-outline" slot="end" size="small"></ion-icon>
         </ion-item>  
          <ion-item  lines="none" style="margin-top: 10%;  --background:color= none" (click)="nav(3)">

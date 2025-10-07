@@ -248,7 +248,7 @@ constructor(private platform: Platform, private service: MainServiceService ,pri
      this.user = JSON.parse(userData);
      this.name1=this.user.fullName;
      this.email=this.user.email;
-     this.phoneNumber=this.user.phone;
+    this.phoneNumber = this.user.phone.replace(/^\+\d+/, '');
      this.dateOfBirth=this.user.dob;    
        const date = new Date(this.dateOfBirth);
   const day = String(date.getDate()).padStart(2, '0');
@@ -331,7 +331,7 @@ onDateChangee(event: any) {
   "newPhone":this.phoneNumber,
   "newDob":this.dateOfBirth,
   "newGender":this.gender
-}).subscribe((data:any)=>{this.isLoading = false;this.router.navigate(['/home-page']);
+}).subscribe((data:any)=>{this.isLoading = false;localStorage.setItem('User',JSON.stringify(data));this.router.navigate(['/home-page']);
 console.log(data);
     },(error: HttpErrorResponse) => {
       this.isLoading = false;

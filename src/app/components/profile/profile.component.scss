@@ -259,7 +259,7 @@ input:focus {
 
   ion-icon {
     font-size:1rem; 
-  
+
   
     //background-color: #f0f0f0; /* خلفية ناعمة حول الأيقونات */
     border-radius: 50%; /* جعل الأيقونات دائرية */
@@ -268,7 +268,7 @@ input:focus {
 
   /* تغيير لون الأيقونات عند التحويم */
   &:hover ion-icon {
-  
+  background-color: #e6c92a;
   }
 }
 

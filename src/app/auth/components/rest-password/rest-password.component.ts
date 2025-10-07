@@ -61,6 +61,7 @@ const user = userString ? JSON.parse(userString) : null;
    this.Service. rest_password({"emailOrPhone":user.email, "oldPassword":this.password.text_password,"newPassword":this.repassword.text_password,"confirmNewPassword":this.conpassword.text_password}).subscribe((data:any)=>{
    this.isLoading=false;
    console.log(data) ;
+   this.router.navigate(['/home-page']);
   },(error: HttpErrorResponse)=>{this.isLoading=false;
        if(localStorage.getItem('lang')=='ar'){  this.name = error?.error?.arDescription;
       console.error(error.error);
@@ -81,19 +82,19 @@ const user = userString ? JSON.parse(userString) : null;
 if(this.num.length==1){
 if(i==0){
   return '#FF0000'
-}else{return '#FFFFFF'}
+}else{return '#E5E4E2'}
 }else if(this.num.length==2){
 if(i<=1){
   return '#FFFF00'
-}else{return '#FFFFFF'}
+}else{return '#E5E4E2'}
         }else if(this.num.length==3){
 if(i<=2){
   return '#90EE90'
-}else{return '#FFFFFF'}
+}else{return '#E5E4E2'}
         }else if(this.num.length==4){
           if(i<=4){
   return '#006400'
-}else{return '#FFFFFF'}
+}else{return '#E5E4E2'}
         }
       }
     }

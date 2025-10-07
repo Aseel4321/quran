@@ -1,4 +1,8 @@
-
+:host-context([dir="rtl"]) .login-image {
+  transform: rotateY(180deg);
+}[dir="rtl"] .login-image {
+  transform: rotateY(180deg);
+}
 
 ion-label {
   font-weight: bold;

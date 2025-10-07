@@ -1,15 +1,13 @@
-<ion-content class="login-content">
+<ion-content class="login-content" scroll-y="false">
 <div style="display: flex;
             height: 7%;
             margin-top: 2%;
-    
             flex-direction: row;
             width: 100vw;
             align-items: center;
             box-sizing: border-box;
            
            ">
-
   <!-- يسار -->
  <div style="display: flex;flex-direction: row;margin-inline-start:5%; margin-top: 15%;"><ion-icon name="arrow-back-outline"></ion-icon></div>
     
@@ -69,26 +67,47 @@
 <div style="display: flex; flex-direction: row; width: 50%; height: 50%; justify-content: end;">
   <img src="assets/icon/addd.png"
        alt="Add Icon"
-       style="height: 60%; width: 10%; margin-inline-end: 3%;">
+       style="height: 65%; width: 15%; margin-inline-end: 3%;">
 
   <img src="assets/icon/removee.png"
        alt="Remove Icon"
-       style="height: 50%; width: 10%; ">
+       style="height: 550%; width: 15%; ">
 </div>
 
 
 </div>
+<div style="
+  width: 100vw;
+  height: 100vh;        
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+">
+  <div *ngFor="let user of user"
+       style="
+         display: flex;
+         justify-content: flex-end;
+         align-items: center;
+         padding-right: 5%;
+         margin: 2% 5%;
+         height:100px;
+         background-color: #a7add1;
+         border-radius: 30px;
+       ">
+       <div style="display: flex;flex-direction: row;margin-top: 3%;margin-inline-end:45%;"> <div style="display: flex;flex-direction: column;margin-top: 3%;margin-inline-start: 10%;"><p>sdddd</p><p>fffff</p>
 
-<div style="width: 100vw;">
-  <div *ngFor="let user of user;"
-       style="display: flex; justify-content: flex-end; align-items: center; padding-right: 5%; margin: 2% 5%; height: 7vh; background-color: #E8E0C8; border-radius: 45px;">
-
+       </div><p style="margin-top: 25%;margin-inline-start: 100%;">ggggg</p></div>
+      
     <ion-toggle 
-      style="--track-width: 2vw; --track-height: 3vw; --handle-width: 3vw; --handle-height: 4vw;">
+      style="--track-width: 30px;     /* عرض المسار */
+    --track-height:10px;    /* ارتفاع المسار */
+    --handle-width: 30px;    /* عرض المقبض */
+    --handle-height:5px;">
     </ion-toggle>
 
   </div>
 </div>
+
 
 
 

@@ -6,7 +6,17 @@
 ion-datetime::part(calendar-day) {
   transition: all 0.3s ease;
 }
-
+.login-content {
+ --background: #fff;
+  display: flex; 
+  flex-direction: column; 
+  justify-content: flex-start;
+  align-items: center; 
+  min-height: 100vh;
+--background: #fff;
+  width:100vw ;
+overflow: hidden;
+}
 ion-datetime::part(calendar-day):hover {
   background-color: #eeeeee;
 }

@@ -18,14 +18,14 @@
 
       <ion-item lines="none">
         <img src="assets/icon/notification.png" style="width: 10%;margin-inline-end: 5%;" />
-        <ion-label>Notification Preferences</ion-label>
+        <ion-label (click)="route(0)">Notification Preferences</ion-label>
         <ion-icon name="arrow-forward" [ngClass]="{'flip-horizontal': selectedCity === 'ar'}"></ion-icon>
       </ion-item>
 
      
       <ion-item lines="none">
         <img  src="assets/icon/delete.png" style="width: 10%;margin-inline-end: 5%;" />
-        <ion-label>Delete Account</ion-label>
+        <ion-label (click)="route(1)">Delete Account</ion-label>
         <ion-icon name="arrow-forward" [ngClass]="{'flip-horizontal': selectedCity === 'ar'}"></ion-icon>
       </ion-item>
       <ion-item lines="none" (click)="logout()">

@@ -49,11 +49,16 @@ this.lang=this.lang_ar;
   console.log(this.lang_text=='ar');
   }
 logout(){ console.log(localStorage.getItem('login'));
- localStorage.setItem('login','false'); 
+ localStorage.setItem('user','false'); 
  console.log(localStorage.getItem('login'));
- const user = JSON.parse(localStorage.getItem('user') || '{}');
+ //const user = JSON.parse(localStorage.getItem('user') || '{}');
 localStorage.removeItem('User');
  this.router.navigate(['/login']);
 
+}
+route(i){
+if(i==0){
+this.router.navigate(['/notifi']);
+}else if(i==1){this.router.navigate(['/delete']);}
 }
 }

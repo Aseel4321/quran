@@ -9,3 +9,69 @@
   transform: rotateY(180deg);
   transition: transform 0.3s ease;
 }
+.settings-page {
+  --background: #f8f8f8;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .header {
+    margin-top: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3vw;
+
+    .title {
+      font-size: 8vw;
+      font-weight: 600;
+      margin-top: 5%;margin-bottom: 0%;
+    }
+
+    .icon {
+      width: 14vw;
+      height: auto;
+    }
+  }
+
+  /* 🟩 الصندوق الأبيض في المنتصف */
+  .content-center {margin-top: -5vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60vh; /* يتحكم بموقع الصندوق */
+    width: 100%;
+  }
+
+  .settings-list {
+    width: 80vw;
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    padding: 1vw 0;
+
+    ion-item {
+      --background: transparent;
+      --min-height: 55px;
+      font-size: 4vw;
+
+      ion-icon {
+        width: 7vw;
+        height: 7vw;
+      }
+
+      ion-label {
+        margin-left: 2vw;
+      }
+
+      ion-toggle {
+        transform: scale(0.9);
+      }
+    }
+  }
+
+  .flip-horizontal {
+    transform: scaleX(-1);
+  }
+}

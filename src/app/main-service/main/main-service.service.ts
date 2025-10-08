@@ -14,7 +14,7 @@ delete(data: any): Observable<any> {
   });
 
   return this.http.delete(
-    'https://msaralquran-g5g9bxf3fnh3bzca.canadacentral-01.azurewebsites.net/account/delete',  // استخدم البروكسي هنا
+    'https://https://api-project-6hj8.onrender.com/account/delete',  // استخدم البروكسي هنا
     {
       headers: headers,
       body: data

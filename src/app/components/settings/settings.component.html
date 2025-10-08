@@ -1,53 +1,39 @@
-<ion-content style="display: flex;flex-direction: column;">
-  <div style="margin-top: 20%;display: flex;flex-direction: row;text-align: center;align-items:center ;justify-content: center;">
-    <p style="font-size:8vw;">settings </p>
-  <img src="assets/icon/beads.png" style="height:15vw ;width: 15vw;"/>
+<ion-content class="settings-page">
+  <div class="header">
+    <p class="title">Settings</p>
+    <img src="assets/icon/settings.png" class="icon" />
   </div>
-  <div style="background-color: gray;border-radius:10%;margin-left: 10%;margin-right:10%;">
-    <div style="margin-top: 3vw;margin-bottom: 5vw;display: flex;flex-direction: row;text-align: center;align-items:center ;justify-content: center;margin-inline-start: 10%;margin-inline-end: 10% ;">
-      <img src="assets/icon/earth.png" style="height:8vw ;width: 8vw;"/><p style="flex: 1;margin-inline-end:  22%;"> language</p> 
-<div style="flex: 1;"> 
-  <div ></div>
-   <ion-select [(ngModel)]="selectedCity" (ionChange)="onCityChange($event)">
-    
-  <ion-select-option *ngFor="let item of lang" [value]="item.code">{{ item.lang }}</ion-select-option>
-    
-  
-  </ion-select></div>
 
+  <div class="content-center">
+    <ion-list class="settings-list">
+      <ion-item lines="none">
+        <img src="assets/icon/earth.png" style="width: 10%;margin-inline-end: 5%;" />
+        <ion-label>Language</ion-label>
+        <ion-select [(ngModel)]="selectedCity" (ionChange)="onCityChange($event)">
+          <ion-select-option *ngFor="let item of lang" [value]="item.code">
+            {{ item.lang }}
+          </ion-select-option>
+        </ion-select>
+      </ion-item>
 
+      <ion-item lines="none">
+        <img src="assets/icon/notification.png" style="width: 10%;margin-inline-end: 5%;" />
+        <ion-label>Notification Preferences</ion-label>
+        <ion-icon name="arrow-forward" [ngClass]="{'flip-horizontal': selectedCity === 'ar'}"></ion-icon>
+      </ion-item>
 
-       </div>
-         <div style="margin-bottom: 5vw;display: flex;flex-direction: row;text-align: center;align-items:center ;justify-content: center;margin-left: 10%;margin-right:10%;">
-      <img src="assets/icon/notification.png" style="height:8vw ;width: 8vw;"/><p style="flex: 5;font-size: 4vw;">Notification Preferences</p> 
-<ion-icon name="arrow-forward" [ngClass]="{'flip-horizontal': selectedCity === 'ar'}" style="flex: 1;"></ion-icon>
+     
+      <ion-item lines="none">
+        <img  src="assets/icon/delete.png" style="width: 10%;margin-inline-end: 5%;" />
+        <ion-label>Delete Account</ion-label>
+        <ion-icon name="arrow-forward" [ngClass]="{'flip-horizontal': selectedCity === 'ar'}"></ion-icon>
+      </ion-item>
+      <ion-item lines="none" (click)="logout()">
+        <img slot="start" src="assets/icon/logout.gif" style="width: 10%;margin-inline-end: 5%;" />
+        <ion-label color="danger">Logout</ion-label>
+        <ion-icon name="arrow-forward" [ngClass]="{'flip-horizontal': selectedCity === 'ar'}"></ion-icon>
+      </ion-item>
 
-
-       </div>
-         <div style="margin-bottom: 5vw;display: flex;flex-direction: row;text-align: center;align-items:center ;justify-content: center;margin-left: 10%;margin-right:10%;">
-      <img src="assets/icon/darkmod.png" style="height:8vw ;width: 8vw;"/><p style="flex:1;font-size: 4vw;margin-inline-end: 10%;">Dark mode</p> 
-
-  <div style="flex:1;"><ion-toggle 
-  (ionChange)="toggleChanged($event)" 
-  style="margin-inline-start: 50%;--track-width:5%; --track-height: 10%; --handle-width:40%; --handle-height: 70%;">
-</ion-toggle></div>
-
-
-  
-
-
-       </div>
-           <div style="margin-bottom: 5vw;display: flex;flex-direction: row;text-align: center;align-items:center ;justify-content: center;margin-left: 10%;margin-right:10%;">
-      <img src="assets/icon/logout.gif" style="height:10vw ;width: 10vw;"/><p style="flex:1;font-size: 4vw;" (click)="logout()">Logout</p> 
-<ion-icon  name="arrow-forward" [ngClass]="{'flip-horizontal': selectedCity === 'ar'}" style="flex:1;margin-inline-start: 50%;"></ion-icon>
-
-
-       </div>
-           <div style="margin-bottom: 4vw;display: flex;flex-direction: row;text-align: center;align-items:center ;justify-content: center;margin-left: 10%;margin-right:10%;">
-      <img src="assets/icon/delete.png" style="height:8vw ;width: 8vw;"/><p style="flex:4;font-size: 3.5vw;margin-inline-end: 30%;">Delete Account</p> 
-<ion-icon name="arrow-forward" [ngClass]="{'flip-horizontal': selectedCity === 'ar'}" style="flex:1;margin-inline-end: 3%;"></ion-icon>
-
-
-       </div>
+    </ion-list>
   </div>
-   </ion-content>
+</ion-content>

@@ -621,7 +621,8 @@ prayer() {
     return this.prayer_timee[8];
   }
 }val(v){
-  if(v=='Tesbeeh'){ this.router.navigate(['/tasbeeh']);}
+  if(v=='Tesbeeh'){ this.router.navigate(['/tasbeeh']);}else if(v=='Al-Quran'){this.router.navigate(['/quran']);}
+
 }
 }
 

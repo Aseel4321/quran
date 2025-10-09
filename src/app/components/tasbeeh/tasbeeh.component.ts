@@ -141,6 +141,7 @@ c1_image(){
   }
 }
 c2_image(){
+  
   if (this.keyboardOpen) {
     return 'display: none;';
   }
@@ -168,7 +169,7 @@ c3_image(){
     return 'border-radius: 50%;background-color: hsla(0, 0%, 85%, 1);margin-top: 7%;height: 13vw;width: 13vw;margin-inline-end: 20vw;position: absolute;margin-top:3vw';
   }
 }
-  slid = ['A', 'B', 'C', 'D', 'E']; // يمكنك وضع أي بيانات بدلًا من A وB وC...
+  slid = ['A', 'B', 'C', 'D', 'E','Y']; // يمكنك وضع أي بيانات بدلًا من A وB وC...
  
 
  list1 = [1, 2, 3,]; // بعدد السلايدات
@@ -187,15 +188,17 @@ onSwiper(swiper: Swiper) {
  onSlideChange() {
     this.slides.getActiveIndex().then(index => {
       this.currentSlide = index;
+      this.num=0;
       console.log('Current slide:', this.currentSlide);
     });
   }
- Color(i: number) {
+ Color(i: number) {console.log(this.currentSlide);console.log(this.slide.length-1);
   let bgColor = 'rgb(216, 222, 222)';
  if (this.currentSlide === 0&&this.currentSlide === i) {
     bgColor = 'hsla(39, 100%, 73%, 1)';
-  }else if(this.currentSlide <this.slide.length-1&&this.currentSlide >0&&i === 1){bgColor = 'hsla(39, 100%, 73%, 1)';}
-  else if(this.slide.length-1===this.currentSlide&&i===2){bgColor = 'hsla(39, 100%, 73%, 1)';}
+  }else if(this.currentSlide <this.slid.length-1&&this.currentSlide >0&&i === 1){bgColor = 'hsla(39, 100%, 73%, 1)';}
+  else if(this.slid.length-1===this.currentSlide&&i===2){
+    bgColor = 'hsla(39, 100%, 73%, 1)';}
   
   return {
     width: '8vw',

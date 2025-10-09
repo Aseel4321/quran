@@ -620,6 +620,8 @@ prayer() {
   } else {
     return this.prayer_timee[8];
   }
+}val(v){
+  if(v=='Tesbeeh'){ this.router.navigate(['/tasbeeh']);}
 }
 }
 

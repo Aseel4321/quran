@@ -622,7 +622,6 @@ prayer() {
   }
 }val(v){
   if(v=='Tesbeeh'){ this.router.navigate(['/tasbeeh']);}else if(v=='Al-Quran'){this.router.navigate(['/quran']);}
-
 }
 }
 

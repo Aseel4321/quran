@@ -212,7 +212,7 @@ import { Keyboard } from '@capacitor/keyboard';
 import { AlertController, IonInput, Platform } from '@ionic/angular';
 import { AuthService } from 'src/app/auth/auth-service/auth.service';
 import { MainServiceService } from 'src/app/main-service/main/main-service.service';
-
+import { Location } from '@angular/common';
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
@@ -230,7 +230,7 @@ disabled=true;
 name:any;
 img2:any; formatted :any;
 isLoading=false;
-constructor(private platform: Platform, private service: MainServiceService ,private servicea: AuthService ,private alertController: AlertController,private router: Router){}
+constructor(private platform: Platform, private service: MainServiceService ,private servicea: AuthService ,private alertController: AlertController,private router: Router,private location: Location,){}
   ngOnInit(): void {
    this.keyboardWillShowListener = Keyboard.addListener('keyboardWillShow', () => {
       this.isKeyboardOpen = true; // السماح بالتمرير
@@ -249,6 +249,7 @@ constructor(private platform: Platform, private service: MainServiceService ,pri
      this.name1=this.user.fullName;
      this.email=this.user.email;
     this.phoneNumber = this.user.phone.replace(/^\+\d+/, '');
+    console.log(this.phoneNumber);
      this.dateOfBirth=this.user.dob;    
        const date = new Date(this.dateOfBirth);
   const day = String(date.getDate()).padStart(2, '0');
@@ -451,6 +452,9 @@ valid(){
     console.log(this.name1==this.user.fullName);console.log(this.email==this.user.email);console.log(this.phoneNumber==this.user.phone);console.log(this.gender==this.user.gender);console.log(this.dateOfBirth==this.user.dob);
     return 'login-button'
   }else{this.disabled=false; return 'login-button-activee'}
+}
+goBack() {
+  this.location.back();
 }
 /*valid(){
   if(this.name!=this.user.fullName&&this.email!=this.user.email&&this.phoneNumber!=this.user.phone&&this.gender!=this.user.gender&&this.dateOfBirth!=this.user.dob){

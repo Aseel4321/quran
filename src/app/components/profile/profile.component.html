@@ -128,7 +128,7 @@
   
    <ion-content class="login-content">
   <form #loginForm="ngForm">
-    <br /> <ion-icon  name="arrow-back-outline"></ion-icon>
+    <br /> <ion-icon (click)="goBack()" name="arrow-back-outline"></ion-icon>
   
     <h1 [ngStyle]="title()">
       {{ 'Profile' | translate }}

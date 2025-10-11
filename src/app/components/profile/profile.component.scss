@@ -333,11 +333,13 @@ ion-segment-button::part(indicator-background) {
   transition: all 0.3s ease;
 }.loading {height:10vw ;
   text-align: center;
-  margin-top: 1vw;
+  margin-top: 2%;
+  margin-bottom: 10%;
 }.loading-image {
   width: 65px;
   height: 65px;
   border-radius: 10%;
+  margin-bottom: 5%;
 }
 .login-button-activee {
   border-radius: 25px;

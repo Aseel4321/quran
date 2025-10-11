@@ -301,7 +301,7 @@ if(i==0){
 }else{return '#E5E4E2'}
 }else if(this.num.length==2){
 if(i<=1){
-  return '#FFFF00'
+  return '#b4b42aff'
 }else{return '#E5E4E2'}
         }else if(this.num.length==3){
 if(i<=2){
@@ -423,7 +423,7 @@ if(this.num.length==1){
 
 this.password_color="#FF0000";
 }else if(this.num.length==2){
-this.password_color='#FFFF00';
+this.password_color='#b4b42aff';
         }else if(this.num.length==3){
 this.password_color='#90EE90';
         }else if(this.num.length==4){

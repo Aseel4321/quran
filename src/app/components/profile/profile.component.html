@@ -178,7 +178,8 @@
         [(ngModel)]="phoneNumber"
         name="phone"
         readonly
-        type="tel"
+        type="tel" 
+      
         placeholder="{{ 'Phone' | translate }}"
       ></ion-input>
       <ion-icon name="pencil" slot="end" (mousedown)="enableInput('phone')"></ion-icon>
@@ -222,7 +223,7 @@
     </div>
     <!-- زر الدخول -->
     <button [class]="valid()" type="submit" (click)=" update()" [disabled]="disabled">
-      {{ 'LOGIN' | translate }}
+      {{ 'Continue' | translate }}
     </button>
 
 

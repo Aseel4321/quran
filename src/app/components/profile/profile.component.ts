@@ -230,6 +230,19 @@ disabled=true;
 name:any;
 img2:any; formatted :any;
 isLoading=false;
+list_langCountries = localStorage.getItem('lang') == "ar" 
+  ? ["الأردن", "السعودية", "مصر", "الإمارات", "الكويت", "قطر", "عُمان", "البحرين"]
+  : ["Jordan", "Saudi Arabia", "Egypt", "UAE", "Kuwait", "Qatar", "Oman", "Bahrain"];
+ countries = [
+  { name: this.list_langCountries[0], flag: "assets/icon/man1.png", dial_code: '+962' }, // الأردن
+  { name: this.list_langCountries[1], flag: "assets/icon/man2.png", dial_code: '+966' }, // السعودية
+  { name: this.list_langCountries[2], flag: "assets/icon/man3.png", dial_code: '+20' },  // مصر
+  { name: this.list_langCountries[3], flag: "assets/icon/man4.png", dial_code: '+971' }, // الإمارات
+  { name: this.list_langCountries[4], flag: "assets/icon/man5.png", dial_code: '+965' }, // الكويت
+  { name: this.list_langCountries[5], flag: "assets/icon/man6.png", dial_code: '+974' }, // قطر
+  { name: this.list_langCountries[6], flag: "assets/icon/man7.png", dial_code: '+968' }, // عُمان
+  { name: this.list_langCountries[7], flag: "assets/icon/man8.png", dial_code: '+973' }, // البحرين
+];
 constructor(private platform: Platform, private service: MainServiceService ,private servicea: AuthService ,private alertController: AlertController,private router: Router,private location: Location,){}
   ngOnInit(): void {
    this.keyboardWillShowListener = Keyboard.addListener('keyboardWillShow', () => {
@@ -266,7 +279,7 @@ constructor(private platform: Platform, private service: MainServiceService ,pri
 const phoneNumber1= (event.target as HTMLInputElement).value;
 console.log(this.selectedCountryCode);
 this.phoneNumber = this.selectedCountryCode + phoneNumber1;
-console.log(this.phoneNumber);
+console.log(this.selectedCountryCode);
 //this.phonenumber=phoneNumber1;
   } onKeyup_email(event: KeyboardEvent){
 this.email = (event.target as HTMLInputElement).value;
@@ -282,12 +295,7 @@ this.name1= (event.target as HTMLInputElement).value;
 
 
   }
-  countries = [
-    { name: 'السعودية', dial_code: '+966' },
-    { name: 'مصر', dial_code: '+20' },
-    { name: 'الإمارات', dial_code: '+971' },
-    { name: 'الأردن', dial_code: '+962' }
-  ];
+
 isModalOpen = false;
   @ViewChild('nameInput', { static: false }) nameInputRef!: IonInput;
   @ViewChild('emailInput', { static: false }) emailInputRef!: IonInput;
@@ -389,7 +397,8 @@ console.log(data);
 
   
 }
-value(){     const date = new Date('2000-10-20');
+value(){
+  const date = new Date('2000-10-20');
   const day = String(date.getDate()).padStart(2, '0');
   const month = String(date.getMonth() + 1).padStart(2, '0');
   const year = date.getFullYear();

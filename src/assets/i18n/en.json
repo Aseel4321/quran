@@ -24,6 +24,7 @@
   "NEW_PASSWORD": "New Password",
   "SECURITY_SETTINGS": "Security Settings",
   "FORGOT_PASSWORD": "Forgot Password",
+  "Continue":"Continue",
   "FORGOT_PASSWORD_INSTRUCTIONS": "Please enter your email address to reset your password",
   "EMAIL": "Email",
   "CONTINUE": "Continue",

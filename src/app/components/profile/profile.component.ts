@@ -276,9 +276,9 @@ constructor(private platform: Platform, private service: MainServiceService ,pri
  } else{this.selectedGender='famale';this.gender="FEMALE" ;this.booll="female";this.img2= 'assets/icon/moslem-woman.png'}
  
   }  onKeyup_phone(event:any){this.phoneNumber1='';
-this.phoneNumber= (event.target as HTMLInputElement).value;
+this.phoneNumber1= (event.target as HTMLInputElement).value;
 console.log(this.selectedCountryCode);
-this.phoneNumber1 = this.selectedCountryCode + this.phoneNumber;
+this.phoneNumber = this.selectedCountryCode + this.phoneNumber1;
 console.log(this.selectedCountryCode);
 //this.phonenumber=phoneNumber1;
   } onKeyup_email(event: KeyboardEvent){
@@ -338,7 +338,7 @@ onDateChangee(event: any) {
   "oldEmail":this.user.email,
   "newFullName":this.name1,
   "newEmail":this.email,
-  "newPhone":this.phoneNumber1,
+  "newPhone":this.phoneNumber,
   "newDob":this.dateOfBirth,
   "newGender":this.gender
 }).subscribe((data:any)=>{this.isLoading = false;localStorage.setItem('User',JSON.stringify(data));this.router.navigate(['/home-page']);

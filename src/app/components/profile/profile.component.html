@@ -178,8 +178,8 @@
         [(ngModel)]="phoneNumber"
         name="phone"
         readonly
-        type="tel" 
-      
+         
+      (ionInput)="onKeyup_phone($event)"
         placeholder="{{ 'Phone' | translate }}"
       ></ion-input>
       <ion-icon name="pencil" slot="end" (mousedown)="enableInput('phone')"></ion-icon>

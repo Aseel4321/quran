@@ -27,6 +27,7 @@ this.profile.email=user.email;
 this.profile.phone=user.phone;
 this.profile.Password=user.password;
 this.profile.Birthday_date=user.dob;
+console.log(this.profile.Birthday_date);
 this.profile.Gender=user.gender;
 this.lockInProgress = false;
 

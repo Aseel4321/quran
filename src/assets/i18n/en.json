@@ -35,7 +35,7 @@
  "Male":"Male",
  "Female":"Female",
  "Didntreceive":"Didn't receive ?" ,
-"SendtoEmail":"Send to Email ",
+"SendtoEmail":"Send to Email ","GENDER":"gender","Profile-Details":"Profile Details",
   "otp": {
     "title": "OTP",
     "verify": "Verify!",

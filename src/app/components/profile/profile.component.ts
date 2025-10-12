@@ -218,7 +218,7 @@ import { Location } from '@angular/common';
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.scss'],
 })
-export class ProfileComponent implements AfterViewInit,OnInit {user:any;  keyboardWillShowListener: any; name1: string = '';gender:any;
+export class ProfileComponent implements AfterViewInit,OnInit {user:any;  keyboardWillShowListener: any; name1: string = '';gender:any;phoneNumber1:string='';
   email: string = '';
   phoneNumber: string = '';
   selectedCountryCode = '+962';
@@ -230,7 +230,6 @@ disabled=true;
 name:any;
 img2:any; formatted :any;
 isLoading=false;
-phoneNumber1:any;
 list_langCountries = localStorage.getItem('lang') == "ar" 
   ? ["الأردن", "السعودية", "مصر", "الإمارات", "الكويت", "قطر", "عُمان", "البحرين"]
   : ["Jordan", "Saudi Arabia", "Egypt", "UAE", "Kuwait", "Qatar", "Oman", "Bahrain"];
@@ -262,7 +261,7 @@ constructor(private platform: Platform, private service: MainServiceService ,pri
      this.user = JSON.parse(userData);
      this.name1=this.user.fullName;
      this.email=this.user.email;
-    this.phoneNumber = this.user.phone.replace(/^\+\d+/, '');
+ this.phoneNumber = this.user.phone;
     console.log(this.phoneNumber);
      this.dateOfBirth=this.user.dob;    
        const date = new Date(this.dateOfBirth);
@@ -276,8 +275,8 @@ constructor(private platform: Platform, private service: MainServiceService ,pri
   this.img2='assets/icon/man3.png';
  } else{this.selectedGender='famale';this.gender="FEMALE" ;this.booll="female";this.img2= 'assets/icon/moslem-woman.png'}
  
-  }  onKeyup_phone(event:any){
- this.phoneNumber= (event.target as HTMLInputElement).value;
+  }  onKeyup_phone(event:any){this.phoneNumber1='';
+this.phoneNumber= (event.target as HTMLInputElement).value;
 console.log(this.selectedCountryCode);
 this.phoneNumber1 = this.selectedCountryCode + this.phoneNumber;
 console.log(this.selectedCountryCode);
@@ -288,11 +287,14 @@ console.log(this.email);
   }
    setGender(gender: string) {
     this.gender=gender;
+   
     if(gender==="FEMALE"){this.img2='assets/icon/moslem-woman.png';
       this.booll="female" }else{this.booll="male" ;this.img2='assets/icon/man3.png';}
   }
  onKeyup_name(event:any){
 this.name1= (event.target as HTMLInputElement).value;
+
+
   }
 
 isModalOpen = false;
@@ -348,6 +350,9 @@ console.log(data);
       if(localStorage.getItem('lang')=='ar'){
          this.name = error?.error?.arDescription; this.presentAlert();
        console.log(this.name);
+        
+     
+
     }else{
     this.name = error?.error?.enDescription; console.log('this.name'); console.log(this.name);
         this.presentAlert(); 
@@ -394,7 +399,7 @@ console.log(data);
   
 }
 value(){
-  const date = new Date('2000-10-20');
+  const date = new Date(this.formatted);
   const day = String(date.getDate()).padStart(2, '0');
   const month = String(date.getMonth() + 1).padStart(2, '0');
   const year = date.getFullYear();

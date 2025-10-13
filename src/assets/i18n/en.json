@@ -35,7 +35,11 @@
  "Male":"Male",
  "Female":"Female",
  "Didntreceive":"Didn't receive ?" ,
-"SendtoEmail":"Send to Email ","GENDER":"gender","Profile-Details":"Profile Details",
+"SendtoEmail":"Send to Email ","GENDER":"gender","Profile-Details":"Profile Details", "settings": "Settings",
+  "language": "Language",
+  "notificationPreferences": "Notification Preferences",
+  "deleteAccount": "Delete Account",
+  "logout": "Logout",
   "otp": {
     "title": "OTP",
     "verify": "Verify!",

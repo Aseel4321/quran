@@ -262,13 +262,13 @@ constructor(private platform: Platform, private service: MainServiceService ,pri
      this.name1=this.user.fullName;
      this.email=this.user.email;
  this.phoneNumber = this.user.phone;
-    console.log(this.phoneNumber);
-     this.dateOfBirth=this.user.dob;    
-       const date = new Date(this.dateOfBirth);
-  const day = String(date.getDate()).padStart(2, '0');
-  const month = String(date.getMonth() + 1).padStart(2, '0');
-  const year = date.getFullYear();
-   this.formatted = `${day}-${month}-${year}`;console.log(this.dateOfBirth);
+    console.log(this.user.dob);
+this.dateOfBirth = this.user.dob.replace(/\//g, '-');
+const [day, month, year] = this.dateOfBirth.split('-').map(Number);
+const date = new Date(year, month - 1, day);
+
+this.formatted = `${year}-${month}-${day}`;
+console.log('التاريخ بالعكس:', this.formatted);
 
   console.log("التاريخ بالعكس:", this.formatted);if(this.user.gender=='MALE'){this.booll="male";this.selectedGender='male';this.gender="MALE" ;
   
@@ -293,8 +293,6 @@ console.log(this.email);
   }
  onKeyup_name(event:any){
 this.name1= (event.target as HTMLInputElement).value;
-
-
   }
 
 isModalOpen = false;
@@ -324,6 +322,7 @@ onDateChangee(event: any) {
     if (!isNaN(dob.getTime())) {
       const formattedDate = `${dob.getDate()}/${dob.getMonth() + 1}/${dob.getFullYear()}`;
       this.dateOfBirth=formattedDate;
+      
       console.log("التاريخ المنسق:", formattedDate);
     } else {
       console.error("تاريخ غير صالح:", rawDate);
@@ -341,7 +340,7 @@ onDateChangee(event: any) {
   "newPhone":this.phoneNumber,
   "newDob":this.dateOfBirth,
   "newGender":this.gender
-}).subscribe((data:any)=>{this.isLoading = false;localStorage.setItem('User',JSON.stringify(data));this.router.navigate(['/home-page']);
+}).subscribe((data:any)=>{this.isLoading = false;localStorage.setItem('User',JSON.stringify(data)); this.name='data'; this.presentAlert(); 
 console.log(data);
     },(error: HttpErrorResponse) => {
       this.isLoading = false;
@@ -369,7 +368,7 @@ console.log(data);
     {
       text: 'موافق',
       handler: () => {if(this.name=='الحساب غير موثق'){ localStorage.setItem('email',this.email);; this.servicea.otp_number=1;this.router.navigate(['/otp-email']);
-  }
+  }else{this.router.navigate(['/home-page']);}
    
      
       }
@@ -387,7 +386,7 @@ console.log(data);
    localStorage.setItem('email',this.email);
    
  this.servicea.otp_number=1;this.router.navigate(['/otp-email']);
-        }
+        }else{this.router.navigate(['/home-page']);}
    
      
       }

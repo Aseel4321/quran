@@ -128,7 +128,7 @@
   
    <ion-content class="login-content">
   <form #loginForm="ngForm">
-    <br /> <ion-icon (click)="goBack()" name="arrow-back-outline"></ion-icon>
+    <br /> <ion-icon (click)="goBack()" name="arrow-back-outline" style="margin-inline-start: 5%;"></ion-icon>
   
     <h1 [ngStyle]="title()">
       {{ 'Profile' | translate }}
@@ -138,7 +138,7 @@
       <img [src]="img2" alt="Login Image" style="width:35%; height: 35%; border-radius: 50%;">
     </div>
 
-    <!-- الاسم -->
+   
     <div class="input-box">
       <ion-icon name="person-outline" slot="start"></ion-icon>
       <ion-input
@@ -179,7 +179,7 @@
         name="phone"
         readonly
          
-      (ionInput)="onKeyup_phone($event)"
+   
         placeholder="{{ 'Phone' | translate }}"
       ></ion-input>
       <ion-icon name="pencil" slot="end" (mousedown)="enableInput('phone')"></ion-icon>

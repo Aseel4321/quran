@@ -57,6 +57,11 @@
       }
     ]
   },"Continue":"متابعه","GENDER":"الفئه","Profile-Details":"تفاصيل الحساب",
+  "Settings":"الاعدادات", "settings": "الإعدادات",
+  "language": "اللغة",
+  "notificationPreferences": "إعدادات الإشعارات",
+  "deleteAccount": "حذف الحساب",
+  "logout": "تسجيل الخروج",
   "menu": [
     "تسبيح",
     "الحديث",

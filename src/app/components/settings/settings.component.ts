@@ -1,13 +1,14 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
+import { Location } from '@angular/common';
 @Component({
   selector: 'app-settings',
   templateUrl: './settings.component.html',
   styleUrls: ['./settings.component.scss'],
 })
 export class SettingsComponent {
-  constructor(private translate: TranslateService,private router: Router,private cdRef: ChangeDetectorRef){}
+  constructor(private translate: TranslateService,private router: Router,private cdRef: ChangeDetectorRef,private location: Location){}
    lang_text='';
    lang=[];
 lang_en:any = [{'code':'ar','lang':'Arabic'},{'code':'en','lang':'English'}];
@@ -55,6 +56,8 @@ logout(){ console.log(localStorage.getItem('login'));
 localStorage.removeItem('User');
  this.router.navigate(['/login']);
 
+}goBack() {
+  this.location.back();
 }
 route(i){
 if(i==0){

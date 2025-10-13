@@ -1,6 +1,8 @@
 <ion-content class="settings-page">
+  
+  <ion-icon (click)="goBack()" name="arrow-back-outline" style="margin-inline-start: 5%;"></ion-icon>
   <div class="header">
-    <p class="title">Settings</p>
+    <p class="title">{{ 'settings' | translate }}</p>
     <img src="assets/icon/settings.png" class="icon" />
   </div>
 
@@ -8,7 +10,7 @@
     <ion-list class="settings-list">
       <ion-item lines="none">
         <img src="assets/icon/earth.png" style="width: 10%;margin-inline-end: 5%;" />
-        <ion-label>Language</ion-label>
+        <ion-label>{{ 'language' | translate }}</ion-label>
         <ion-select [(ngModel)]="selectedCity" (ionChange)="onCityChange($event)">
           <ion-select-option *ngFor="let item of lang" [value]="item.code">
             {{ item.lang }}
@@ -18,20 +20,20 @@
 
       <ion-item lines="none">
         <img src="assets/icon/notification.png" style="width: 10%;margin-inline-end: 5%;" />
-        <ion-label (click)="route(0)">Notification Preferences</ion-label>
-        <ion-icon name="arrow-forward" [ngClass]="{'flip-horizontal': selectedCity === 'ar'}"></ion-icon>
+        <ion-label (click)="route(0)">{{ 'notificationPreferences' | translate }}</ion-label>
+        <ion-icon name="aperture-outline" [ngClass]="{'flip-horizontal': selectedCity === 'ar'}"></ion-icon>
       </ion-item>
 
      
       <ion-item lines="none">
         <img  src="assets/icon/delete.png" style="width: 10%;margin-inline-end: 5%;" />
-        <ion-label (click)="route(1)">Delete Account</ion-label>
-        <ion-icon name="arrow-forward" [ngClass]="{'flip-horizontal': selectedCity === 'ar'}"></ion-icon>
+        <ion-label (click)="route(1)">{{ 'deleteAccount' | translate }}</ion-label>
+        <ion-icon name="aperture-outline" [ngClass]="{'flip-horizontal': selectedCity === 'ar'}"></ion-icon>
       </ion-item>
       <ion-item lines="none" (click)="logout()">
         <img slot="start" src="assets/icon/logout.gif" style="width: 10%;margin-inline-end: 5%;" />
-        <ion-label color="danger">Logout</ion-label>
-        <ion-icon name="arrow-forward" [ngClass]="{'flip-horizontal': selectedCity === 'ar'}"></ion-icon>
+        <ion-label color="danger">{{ 'logout' | translate }}</ion-label>
+        <ion-icon name="aperture-outline" [ngClass]="{'flip-horizontal': selectedCity === 'ar'}"></ion-icon>
       </ion-item>
 
     </ion-list>

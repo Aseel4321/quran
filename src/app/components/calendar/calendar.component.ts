@@ -22,6 +22,13 @@ indx:string='';
     this.currentMonth = today.getMonth();
     this.currentYear = today.getFullYear();
     this.generateMonth(this.currentYear, this.currentMonth);
+    if (localStorage.getItem('lang') === 'ar') {
+  const today = new Date();
+  this.indx = this.formatFullDatear(today); // خزن اليوم الحالي بتنسيق عربي
+} else {
+  const today = new Date();
+  this.indx = this.formatFullDateen(today); // خزن اليوم الحالي بتنسيق إنجليزي
+}
   }
 goBack() {
   this.router.navigate(['/home-page']);
@@ -172,7 +179,7 @@ customizeCalendarColors() {
 
 color_day(day){
 
-if(this.formatFullDatear(day)==this.indx){return '#8F8FA7'}else if(this.formatFullDateen(day)==this.indx){return '#23cf13ff'}
+if(this.formatFullDatear(day)==this.indx){return '#2743bdff'}else if(this.formatFullDateen(day)==this.indx){return '#2743bdff'}
 }
 
   constructor(private location: Location,private router: Router) {

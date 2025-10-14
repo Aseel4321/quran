@@ -7,22 +7,22 @@
   <div style="flex: 3;"></div>
     </div>  <ion-item lines="none" style="margin-top: 10%;  --background:color= none">
           <ion-icon name="person-outline" style="margin-inline-end: 5%;"></ion-icon>
-          <ion-label class="custom-label" routerLink="/profile">Profile</ion-label>
+          <ion-label class="custom-label" routerLink="/profile">{{ "Profile" | translate }}</ion-label>
            <ion-icon name="chevron-forward-outline" slot="end" size="small"></ion-icon>
         </ion-item>
         <ion-item lines="none" style="margin-top: 10%;  --background:color= none "(click)="nav(1)">
           <ion-icon name="lock-closed-outline" style="margin-inline-end: 5%;"></ion-icon>
-          <ion-label class="custom-label" routerLink="/rest-password">Password and Security</ion-label>
+          <ion-label class="custom-label" routerLink="/rest-password">{{ "SECURITY_SETTINGS" | translate }}</ion-label>
            <ion-icon name="chevron-forward-outline" slot="end" size="small"></ion-icon>
         </ion-item > 
         <ion-item lines="none" style="margin-top: 10%;  --background:color= none" (click)="nav(1)">
           <ion-icon name="id-card-outline" size="small" style="margin-inline-end: 5%;"></ion-icon>
-          <ion-label class="custom-label"routerLink="/profile-details">Profile Details</ion-label>
+          <ion-label class="custom-label"routerLink="/profile-details">{{ 'Profile-Details' | translate }}</ion-label>
            <ion-icon name="chevron-forward-outline" slot="end" size="small"></ion-icon>
         </ion-item>  
          <ion-item  lines="none" style="margin-top: 10%;  --background:color= none" (click)="nav(3)">
           <ion-icon name="settings-outline"  style="margin-inline-end: 5%;"></ion-icon>
-          <ion-label class="custom-label" >Setting</ion-label>
+          <ion-label class="custom-label" >{{ 'settings' | translate }}</ion-label>
         <ion-icon name="chevron-forward-outline" slot="end" size="small" ></ion-icon>
         </ion-item></div>
       
@@ -34,7 +34,7 @@
     <div style="display: flex;height:7%;margin-top: 2%;
   flex-direction: row;width: 100vw"><ion-menu-toggle>
             <img src="assets/icon/aplication.png" alt="Login Image" style="width:8vw; height:3vh;margin-inline-start: 50%;">
-    </ion-menu-toggle> <div class="header-row"><img src="assets/icon/calendar.png" alt="Login Image" style="width:4vw; height:3vh;margin-inline-end:15%;"routerLink="/calendar"> <img src="assets/icon/notification.png" alt="Login Image" style="width:4vw; height:3vh;margin-inline-end: 30%;"></div> 
+    </ion-menu-toggle> <div class="header-row"><img src="assets/icon/calendar.png" alt="Login Image" style="width:4vw; height:3vh;margin-inline-end:15%;"routerLink="/calendar"> <img routerLink="/notifi" src="assets/icon/notification.png" alt="Login Image" style="width:4vw; height:3vh;margin-inline-end: 30%;"></div> 
 
 
 </div>
@@ -81,7 +81,7 @@
  <div style="width: 100%; display: flex;flex-direction: row;margin-top: 5%;padding-left: 4%;padding-right: 4%;" >
   <div style="margin-top: 2%; height:0.5vh;width: 1vh;flex: 1;background-color: #D9D9D9;border-radius: 10px;">
 
-  </div><div style="width: 100px;flex: 1;text-align: center;margin-top: 0%;margin-bottom: 0%;" > <p style="margin-top: 0%;margin-bottom: 0%;">Quick Access</p></div>
+  </div><div style="width: 100px;flex: 1;text-align: center;margin-top: 0%;margin-bottom: 0%;" > <p style="margin-top: 0%;margin-bottom: 0%;">{{ 'Quick-Access' | translate }}</p></div>
   <div style="margin-top: 2%;  height: 0.5vh;width: 100px;flex: 1;background-color: #D9D9D9;border-radius: 10px;"></div>
 
 </div>

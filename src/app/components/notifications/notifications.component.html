@@ -12,7 +12,7 @@
 
   <!-- يسار -->
 
-  <ion-icon name="arrow-back-outline"></ion-icon>
+  <ion-icon   name="arrow-back-outline" (click)="goBack()" ></ion-icon>
     <img src="assets/icon/notification.png"
          alt="Notification"
          style="width: 8vw; height: 3vh;margin-inline-start: 25%;">
@@ -20,7 +20,7 @@
 
   <!-- النص في المنتصف -->
   <div style="flex: 1; text-align: center; font-weight: bold;margin-inline-start: 5%">
-    notifications
+     {{ 'notifications' | translate }}
   </div>
 
   <!-- يمين -->

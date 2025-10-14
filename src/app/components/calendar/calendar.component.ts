@@ -1,5 +1,6 @@
 import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-
+import { Location } from '@angular/common';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-calendar',
   templateUrl: './calendar.component.html',
@@ -22,7 +23,9 @@ indx:string='';
     this.currentYear = today.getFullYear();
     this.generateMonth(this.currentYear, this.currentMonth);
   }
-
+goBack() {
+  this.router.navigate(['/home-page']);
+}
   generateMonth(year: number, month: number) {
     const firstDay = new Date(year, month, 1);
     const lastDay = new Date(year, month + 1, 0);
@@ -169,10 +172,10 @@ customizeCalendarColors() {
 
 color_day(day){
 
-if(this.formatFullDatear(day)==this.indx){return '#8F8FA7'}else if(this.formatFullDateen(day)==this.indx){return '#8F8FA7'}
+if(this.formatFullDatear(day)==this.indx){return '#8F8FA7'}else if(this.formatFullDateen(day)==this.indx){return '#23cf13ff'}
 }
 
-  constructor() {
+  constructor(private location: Location,private router: Router) {
     // ضبط الحد الأدنى لتاريخ اليوم (مثلاً)
     const today = new Date();
     this.minDate = today.toISOString().split('T')[0]; // شكل "YYYY-MM-DD"

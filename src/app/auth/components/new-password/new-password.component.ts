@@ -128,7 +128,7 @@ list_langMatch=localStorage.getItem('lang')=="ar"?["كلمه المرور متط
   }else{return '#E5E4E2'}
   }else if(this.num.length==2){
   if(i<=1){
-    return '#FFFF00'
+    return '#b4b42aff'
   }else{return '#E5E4E2'}
           }else if(this.num.length==3){
   if(i<=2){
@@ -241,7 +241,7 @@ if(this.num.length==1){
 
 this.password_color="#FF0000";
 }else if(this.num.length==2){
-this.password_color='#a8a814ff';
+this.password_color='#b4b42aff';
         }else if(this.num.length==3){
 this.password_color='#3ca737ff';
         }else if(this.num.length==4){

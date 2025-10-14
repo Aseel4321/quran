@@ -1,75 +1,63 @@
 <ion-content class="login-content">
   <form #loginForm="ngForm">
-    <br/>
-    <br/>
+    <br/><br/>
     
     <div style="display: flex;flex-direction: column;text-align: center;align-items: center;margin-top: 5%;">
-   
-      <div style="display: flex;flex-direction: column;text-align: center;" >
-      <div style="display: flex;flex-direction: row;align-items: stretch;"><div style="margin-inline-end: 20vw;font-size:3.5vw;"routerLink="/calendar">cancel</div><div style="font-weight: bold;font-size:5vw;">Add Calendar</div>
-     <button [class]="valid()" [disabled]="disabled">Save</button></div> 
-<div style="display: flex;flex-direction: column;text-align: center;margin-top: 15%;margin-bottom: 5%;" > 
-  <div style="margin-bottom: 2%;">Wednesday, June18 ,2025</div>
-  <div style="font-weight: 100;font-size: 3.5vw;">22 Dhu al-Hijjah 1446 AH</div></div>
-     
+      <div style="display: flex;flex-direction: column;text-align: center;">
+        <div style="display: flex;flex-direction: row;align-items: stretch;">
+          <div style="margin-inline-end: 20vw;font-size:3.5vw;" routerLink="/calendar">{{ 'cancel' | translate }}</div>
+          <div style="font-weight: bold;font-size:5vw;">{{ 'save' | translate }}</div>
+          <button [class]="valid()" [disabled]="disabled">Save</button>
+        </div> 
+
+        <div style="display: flex;flex-direction: column;text-align: center;margin-top: 15%;margin-bottom: 5%;">
+          <div style="margin-bottom: 2%;">Wednesday, June 18, 2025</div>
+        </div>
       </div>
     </div>
 
-   
     <div class="input-box">
       <img src="assets/icon/text.png" alt="Splash Logo" class="icon">
-
       <ion-input 
-        placeholder="{{ 'EMAIL' | translate }}" 
-    
-  
-         [(ngModel)]="title"
-     name="title"
-        >
+        placeholder="{{ 'title' | translate }}" 
+        [(ngModel)]="title"
+        name="title">
       </ion-input>
-       <img src="assets/icon/linee.png" alt="Splash Logo" class="icon">
+      <img src="assets/icon/linee.png" alt="Splash Logo" class="icon">
     </div>
 
     <br />
 
-
     <div class="input-box">
-     <img src="assets/icon/notes.png" alt="Splash Logo" class="icon">
+      <img src="assets/icon/notes.png" alt="Splash Logo" class="icon">
       <ion-input 
-        placeholder="{{ 'PASSWORD' | translate }}" 
-      [(ngModel)]="note"
-name="note"
-        
-      >
+        placeholder="{{ 'notes' | translate }}" 
+        [(ngModel)]="note"
+        name="note">
       </ion-input>
-       <img src="assets/icon/linee.png" alt="Splash Logo" class="icon">
+      <img src="assets/icon/linee.png" alt="Splash Logo" class="icon">
     </div>
 
+    <!-- نقل هذا الجزء داخل الفورم -->
+    <div style="display: flex;flex-direction: row;align-items: center;text-align: center;width: 100vw;justify-content: center;margin-top: 9%;">
+      <img src="assets/icon/alertt.png" alt="Splash Logo" class="icon" style="margin-inline-end: 2%;">
+      <ion-label style="margin-inline-end: 2%;">{{ 'alert' | translate }}</ion-label>
 
+      <ion-datetime-button datetime="timePicker"></ion-datetime-button>
 
-    
+      <ion-modal [keepContentsMounted]="true">
+        <ng-template>
+          <ion-datetime 
+            id="timePicker"
+            presentation="time"
+            show-default-buttons="true"
+            [(ngModel)]="selectedTime"
+            (ionChange)="printTime($event)"
+            hourCycle="h12">
+          </ion-datetime>
+        </ng-template>
+      </ion-modal>
+    </div>
+
   </form>
-<div style="display: flex;flex-direction: row;align-items: center;text-align: center;width: 100vw;justify-content: center;margin-top: 9%;"><img src="assets/icon/alertt.png" alt="Splash Logo" class="icon" style="margin-inline-end: 2%;">
-  <ion-label  style="margin-inline-end: 2%;">{{ 'Date_Of_Birth' | translate }}</ion-label>
-
-<ion-datetime-button datetime="timePicker"></ion-datetime-button>
-
-<ion-modal [keepContentsMounted]="true">
-  <ng-template>
-    <ion-datetime 
-      id="timePicker"
-      presentation="time"
-      show-default-buttons="true"
-      [(ngModel)]="selectedTime"
-      (ionChange)="printTime($event)"
-      hourCycle="h12"  
-    ></ion-datetime>
-  </ng-template>
-</ion-modal></div>
-
-
-
-
-
-
 </ion-content>

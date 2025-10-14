@@ -56,10 +56,10 @@
         "progress": "٧٠٪"
       }
     ]
-  },"Continue":"متابعه","GENDER":"الفئه","Profile-Details":"تفاصيل الحساب",
+  },"Continue":"متابعه","GENDER":"الفئه","Profile-Details":"تفاصيل الحساب","Add-Calendar":"اضافه التقويم","cancel":"الغاء","save":"حفظ","title":"العنوان","notes":"ملاحظات","alert":"تنبيه","Quick-Access":"الوصول السريع",
   "Settings":"الاعدادات", "settings": "الإعدادات",
   "language": "اللغة",
-  "notificationPreferences": "إعدادات الإشعارات",
+  "notificationPreferences": "إعدادات الإشعارات","notifications":"الاشعارات",
   "deleteAccount": "حذف الحساب",
   "logout": "تسجيل الخروج",
   "menu": [

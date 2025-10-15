@@ -25,9 +25,11 @@ import { CalendarModule } from 'ion2-calendar';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { TasbeehComponent } from '../components/tasbeeh/tasbeeh.component';
 import { SwiperModule } from 'swiper/angular';
+import { MorninAdhkarComponent } from '../components/mornin-adhkar/mornin-adhkar.component';
+import { SupplicationsComponent } from '../components/supplications/supplications.component';
 
 @NgModule({
-  declarations: [ TasbeehComponent,CalendarComponent,NotificationsComponent,PageComponent,SurahComponent,PartComponent,QuranComponent,HomePageComponent,ProfileComponent,ProfileDetailsComponent,SettingsComponent,DeleteAccountComponent,AddCalendarComponent ],
+  declarations: [SupplicationsComponent,MorninAdhkarComponent,TasbeehComponent,CalendarComponent,NotificationsComponent,PageComponent,SurahComponent,PartComponent,QuranComponent,HomePageComponent,ProfileComponent,ProfileDetailsComponent,SettingsComponent,DeleteAccountComponent,AddCalendarComponent ],
   imports: [ CalendarModule, CommonModule,
       IonicModule,
       FormsModule,SwiperModule,

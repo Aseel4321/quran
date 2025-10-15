@@ -1,0 +1,41 @@
+<ion-content
+  style="
+    --background: url('assets/icon/imagee.jpeg') no-repeat center center / cover;
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+  "
+>
+  <!-- جزء السلايدر -->
+  <div style="display: flex; flex-direction: row; text-align: center; align-items: center; height: 12vw; width: 100vw;">
+    <img 
+      src="assets/icon/Group333.png" 
+      alt="Login Image" 
+      style="display: block; width: 50%; margin-inline-end: 65%; margin-top: 9%;"
+    />
+  </div>
+
+  <h1 style="text-align: center; font-weight: 400;">Morning Adhkar</h1>
+
+  <ion-slides [options]="slideOpts" (ionSlideDidChange)="onSlideChange()" style="height: 85%; width: 100%;">
+    <ion-slide *ngFor="let item of slid">
+      <div style="display: flex; flex-direction: column; width: 100vw;"> 
+        <div class="slide-box">{{ item }}</div>
+      </div>
+    </ion-slide>
+  </ion-slides>
+
+  <div style="text-align: center; display: flex; justify-content: center; margin-top: 10px;">
+    <div *ngFor="let item of list; let i = index" style="width: 10vw;">
+      <div [ngStyle]="Color(i)"></div>
+    </div>
+  </div>
+
+  <img 
+    src="assets/icon/Group33.png" 
+    alt="Login Image" 
+    class="login-image2"
+    [style]="style_image2()"
+  />
+</ion-content>

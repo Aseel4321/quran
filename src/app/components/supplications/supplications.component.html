@@ -9,16 +9,27 @@
     
     style="display: block; width: 50%;margin-inline-end: 65%;margin-top: 9%;"
   />
-</div>
+</div><ion-icon   name="arrow-back-outline" (click)="goBack()" ></ion-icon>
   <div class="header">
-    <p class="title">{{ 'settings' | translate }}</p>
-    <img src="assets/icon/settings.png" class="icon" />
+    <p class="title">{{ 'Supplications' | translate }}</p>
+    <img src="assets/icon/prayer.png" class="icon" />
   </div>
-
- <div class="card"><p class="card-text">هذا نص داخل الديف مع الصورة.</p>
-  <img src="assets/image.jpg" alt="صورة" class="card-img">
-  
+<div style="
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+margin-top: 10%;
+  width: 100vw;
+  min-height: 100vh;
+  text-align: center;
+">
+  <div *ngFor="let card of list_type()" class="card">
+    <p class="card-text">{{ card.text }}</p>
+    <img [src]="card.image" alt="صورة" class="card-img">
+  </div>
 </div>
+
+ 
 
 </ion-content>
 

@@ -228,7 +228,8 @@ export class ProfileComponent implements AfterViewInit,OnInit {user:any;  keyboa
 private lockInProgress = false; isKeyboardOpen: boolean = false; selectedGender: string = 'male'; 
 disabled=true;
 name:any;
-img2:any; formatted :any;
+img2:any;
+formatted :any;
 isLoading=false;
 list_langCountries = localStorage.getItem('lang') == "ar" 
   ? ["الأردن", "السعودية", "مصر", "الإمارات", "الكويت", "قطر", "عُمان", "البحرين"]

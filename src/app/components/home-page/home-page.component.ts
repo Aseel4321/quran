@@ -105,6 +105,7 @@ keyboardOpen: boolean = false;
 }
 
  list_type(){
+                  
   return  localStorage.getItem('lang') === 'ar' ?[
     { name: " التسبيح", image: 'assets/icon/beads.png' },
     { name: "اختبار", image: 'assets/icon/exam.png' },

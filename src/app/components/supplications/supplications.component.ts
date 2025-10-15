@@ -5,6 +5,8 @@ import { Keyboard } from '@capacitor/keyboard';
 import { IonSlides, Platform } from '@ionic/angular';
 import { ScreenOrientation } from '@capacitor/screen-orientation';
 import SwiperCore, { Swiper, SwiperOptions } from 'swiper';
+import { Router } from '@angular/router';
+import { Location } from '@angular/common';
 @Component({
   selector: 'app-supplications',
   templateUrl: './supplications.component.html',
@@ -13,12 +15,29 @@ import SwiperCore, { Swiper, SwiperOptions } from 'swiper';
 export class SupplicationsComponent   implements OnInit{
  
    cards = [
-    { text: 'Morning Supplications', image: 'assets/image1.jpg' },
-    { text: 'Evening Supplications', image: 'assets/image2.jpg' },
-    { text: 'Supplications before Sleep', image: 'assets/image3.jpg' },
-    { text: 'Supplications upon Waking Up', image: 'assets/image2.jpg' },
-    { text: 'Supplications after Prayer', image: 'assets/image3.jpg' }
+    { text: 'Morning Supplications', image: 'assets/icon/morning.png' },
+    { text: 'Evening Supplications', image: 'assets/icon/evning.png' },
+    { text: 'Supplications before Sleep', image: 'assets/icon/sleep.png' },
+    { text: 'Supplications upon Waking Up', image: 'assets/icon/waking-up.png' },
+    { text: 'Supplications after Prayer', image: 'assets/icon/prayerr.png' }
   ];
+  list_type() {
+  return localStorage.getItem('lang') === 'ar'
+    ? [
+        { text: 'أذكار الصباح', image: 'assets/icon/morning.png' },
+        { text: 'أذكار المساء', image: 'assets/icon/evning.png' },
+        { text: 'أذكار النوم', image: 'assets/icon/sleep.png' },
+        { text: 'أذكار الاستيقاظ', image: 'assets/icon/waking-up.png' },
+        { text: 'أذكار بعد الصلاة', image: 'assets/icon/prayerr.png' },
+      ]
+    : [
+        { text: 'Morning Supplications', image: 'assets/icon/morning.png' },
+        { text: 'Evening Supplications', image: 'assets/icon/evning.png' },
+        { text: 'Supplications before Sleep', image: 'assets/icon/sleep.png' },
+        { text: 'Supplications upon Waking Up', image: 'assets/icon/waking-up.png' },
+        { text: 'Supplications after Prayer', image: 'assets/icon/prayerr.png' },
+      ];
+}
     initialHeight: number = window.innerHeight;
 keyboardOpen: boolean = false;
  isKeyboardOpen: boolean = false;
@@ -28,7 +47,7 @@ swiperRef!: Swiper;
   keyboardWillShowListener: any;
   keyboardWillHideListener: any;
 private lockInProgress = false;
-  constructor(private platform: Platform,private cdr: ChangeDetectorRef){}
+  constructor(private platform: Platform,private cdr: ChangeDetectorRef,private router: Router,private location: Location,){}
   ngOnInit(): void {
     this.lockInProgress = false;
 
@@ -68,7 +87,9 @@ private lockInProgress = false;
     });
   }
 
- 
+ goBack() {
+  this.router.navigate(['/home-page']);
+}
 style_image2() {
   if (this.keyboardOpen) {
     return 'display: none;';

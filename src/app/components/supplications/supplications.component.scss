@@ -23,27 +23,29 @@ width:20vw; height:46vw;
 );;
   border-top-left-radius: 200px;
   border-bottom-left-radius: 200px;
-}.card {
-  width: 300px;           /* عرض الديف */
-  padding: 15px;          /* مسافة داخلية */
-  border-radius: 20px;    /* الحواف الدائرية */
-  background-color: #f5f5f5; /* لون خلفية */
-  display: flex;          /* تنظيم المحتوى */
-  flex-direction: row; /* ترتيب عمودي */
-  align-items: center;    /* محاذاة وسط */
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* ظل خفيف */
+}.cards-container {
+  display: flex;
+  flex-direction: column; /* لو تريد البطاقات عمودية */
+  align-items: center;    /* لتوسيط أفقياً */
+  justify-content: center; /* لتوسيط عمودياً */
+  min-height: 100vh;       /* لتملأ الصفحة عمودياً */
 }
-
-.card-img {margin-inline-start: 5%;
-  width: 20%;            /* صورة تمتد بعرض الديف */
-  border-radius: 15px;    /* حواف دائرية للصورة */
-  margin-bottom: 10px;    /* مسافة بين الصورة والنص */
+.card {margin-bottom: 6%;
+  display: flex;
+  justify-content: space-between; /* النص في البداية والصورة في النهاية */
+  align-items: center;
+  width: 62%;
+  height:13vw ;
+  padding: 10px;
+  border-radius: 25px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
 }
-
-.card-text {margin-inline-end: 3%;
-  text-align: center;     /* محاذاة النص للوسط */
-  font-size: 16px;
-  color: #333;
+.card-text {font-size: 3vw;
+  margin: 5%;
+}
+.card-img {
+  width: 7vw;
+  border-radius: 10px;
 }
 
   .header {

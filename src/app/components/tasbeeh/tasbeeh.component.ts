@@ -25,7 +25,7 @@ export class TasbeehComponent  implements OnInit{ @ViewChild(IonSlides) slides!:
   'Slide 4',
   'Slide 5'
 ];
-num=0;
+num:any=0;num1:any;
     initialHeight: number = window.innerHeight;
 keyboardOpen: boolean = false;
  isKeyboardOpen: boolean = false;
@@ -207,8 +207,9 @@ onSwiper(swiper: Swiper) {
     'background-color': bgColor,
   };
 }
-count(){
-this.num=this.num+1;
+count() {
+  this.num = this.num + 1;
+   // تحويل الرقم العربي
 }
 }
 

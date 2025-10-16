@@ -1,115 +1,113 @@
-<ion-content class="login-content" scroll-y="false">
-<div style="display: flex;
-            height: 7%;
-            margin-top: 2%;
-            flex-direction: row;
-            width: 100vw;
-            align-items: center;
-            box-sizing: border-box;
-           
-           ">
-  <!-- يسار -->
- <div style="display: flex;flex-direction: row;margin-inline-start:5%; margin-top: 15%;" (click)="goBack()" ><ion-icon name="arrow-back-outline"></ion-icon></div>
-    
-    
- 
-  <!-- النص في المنتصف -->
-  <!--<div style="flex:2; text-align: center; font-weight: bold;margin-inline-end: 20%;">
-    notifications
-  </div>!-->
+<ion-content 
+  class="login-content" 
+  style="--background: url('assets/icon/imagee.jpeg') no-repeat center center / cover;"
+>
 
- 
-</div>
+  <div style="
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  ">
 
-<!--<ion-datetime   size="cover"
- class="custom-button"
-[preferWheel]="false"
-   presentation="day-month"
-  [multiple]="true"
-  [value]=""
-  (ionChange)="onDatesSelected($event)">
-</ion-datetime>!-->
-<!--<ion-datetime
-  #myCalendar [min]="minDate" 
-  presentation="date"
-  (ionRender)="customizeCalendarColors()"
-  (ionChange)="onDatesSelected($event)">
-</ion-datetime>!-->
-<div class="calendar-header">
-  <ion-button fill="clear" (click)="prevMonth()">⏮</ion-button>
-  <h4 (click)="nextMonth()" class="month-title">
-    {{ getMonthName(currentMonth) }} {{ currentYear }}
-  </h4>
-  <ion-button fill="clear" (click)="nextMonth()">⏭</ion-button>
-</div>
-
-<!-- تقويم شهر واحد فقط -->
-<div class="calendar-grid">
-  <div class="week-days">
-    <div *ngFor="let day of weekDays" class="day-header">{{ day }}</div>
-  </div>
-
-  <div class="days-grid">
-    <div 
-      *ngFor="let day of monthDays"
-      class="day-cell"
-      [ngClass]="{ empty: !day }"
-      (click)="onDateClick(day)"
-    >
-     <div [style.color]="color_day(day)" *ngIf="day">
-  {{ day.getDate() }}
-</div>
+    <!-- الأعلى -->
+    <div style="
+      display: flex;
+      height: auto;
+      margin-top: 2%;
+      flex-direction: row;
+      width: 100%;
+      align-items: center;
+      box-sizing: border-box;
+    ">
+      <div style="display: flex; flex-direction: row; margin-inline-start: 5%; margin-top: 15%;" 
+           (click)="goBack()">
+        <ion-icon name="arrow-back-outline"></ion-icon>
+      </div>
     </div>
+
+    <!-- التقويم -->
+    <div class="calendar-header">
+      <ion-button fill="clear" (click)="prevMonth()">⏮</ion-button>
+      <h4 (click)="nextMonth()" class="month-title">
+        {{ getMonthName(currentMonth) }} {{ currentYear }}
+      </h4>
+      <ion-button fill="clear" (click)="nextMonth()">⏭</ion-button>
+    </div>
+
+    <div class="calendar-grid">
+      <div class="week-days">
+        <div *ngFor="let day of weekDays" class="day-header">{{ day }}</div>
+      </div>
+
+      <div class="days-grid">
+        <div 
+          *ngFor="let day of monthDays"
+          class="day-cell"
+          [ngClass]="{ empty: !day }"
+          (click)="onDateClick(day)"
+        >
+          <div [style.color]="color_day(day)" *ngIf="day">
+            {{ day.getDate() }}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- صف الأزرار -->
+    <div class="action-row">
+      <div>{{ indx }}</div>
+      <div style="display: flex; flex-direction: row; width: 50%; justify-content: end;">
+        <img src="assets/icon/addd.png"
+             alt="Add Icon"
+             style="height: 65%; width: 15%; margin-inline-end: 3%;"
+             routerLink="/add-calendar">
+
+        <img src="assets/icon/removee.png"
+             alt="Remove Icon"
+             style="height: 65%; width: 15%;">
+      </div>
+    </div>
+
+    <!-- ✅ الجزء السفلي فقط قابل للتمرير -->
+    <div style="
+      flex: 1;                /* يأخذ المساحة المتبقية */
+      overflow-y: auto;       /* تمرير رأسي */
+      padding: 2% 0;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      scrollbar-width: thin;  /* شريط تمرير أنيق (في المتصفحات الحديثة) */
+    ">
+      <div *ngFor="let u of user"
+           style="
+             display: flex;
+             justify-content: space-between;
+             align-items: center;
+             padding: 2% 5%;
+             margin: 0 5%;
+             background-color: #e8e9e2;
+             border-radius: 15px;
+             height: 30vw;
+           ">
+        <div style="display: flex; flex-direction: column;">
+          <p style="margin-top: 3%;">sdddd</p>
+          <p style="margin: 0;">fffff</p>
+        </div>
+
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <p style="margin: 0;">ggggg</p>
+          <ion-toggle 
+            style="
+              --track-width: 30px;
+              --track-height: 10px;
+              --handle-width: 30px;
+              --handle-height: 5px;
+            ">
+          </ion-toggle>
+        </div>
+      </div>
+    </div>
+
   </div>
-</div>
-<div class="action-row">
-  <div>{{ indx }}</div>
-<div style="display: flex; flex-direction: row; width: 50%; height: 50%; justify-content: end;">
-  <img src="assets/icon/addd.png"
-       alt="Add Icon"
-       style="height: 65%; width: 15%; margin-inline-end: 3%;"routerLink="/add-calendar">
-
-  <img src="assets/icon/removee.png"
-       alt="Remove Icon"
-       style="height: 550%; width: 15%; ">
-</div>
-
-
-</div>
-<div style="
-  width: 100vw;
-  height: 100vh;        
-  overflow-y: auto;
-  display: flex;
-  flex-direction: column;
-">
-  <div *ngFor="let user of user"
-       style="
-         display: flex;
-         justify-content: flex-end;
-         align-items: center;
-         padding-right: 5%;
-         margin: 2% 5%;
-         height:100px;
-         background-color: #edefb8;
-         border-radius: 25px;
-       ">
-       <div style="display: flex;flex-direction: row;margin-top: 3%;margin-inline-end:45%;"> <div style="display: flex;flex-direction: column;margin-top: 3%;margin-inline-start: 10%;"><p>sdddd</p><p>fffff</p>
-
-       </div><p style="margin-top: 25%;margin-inline-start: 100%;">ggggg</p></div>
-      
-    <ion-toggle 
-      style="--track-width: 30px;     /* عرض المسار */
-    --track-height:10px;    /* ارتفاع المسار */
-    --handle-width: 30px;    /* عرض المقبض */
-    --handle-height:5px;">
-    </ion-toggle>
-
-  </div>
-</div>
-
-
-
-
 
 </ion-content>

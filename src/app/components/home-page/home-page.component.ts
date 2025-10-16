@@ -107,7 +107,7 @@ keyboardOpen: boolean = false;
  list_type(){
                   
   return  localStorage.getItem('lang') === 'ar' ?[
-    { name: " التسبيح", image: 'assets/icon/beads.png' },
+    { name: "التسبيح", image: 'assets/icon/beads.png' },
     { name: "اختبار", image: 'assets/icon/exam.png' },
     { name: "الحديث الشريف", image: 'assets/icon/prayer.png' },
     { name: "التفسير", image: 'assets/icon/teachings.png' },
@@ -621,8 +621,26 @@ prayer() {
   } else {
     return this.prayer_timee[8];
   }
-}val(v){
-  if(v=='Tesbeeh'){ this.router.navigate(['/tasbeeh']);}else if(v=='Al-Quran'){this.router.navigate(['/quran']);}
+}val(v: string) {console.log(v);
+  if (v === 'Tesbeeh' || v === 'التسبيح') {
+    this.router.navigate(['/tasbeeh']);
+  } else if (v === 'Al-Quran' || v === 'القرآن الكريم') {
+    this.router.navigate(['/quran']);
+  } else if (v === 'AL-Hadith' || v === 'الحديث الشريف') {
+   this.router.navigate(['/tasbeeh']);
+  } else if (v === 'Tafsir' || v === 'التفسير') {
+  this.router.navigate(['/tasbeeh']);
+  } else if (v === 'Dua' || v === 'الدعاء') {
+    this.router.navigate(['/quran']);
+  } else if (v === 'Adhkar' || v === 'الاذكار') {
+    this.router.navigate(['/tasbeeh']);
+  } else if (v === 'Test' || v === 'اختبار') {
+    this.router.navigate(['/quran']);
+  }
+}
+val1(v){
+  if(v=='Quran Completion'||v=="إتمام القرآن"){ this.router.navigate(['/tasbeeh']);}else if(v=='Evening Adhkar'||v== "أذكار المساء"){this.router.navigate(['/quran']);}else if(v=='Quran Memorization Test'||v=="اختبار حفظ القرآن"){this.router.navigate(['/quran']);}
+  else if(v=="Morning Adhkar"||v=="أذكار الصباح"){this.router.navigate(['/quran']);}
 }
 }
 

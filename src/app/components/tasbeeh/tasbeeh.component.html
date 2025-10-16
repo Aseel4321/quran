@@ -1,7 +1,7 @@
 <div style="display: flex; flex-direction: column; width: 100vw; height: 100vh;">
 
   <!-- جزء السلايدر -->
-<ion-content style="height: 70vh; display: flex; justify-content: center; align-items: center;">   <div style="display: flex; flex-direction: row;text-align: center;align-items: center;height: 12vw;width:100vw ;">
+<ion-content scroll-y="false" style="height: 70vh; display: flex; justify-content: center; align-items: center;--background: url('assets/icon/imagee.jpeg') no-repeat center center / cover;">   <div style="display: flex; flex-direction: row;text-align: center;align-items: center;height: 12vw;width:100vw ;">
   <img 
     src="assets/icon/Group333.png" 
     alt="Login Image" 
@@ -9,7 +9,7 @@
     
     style="display: block; width: 50%;margin-inline-end: 65%;margin-top: 9%;"
   />
-</div>
+</div><ion-icon (click)="goBack()" name="arrow-back-outline" style="margin-inline-start: 1%;margin-top:0% ;margin-bottom: 0%;"></ion-icon>
 <h1 style=" align-items: center;text-align: center;justify-content: center;font-weight: 400;">{{'Tesbeeh' | translate }}</h1>
 
  <!-- اجعل المحتوى يأخذ كامل الشاشة -->
@@ -30,7 +30,7 @@
 
 <!-- المؤشرات -->
 <div
-  style="text-align:center; align-items:center; justify-content:center; display:flex; flex-direction:row; width:100vw; margin-top:10px;"
+  style="text-align:center; align-items:center; justify-content:center; display:flex; flex-direction:row; width:100vw; margin-top:-15%;"
 >
   <div
     *ngFor="let item of list; let i = index"

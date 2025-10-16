@@ -30,7 +30,7 @@
 </ion-menu>
 <div class="ion-page" id="main-content" >
 
-  <ion-content>
+  <ion-content style=" --background: url('assets/icon/imagee.jpeg') no-repeat center center / cover;" >
     <div style="display: flex;height:7%;margin-top: 2%;
   flex-direction: row;width: 100vw"><ion-menu-toggle>
             <img src="assets/icon/aplication.png" alt="Login Image" style="width:8vw; height:3vh;margin-inline-start: 50%;">
@@ -94,7 +94,7 @@
        style="flex: 0 0 auto; width: 70vw; height: 12vh; background: linear-gradient(to right, #ceb36bb2, #ab896f); border-radius:8vw; margin-inline-end:0.7vw; display: flex; flex-direction: column; align-items: center; text-align: center;margin-inline-start: 0.7%;">
     
     <!-- المحتوى الداخلي -->
-    <div style="display: flex; flex-direction: row; width: 100%; padding: 2vw;">
+    <div style="display: flex; flex-direction: row; width: 100%; padding: 2vw;" (click)="val1(item.name)">
       
       <!-- النصوص -->
       <div style="flex: 3; display: flex; flex-direction: column; justify-content: center;  text-align: start; padding-inline-start:2vw;">
@@ -140,8 +140,8 @@
        style="background-color: #D9D9D9; height: 10vh; width: 100%; display: flex; align-items: center; flex-direction: row; border-radius: 4vw;">
     
     <!-- النص -->
-    <div style="display: flex; align-items: center; flex: 2; justify-content: flex-start; margin: 0%;">
-      <p style="font-size: 3vw; margin-inline-start:25% ;"(click)='val(item.name)'>{{item.name}}</p>
+    <div style="display: flex; align-items: center; flex: 2; justify-content: flex-start; margin: 0%;"(click)='val(item.name)'>
+      <p style="font-size: 3vw; margin-inline-start:25% ;">{{item.name}}</p>
     </div>
 
     <!-- الصورة -->

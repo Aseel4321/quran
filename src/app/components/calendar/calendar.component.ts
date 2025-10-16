@@ -49,7 +49,7 @@ goBack() {
 
     this.monthDays = days;
   }
-user=['t','f','f','g','g','g','t','f','f','g','g','g','t','f','f','g','g','g']
+user=['t','f','f','3','t','f','f','3','66','5555']
   prevMonth() {
     if (this.currentMonth === 0) {
       this.currentMonth = 11;

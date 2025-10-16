@@ -7,7 +7,7 @@ import { Keyboard } from '@capacitor/keyboard';
   styleUrls: ['./add-calendar.component.scss'],
 })
 export class AddCalendarComponent implements OnInit{  keyboardWillShowListener: any;
-  keyboardWillHideListener: any;isKeyboardOpen: boolean = false;
+  keyboardWillHideListener: any;isKeyboardOpen: boolean = false;isModalOpen = false;
   ngOnInit(): void {
        this.keyboardWillShowListener = Keyboard.addListener('keyboardWillShow', () => {
       this.isKeyboardOpen = true; // السماح بالتمرير
@@ -30,7 +30,7 @@ note:string='';
   selectedTime: string='';
  disabled=true;
   printTime(event: any) {
-    console.log('الوقت المختار:', this.selectedTime);
+   
   }
   openTimeModal() {
     this.tempTime = this.selectedTime; // تمرير القيمة الحالية (إن وجدت)
@@ -38,12 +38,12 @@ note:string='';
   }
 
   onTimeChange(event: any) {
-    this.selectedTime = event.detail.value;
+    this.selectedTime = event.detail.value; console.log('الوقت المختار:', this.selectedTime);
     this.showModal = false;
   }
 valid(){
   if(this.title==''||this.note==''||this.selectedTime==''){console.log(this.note);this.disabled=true;
     return 'button'
-  }else{console.log(this.note);  this.disabled=false;return'button-activee'; }
+  }else{ console.log(this.note);  this.disabled=false; return'button-activee'; }
 }
 }

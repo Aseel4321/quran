@@ -1,4 +1,4 @@
-<ion-content class="login-content">
+<ion-content class="login-content" style=" --background: url('assets/icon/imagee.jpeg') no-repeat center center / cover;" >
   <form #loginForm="ngForm">
     <br/><br/>
     
@@ -6,8 +6,8 @@
       <div style="display: flex;flex-direction: column;text-align: center;">
         <div style="display: flex;flex-direction: row;align-items: stretch;">
           <div style="margin-inline-end: 20vw;font-size:3.5vw;" routerLink="/calendar">{{ 'cancel' | translate }}</div>
-          <div style="font-weight: bold;font-size:5vw;">{{ 'save' | translate }}</div>
-          <button [class]="valid()" [disabled]="disabled">Save</button>
+          <div style="font-weight: bold;font-size:5vw;">{{ 'Add-Calendar' | translate }}</div>
+          <button [class]="valid()" [disabled]="disabled">{{ 'save' | translate }}</button>
         </div> 
 
         <div style="display: flex;flex-direction: column;text-align: center;margin-top: 15%;margin-bottom: 5%;">
@@ -45,14 +45,14 @@
 
       <ion-datetime-button datetime="timePicker"></ion-datetime-button>
 
-      <ion-modal [keepContentsMounted]="true">
+      <ion-modal [keepContentsMounted]="true" [(isOpen)]="isModalOpen">
         <ng-template>
           <ion-datetime 
             id="timePicker"
             presentation="time"
             show-default-buttons="true"
             [(ngModel)]="selectedTime"
-            (ionChange)="printTime($event)"
+            (ionChange)="onTimeChange($event)"
             hourCycle="h12">
           </ion-datetime>
         </ng-template>

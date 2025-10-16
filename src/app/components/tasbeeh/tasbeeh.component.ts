@@ -4,7 +4,7 @@ import { Keyboard } from '@capacitor/keyboard';
 import { IonSlides, Platform } from '@ionic/angular';
 import { ScreenOrientation } from '@capacitor/screen-orientation';
 import SwiperCore, { Swiper, SwiperOptions } from 'swiper';
-
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-tasbeeh',
@@ -35,7 +35,7 @@ swiperRef!: Swiper;
   keyboardWillShowListener: any;
   keyboardWillHideListener: any;
 private lockInProgress = false;
-  constructor(private platform: Platform,private cdr: ChangeDetectorRef){}
+  constructor(private platform: Platform,private cdr: ChangeDetectorRef,private location: Location){}
   ngOnInit(): void {
     this.lockInProgress = false;
 
@@ -168,6 +168,8 @@ c3_image(){
   } else {
     return 'border-radius: 50%;background-color: hsla(0, 0%, 85%, 1);margin-top: 7%;height: 13vw;width: 13vw;margin-inline-end: 20vw;position: absolute;margin-top:3vw';
   }
+}goBack() {
+  this.location.back();
 }
   slid = ['A', 'B', 'C', 'D', 'E','Y']; // يمكنك وضع أي بيانات بدلًا من A وB وC...
  

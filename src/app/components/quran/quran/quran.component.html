@@ -1,5 +1,5 @@
-<div style="display: flex;flex-direction: column;width: 100vw;height: 100vh;"> 
-  <div style="display: flex; flex-direction: row;text-align: center;align-items: center;height: 12vw;width:100vw ;">
+ <ion-content style=" --background: url('assets/icon/imagee.jpeg') no-repeat center center / cover;" ><div style="display: flex;flex-direction: column;width: 100vw;height: 100vh;"> 
+  <div style="display: flex; flex-direction: row;text-align: center;align-items: center;height: 12vw;width:100vw ;"> 
   <img 
     src="assets/icon/Group68.png" 
     alt="Login Image" 
@@ -8,18 +8,18 @@
     style="display: block; width: 37%;margin-inline-end: 65%;"
   />
 </div>
-  <div style="margin-top: 0% ;"> <h1 style=" align-items: center;text-align: center;justify-content: center;">Quran</h1>
+  <div style="margin-top: 1% ;"> <ion-icon (click)="goBack()" name="arrow-back-outline" style="margin-inline-start: 1%;margin-top:0% ;margin-bottom: 0%;"></ion-icon><h1 style=" align-items: center;text-align: center;justify-content: center;">{{ 'QURAN' | translate }}</h1>
 <div style=" margin-left: 12vw; margin-right: 12vw; height: 37vw;padding-left: 5%;padding-right:5%;padding-top: 3%; background-color: #F5DA8C; border-radius: 25px;">
  <div style="display: flex;flex-direction: row;"><div style="display: flex;flex-direction:column;flex: 1;">
    <div style="display: flex; flex-direction: row; align-items: center;margin-bottom: 5%;">
-  <img src="assets/icon/book.png" style="height: 4vw; width: 4vw; margin-right: 1vw;" />
-  <div style="color: #686868;font-size: 3vw;font-weight: 100;">Last Read</div>
+  <img src="assets/icon/book.png" style="height: 4vw; width: 4vw; margin-inline-end: 1vw;" />
+  <div style="color: #686868;font-size: 3vw;font-weight: 100;">{{ 'LAST_READ' | translate }}</div>
 </div>
 
-    <div style="font-size:3.3vw;margin-top: 3%;margin-bottom: 3%;">surah</div>
-    <div style="margin-top: 4%;margin-bottom: 10%;font-weight: bold;font-size: 5vw;">Al - Fatihah</div>
+    <div style="font-size:3.3vw;margin-top: 3%;margin-bottom: 3%;">{{ 'SURAH' | translate }}</div>
+    <div style="margin-top: 4%;margin-bottom: 10%;font-weight: bold;font-size: 5vw;">{{ 'AL_FATIHAH' | translate }}</div>
   <button style="border-radius: 12px; padding: 1vw; border: none; background-color: #E2E2E2B2;height: 8vw;">
-  <div style="display: flex; flex-direction: row; align-items: center;"> <div style="flex:4;">Back to reading</div>
+  <div style="display: flex; flex-direction: row; align-items: center;"> <div style="flex:4;">{{ 'BACK_TO_READING' | translate }}</div>
   <ion-icon name="arrow-forward"></ion-icon>
    
   </div>
@@ -44,10 +44,11 @@
 
 </div></div> 
    <img 
-  src="assets/icon/Group 89.png" 
+  src="assets/icon/Group-89.png" 
    class="login-image2"
   alt="Login Image" 
  [style]="style_image2()"
 
 />
-</div>
+</div></ion-content>
+ 

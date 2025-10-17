@@ -223,6 +223,7 @@ export class ProfileComponent implements AfterViewInit,OnInit {user:any;  keyboa
   phoneNumber: string = '';
   selectedCountryCode = '+962';
   dateOfBirth: string ;
+  currentLang: string = localStorage.getItem('lang') ;
   booll:string="male"
   keyboardWillHideListener: any;
 private lockInProgress = false; isKeyboardOpen: boolean = false; selectedGender: string = 'male'; 
@@ -464,7 +465,7 @@ valid(){
   }else{this.disabled=false; return 'login-button-activee'}
 }
 goBack() {
-  this.location.back();
+  this.router.navigate(['/home-page']);
 }
 /*valid(){
   if(this.name!=this.user.fullName&&this.email!=this.user.email&&this.phoneNumber!=this.user.phone&&this.gender!=this.user.gender&&this.dateOfBirth!=this.user.dob){

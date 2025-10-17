@@ -62,12 +62,12 @@ const user = userString ? JSON.parse(userString) : null;
    this.isLoading=false;
    this.name=data;
    console.log(data) ;
-  
+  this.presentAlert();
    this.router.navigate(['/home-page']);
   },(error: HttpErrorResponse)=>{this.isLoading=false;
        if(localStorage.getItem('lang')=='ar'){  this.name = error?.error?.arDescription;
-      console.error(error.error);
-
+      
+this.presentAlert() ;
       this.presentAlert();}else{this.name = error?.error?.enDescription;this.presentAlert(); }
     console.log(error)})
  

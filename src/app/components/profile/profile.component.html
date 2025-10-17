@@ -192,6 +192,7 @@
 <ion-modal [keepContentsMounted]="true" [(isOpen)]="isModalOpen">
   <ng-template>
 <ion-datetime
+  [locale]="currentLang === 'ar' ? 'ar' : 'en'"
   id="datetime"
   [value]="value()"
   presentation="date"

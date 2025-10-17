@@ -101,7 +101,7 @@ signup(){
     "password":this.password,
     "confirmPassword":this.repassword
    
-}).subscribe((data:any)=>{
+}).subscribe((data:any)=>{localStorage.setItem('email',this.email)
     localStorage.setItem('User',JSON.stringify(data));
     this.Service.send_otp(this.email).subscribe((data:any)=>{ this.isLoading=false;
    this.Service.otp_number=1;

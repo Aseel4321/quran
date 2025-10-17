@@ -126,7 +126,7 @@ login() {
 
       localStorage.setItem('user', 'true');
       localStorage.setItem('User', JSON.stringify(data));
-localStorage.setItem('email', this.loginData.email);
+
       this.router.navigate(['/home-page']);
     },
     (error: HttpErrorResponse) => {
@@ -162,7 +162,7 @@ localStorage.setItem('email', this.loginData.email);
      buttons: [
     {
       text: 'موافق',
-      handler: () => {if(this.name=='الحساب غير موثق'){  
+      handler: () => {if(this.name=='الحساب غير موثق'){  localStorage.setItem('email', this.loginData.email);
   this.Service.send_otp(this.loginData.email).subscribe((data:any)=>{ this.Service.otp_number=1;
   this.router.navigate(['/otp-email']);
   },(e:any)=>{
@@ -182,7 +182,7 @@ localStorage.setItem('email', this.loginData.email);
      buttons: [
     {
       text: 'OK',
-      handler: () => {if(this.name=='The account is not verified'){  
+      handler: () => {if(this.name=='The account is not verified'){  localStorage.setItem('email', this.loginData.email);
   this.Service.send_otp(this.loginData.email).subscribe((data:any)=>{ this.Service.otp_number=1;
   this.router.navigate(['/otp-email']);
   },(e:any)=>{

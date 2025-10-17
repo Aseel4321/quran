@@ -108,7 +108,7 @@ private lockInProgress = false;
     this.isLoading = true;
 
   this.Service.email= localStorage.getItem('email');
-
+console.log(this.Service.email)
     this.Service.verity_otp(this.Service.email, this.code).subscribe(
       (data: any) => {
         this.isLoading = false;

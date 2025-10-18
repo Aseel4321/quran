@@ -57,7 +57,7 @@ localStorage.removeItem('User');
  this.router.navigate(['/login']);
 
 }goBack() {
-  this.location.back();
+  this.router.navigate(['/home-page']);
 }
 route(i){
 if(i==0){

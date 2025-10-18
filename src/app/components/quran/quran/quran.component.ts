@@ -4,6 +4,7 @@ import { Keyboard } from '@capacitor/keyboard';
 import { Platform } from '@ionic/angular';
 import { ScreenOrientation } from '@capacitor/screen-orientation';
 import { Location } from '@angular/common';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-quran',
   templateUrl: './quran.component.html',
@@ -16,7 +17,7 @@ keyboardOpen: boolean = false;
   keyboardWillShowListener: any;
   keyboardWillHideListener: any;
 private lockInProgress = false;
-  constructor(private platform: Platform,private location: Location){}
+  constructor(private platform: Platform,private location: Location,private router: Router){}
   ngOnInit(): void {
     this.lockInProgress = false;
 
@@ -55,7 +56,7 @@ private lockInProgress = false;
        // منع التمرير عند إغلاق الكيبورد
     });
   }goBack() {
-  this.location.back();
+  this.router.navigate(['/home-page']);
 }
   show="surah";i:any=0; color:string='#1a1a1a';
   list:any=['Surah','Part','Page'];

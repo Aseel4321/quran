@@ -12,8 +12,8 @@ export class NotificationsComponent {
 user=['t','f']
   constructor(private location: Location,private router: Router,) { }
 
- goBack() {
-  this.location.back();
+goBack() {
+  this.router.navigate(['/home-page']);
 }
 
 }

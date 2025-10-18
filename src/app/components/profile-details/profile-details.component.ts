@@ -4,6 +4,7 @@ import { Keyboard } from '@capacitor/keyboard';
 import { Platform } from '@ionic/angular';
 import { ScreenOrientation } from '@capacitor/screen-orientation';
 import { Location } from '@angular/common';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-profile-details',
   templateUrl: './profile-details.component.html',
@@ -19,7 +20,7 @@ keyboardOpen: boolean = false;
   keyboardWillShowListener: any;
   keyboardWillHideListener: any;
 private lockInProgress = false;
-  constructor(private platform: Platform,private location: Location) { }
+  constructor(private platform: Platform,private location: Location,private router: Router) { }
   ngOnInit(): void {
   const user = JSON.parse(localStorage.getItem('User'));
 this.profile.name=user.fullName;
@@ -85,7 +86,7 @@ this.lockInProgress = false;
     return baseStyle + ' left: 0;';
   }
 }
-goBack() {
-  this.location.back();
+goBack(){
+  this.router.navigate(['/home-page']);
 }
 }

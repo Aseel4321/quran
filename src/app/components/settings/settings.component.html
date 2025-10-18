@@ -1,6 +1,6 @@
 <ion-content class="settings-page" style=" --background: url('assets/icon/imagee.jpeg') no-repeat center center / cover;"  >
   
-  <ion-icon (click)="goBack()" name="arrow-back-outline" style="margin-inline-start: 5%;margin-top:10% ;margin-bottom: 0%;"></ion-icon>
+  <ion-icon (click)="goBack()" name="close" style="margin-inline-start: 5%;margin-top:10% ;margin-bottom: 0%;" (click)="goBack()"></ion-icon>
   <div class="header">
     <p class="title">{{ 'settings' | translate }}</p>
     <img src="assets/icon/settings.png" class="icon" />

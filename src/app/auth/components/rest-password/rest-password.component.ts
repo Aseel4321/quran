@@ -161,6 +161,8 @@ this.Text=this.list_langPassword[2];
 this.Text=this.list_langPassword[3];
         }
       }
+}goBack() {
+  this.router.navigate(['/home-page']);
 }
 text_color() {
    if(this.num.length==0){

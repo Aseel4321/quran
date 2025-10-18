@@ -1,6 +1,6 @@
 <ion-content class="login-content" style=" --background: url('assets/icon/imagee.jpeg') no-repeat center center / cover;" >
   <form #loginForm="ngForm">
- <div style="display: flex;flex-direction: row;margin-inline-start:5%; margin-top: 15%;"><ion-icon name="arrow-back-outline"></ion-icon></div>
+ <div style="display: flex;flex-direction: row;margin-inline-start:5%; margin-top: 15%;"(click)="goBack()" ><ion-icon name="close"></ion-icon></div>
     <div class="logo" >
        <img src="assets/icon/deletee.gif" alt="Login Image" class="img">
        <h1>{{ "Delete_Account" | translate }}</h1>

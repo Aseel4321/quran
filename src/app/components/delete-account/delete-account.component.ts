@@ -5,6 +5,7 @@ import { Keyboard } from '@capacitor/keyboard';
 import { AlertController, Platform } from '@ionic/angular';
 import { MainServiceService } from 'src/app/main-service/main/main-service.service';
 import { ScreenOrientation } from '@capacitor/screen-orientation';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -27,8 +28,10 @@ keyboardOpen: boolean = false;
   keyboardWillShowListener: any;
   keyboardWillHideListener: any;
 private lockInProgress = false;
-  constructor(private screenOrientation: ScreenOrientation,private platform: Platform,private service:MainServiceService,private alertController: AlertController) {}
-
+  constructor(private router: Router,private screenOrientation: ScreenOrientation,private platform: Platform,private service:MainServiceService,private alertController: AlertController) {}
+goBack() {
+  this.router.navigate(['/setting']);
+}
   ngOnInit() {  this.lockInProgress = false;
 
   this.platform.ready().then(() => {

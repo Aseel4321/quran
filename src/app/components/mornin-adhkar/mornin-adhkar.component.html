@@ -16,7 +16,7 @@
     />
   </div>
 
-  <h1 style="text-align: center; font-weight: 400;">Morning Adhkar</h1>
+  <h1 style="text-align: center; font-weight: 400;margin-top: 5%;">Morning Adhkar</h1>
 
   <ion-slides [options]="slideOpts" (ionSlideDidChange)="onSlideChange()" style="height: 85%; width: 100%;">
     <ion-slide *ngFor="let item of slid">
@@ -26,7 +26,7 @@
     </ion-slide>
   </ion-slides>
 
-  <div style="text-align: center; display: flex; justify-content: center; margin-top: 10px;">
+  <div style="text-align: center; display: flex; justify-content: center; margin-top: -15%;">
     <div *ngFor="let item of list; let i = index" style="width: 10vw;">
       <div [ngStyle]="Color(i)"></div>
     </div>

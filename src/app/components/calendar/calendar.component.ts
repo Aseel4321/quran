@@ -232,7 +232,13 @@ highlightDates() {
     });
   });
 }
-
+title() {
+  if (localStorage.getItem('lang') === 'ar') {
+    return { 'font-family': '"El Messiri", sans-serif' };
+  } else {
+    return { 'font-family': '"Lucida Console", Monaco, monospace' };
+  }
+}
 
 }
 

@@ -13,7 +13,7 @@ user=['t','f']
   constructor(private location: Location,private router: Router,) { }
 
 goBack() {
-  this.router.navigate(['/home-page']);
+  this.router.navigate(['/setting']);
 }
 
 }

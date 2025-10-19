@@ -2,8 +2,8 @@
   <form #loginForm="ngForm">
  <div style="display: flex;flex-direction: row;margin-inline-start:5%; margin-top: 15%;"(click)="goBack()" ><ion-icon name="close"></ion-icon></div>
     <div class="logo" >
-       <img src="assets/icon/deletee.gif" alt="Login Image" class="img">
-       <h1>{{ "Delete_Account" | translate }}</h1>
+       <img src="assets/icon/deletee.webp" alt="Login Image" class="img">
+       <h1 [ngStyle]="title()">{{ "Delete_Account" | translate }}</h1>
     </div>
 
 
@@ -36,7 +36,7 @@
 
     <br />
  <div *ngIf="isLoading" style="text-align: center;">
-  <img src="assets/icon/hold-on.gif" alt="Login Image"
+  <img src="assets/icon/hold-on1.webp" alt="Login Image"
       class="imgload">
        <br/><br/>
 </div>

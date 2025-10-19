@@ -48,7 +48,13 @@ icon(){
 this.lang=this.lang_ar;
   }else{this.selectedCity='en'; this.lang=this.lang_en;}
   console.log(this.lang_text=='ar');
+  }title() {
+  if (localStorage.getItem('lang') === 'ar') {
+    return { 'font-family': '"El Messiri", sans-serif' };
+  } else {
+    return { 'font-family': '"Lucida Console", Monaco, monospace' };
   }
+}
 logout(){ console.log(localStorage.getItem('login'));
  localStorage.setItem('user','false'); 
  console.log(localStorage.getItem('login'));

@@ -57,9 +57,30 @@ private lockInProgress = false;
     });
   }goBack() {
   this.router.navigate(['/home-page']);
+}title() {
+  if (localStorage.getItem('lang') === 'ar') {
+    return {
+      'font-family': '"El Messiri", sans-serif',
+      'font-weight': '600',
+      'text-align': 'center',
+      'margin-top': '1vh'
+    };
+  } else {
+    return {
+      'font-family': '"Lucida Console", Monaco, monospace', 'font-weight': '600',
+      'text-align': 'center',
+      'margin-top': '1vh'
+    };
+  }
 }
   show="surah";i:any=0; color:string='#1a1a1a';
-  list:any=['Surah','Part','Page'];
+  
+  list(){ 
+  if(localStorage.getItem('lang')=='ar'){
+  return [
+"سوره","جزء","صفحه"
+];
+}else{return ['Surah','Part','Page']}}
   click(i){
     this.i=i;
 if(i==0){

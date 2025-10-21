@@ -344,7 +344,7 @@ onDateChangee(event: any) {
   "newGender":this.gender
 }).subscribe((data:any)=>{this.isLoading = false;localStorage.setItem('User',JSON.stringify(data)); 
   
-  this.name='data';if(localStorage.getItem('lang')=='ar'){this.name="تم تعديل البيانات بنجاح"}else{this.name="Changes saved successfully"} this.presentAlert(); 
+ if(localStorage.getItem('lang')=='ar'){this.name="تم تعديل البيانات بنجاح"}else{this.name="Changes saved successfully"} this.presentAlert(); 
 console.log(data);
     },(error: HttpErrorResponse) => {
       this.isLoading = false;

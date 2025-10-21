@@ -235,7 +235,7 @@ ion-segment-button::part(indicator-background) {
   }
 }
 input:focus {
-  border: 2px solid #f9a24f;
+
   box-shadow: 0 0 5px rgba(249, 162, 79, 0.5);
 }
 
@@ -268,7 +268,7 @@ input:focus {
 
   /* تغيير لون الأيقونات عند التحويم */
   &:hover ion-icon {
-  background-color: #e6c92a;
+
   }
 }
 
@@ -343,7 +343,7 @@ ion-segment-button::part(indicator-background) {
 }
 .login-button-activee {
   border-radius: 25px;
-   background: linear-gradient(to right, #FFBC42, #924B01);  // لون رمادي عند invalid
+   background:linear-gradient(to right, #FFBC42, #924B01); // لون رمادي عند invalid
   color: #fff;
   font-size: 18px;
   text-shadow: 1px 1px 2px #000;
@@ -362,7 +362,7 @@ ion-segment-button::part(indicator-background) {
 .title{font-weight: 600; text-align: center; margin-top: 1vh;}
 /* يتم تفعيله عندما يكون valid = true */
 .login-button.active-button {
-  background: linear-gradient(to right, #c9d97f, #f9a24f); // اللون الأصلي
+  background: linear-gradient(to right, #FFBC42, #924B01); // اللون الأصلي
   opacity: 1;
   cursor: pointer;
 }

@@ -339,7 +339,8 @@ async checkLocationEnabledغ() {
 
     this.latitude = pos.coords.latitude;
     this.longitude = pos.coords.longitude;
-    
+    this.latitude=32.0728;
+    this.longitude=36.0870;
     await this.getCityFromCoordinates(this.latitude, this.longitude);
 
   } catch (error) {
@@ -627,9 +628,9 @@ prayer() {
   } else if (v === 'Al-Quran' || v === 'القرآن الكريم') {
     this.router.navigate(['/quran']);
   } else if (v === 'AL-Hadith' || v === 'الحديث الشريف') {
-   this.router.navigate(['/tasbeeh']);
+   this.router.navigate(['/morning-adhkar']);
   } else if (v === 'Tafsir' || v === 'التفسير') {
-  this.router.navigate(['/tasbeeh']);
+  this.router.navigate(['/Supplications']);
   } else if (v === 'Dua' || v === 'الدعاء') {
     this.router.navigate(['/quran']);
   } else if (v === 'Adhkar' || v === 'الاذكار') {

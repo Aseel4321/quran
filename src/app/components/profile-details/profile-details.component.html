@@ -1,18 +1,18 @@
 <ion-content style=" --background: url('assets/icon/imagee.jpeg') no-repeat center center / cover;" >
- <div style="display: flex; flex-direction: row;text-align: center;align-items: center;">
+ <div style="display: flex; flex-direction: row;text-align: center;align-items: center;margin-bottom: -5%;">
   <ion-icon (click)="goBack()" name="close" style="margin-inline-start: 5%;"></ion-icon><img 
     src="assets/icon/Group68.png" 
     alt="Login Image" 
     class="login-image"
     
-    style="display: block; width: 35%;margin-inline-start: 57%;"
+    style="display: block; width: 30%;margin-inline-start: 63%;"
   />
 
 </div>
-    <p style="text-align:center;margin-top:-8%;margin-bottom: 5%;font-weight: bold;font-size:6.5vw;">{{ 'Profile-Details' | translate }}</p>
+    <p style="text-align:center;margin-top:-20%;margin-bottom: 5%;font-weight: bold;font-size:6.5vw;" [ngStyle]="title()">{{ 'Profile-Details' | translate }}</p>
   
   <ion-label style="margin-inline-start: 7%;">{{ 'NAME' | translate }}</ion-label>
-    <div  class="input-box">
+    <div class="input-box">
    
         <ion-icon name="person-outline" slot="start"></ion-icon>
      <div style="text-align: center;">{{profile.name}}</div>

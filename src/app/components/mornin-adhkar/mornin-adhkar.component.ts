@@ -4,6 +4,7 @@ import { IonSlides, Platform } from '@ionic/angular';
 import Swiper from 'swiper';
 import { Keyboard } from '@capacitor/keyboard';
 import { ScreenOrientation } from '@capacitor/screen-orientation';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-mornin-adhkar',
@@ -32,7 +33,7 @@ export class MorninAdhkarComponent implements OnInit {
   keyboardWillHideListener: any;
   private lockInProgress = false;
 
-  constructor(private platform: Platform, private cdr: ChangeDetectorRef) {}
+  constructor(private platform: Platform,private cdr: ChangeDetectorRef,private router: Router) {}
 
   ngOnInit(): void {
     this.lockInProgress = false;
@@ -88,7 +89,9 @@ export class MorninAdhkarComponent implements OnInit {
       this.show = 'page';
     }
   }
-
+goBack() {
+  this.router.navigate(['/home-page']);
+}
   style(i: number) {
     if (i == this.i) {
       return {
@@ -118,7 +121,22 @@ export class MorninAdhkarComponent implements OnInit {
       return baseStyle + ' left: 0;';
     }
   }
-
+title() {
+  if (localStorage.getItem('lang') === 'ar') {
+    return {
+      'font-family': '"El Messiri", sans-serif',
+      'font-weight': '600',
+      'text-align': 'center',
+      'margin-top': '1vh'
+    };
+  } else {
+    return {
+      'font-family': '"Lucida Console", Monaco, monospace', 'font-weight': '600',
+      'text-align': 'center',
+      'margin-top': '1vh'
+    };
+  }
+}
   style_image3() {
     if (this.keyboardOpen) {
       return 'display: none;';

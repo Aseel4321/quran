@@ -212,6 +212,21 @@ onSwiper(swiper: Swiper) {
 count() {
   this.num = this.num + 1;
    // تحويل الرقم العربي
+}title() {
+  if (localStorage.getItem('lang') === 'ar') {
+    return {
+      'font-family': '"El Messiri", sans-serif',
+      'font-weight': '600',
+      'text-align': 'center',
+      
+    };
+  } else {
+    return {
+      'font-family': '"Lucida Console", Monaco, monospace', 'font-weight': '600',
+      'text-align': 'center',
+      
+    };
+  }
 }
 }
 

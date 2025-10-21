@@ -89,4 +89,20 @@ this.lockInProgress = false;
 goBack(){
   this.router.navigate(['/home-page']);
 }
+title() {
+  if (localStorage.getItem('lang') === 'ar') {
+    return {
+      'font-family': '"El Messiri", sans-serif',
+      'font-weight': '600',
+      'text-align': 'center',
+      'margin-top': '1vh'
+    };
+  } else {
+    return {
+      'font-family': '"Lucida Console", Monaco, monospace', 'font-weight': '600',
+      'text-align': 'center',
+      'margin-top': '1vh'
+    };
+  }
+}
 }

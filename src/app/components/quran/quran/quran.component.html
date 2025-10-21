@@ -8,7 +8,7 @@
     style="display: block; width: 37%;margin-inline-end: 65%;"
   />
 </div>
-  <div style="margin-top: 1% ;"> <ion-icon (click)="goBack()" name="close" style="margin-inline-start: 1%;margin-top:0% ;margin-bottom: 0%;"></ion-icon><h1 style=" align-items: center;text-align: center;justify-content: center;">{{ 'QURAN' | translate }}</h1>
+  <div style="margin-top: 1% ;"> <ion-icon (click)="goBack()" name="close" style="margin-inline-start: 1%;margin-top:0% ;margin-bottom: 0%;"></ion-icon><h1 style=" align-items: center;text-align: center;justify-content: center;" [ngStyle]="title()">{{ 'QURAN' | translate }}</h1>
 <div style=" margin-left: 12vw; margin-right: 12vw; height: 37vw;padding-left: 5%;padding-right:5%;padding-top: 3%; background-color: #F5DA8C; border-radius: 25px;">
  <div style="display: flex;flex-direction: row;"><div style="display: flex;flex-direction:column;flex: 1;">
    <div style="display: flex; flex-direction: row; align-items: center;margin-bottom: 5%;">
@@ -31,7 +31,7 @@
 </div><div style="display: flex; flex-direction:row;justify-content: center;">
 <div
   style="margin: 5%;"
-  *ngFor="let item of list; let i = index"
+  *ngFor="let item of list(); let i = index"
   (click)="click(i)"
   [style]="style(i)">
   {{ item }}
@@ -41,7 +41,9 @@
  <app-surah *ngIf="show==='surah'"></app-surah>
   <app-page *ngIf="show==='page'"></app-page>
   <app-part *ngIf="show==='part'"></app-part>
-
+ <app-surah *ngIf="show==='سوره'"></app-surah>
+  <app-page *ngIf="show==='صفحه'"></app-page>
+  <app-part *ngIf="show==='جزء'"></app-part>
 </div></div> 
    <img 
   src="assets/icon/Group-89.png" 

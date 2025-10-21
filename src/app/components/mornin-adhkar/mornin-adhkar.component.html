@@ -15,8 +15,8 @@
       style="display: block; width: 50%; margin-inline-end: 65%; margin-top: 9%;"
     />
   </div>
-
-  <h1 style="text-align: center; font-weight: 400;margin-top: 5%;">Morning Adhkar</h1>
+<ion-icon (click)="goBack()" name="close" style="margin-inline-start: 1%;margin-top:0% ;margin-bottom: 0%;"></ion-icon>
+  <h1 style="text-align: center; font-weight: 400;margin-top: 5%;" [ngStyle]="title()">{{ 'Morning_Adhkar' | translate }}</h1>
 
   <ion-slides [options]="slideOpts" (ionSlideDidChange)="onSlideChange()" style="height: 85%; width: 100%;">
     <ion-slide *ngFor="let item of slid">

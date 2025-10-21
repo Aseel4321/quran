@@ -37,6 +37,21 @@ export class SupplicationsComponent   implements OnInit{
         { text: 'Supplications upon Waking Up', image: 'assets/icon/waking-up.png' },
         { text: 'Supplications after Prayer', image: 'assets/icon/prayerr.png' },
       ];
+}title() {
+  if (localStorage.getItem('lang') === 'ar') {
+    return {
+      'font-family': '"El Messiri", sans-serif',
+      'font-weight': '600',
+      'text-align': 'center',
+      'margin-top': '1vh'
+    };
+  } else {
+    return {
+      'font-family': '"Lucida Console", Monaco, monospace', 'font-weight': '600',
+      'text-align': 'center',
+      'margin-top': '1vh'
+    };
+  }
 }
     initialHeight: number = window.innerHeight;
 keyboardOpen: boolean = false;
@@ -108,7 +123,7 @@ style_image2() {
     return 'display: none;';
   }
 
-  const baseStyle = ' position: fixed; bottom:7%; z-index: 10;';
+  const baseStyle = ' position: fixed; bottom:7%; z-index: 10;width:25%;';
   const lang = localStorage.getItem('lang');
 
   if (lang === 'ar') {

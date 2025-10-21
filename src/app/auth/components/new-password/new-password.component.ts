@@ -17,7 +17,7 @@ password_color='';
   initialHeight: number = window.innerHeight;
 keyboardOpen: boolean = false;
  isKeyboardOpen: boolean = false;
-
+name:any;
   keyboardWillShowListener: any;
   keyboardWillHideListener: any;
 private lockInProgress = false;
@@ -105,9 +105,10 @@ list_langMatch=localStorage.getItem('lang')=="ar"?["كلمه المرور متط
   "newPassword": this.password,
   "confirmNewPassword": this.repassword.text_password}).subscribe((data:any)=>{
        this.isLoading=false;
-   
+   if(localStorage.getItem('lang')=='ar'){this.name="تم تعديل البيانات بنجاح"}else{this.name="Changes saved successfully"} 
      localStorage.setItem('login','true');
      localStorage.setItem('user', JSON.stringify(data));
+     
        this.router.navigate(['/login']);
     },(e:any)=>{this.isLoading=false;
       

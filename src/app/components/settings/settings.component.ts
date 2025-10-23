@@ -2,13 +2,14 @@ import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { Location } from '@angular/common';
+import { AuthService } from 'src/app/auth/auth-service/auth.service';
 @Component({
   selector: 'app-settings',
   templateUrl: './settings.component.html',
   styleUrls: ['./settings.component.scss'],
 })
 export class SettingsComponent {
-  constructor(private translate: TranslateService,private router: Router,private cdRef: ChangeDetectorRef,private location: Location){}
+  constructor(private translate: TranslateService,private router: Router,private cdRef: ChangeDetectorRef,private location: Location,private Service:AuthService,){}
    lang_text='';
    lang=[];
 lang_en:any = [{'code':'ar','lang':'Arabic'},{'code':'en','lang':'English'}];
@@ -50,9 +51,22 @@ this.lang=this.lang_ar;
   console.log(this.lang_text=='ar');
   }title() {
   if (localStorage.getItem('lang') === 'ar') {
-    return { 'font-family': '"El Messiri", sans-serif' };
+    return {
+        'font-family': '"El Messiri", sans-serif',
+      'font-weight': '500',
+      'text-align': 'center',
+      
+    'font-size': '9vw'
+    };
   } else {
-    return { 'font-family': '"Lucida Console", Monaco, monospace' };
+   return {
+  'font-family': '"Jomolhari", serif',  // تغيير الخط هنا
+  'font-weight': '500',
+  'text-align': 'center',
+  
+  'font-size': '9vw'
+};
+
   }
 }
 logout(){ console.log(localStorage.getItem('login'));

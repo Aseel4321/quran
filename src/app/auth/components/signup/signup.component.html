@@ -161,16 +161,16 @@
  >
   {{ 'SIGN_UP' | translate }}
 </button>
-<div *ngIf="isLoading" style="text-align: center;height: 50px;">
-  <img src="assets/icon/hold-on1.webp" alt="Login Image"
-       style="width: 65px; height: 65px; border-radius: 10%;">
-       <br/><br/>
-</div>
+
     <!-- رابط التسجيل -->
     <p class="signup-text">
       {{ 'you_have_account' | translate }}
       <a (click)="login()">{{ 'LOGIN' | translate }}</a>
-    </p></div>
+    </p><div *ngIf="isLoading" style="text-align: center;height: 50px;">
+  <img src="assets/icon/hold-on1.webp" alt="Login Image"
+       style="width: 65px; height: 65px; border-radius: 10%;">
+       <br/><br/>
+</div></div>
     <img 
   src="assets/icon/Group89.png" 
   alt="Login Image" 

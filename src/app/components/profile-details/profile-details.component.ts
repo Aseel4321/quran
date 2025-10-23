@@ -5,6 +5,7 @@ import { Platform } from '@ionic/angular';
 import { ScreenOrientation } from '@capacitor/screen-orientation';
 import { Location } from '@angular/common';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/auth/auth-service/auth.service';
 @Component({
   selector: 'app-profile-details',
   templateUrl: './profile-details.component.html',
@@ -20,7 +21,7 @@ keyboardOpen: boolean = false;
   keyboardWillShowListener: any;
   keyboardWillHideListener: any;
 private lockInProgress = false;
-  constructor(private platform: Platform,private location: Location,private router: Router) { }
+  constructor(private platform: Platform,private location: Location,private router: Router,private Service:AuthService,) { }
   ngOnInit(): void {
   const user = JSON.parse(localStorage.getItem('User'));
 this.profile.name=user.fullName;
@@ -89,20 +90,26 @@ this.lockInProgress = false;
 goBack(){
   this.router.navigate(['/home-page']);
 }
-title() {
+
+ title() {
   if (localStorage.getItem('lang') === 'ar') {
     return {
-      'font-family': '"El Messiri", sans-serif',
-      'font-weight': '600',
+        'font-family': '"El Messiri", sans-serif',
+      'font-weight': '500',
       'text-align': 'center',
-      'margin-top': '1vh'
+      'margin-top': '-9vw',
+    'font-size': '7vw'
     };
   } else {
-    return {
-      'font-family': '"Lucida Console", Monaco, monospace', 'font-weight': '600',
-      'text-align': 'center',
-      'margin-top': '1vh'
-    };
+   return {
+  'font-family': '"Jomolhari", serif',  // تغيير الخط هنا
+  'font-weight': '500',
+  'text-align': 'center',
+  'margin-top': '-9vw',
+  'font-size': '7vw'
+};
+
   }
 }
+
 }

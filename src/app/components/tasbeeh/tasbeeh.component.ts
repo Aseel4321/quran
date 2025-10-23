@@ -215,17 +215,21 @@ count() {
 }title() {
   if (localStorage.getItem('lang') === 'ar') {
     return {
-      'font-family': '"El Messiri", sans-serif',
+        'font-family': '"El Messiri", sans-serif',
       'font-weight': '600',
       'text-align': 'center',
-      
+      'margin-top': '-3vw',
+    
     };
   } else {
-    return {
-      'font-family': '"Lucida Console", Monaco, monospace', 'font-weight': '600',
-      'text-align': 'center',
-      
-    };
+   return {
+  'font-family': '"Jomolhari", serif',  // تغيير الخط هنا
+  'font-weight': '500',
+  'text-align': 'center',
+  'margin-top': '-3vw',
+  'font-size': '9.5vw'
+};
+
   }
 }
 }

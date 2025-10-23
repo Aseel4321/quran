@@ -31,6 +31,25 @@ otp:string='5555';
     { headers }
   );
   
+}title() {
+  if (localStorage.getItem('lang') === 'ar') {
+    return {
+        'font-family': '"El Messiri", sans-serif',
+      'font-weight': '500',
+      'text-align': 'center',
+      'margin-top': '5vw',
+    'font-size': '7vw'
+    };
+  } else {
+   return {
+  'font-family': '"Jomolhari", serif',  // تغيير الخط هنا
+  'font-weight': '500',
+  'text-align': 'center',
+  'margin-top': '5vw',
+  'font-size': '7vw'
+};
+
+  }
 }
  rest_password(data: any): Observable<any> {
   const headers = new HttpHeaders({

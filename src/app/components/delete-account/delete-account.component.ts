@@ -6,6 +6,7 @@ import { AlertController, Platform } from '@ionic/angular';
 import { MainServiceService } from 'src/app/main-service/main/main-service.service';
 import { ScreenOrientation } from '@capacitor/screen-orientation';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/auth/auth-service/auth.service';
 
 
 @Component({
@@ -28,7 +29,7 @@ keyboardOpen: boolean = false;
   keyboardWillShowListener: any;
   keyboardWillHideListener: any;
 private lockInProgress = false;
-  constructor(private router: Router,private screenOrientation: ScreenOrientation,private platform: Platform,private service:MainServiceService,private alertController: AlertController) {}
+  constructor(private router: Router,private screenOrientation: ScreenOrientation,private platform: Platform,private service:MainServiceService,private alertController: AlertController,private Service:AuthService,) {}
 goBack() {
   this.router.navigate(['/setting']);
 }
@@ -73,11 +74,7 @@ remove(){
     this.password='';
 }
 title() {
-  if (localStorage.getItem('lang') === 'ar') {
-    return { 'font-family': '"El Messiri", sans-serif' };
-  } else {
-    return { 'font-family': '"Lucida Console", Monaco, monospace' };
-  }
+ return this.Service.title();
 }
 delete(){const user = JSON.parse(localStorage.getItem('User'));
    this.isLoading=true;

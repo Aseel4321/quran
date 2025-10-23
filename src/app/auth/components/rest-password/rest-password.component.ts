@@ -59,11 +59,12 @@ update(){
 const user = userString ? JSON.parse(userString) : null;
    this.isLoading=true;
    this.Service. rest_password({"emailOrPhone":user.email, "oldPassword":this.password.text_password,"newPassword":this.repassword.text_password,"confirmNewPassword":this.conpassword.text_password}).subscribe((data:any)=>{
-   this.isLoading=false;
-   this.name=data;
+        
+   this.isLoading=false;if(localStorage.getItem('lang')=='ar'){this.name="تم تعديل البيانات بنجاح"}else{this.name="Changes saved successfully"} this.presentAlert(); 
+   
    console.log(data) ;
   this.presentAlert();
-   this.router.navigate(['/home-page']);
+  
   },(error: HttpErrorResponse)=>{this.isLoading=false;
        if(localStorage.getItem('lang')=='ar'){  this.name = error?.error?.arDescription;
       
@@ -182,15 +183,37 @@ this.password_color='#006400';
 }
 validation(){
  if(this.repassword.text_password!==''&&this.conpassword.text_password!==""&&(this.repassword.text_password==this.conpassword.text_password)&&this.num.length==4&&this.password.text_password!==''){this.disabled=false; return 'login-button-activee';}else{this.disabled=true; return 'login-button';}}
-   async presentAlert() {
-    if(localStorage.getItem('lang')=='ar'){  const alert = await this.alertController.create({
-    //header: 'aتنبيه',
+    async presentAlert() {
+    if(localStorage.getItem('lang')=='ar'){ 
+    const alert = await this.alertController.create({
+   
     message: this.name,
-    buttons: ['موافق']
-  });await alert.present();}else{const alert = await this.alertController.create({
-    //header: 'dddddd',
+     buttons: [
+    {
+      text: 'موافق',
+      handler: () => {if(this.name=='تم تعديل البيانات بنجاح'){ this.router.navigate(['/home-page']);
+  }else{}
+   
+     
+      }
+    }
+  ]
+  });await alert.present();}else{
+ 
+    const alert = await this.alertController.create({
+   
     message: this.name,
-    buttons: ['ok']
+     buttons: [
+    {
+      text: 'OK',
+      handler: () => {if(this.name=='Changes saved successfully'){  
+ this.router.navigate(['/home-page']);
+        }else{}
+   
+     
+      }
+    }
+  ]
   });await alert.present();}
 
 
@@ -229,10 +252,8 @@ color_password() {
  
 }
 title() {
-  if (localStorage.getItem('lang') === 'ar') {
-    return { 'font-family': '"El Messiri", sans-serif' };
-  } else {
-    return { 'font-family': '"Lucida Console", Monaco, monospace' };
-  }
+ 
+return this.Service.title();
+  
 }
 }

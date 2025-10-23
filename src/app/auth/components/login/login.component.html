@@ -73,16 +73,14 @@
 </button>
 
     <br />
- <div *ngIf="isLoading" style="text-align: center;margin-top: 1%;">
+    <p class="signup-text" >
+      {{ 'NO_ACCOUNT' | translate }}
+      <a (click)="signup_nav()">{{ 'SIGN_UP' | translate }}</a>
+    </p> <div *ngIf="isLoading" style="text-align: center;margin-top: 1%;">
   <img src="assets/icon/hold-on1.webp" alt="Login Image"
        style="width: 65px; height: 65px;">
        <br/><br/>
 </div>
-
-    <p class="signup-text" >
-      {{ 'NO_ACCOUNT' | translate }}
-      <a (click)="signup_nav()">{{ 'SIGN_UP' | translate }}</a>
-    </p>
 <img 
   src="assets/icon/Group89.png" 
   alt="Login Image" 

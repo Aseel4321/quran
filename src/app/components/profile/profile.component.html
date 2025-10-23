@@ -135,7 +135,7 @@
     </h1>
 
     <div class="logo" class="logo">
-      <img [src]="img2" alt="Login Image" style="width:35%; height: 35%; border-radius: 50%;">
+      <img [src]="img2" alt="Login Image" style="width:28%; height: 28%; border-radius: 50%;">
     </div>
 
    
@@ -219,14 +219,14 @@
       </ion-row>
       
     </ion-grid>
- <div *ngIf="isLoading" class="loading">
-      <img src="assets/icon/hold-on1.webp" alt="Login Image" class="loading-image" />
-    </div>
+
     <!-- زر الدخول -->
     <button [class]="valid()" type="submit" (click)=" update()" [disabled]="disabled">
       {{ 'Continue' | translate }}
     </button>
-
+ <div *ngIf="isLoading" class="loading">
+      <img src="assets/icon/hold-on1.webp" alt="Login Image" class="loading-image" />
+    </div>
 
   
   </form>

@@ -60,17 +60,21 @@ private lockInProgress = false;
 }title() {
   if (localStorage.getItem('lang') === 'ar') {
     return {
-      'font-family': '"El Messiri", sans-serif',
+        'font-family': '"El Messiri", sans-serif',
       'font-weight': '600',
       'text-align': 'center',
-      'margin-top': '1vh'
+      'margin-top': '-3vw',
+    
     };
   } else {
-    return {
-      'font-family': '"Lucida Console", Monaco, monospace', 'font-weight': '600',
-      'text-align': 'center',
-      'margin-top': '1vh'
-    };
+   return {
+  'font-family': '"Jomolhari", serif',  // تغيير الخط هنا
+  'font-weight': '500',
+  'text-align': 'center',
+  'margin-top': '-3vw',
+  'font-size': '9.5vw'
+};
+
   }
 }
   show="surah";i:any=0; color:string='#1a1a1a';
@@ -90,7 +94,7 @@ this.show='surah';
  style(i){
     if(i==this.i){
    return {
-    color: '#2e2e2e',         // لون غامق
+    color: '#9d9e97ff',         // لون غامق
     cursor: 'pointer',        // لتغيير شكل المؤشر عند التحويم
            // مسافة داخلية
     textDecoration: 'underline'  // 🔴 تضيف خطًا تحت النص
@@ -109,7 +113,7 @@ style_image2() {
     return 'display: none;';
   }
 
-  const baseStyle = 'width: 25%; position: fixed; bottom: 0; z-index: 10;';
+  const baseStyle = 'width: 30%; position: fixed; bottom: 0; z-index: 10;';
   const lang = localStorage.getItem('lang');
 
   if (lang === 'ar') {

@@ -1,34 +1,100 @@
  <ion-content style=" --background: url('assets/icon/imagee.jpeg') no-repeat center center / cover;" scroll-y="false" ><div style="display: flex;flex-direction: column;width: 100vw;height: 100vh;"> 
   <div style="display: flex; flex-direction: row;text-align: center;align-items: center;height: 12vw;width:100vw ;"> 
   <img 
-    src="assets/icon/Group68.png" 
+    src="assets/icon/Group 88 (1).png" 
     alt="Login Image" 
-    class="login-image"
+    class="login-image2"
     
-    style="display: block; width: 37%;margin-inline-end: 65%;"
+    style="display: block; width: 60%;margin-inline-end: 90%;margin-top: 15%;margin-bottom: 0%;"
   />
 </div>
-  <div style="margin-top: 1% ;"> <ion-icon (click)="goBack()" name="close" style="margin-inline-start: 1%;margin-top:0% ;margin-bottom: 0%;"></ion-icon><h1 style=" align-items: center;text-align: center;justify-content: center;" [ngStyle]="title()">{{ 'QURAN' | translate }}</h1>
-<div style=" margin-left: 12vw; margin-right: 12vw; height: 37vw;padding-left: 5%;padding-right:5%;padding-top: 3%; background-color: #F5DA8C; border-radius: 25px;">
- <div style="display: flex;flex-direction: row;"><div style="display: flex;flex-direction:column;flex: 1;">
-   <div style="display: flex; flex-direction: row; align-items: center;margin-bottom: 5%;">
-  <img src="assets/icon/book.png" style="height: 4vw; width: 4vw; margin-inline-end: 1vw;" />
-  <div style="color: #686868;font-size: 3vw;font-weight: 100;">{{ 'LAST_READ' | translate }}</div>
-</div>
+  <div style="margin-top: 1% ;"> <ion-icon (click)="goBack()" name="close" style="margin-inline-start: 4%;margin-top:-5% ;margin-bottom: 0%;"></ion-icon><h1 style=" align-items: center;text-align: center;justify-content: center;margin-bottom:8%;" [ngStyle]="title()">{{ 'QURAN' | translate }}</h1>
+<ion-card
+  style="
+    margin-left: 12vw;
+    margin-right: 12vw;
+    background-color: #f5da8c;
+    border-radius: 25px;
+    padding: 3% 5%;
+    height: 40vw;
+  "
+>
+  <div style="display: flex; flex-direction: row;">
+    <!-- القسم الأيسر -->
+    <div style="display: flex; flex-direction: column; flex: 1;">
+      <!-- العنوان -->
+      <div
+        style="
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          margin-bottom: 5%;
+        "
+      >
+        <img
+          src="assets/icon/book.png"
+          style="height: 4vw; width: 4vw; margin-inline-end: 1vw;"
+        />
+        <div style="color: #686868; font-size: 3vw; font-weight: 100;">
+          {{ 'LAST_READ' | translate }}
+        </div>
+      </div>
 
-    <div style="font-size:3.3vw;margin-top: 3%;margin-bottom: 3%;">{{ 'SURAH' | translate }}</div>
-    <div style="margin-top: 4%;margin-bottom: 10%;font-weight: bold;font-size: 5vw;">{{ 'AL_FATIHAH' | translate }}</div>
-  <button style="border-radius: 12px; padding: 1vw; border: none; background-color: #E2E2E2B2;height: 8vw;">
-  <div style="display: flex; flex-direction: row; align-items: center;"> <div style="flex:4;">{{ 'BACK_TO_READING' | translate }}</div>
-  <ion-icon name="arrow-forward"></ion-icon>
-   
+      <!-- اسم السورة -->
+      <div style="font-size: 3.3vw; margin: 3% 0;">
+        {{ 'SURAH' | translate }}
+      </div>
+
+      <div
+        style="margin: 4% 0 10%; font-weight: bold; font-size: 5vw;"
+      >
+        {{ 'AL_FATIHAH' | translate }}
+      </div>
+
+      <!-- زر العودة للقراءة -->
+      <ion-button
+        expand="block"
+        style="
+          --background: #E2E2E2B2;
+          --color: black;
+         --border-radius: 25px;
+          height: 8vw;
+
+        "
+      >
+        <div
+          style="  border-radius: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+              font-size: 3vw; 
+          "
+        >
+          <span>{{ 'BACK_TO_READING' | translate }}</span>
+          <ion-icon name="arrow-forward"></ion-icon>
+        </div>
+      </ion-button>
+    </div>
+
+    <!-- القسم الأيمن (الصورة) -->
+    <div
+      style="
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex: 1;
+        text-align: center;
+      "
+    >
+      <img
+        src="assets/icon/book1.png"
+        style="height: 30vw; width: 30vw;"
+      />
+    </div>
   </div>
-</button>
- </div> <div style="display: flex; justify-content: center; align-items: center; flex: 1; text-align: center;">
-  <img src="assets/icon/book1.png" style="height: 30vw; width: 30vw;" />
-</div></div>
-
-</div><div style="display: flex; flex-direction:row;justify-content: center;">
+</ion-card>
+<div style="display: flex; flex-direction:row;justify-content: center;">
 <div
   style="margin: 5%;"
   *ngFor="let item of list(); let i = index"
@@ -37,7 +103,7 @@
   {{ item }}
 </div>
 </div>
-<div style="flex: 1;width: 100vw;height: 100vh;" >
+<div style="flex: 1;width: 100vw;height: 100vh;">
  <app-surah *ngIf="show==='surah'"></app-surah>
   <app-page *ngIf="show==='page'"></app-page>
   <app-part *ngIf="show==='part'"></app-part>
@@ -46,8 +112,8 @@
   <app-part *ngIf="show==='جزء'"></app-part>
 </div></div> 
    <img 
-  src="assets/icon/Group-89.png" 
-   class="login-image2"
+  src="assets/icon/Group90.png" 
+   class="login-image"
   alt="Login Image" 
  [style]="style_image2()"
 

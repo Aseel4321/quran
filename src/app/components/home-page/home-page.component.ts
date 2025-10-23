@@ -339,8 +339,8 @@ async checkLocationEnabledغ() {
 
     this.latitude = pos.coords.latitude;
     this.longitude = pos.coords.longitude;
-    this.latitude=32.0728;
-    this.longitude=36.0870;
+    //this.latitude=32.0728;
+    //this.longitude=36.0870;
     await this.getCityFromCoordinates(this.latitude, this.longitude);
 
   } catch (error) {

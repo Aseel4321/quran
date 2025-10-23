@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../auth-service/auth.service';
 import { Router } from '@angular/router';
 import { Capacitor } from '@capacitor/core';
-import { Platform } from '@ionic/angular';
+import { AlertController, Platform } from '@ionic/angular';
 import { ScreenOrientation } from '@capacitor/screen-orientation';
 import { Keyboard } from '@capacitor/keyboard';
 @Component({
@@ -23,7 +23,7 @@ name:any;
 private lockInProgress = false;
 list_langPassword=localStorage.getItem('lang')=="ar"?["كلمه السر ضعيفه","قوه متوسطه","كلمه سر قويه","كلمه سر ممتازه"]:["Weak password",'Moderate strength','Strong password','Very strong password'];
 list_langMatch=localStorage.getItem('lang')=="ar"?["كلمه المرور متطابقه","كلمه المرور غير متطابقه",]:['Matched Password',"Not Matched Password"];
-  constructor(private screenOrientation: ScreenOrientation,private platform: Platform,private router: Router,private Service:AuthService) {}
+  constructor(private screenOrientation: ScreenOrientation,private platform: Platform,private alertController: AlertController,private router: Router,private Service:AuthService) {}
    ngOnInit(): void {
   this.lockInProgress = false;
 
@@ -105,11 +105,11 @@ list_langMatch=localStorage.getItem('lang')=="ar"?["كلمه المرور متط
   "newPassword": this.password,
   "confirmNewPassword": this.repassword.text_password}).subscribe((data:any)=>{
        this.isLoading=false;
-   if(localStorage.getItem('lang')=='ar'){this.name="تم تعديل البيانات بنجاح"}else{this.name="Changes saved successfully"} 
+    if(localStorage.getItem('lang')=='ar'){this.name="تم تعديل البيانات بنجاح"}else{this.name="Changes saved successfully"} this.presentAlert(); 
      localStorage.setItem('login','true');
      localStorage.setItem('user', JSON.stringify(data));
      
-       this.router.navigate(['/login']);
+  
     },(e:any)=>{this.isLoading=false;
       
       console.log(e)})
@@ -118,7 +118,42 @@ list_langMatch=localStorage.getItem('lang')=="ar"?["كلمه المرور متط
      
    
    }
+async presentAlert() {
+    if(localStorage.getItem('lang')=='ar'){ 
+    const alert = await this.alertController.create({
+   
+    message: this.name,
+     buttons: [
+    {
+      text: 'موافق',
+      handler: () => {if(this.name=='تم تعديل البيانات بنجاح'){ this.router.navigate(['/login']);
+  }else{}
+   
+     
+      }
+    }
+  ]
+  });await alert.present();}else{
+ 
+    const alert = await this.alertController.create({
+   
+    message: this.name,
+     buttons: [
+    {
+      text: 'OK',
+      handler: () => {if(this.name=='Changes saved successfully'){  
+ this.router.navigate(['/login']);
+        }else{}
+   
+     
+      }
+    }
+  ]
+  });await alert.present();}
+
+
   
+}
       color(i:any){
         if(this.num.length==0){
           return '#E5E4E2'
@@ -151,7 +186,9 @@ list_langMatch=localStorage.getItem('lang')=="ar"?["كلمه المرور متط
     this.password_type='password';
       this.password_icon='eye-off-outline';
   }
-  }
+  }goBack() {
+  this.router.navigate(['/login']);
+}
   re_eye(){
   if(this.repassword.password_bool==false){
     this.repassword.password_bool=true;

@@ -27,9 +27,10 @@ import { TasbeehComponent } from '../components/tasbeeh/tasbeeh.component';
 import { SwiperModule } from 'swiper/angular';
 import { MorninAdhkarComponent } from '../components/mornin-adhkar/mornin-adhkar.component';
 import { SupplicationsComponent } from '../components/supplications/supplications.component';
+import { SorahComponent } from '../components/sorah/sorah.component';
 
 @NgModule({
-  declarations: [SupplicationsComponent,MorninAdhkarComponent,TasbeehComponent,CalendarComponent,NotificationsComponent,PageComponent,SurahComponent,PartComponent,QuranComponent,HomePageComponent,ProfileComponent,ProfileDetailsComponent,SettingsComponent,DeleteAccountComponent,AddCalendarComponent ],
+  declarations: [SorahComponent,SupplicationsComponent,MorninAdhkarComponent,TasbeehComponent,CalendarComponent,NotificationsComponent,PageComponent,SurahComponent,PartComponent,QuranComponent,HomePageComponent,ProfileComponent,ProfileDetailsComponent,SettingsComponent,DeleteAccountComponent,AddCalendarComponent ],
   imports: [ CalendarModule, CommonModule,
       IonicModule,
       FormsModule,SwiperModule,

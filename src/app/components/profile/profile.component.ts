@@ -445,21 +445,10 @@ v="";
     }
   }
 title() {
-  if (localStorage.getItem('lang') === 'ar') {
-    return {
-      'font-family': '"El Messiri", sans-serif',
-      'font-weight': '600',
-      'text-align': 'center',
-      'margin-top': '1vh'
-    };
-  } else {
-    return {
-      'font-family': '"Lucida Console", Monaco, monospace', 'font-weight': '600',
-      'text-align': 'center',
-      'margin-top': '1vh'
-    };
+ return this.servicea.title();
+
   }
-}
+
 valid(){
   if(this.name1==this.user.fullName&&this.email==this.user.email&&this.phoneNumber==this.user.phone&&this.gender==this.user.gender&&this.dateOfBirth==this.user.dob){this.disabled=true;
     console.log(this.name1==this.user.fullName);console.log(this.email==this.user.email);console.log(this.phoneNumber==this.user.phone);console.log(this.gender==this.user.gender);console.log(this.dateOfBirth==this.user.dob);

@@ -5,6 +5,7 @@ import { IonSlides, Platform } from '@ionic/angular';
 import { ScreenOrientation } from '@capacitor/screen-orientation';
 import SwiperCore, { Swiper, SwiperOptions } from 'swiper';
 import { Location } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-tasbeeh',
@@ -35,7 +36,7 @@ swiperRef!: Swiper;
   keyboardWillShowListener: any;
   keyboardWillHideListener: any;
 private lockInProgress = false;
-  constructor(private platform: Platform,private cdr: ChangeDetectorRef,private location: Location){}
+  constructor(private platform: Platform,private cdr: ChangeDetectorRef,private location: Location,private router: Router){}
   ngOnInit(): void {
     this.lockInProgress = false;
 
@@ -169,7 +170,7 @@ c3_image(){
     return 'border-radius: 50%;background-color: hsla(0, 0%, 85%, 1);margin-top: 7%;height: 13vw;width: 13vw;margin-inline-end: 20vw;position: absolute;margin-top:3vw';
   }
 }goBack() {
-  this.location.back();
+ this.router.navigate(['/home-page']);
 }
   slid = ['A', 'B', 'C', 'D', 'E','Y']; // يمكنك وضع أي بيانات بدلًا من A وB وC...
  

@@ -7,13 +7,14 @@ import { ScreenOrientation } from '@capacitor/screen-orientation';
 import SwiperCore, { Swiper, SwiperOptions } from 'swiper';
 import { Router } from '@angular/router';
 import { Location } from '@angular/common';
+import { AuthService } from 'src/app/auth/auth-service/auth.service';
 @Component({
   selector: 'app-supplications',
   templateUrl: './supplications.component.html',
   styleUrls: ['./supplications.component.scss'],
 })
 export class SupplicationsComponent   implements OnInit{
- 
+
    cards = [
     { text: 'Morning Supplications', image: 'assets/icon/morning.png' },
     { text: 'Evening Supplications', image: 'assets/icon/evning.png' },
@@ -38,21 +39,9 @@ export class SupplicationsComponent   implements OnInit{
         { text: 'Supplications after Prayer', image: 'assets/icon/prayerr.png' },
       ];
 }title() {
-  if (localStorage.getItem('lang') === 'ar') {
-    return {
-      'font-family': '"El Messiri", sans-serif',
-      'font-weight': '600',
-      'text-align': 'center',
-      'margin-top': '1vh'
-    };
-  } else {
-    return {
-      'font-family': '"Lucida Console", Monaco, monospace', 'font-weight': '600',
-      'text-align': 'center',
-      'margin-top': '1vh'
-    };
+ return this.servicea.title();
+
   }
-}
     initialHeight: number = window.innerHeight;
 keyboardOpen: boolean = false;
  isKeyboardOpen: boolean = false;
@@ -62,7 +51,7 @@ swiperRef!: Swiper;
   keyboardWillShowListener: any;
   keyboardWillHideListener: any;
 private lockInProgress = false;
-  constructor(private platform: Platform,private cdr: ChangeDetectorRef,private router: Router,private location: Location,){}
+  constructor(private platform: Platform,private cdr: ChangeDetectorRef,private router: Router,private location: Location,private servicea: AuthService ){}
   ngOnInit(): void {
     this.lockInProgress = false;
 
@@ -110,7 +99,7 @@ style_image2() {
     return 'display: none;';
   }
 
-  const baseStyle = 'width:33%; position: fixed; bottom: 0; z-index: 10;';
+  const baseStyle = 'width:38%; position: fixed; bottom: 0; z-index: 10;';
   const lang = localStorage.getItem('lang');
 
   if (lang === 'ar') {

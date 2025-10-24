@@ -5,6 +5,7 @@ import Swiper from 'swiper';
 import { Keyboard } from '@capacitor/keyboard';
 import { ScreenOrientation } from '@capacitor/screen-orientation';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/auth/auth-service/auth.service';
 
 @Component({
   selector: 'app-mornin-adhkar',
@@ -33,7 +34,7 @@ export class MorninAdhkarComponent implements OnInit {
   keyboardWillHideListener: any;
   private lockInProgress = false;
 
-  constructor(private platform: Platform,private cdr: ChangeDetectorRef,private router: Router) {}
+  constructor(private platform: Platform,private cdr: ChangeDetectorRef,private router: Router,private servicea: AuthService ) {}
 
   ngOnInit(): void {
     this.lockInProgress = false;
@@ -124,17 +125,21 @@ goBack() {
 title() {
   if (localStorage.getItem('lang') === 'ar') {
     return {
-      'font-family': '"El Messiri", sans-serif',
+        'font-family': '"El Messiri", sans-serif',
       'font-weight': '600',
       'text-align': 'center',
-      'margin-top': '1vh'
+      'margin-top': '2vw',
+    
     };
   } else {
-    return {
-      'font-family': '"Lucida Console", Monaco, monospace', 'font-weight': '600',
-      'text-align': 'center',
-      'margin-top': '1vh'
-    };
+   return {
+  'font-family': '"Jomolhari", serif',  // تغيير الخط هنا
+  'font-weight': '500',
+  'text-align': 'center',
+  'margin-top': '8.5vw',
+  'font-size': '8vw'
+};
+
   }
 }
   style_image3() {

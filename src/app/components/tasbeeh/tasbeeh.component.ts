@@ -220,7 +220,7 @@ count() {
       'font-weight': '600',
       'text-align': 'center',
       'margin-top': '-3vw',
-    
+    'font-size': '8.5vw'
     };
   } else {
    return {

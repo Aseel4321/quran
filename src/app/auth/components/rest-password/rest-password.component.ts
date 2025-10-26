@@ -60,7 +60,7 @@ const user = userString ? JSON.parse(userString) : null;
    this.isLoading=true;
    this.Service. rest_password({"emailOrPhone":user.email, "oldPassword":this.password.text_password,"newPassword":this.repassword.text_password,"confirmNewPassword":this.conpassword.text_password}).subscribe((data:any)=>{
         
-   this.isLoading=false;if(localStorage.getItem('lang')=='ar'){this.name="تم تعديل البيانات بنجاح"}else{this.name="Changes saved successfully"} this.presentAlert(); 
+   this.isLoading=false;if(localStorage.getItem('lang')=='ar'){this.name="تم تغيير كلمة السر بنجاح"}else{this.name="Password changed successfully"} 
    
    console.log(data) ;
   this.presentAlert();
@@ -68,7 +68,7 @@ const user = userString ? JSON.parse(userString) : null;
   },(error: HttpErrorResponse)=>{this.isLoading=false;
        if(localStorage.getItem('lang')=='ar'){  this.name = error?.error?.arDescription;
       
-this.presentAlert() ;
+
       this.presentAlert();}else{this.name = error?.error?.enDescription;this.presentAlert(); }
     console.log(error)})
  
@@ -191,7 +191,7 @@ validation(){
      buttons: [
     {
       text: 'موافق',
-      handler: () => {if(this.name=='تم تعديل البيانات بنجاح'){ this.router.navigate(['/home-page']);
+      handler: () => {if(this.name=='تم تغيير كلمة السر بنجاح'){ this.router.navigate(['/home-page']);
   }else{}
    
      
@@ -206,7 +206,7 @@ validation(){
      buttons: [
     {
       text: 'OK',
-      handler: () => {if(this.name=='Changes saved successfully'){  
+      handler: () => {if(this.name=='Password changed successfully'){  
  this.router.navigate(['/home-page']);
         }else{}
    

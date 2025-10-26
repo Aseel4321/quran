@@ -47,7 +47,7 @@ imgg='';
     { name: "aseel", image: "assets/icon/cloud.png", time: '17:8' },
     { name: "aseel", image: "assets/icon/moon.png", time: '17:8' }
   ];
-
+ intervalId: any;
   initialHeight: number = window.innerHeight;
 keyboardOpen: boolean = false;
   list_time1: any[] = [
@@ -73,6 +73,12 @@ keyboardOpen: boolean = false;
     });
     const userData = localStorage.getItem('User');
      this.user = JSON.parse(userData);
+  } ngOnDestroy() {
+    // 🛑 عند إغلاق الصفحة أو الانتقال منها، أوقف التكرار
+    if (this.intervalId) {
+      clearInterval(this.intervalId);
+      console.log('تم إيقاف التكرار عند إغلاق الصفحة.');
+    }
   }
   constructor(private locationAccuracy: LocationAccuracy,
     private http: HttpClient,
@@ -82,26 +88,33 @@ keyboardOpen: boolean = false;
   ) {
  
 
-  setInterval(() => {
-    const now = new Date();
-    this.time_now = now.toLocaleTimeString('en-US');
-    if(localStorage.getItem('lang') === 'ar'){
-    this.time_now =this.time_now.replace('AM', 'ص').replace('PM', 'م');
-    const currentPeriod = this.time_now.includes('ص') ? 'ص' : 'م';
-      if (this.lastPeriod !== currentPeriod){
-      this.updateTime(); 
-    }
-    this.lastPeriod = currentPeriod;
-   this.prayer_times();}else{const currentPeriod = this.time_now.includes('AM') ? 'AM' : 'PM';
-  
-  if (this.lastPeriod !== currentPeriod){
-      this.updateTime(); 
-    }
-    this.lastPeriod = currentPeriod;
-   this.prayer_times();}
-    
- 
-  }, 1000); 
+this.intervalId = setInterval(() => {
+      const now = new Date();
+      this.time_now = now.toLocaleTimeString('en-US');
+
+      if (localStorage.getItem('lang') === 'ar') {
+        this.time_now = this.time_now.replace('AM', 'ص').replace('PM', 'م');
+        const currentPeriod = this.time_now.includes('ص') ? 'ص' : 'م';
+
+        if (this.lastPeriod !== currentPeriod) {
+          this.updateTime();
+        }
+
+        this.lastPeriod = currentPeriod;
+        this.prayer_times();
+
+      } else {
+        const currentPeriod = this.time_now.includes('AM') ? 'AM' : 'PM';
+
+        if (this.lastPeriod !== currentPeriod) {
+          this.updateTime();
+        }
+
+        this.lastPeriod = currentPeriod;
+        this.prayer_times();
+      }
+
+    }, 1000);
 }
 
  list_type(){

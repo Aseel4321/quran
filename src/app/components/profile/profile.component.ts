@@ -343,15 +343,19 @@ onDateChangee(event: any) {
   "newDob":this.dateOfBirth,
   "newGender":this.gender
 }).subscribe((data:any)=>{this.isLoading = false;localStorage.setItem('User',JSON.stringify(data)); 
-  console.log(data);  if(localStorage.getItem('lang')=='ar'){
-         this.name=data.arDescription;   this.presentAlert();
+  console.log(data);  if(localStorage.getItem('lang')=='ar'){if(data.arDescription=='لقد تم تغيير البيانات بنجاح ومنها الايميل يجب تسجيل الخروج لاعادة تفعيل الاميل الجديد'){
+    this.name=data.arDescription;
+    this.presentAlert();
+  }else{this.name='تم تحديث البيانات بنجاح';this.presentAlert();}
+           
       
   
      
 
-    }else{
-          this.name=data.enDescription; console.log('this.name'); console.log(this.name);
-        this.presentAlert(); 
+    }else{if(data.enDescription=='The data has been changed successfully, including the email. You must log out to reactivate the new email.'){this.name=data.enDescription;this.presentAlert();}else{
+      this.name='Data has been successfully updated'; console.log('this.name'); console.log(this.name);this.presentAlert();}
+          
+        
         }
 
 console.log(data.arDescription);

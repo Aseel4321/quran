@@ -8,7 +8,7 @@ import { HttpClient, HttpHeaders} from '@angular/common/http';
 })
 export class AuthService {
   email:string='';
-  otp_number=0;
+  otp_number=4;
   profile_email:boolean=false;
 //email:string='qazqaz20202020@gmail.com';
 otp:string='5555';

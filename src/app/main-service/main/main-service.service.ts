@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class MainServiceService {
- 
+ date:any='';
 delete(data: any): Observable<any> {
   const headers = new HttpHeaders({
     'Accept': 'application/json',
@@ -14,7 +14,7 @@ delete(data: any): Observable<any> {
   });
 
   return this.http.delete(
-    'https://https://api-project-6hj8.onrender.com/account/delete',  // استخدم البروكسي هنا
+    'https://api-project-6hj8.onrender.com/account/delete',  // استخدم البروكسي هنا
     {
       headers: headers,
       body: data

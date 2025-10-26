@@ -343,16 +343,25 @@ onDateChangee(event: any) {
   "newDob":this.dateOfBirth,
   "newGender":this.gender
 }).subscribe((data:any)=>{this.isLoading = false;localStorage.setItem('User',JSON.stringify(data)); 
+  console.log(data);  if(localStorage.getItem('lang')=='ar'){
+         this.name=data.arDescription;   this.presentAlert();
+      
   
- if(localStorage.getItem('lang')=='ar'){this.name="تم تعديل البيانات بنجاح"}else{this.name="Changes saved successfully"} this.presentAlert(); 
-console.log(data);
+     
+
+    }else{
+          this.name=data.enDescription; console.log('this.name'); console.log(this.name);
+        this.presentAlert(); 
+        }
+
+console.log(data.arDescription);
     },(error: HttpErrorResponse) => {
       this.isLoading = false;
       
     
       if(localStorage.getItem('lang')=='ar'){
          this.name = error?.error?.arDescription; this.presentAlert();
-       console.log(this.name);
+      
         
      
 
@@ -371,7 +380,7 @@ console.log(data);
      buttons: [
     {
       text: 'موافق',
-      handler: () => {if(this.name=='الحساب غير موثق'){ localStorage.setItem('email',this.email);; this.servicea.otp_number=1;this.router.navigate(['/otp-email']);
+      handler: () => {if(this.name=='لقد تم تغيير البيانات بنجاح ومنها الايميل يجب تسجيل الخروج لاعادة تفعيل الاميل الجديد'){ localStorage.setItem('email',this.email);; this.servicea.otp_number=1;this.router.navigate(['/otp-email']);
   }else{this.router.navigate(['/home-page']);}
    
      

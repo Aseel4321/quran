@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Keyboard } from '@capacitor/keyboard';
+import { MainServiceService } from 'src/app/main-service/main/main-service.service';
 
 @Component({
   selector: 'app-add-calendar',
@@ -7,10 +8,13 @@ import { Keyboard } from '@capacitor/keyboard';
   styleUrls: ['./add-calendar.component.scss'],
 })
 export class AddCalendarComponent implements OnInit{  keyboardWillShowListener: any;
-  keyboardWillHideListener: any;isKeyboardOpen: boolean = false;isModalOpen = false;
-  ngOnInit(): void {
+  date:string='';
+  keyboardWillHideListener: any;isKeyboardOpen: boolean = false;isModalOpen = false;constructor(private main:MainServiceService){}
+  ngOnInit(): void {   this.date=this.main.date;
+      console.log(this.main.date)
        this.keyboardWillShowListener = Keyboard.addListener('keyboardWillShow', () => {
       this.isKeyboardOpen = true; // السماح بالتمرير
+   
     });
 
     this.keyboardWillHideListener = Keyboard.addListener('keyboardWillHide', () => {

@@ -25,7 +25,7 @@ password_type:string='password';
   initialHeight: number = window.innerHeight;
 keyboardOpen: boolean = false;
  isKeyboardOpen: boolean = false;
-
+user:any;
   keyboardWillShowListener: any;
   keyboardWillHideListener: any;
 private lockInProgress = false;
@@ -76,10 +76,11 @@ remove(){
 title() {
  return this.Service.title();
 }
-delete(){const user = JSON.parse(localStorage.getItem('User'));
+delete(){const userData = localStorage.getItem('User');
+     this.user = JSON.parse(userData);console.log(this.user.email);
    this.isLoading=true;
   this.service.delete({
-    "emailOrPhone":user.email,
+    "emailOrPhone":this.user.email,
     "password":this.password,
 }).subscribe((data:any)=>{
     
@@ -92,7 +93,10 @@ delete(){const user = JSON.parse(localStorage.getItem('User'));
       this.presentAlert();}else{this.name = error?.error?.enDescription;this.presentAlert(); }
   });
 
- }
+ }onKeyup_email(event: KeyboardEvent){
+this.password = (event.target as HTMLInputElement).value;
+console.log(this.password);
+  }
 eye(){
 if(this.password_bool==false){
   this.password_bool=true;

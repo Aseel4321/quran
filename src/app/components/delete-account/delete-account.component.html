@@ -14,6 +14,7 @@
     placeholder="{{ 'PASSWORD' | translate }}" 
     [type]="password_type"
     name="password"
+    (keyup)="onKeyup_email($event)"
     required
     [(ngModel)]="password">
   </ion-input>

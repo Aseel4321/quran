@@ -128,16 +128,16 @@ title() {
         'font-family': '"El Messiri", sans-serif',
       'font-weight': '600',
       'text-align': 'center',
-      'margin-top': '2vw',
-    
+      'margin-top': '4vw',
+    'font-size': '7vw'
     };
   } else {
    return {
   'font-family': '"Jomolhari", serif',  // تغيير الخط هنا
   'font-weight': '500',
   'text-align': 'center',
-  'margin-top': '8.5vw',
-  'font-size': '8vw'
+  'margin-top': '7vw',
+  'font-size': '7vw'
 };
 
   }

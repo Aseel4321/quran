@@ -39,9 +39,25 @@ export class SupplicationsComponent   implements OnInit{
         { text: 'Supplications after Prayer', image: 'assets/icon/prayerr.png' },
       ];
 }title() {
- return this.servicea.title();
+  if (localStorage.getItem('lang') === 'ar') {
+    return {
+        'font-family': '"El Messiri", sans-serif',
+      'font-weight': '500',
+      'text-align': 'center',
+      'margin-top': '5vw',
+    'font-size': '8vw'
+    };
+  } else {
+   return {
+  'font-family': '"Jomolhari", serif',  // تغيير الخط هنا
+  'font-weight': '500',
+  'text-align': 'center',
+  'margin-top': '5vw',
+  'font-size': '7vw'
+};
 
   }
+}
     initialHeight: number = window.innerHeight;
 keyboardOpen: boolean = false;
  isKeyboardOpen: boolean = false;

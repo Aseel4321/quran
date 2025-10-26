@@ -1,6 +1,7 @@
 import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Location } from '@angular/common';
 import { Router } from '@angular/router';
+import { MainServiceService } from 'src/app/main-service/main/main-service.service';
 @Component({
   selector: 'app-calendar',
   templateUrl: './calendar.component.html',
@@ -24,10 +25,12 @@ indx:string='';
     this.generateMonth(this.currentYear, this.currentMonth);
     if (localStorage.getItem('lang') === 'ar') {
   const today = new Date();
-  this.indx = this.formatFullDatear(today); // خزن اليوم الحالي بتنسيق عربي
+  this.indx = this.formatFullDatear(today);
+  this.main.date=this.indx;console.log('this.main.date')  ,console.log(this.main.date) // خزن اليوم الحالي بتنسيق عربي
 } else {
   const today = new Date();
-  this.indx = this.formatFullDateen(today); // خزن اليوم الحالي بتنسيق إنجليزي
+  this.indx = this.formatFullDateen(today);this.main.date=this.indx; 
+ // خزن اليوم الحالي بتنسيق إنجليزي
 }
   }
 goBack() {
@@ -76,6 +79,7 @@ const date = today.getDate();
 const monthName = months[today.getMonth()];
 const year = today.getFullYear();
 this.indx = `${dayName}, ${monthName} ${date}, ${year}`;
+this.main.date=this.indx;
   }
 }
   nextMonth() {
@@ -125,8 +129,10 @@ formatFullDateen(date: Date): string {
 
     const key = date.toISOString().split('T')[0];
 this.indx=localStorage.getItem('lang')=='ar'?this.formatFullDatear(date):this.formatFullDateen(date);
+this.main.date=this.indx; 
  //this.selectedDates.push({date:,colors:[]});
-console.log(this.indx);
+console.log('gggjjjjjjjjj');
+console.log(this.main.date);
     //this.selectedFullDate.push()
   }
 
@@ -182,7 +188,7 @@ color_day(day){
 if(this.formatFullDatear(day)==this.indx){return '#2743bdff'}else if(this.formatFullDateen(day)==this.indx){return '#2743bdff'}
 }
 
-  constructor(private location: Location,private router: Router) {
+  constructor(private location: Location,private router: Router,private main:MainServiceService ) {
     // ضبط الحد الأدنى لتاريخ اليوم (مثلاً)
     const today = new Date();
     this.minDate = today.toISOString().split('T')[0]; // شكل "YYYY-MM-DD"

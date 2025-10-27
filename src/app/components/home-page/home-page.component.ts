@@ -150,26 +150,14 @@ this.intervalId = setInterval(() => {
   }list_card(){ return  localStorage.getItem('lang') === 'ar' ? [
     { name: "إتمام القرآن", title: 'آخر قراءة للقرآن: ', number: 55, per: "4%", image: 'assets/icon/islamic.png' },
     
-    { name: "اختبار حفظ القرآن", title: 'آخر مشاركة في اختبار الحفظ: 06-03-2025', number: null, per: "90%", image: 'assets/icon/prayer.png' },{ name:this.timePeriod=="AM"? "أذكار الصباح":this.timePeriod=="PM"?"أذكار المساء":'', title: 'آخر أذكار تم قراءتها:', number: 6, per: "76%", image: 'assets/icon/prayer.png' },
+    { name: "اختبار حفظ القرآن", title: 'آخر مشاركة في اختبار الحفظ: 06-03-2025', number: null, per: "90%", image: 'assets/icon/prayer.png' },
+    { name:this.timePeriod=="AM"? "أذكار الصباح":this.timePeriod=="PM"?"أذكار المساء":'', title: 'آخر أذكار تم قراءتها:', number: 6, per: "76%", image: 'assets/icon/prayer.png' },
   ]:[
     { name: "Quran Completion", title: 'Last Read Al-Quran : ', number: 55, per: "4%", image: 'assets/icon/islamic.png' },  { name: "Quran Memorization Test", title: 'Last entry for Quran Memorization :', number: 66, per: "90%", image: 'assets/icon/prayer.png' },
     { name:this.timePeriod=="AM"? "Morning Adhkar":this.timePeriod=="PM"?"Evening Adhkar":'', title:this.timePeriod=="AM"?'Last Read Morning remembrance : ':this.timePeriod=="PM"?'Last Read Evening remembrance : ':'', number: 6, per: "76%", image: 'assets/icon/prayer.png' },
   
   ]
-     if(this.timePeriod=="AM"){
-  
-      }else if(this.timePeriod=="PM"){
-       return  localStorage.getItem('lang') === 'ar' ?[
- 
-    { name: "إتمام القرآن",  title: 'آخر قراءة للقرآن: ', number: 55, per: "4%", image: 'assets/icon/islamic.png' },
-    { name: "أذكار المساء", title: 'آخر أذكار تم قراءتها:', number: 6, per: "76%", image: 'assets/icon/prayer.png' },
-    { name: "اختبار حفظ القرآن", title: 'آخر أذكار تم قراءتها:', number: 66, per: "90%", image: 'assets/icon/prayer.png' }
-  
-  ]:[
-    { name: "Quran Completion", title: 'Last Read Al-Quran : ', number: 55, per: "4%", image: 'assets/icon/islamic.png' },
-    { name: "Evening Adhkar", title: 'Last Read Evening remembrance : ', number: 77, per: '23%', image: 'assets/icon/exam.png' },
-    { name: "Quran Memorization Test", title: 'Last entry for Quran Memorization :', number: 66, per: "90%", image: 'assets/icon/prayer.png' }
-  ]}
+   
      }
   /*list_card(){
      if(this.timePeriod=="AM"){

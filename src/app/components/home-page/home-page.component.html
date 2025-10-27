@@ -67,12 +67,17 @@
   </div>
 </div>
 <div style="display: flex; flex-direction: row; width: 100%; gap: 2%;">
-  <div *ngFor="let item of times; let i = index" style="flex: 1; display: flex; flex-direction: column; align-items: center; text-align: center;">
-    <img [src]="item.image" alt="{{ item.name }}" style="width: 6vw; height: 3vh; margin-bottom: 5%;">
+  <div *ngFor="let item of list_time1; let i = index" style="flex: 1; display: flex; flex-direction: column; align-items: center; text-align: center;">
+    <img [src]="item" style="width: 6vw; height: 3vh; margin-bottom: 5%;">
    
     <p style="font-size: 3vw; margin-top: 0%;">{{ item.time }}</p>
+  </div></div>
+  <ng-container *ngIf="times && times.length > 0; else noData"><div style="display: flex; flex-direction: row; width: 100%; gap: 2%;margin-top: -5%;">
+  <div *ngFor="let item of times; let i = index" style="flex: 1; display: flex; flex-direction: column; align-items: center; text-align: center;">
+    <p style="font-size: 3vw; margin-top: 0%;">{{ item.time }}</p>
   </div>
-</div>
+</div></ng-container>
+
 
 
 </div></div>
@@ -168,3 +173,8 @@
   <ion-button >Start Watching Location</ion-button>!-->
   </ion-content>
 </div>
+<ng-template #noData>
+  <div style="text-align: center; width: 100%; margin-top: 5%;">
+    <p style="font-size: 4vw; color: gray;"></p>
+  </div>
+</ng-template>

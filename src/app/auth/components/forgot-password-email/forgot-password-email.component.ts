@@ -80,6 +80,8 @@ otp(){
   
     
    })
+}goBack() {
+  this.router.navigate(['/login']);
 }
 async presentAlert() {
   const alert = await this.alertController.create({

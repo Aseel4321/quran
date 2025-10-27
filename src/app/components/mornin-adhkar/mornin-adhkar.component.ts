@@ -113,7 +113,7 @@ goBack() {
       return 'display: none;';
     }
 
-    const baseStyle = 'width:33%; position: fixed; bottom: 0; z-index: 10;';
+    const baseStyle = 'width:40%; position: fixed; bottom: 0; z-index: 10;';
     const lang = localStorage.getItem('lang');
 
     if (lang === 'ar') {
@@ -126,10 +126,10 @@ title() {
   if (localStorage.getItem('lang') === 'ar') {
     return {
         'font-family': '"El Messiri", sans-serif',
-      'font-weight': '600',
+      'font-weight': '500',
       'text-align': 'center',
-      'margin-top': '4vw',
-    'font-size': '7vw'
+      'margin-top': '7vw',
+    'font-size': '9vw'
     };
   } else {
    return {

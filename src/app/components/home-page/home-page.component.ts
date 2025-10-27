@@ -36,8 +36,9 @@ time_now:any;
   userRoles: Map<string,string> = new Map();
    lastPeriod = ''; 
    prayerName1=localStorage.getItem('lang');
- i:any;
+ i:any;text:string;
 user:any; 
+loc:string;
 imgg='';
   list_time: any[] = [
     { name: "aseel", image: "assets/icon/sunny.png", time: '17:8' },
@@ -146,8 +147,31 @@ this.intervalId = setInterval(() => {
 
     
 
-  }
-  list_card(){
+  }list_card(){ return  localStorage.getItem('lang') === 'ar' ? [
+    { name: "إتمام القرآن", title: 'آخر قراءة للقرآن: ', number: 55, per: "4%", image: 'assets/icon/islamic.png' },
+    
+    { name: "اختبار حفظ القرآن", title: 'آخر مشاركة في اختبار الحفظ: 06-03-2025', number: null, per: "90%", image: 'assets/icon/prayer.png' },{ name:this.timePeriod=="AM"? "أذكار الصباح":this.timePeriod=="PM"?"أذكار المساء":'', title: 'آخر أذكار تم قراءتها:', number: 6, per: "76%", image: 'assets/icon/prayer.png' },
+  ]:[
+    { name: "Quran Completion", title: 'Last Read Al-Quran : ', number: 55, per: "4%", image: 'assets/icon/islamic.png' },  { name: "Quran Memorization Test", title: 'Last entry for Quran Memorization :', number: 66, per: "90%", image: 'assets/icon/prayer.png' },
+    { name:this.timePeriod=="AM"? "Morning Adhkar":this.timePeriod=="PM"?"Evening Adhkar":'', title:this.timePeriod=="AM"?'Last Read Morning remembrance : ':this.timePeriod=="PM"?'Last Read Evening remembrance : ':'', number: 6, per: "76%", image: 'assets/icon/prayer.png' },
+  
+  ]
+     if(this.timePeriod=="AM"){
+  
+      }else if(this.timePeriod=="PM"){
+       return  localStorage.getItem('lang') === 'ar' ?[
+ 
+    { name: "إتمام القرآن",  title: 'آخر قراءة للقرآن: ', number: 55, per: "4%", image: 'assets/icon/islamic.png' },
+    { name: "أذكار المساء", title: 'آخر أذكار تم قراءتها:', number: 6, per: "76%", image: 'assets/icon/prayer.png' },
+    { name: "اختبار حفظ القرآن", title: 'آخر أذكار تم قراءتها:', number: 66, per: "90%", image: 'assets/icon/prayer.png' }
+  
+  ]:[
+    { name: "Quran Completion", title: 'Last Read Al-Quran : ', number: 55, per: "4%", image: 'assets/icon/islamic.png' },
+    { name: "Evening Adhkar", title: 'Last Read Evening remembrance : ', number: 77, per: '23%', image: 'assets/icon/exam.png' },
+    { name: "Quran Memorization Test", title: 'Last entry for Quran Memorization :', number: 66, per: "90%", image: 'assets/icon/prayer.png' }
+  ]}
+     }
+  /*list_card(){
      if(this.timePeriod=="AM"){
    return  localStorage.getItem('lang') === 'ar' ? [
     { name: "إتمام القرآن", title: 'آخر قراءة للقرآن: ', number: 55, per: "4%", image: 'assets/icon/islamic.png' },
@@ -170,7 +194,7 @@ this.intervalId = setInterval(() => {
     { name: "Evening Adhkar", title: 'Last Read Evening remembrance : ', number: 77, per: '23%', image: 'assets/icon/exam.png' },
     { name: "Quran Memorization Test", title: 'Last entry for Quran Memorization :', number: 66, per: "90%", image: 'assets/icon/prayer.png' }
   ]}
-     }
+     }*/
   
 async prayer_times() {
   try {
@@ -352,15 +376,18 @@ async checkLocationEnabledغ() {
 
     this.latitude = pos.coords.latitude;
     this.longitude = pos.coords.longitude;
-    this.latitude=32.0728;
-    this.longitude=36.0870;
+    //this.latitude=32.0728;
+    //this.longitude=36.0870;
      //this.latitude=29.5267;
     //this.longitude=35.0078;
     await this.getCityFromCoordinates(this.latitude, this.longitude);
 
   } catch (error) {
     console.error('❌ Error getting location', error);
-    await this.showAlertno('تعذر الحصول على الموقع. تحقق من الأذونات وإعدادات GPS.');
+    if (localStorage.getItem('lang') === 'ar') {this.text="موافق";this.loc='الموقع'; this.showAlertno('تعذر الحصول على الموقع. تحقق من الأذونات وإعدادات GPS.');}else{this.text="ok";
+      this.loc='Location';
+      await this.showAlertno('Failed to get location. Check permissions and GPS settings.');}
+   
   }
 }
 
@@ -443,11 +470,11 @@ getCityFromCoordinates(latitude: number, longitude: number) {      console.log('
 
 async showAlertno(message: string) {
   const alert = await this.alertController.create({
-    header: 'الموقع',
-    message: message,
+    header:this.loc,
+    message: message, //backdropDismiss: false, 
     buttons: [
       {
-        text: 'OKkk',
+        text: this.text,
         handler: () => {
          this.checkLocationEnabled();
           console.log('تم الضغط على OK');
@@ -463,7 +490,8 @@ async showAlertno(message: string) {
 }
 async showAlertyes(message: string) {
   const alert = await this.alertController.create({
-    header: 'الموقع',
+    header: localStorage.getItem('lang') === 'ar' ? 'الموقع' : 'Location',
+
     message: message,
     buttons: [
       {
@@ -643,19 +671,19 @@ prayer() {
   } else if (v === 'Al-Quran' || v === 'القرآن الكريم') {
     this.router.navigate(['/quran']);
   } else if (v === 'AL-Hadith' || v === 'الحديث الشريف') {
-   this.router.navigate(['/morning-adhkar']);
+   
   } else if (v === 'Tafsir' || v === 'التفسير') {
-  this.router.navigate(['/Supplications']);
+  
   } else if (v === 'Dua' || v === 'الدعاء') {
-    this.router.navigate(['/quran']);
+    this.router.navigate(['/Supplications']);
   } else if (v === 'Adhkar' || v === 'الاذكار') {
-    this.router.navigate(['/tasbeeh']);
+   
   } else if (v === 'Test' || v === 'اختبار') {
-    this.router.navigate(['/quran']);
+   
   }
 }
 val1(v){
-  if(v=='Quran Completion'||v=="إتمام القرآن"){ this.router.navigate(['/tasbeeh']);}else if(v=='Evening Adhkar'||v== "أذكار المساء"){this.router.navigate(['/quran']);}else if(v=='Quran Memorization Test'||v=="اختبار حفظ القرآن"){this.router.navigate(['/quran']);}
+  if(v=='Quran Completion'||v=="إتمام القرآن"){}else if(v=='Evening Adhkar'||v== "أذكار المساء"){this.router.navigate(['/morning-adhkar']);}else if(v=='Quran Memorization Test'||v=="اختبار حفظ القرآن"){this.router.navigate(['/quran']);}
   else if(v=="Morning Adhkar"||v=="أذكار الصباح"){this.router.navigate(['/quran']);}
 }
 }

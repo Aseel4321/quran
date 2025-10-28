@@ -217,10 +217,10 @@ count() {
   if (localStorage.getItem('lang') === 'ar') {
     return {
         'font-family': '"El Messiri", sans-serif',
-      'font-weight': '500',
+      'font-weight': '600',
       'text-align': 'center',
       'margin-top': '-3vw',
-    'font-size': '8.5vw'
+    'font-size': '8vw'
     };
   } else {
    return {
@@ -231,6 +231,14 @@ count() {
   'font-size': '9.5vw'
 };
 
+  }
+}
+im(): string {
+  const styleBase = "width: 5.5vw; height: 5.5vw; margin-top: 30%;";
+  if (localStorage.getItem('lang') === 'ar') {
+    return styleBase + " transform: scaleX(1);";
+  } else {
+    return styleBase;
   }
 }
 }

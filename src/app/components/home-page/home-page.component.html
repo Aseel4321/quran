@@ -174,7 +174,9 @@
   </ion-content>
 </div>
 <ng-template #noData>
-  <div style="text-align: center; width: 100%; margin-top: 5%;">
-    <p style="font-size: 4vw; color: gray;"></p>
+<div style="display: flex; flex-direction: row; width: 100%; gap: 2%;margin-top: -5%;">
+  <div *ngFor="let item of list_time1; let i = index" style="flex: 1; display: flex; flex-direction: column; align-items: center; text-align: center;">
+    <p style="font-size: 3vw; margin-top: 0%;">......</p>
   </div>
+</div>
 </ng-template>

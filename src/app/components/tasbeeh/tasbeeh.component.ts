@@ -217,7 +217,7 @@ count() {
   if (localStorage.getItem('lang') === 'ar') {
     return {
         'font-family': '"El Messiri", sans-serif',
-      'font-weight': '600',
+      'font-weight': '500',
       'text-align': 'center',
       'margin-top': '-3vw',
     'font-size': '8.5vw'

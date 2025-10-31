@@ -125,7 +125,7 @@ this.intervalId = setInterval(() => {
     { name: "اختبار", image: 'assets/icon/exam.png' },
     { name: "الحديث الشريف", image: 'assets/icon/prayer.png' },
     { name: "التفسير", image: 'assets/icon/teachings.png' },
-    { name: "القرآن الكريم", image: 'assets/icon/islamic.png' },
+    { name: "القرآن الكريم", image: 'assets/icon/quran.png' },
     { name: "الدعاء", image: 'assets/icon/exam.png' },
     { name: "الاذكار", image: 'assets/icon/praying.png' }
   ]:[
@@ -133,7 +133,7 @@ this.intervalId = setInterval(() => {
     { name: "Test", image: 'assets/icon/exam.png' },
     { name: "AL-Hadith", image: 'assets/icon/prayer.png' },
     { name: "Tafsir", image: 'assets/icon/teachings.png' },
-    { name: "Al-Quran", image: 'assets/icon/islamic.png' },
+    { name: "Al-Quran", image: 'assets/icon/quran.png' },
     { name: "Dua", image: 'assets/icon/exam.png' },
     { name: "Adhkar", image: 'assets/icon/praying.png' }
   ]

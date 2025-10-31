@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class MainServiceService {
+  adkar:any;
  date:any='';
 delete(data: any): Observable<any> {
   const headers = new HttpHeaders({

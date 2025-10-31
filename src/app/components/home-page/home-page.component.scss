@@ -70,5 +70,18 @@ ion-menu::part(container) {width: 60%;
 }[dir="ltr"] .login-image3 {
   transform: rotateY(180deg);
 }
+.my-card {
+  margin-left: 8%;margin-right:8%;
+  border-radius: 30px;
+  background-color: #9D9D9D3D;
+  overflow: hidden;      /* لضمان أن الصور والخلفيات لا تتجاوز الحواف */
+
+  ion-card-content {
+    padding: 0;          /* إزالة البادينغ الافتراضي إن لزم */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }}
 
 

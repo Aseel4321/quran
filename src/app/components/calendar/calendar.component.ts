@@ -123,6 +123,13 @@ formatFullDateen(date: Date): string {
   };
   return date.toLocaleDateString('en-US', options);
 }
+deleteUser(index: number) {
+  this.user.splice(index, 1);
+}
+
+editUser(index: number) {
+  console.log('تعديل المستخدم:', this.user[index]);
+}
 
   onDateClick(date: Date) {
     if (!date) return;
@@ -131,7 +138,7 @@ formatFullDateen(date: Date): string {
 this.indx=localStorage.getItem('lang')=='ar'?this.formatFullDatear(date):this.formatFullDateen(date);
 this.main.date=this.indx; 
  //this.selectedDates.push({date:,colors:[]});
-console.log('gggjjjjjjjjj');
+
 console.log(this.main.date);
     //this.selectedFullDate.push()
   }

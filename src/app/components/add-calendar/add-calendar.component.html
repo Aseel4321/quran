@@ -7,7 +7,7 @@
         <div style="display: flex;flex-direction: row;align-items: stretch;">
           <div style="margin-inline-end: 20vw;font-size:3.5vw;" routerLink="/calendar">{{ 'cancel' | translate }}</div>
           <div style="font-weight: bold;font-size:5vw;">{{ 'Add-Calendar' | translate }}</div>
-          <button [class]="valid()" [disabled]="disabled">{{ 'save' | translate }}</button>
+          <button [class]="valid()" [disabled]="disabled" (click)="add()">{{ 'save' | translate }}</button>
         </div> 
 
         <div style="display: flex;flex-direction: column;text-align: center;margin-top: 15%;margin-bottom: 5%;">
@@ -37,14 +37,12 @@
       </ion-input>
       <img src="assets/icon/linee.png" alt="Splash Logo" class="icon">
     </div>
-
+{{d}}
     <!-- نقل هذا الجزء داخل الفورم -->
     <div style="display: flex;flex-direction: row;align-items: center;text-align: center;width: 100vw;justify-content: center;margin-top: 9%;">
       <img src="assets/icon/alertt.png" alt="Splash Logo" class="icon" style="margin-inline-end: 2%;">
       <ion-label style="margin-inline-end: 2%;">{{ 'alert' | translate }}</ion-label>
-
       <ion-datetime-button datetime="timePicker"></ion-datetime-button>
-
       <ion-modal [keepContentsMounted]="true" [(isOpen)]="isModalOpen">
         <ng-template>
           <ion-datetime 
@@ -58,6 +56,5 @@
         </ng-template>
       </ion-modal>
     </div>
-
   </form>
 </ion-content>

@@ -34,7 +34,35 @@ update_profile(data: any): Observable<any> {
     { headers: headers }
   );
 }
+add_calendar(data: any): Observable<any> {
+  const headers = new HttpHeaders({
+    'Accept': 'application/json',
+    'Content-Type': 'application/json'
+  });
 
+  return this.http.post(
+    'https://api-project-6hj8.onrender.com/api/calendar-alerts/update',  // استخدم البروكسي هنا
+    {
+      headers: headers,
+      body: data
+    }
+  );
+}
+update_calendar(data: any): Observable<any> {var email=localStorage.getItem('email');
+  const headers = new HttpHeaders({
+    'Accept': 'application/json',
+    'Content-Type': 'application/json'
+  });
+
+  return this.http.post(
+  `https://api-project-6hj8.onrender.com/send-otp/send-to-email?email=${email}`,
+    {
+      headers: headers,
+      body: data
+    }
+  );
+}
+//`https://api-project-6hj8.onrender.com/send-otp/send-to-email?email=${email}`;
 prayer_times(data: any): Observable<any> {
   const headers = new HttpHeaders({
     'Accept': 'application/json',

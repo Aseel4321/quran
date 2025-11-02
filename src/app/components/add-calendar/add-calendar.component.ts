@@ -1,3 +1,4 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Keyboard } from '@capacitor/keyboard';
 import { MainServiceService } from 'src/app/main-service/main/main-service.service';
@@ -9,6 +10,7 @@ import { MainServiceService } from 'src/app/main-service/main/main-service.servi
 })
 export class AddCalendarComponent implements OnInit{  keyboardWillShowListener: any;
   date:string='';
+  d:any;
   keyboardWillHideListener: any;isKeyboardOpen: boolean = false;isModalOpen = false;constructor(private main:MainServiceService){}
   ngOnInit(): void {   this.date=this.main.date;
       console.log(this.main.date)
@@ -49,5 +51,26 @@ valid(){
   if(this.title==''||this.note==''||this.selectedTime==''){console.log(this.note);this.disabled=true;
     return 'button'
   }else{ console.log(this.note);  this.disabled=false; return'button-activee'; }
+}
+add() {
+  const email = localStorage.getItem('email');
+
+  this.main.add_calendar({
+    userEmail: 'aseelghaleb2088@gmail.com',
+    alertAddress:"aseel",
+    note: "aseel",
+    alertTime: "2025-11-02T17:21:56.929Z"
+  }).subscribe({
+    next: (data: any) => {
+      console.log('تم الإرسال بنجاح', data);
+    },
+    error: (error: HttpErrorResponse) => {
+      if (localStorage.getItem('lang') === 'ar') {
+        console.error('خطأ (AR):', error.error);
+      } else {
+        console.error('خطأ (EN):', error.error);
+      }
+    }
+  });
 }
 }

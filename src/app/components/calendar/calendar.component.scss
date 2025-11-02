@@ -15,7 +15,7 @@ ion-datetime::part(calendar-day) {
   height: 100vh;
 --background: #fff;
   width:100vw ;
-overflow: hidden;
+overflow: hidden;margin: 0;
 }
 ion-datetime::part(calendar-day):hover {
   background-color: #eeeeee;

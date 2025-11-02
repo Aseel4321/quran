@@ -4,27 +4,48 @@ import { AuthService } from '../../auth-service/auth.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { AlertController, Platform } from '@ionic/angular';
 import { Capacitor } from '@capacitor/core';
-import { ScreenOrientation } from '@capacitor/screen-orientation';
+import { ScreenOrientation } from '@capacitor/screen-orientation';import { Keyboard } from '@capacitor/keyboard';
 @Component({
   selector: 'app-forgot-password-email',
   templateUrl: './forgot-password-email.component.html',
   styleUrls: ['./forgot-password-email.component.scss'],
 })
-export class ForgotPasswordEmailComponent implements OnInit{  
- disabled=true;
+export class ForgotPasswordEmailComponent implements OnInit{isModalOpen = false;  
+ disabled=true; isKeyboardOpen: boolean = false;
  name:any;
  email:string='';  
- initialHeight: number = window.innerHeight;
+ initialHeight: number = window.innerHeight;  keyboardWillHideListener: any;
 keyboardOpen: boolean = false;
- 
+ keyboardWillShowListener: any;
 private lockInProgress = false;
   constructor(private screenOrientation: ScreenOrientation,private platform: Platform,private router: Router,private Service:AuthService,private alertController: AlertController) {}
    ngOnInit(): void {
-  this.lockInProgress = false;
+    window.addEventListener('resize', () => {
+      const currentHeight = window.innerHeight;
+      this.keyboardOpen = currentHeight < this.initialHeight - 100;
+
+      // تحديث CSS يدويًا لو أردت
+      const img = document.querySelector('.login-image2') as HTMLElement;
+      if (img) {
+        img.style.cssText = this.style_image2();
+      }
+    });
+  this.lockInProgress = false;  this.platform.ready().then(() => {
+      if (Capacitor.isNativePlatform() && !this.lockInProgress) {
+        this.lockInProgress = true;
+        // نضيف تأخير بسيط لتفادي مشاكل التداخل
+        setTimeout(() => {
+          ScreenOrientation.lock({ orientation: 'portrait' })
+            .then(() => console.log('Orientation locked'))
+            .catch(err => {
+              console.error('Lock failed', err);
+            });
+        }, 150);
+      }
+    });
+this.lockInProgress = false;
 
   this.platform.ready().then(() => {
-    this.initialHeight = window.innerHeight; // حفظ الارتفاع الأصلي
-
     if (Capacitor.isNativePlatform() && !this.lockInProgress) {
       this.lockInProgress = true;
       setTimeout(() => {
@@ -34,16 +55,30 @@ private lockInProgress = false;
       }, 150);
     }
 
+    // مراقبة فتح الكيبورد
     window.addEventListener('resize', () => {
       const currentHeight = window.innerHeight;
       this.keyboardOpen = currentHeight < this.initialHeight - 100;
 
+      // تحديث CSS يدويًا لو أردت
       const img = document.querySelector('.login-image2') as HTMLElement;
       if (img) {
         img.style.cssText = this.style_image2();
       }
     });
   });
+   this.keyboardWillShowListener = Keyboard.addListener('keyboardWillShow', () => {
+      this.isKeyboardOpen = true; // السماح بالتمرير
+    });
+
+    this.keyboardWillHideListener = Keyboard.addListener('keyboardWillHide', () => {
+      this.isKeyboardOpen = false;
+       const activeElement = document.activeElement as HTMLElement;
+    if (activeElement && typeof activeElement.blur === 'function') {
+      activeElement.blur();
+    }
+       // منع التمرير عند إغلاق الكيبورد
+    });
 }
 
     isLoading:any=false;

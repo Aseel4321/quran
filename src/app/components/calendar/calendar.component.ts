@@ -2,6 +2,7 @@ import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angula
 import { Location } from '@angular/common';
 import { Router } from '@angular/router';
 import { MainServiceService } from 'src/app/main-service/main/main-service.service';
+import { HttpErrorResponse } from '@angular/common/http';
 @Component({
   selector: 'app-calendar',
   templateUrl: './calendar.component.html',
@@ -127,8 +128,29 @@ deleteUser(index: number) {
   this.user.splice(index, 1);
 }
 
-editUser(index: number) {
-  console.log('تعديل المستخدم:', this.user[index]);
+editUser(index: number) {var email=localStorage.getItem('email');
+ 
+  this.main.update_calendar({
+  "id": 0,
+  "alertAddress": "string",
+  "note": "string",
+  "alertTime": "2025-11-02T18:06:45.856Z",
+  "status": "ACTIVE"
+}).subscribe((data:any)=>{
+     console.log(data);
+   
+  },(error: HttpErrorResponse)=>{
+    
+      if(localStorage.getItem('lang')=='ar'){
+
+      console.error(error.error);
+
+      
+    
+    }else{
+   
+      }})
+  //console.log('تعديل المستخدم:', this.user[index]);
 }
 
   onDateClick(date: Date) {
@@ -189,7 +211,29 @@ customizeCalendarColors() {
     });
   });
 }
+update(){ var email=localStorage.getItem('email');
+ 
+  this.main.update_calendar({
+  "id": 0,
+  "alertAddress": "string",
+  "note": "string",
+  "alertTime": "2025-11-02T18:06:45.856Z",
+  "status": "ACTIVE"
+}).subscribe((data:any)=>{
+     console.error(data);
+   
+  },(error: HttpErrorResponse)=>{
+    
+      if(localStorage.getItem('lang')=='ar'){
 
+      console.error(error.error);
+
+      
+    
+    }else{
+   
+      }})
+}
 color_day(day){
 
 if(this.formatFullDatear(day)==this.indx){return '#2743bdff'}else if(this.formatFullDateen(day)==this.indx){return '#2743bdff'}

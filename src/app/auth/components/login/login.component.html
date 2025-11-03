@@ -1,13 +1,12 @@
 
-<ion-content  class="login-content" style=" position: fixed;--background: url('assets/icon/imagee.jpeg') no-repeat center center / cover;
-    top: 0;
-    left: 0;
+<ion-content  class="login-content" [scrollY]="true" style="--background: url('assets/icon/imagee.jpeg') no-repeat center center / cover;   
+    position: relative;
     width: 100vw;
     height: 100vh;
     
     z-index: -1;">
 <form #loginForm="ngForm" >
-
+<!--style="background: url('assets/icon/imagee.jpeg') no-repeat center center / cover;   "!-->
  <div style="display: flex; flex-direction: row;text-align: center;align-items: center;margin-bottom: 1.5%;">
   <img 
     src="assets/icon/Group 88.png" 
@@ -94,5 +93,6 @@
   class="login-image2"
  [style]="style_image2()"
 />
+
   </form>
 </ion-content>

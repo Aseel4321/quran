@@ -32,7 +32,7 @@ indx:string='';
   const today = new Date();
   this.indx = this.formatFullDateen(today);this.main.date=this.indx; 
  // خزن اليوم الحالي بتنسيق إنجليزي
-}
+}this.range() ;
   }
 goBack() {
   this.router.navigate(['/home-page']);
@@ -152,7 +152,24 @@ editUser(index: number) {var email=localStorage.getItem('email');
       }})
   //console.log('تعديل المستخدم:', this.user[index]);
 }
+range() {var email=localStorage.getItem('email');
+ 
+  this.main.range_calendar().subscribe((data:any)=>{ console.log('data');
+     console.log(data);
+   
+  },(error: HttpErrorResponse)=>{
+    
+      if(localStorage.getItem('lang')=='ar'){
 
+      console.error(error.error);
+
+      
+    
+    }else{
+   
+      }})
+  //console.log('تعديل المستخدم:', this.user[index]);
+}
   onDateClick(date: Date) {
     if (!date) return;
 

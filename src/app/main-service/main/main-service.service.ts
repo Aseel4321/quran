@@ -49,6 +49,19 @@ add_calendar(data: any): Observable<any> {
     
   );
 }
+range_calendar(): Observable<any> {var email=localStorage.getItem('email');
+  const headers = new HttpHeaders({
+    'Accept': 'application/json',
+    'Content-Type': 'application/json'
+  });
+
+  return this.http.get(
+    'https://api-project-6hj8.onrender.com/api/calendar-alerts/user/d/range?startTime=2025-11-03T21%3A50%3A41.543Z&endTime=2025-11-03T21%3A50%3A41.543Z',  // استخدم البروكسي هنا
+     { headers: headers }
+      
+    
+  );
+}
 update_calendar(data: any): Observable<any> {var email=localStorage.getItem('email');
   const headers = new HttpHeaders({
     'Accept': 'application/json',

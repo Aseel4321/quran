@@ -54,23 +54,17 @@ valid(){
 }
 add() {
   const email = localStorage.getItem('email');
-
   this.main.add_calendar({
-    userEmail: 'aseelghaleb2088@gmail.com',
-    alertAddress:"aseel",
-    note: "aseel",
-    alertTime: "2025-11-02T17:21:56.929Z"
-  }).subscribe({
-    next: (data: any) => {
-      console.log('تم الإرسال بنجاح', data);
-    },
-    error: (error: HttpErrorResponse) => {
-      if (localStorage.getItem('lang') === 'ar') {
-        console.error('خطأ (AR):', error.error);
-      } else {
-        console.error('خطأ (EN):', error.error);
-      }
-    }
-  });
+  "userEmail": "aseelghaleb2088@gmail.com",
+  "alertAddress": "string",
+  "note": "string",
+  "alertTime": "2025-12-03T17:12:20.800Z"
+}).subscribe((data:any)=>{
+       
+console.log(data)
+    },(error: HttpErrorResponse)=>{
+      
+      console.log(error.status)})
+  
 }
 }

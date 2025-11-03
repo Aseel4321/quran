@@ -131,9 +131,9 @@ deleteUser(index: number) {
 editUser(index: number) {var email=localStorage.getItem('email');
  
   this.main.update_calendar({
-  "id": 0,
-  "alertAddress": "string",
-  "note": "string",
+  "id": index,
+  "alertAddress":this.title,
+  "note": "aseedddlllll",
   "alertTime": "2025-11-02T18:06:45.856Z",
   "status": "ACTIVE"
 }).subscribe((data:any)=>{

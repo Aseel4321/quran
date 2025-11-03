@@ -41,11 +41,12 @@ add_calendar(data: any): Observable<any> {
   });
 
   return this.http.post(
-    'https://api-project-6hj8.onrender.com/api/calendar-alerts/update',  // استخدم البروكسي هنا
-    {
-      headers: headers,
-      body: data
-    }
+    'https://api-project-6hj8.onrender.com/api/calendar-alerts/add',  // استخدم البروكسي هنا
+  
+     data ,
+     { headers: headers }
+      
+    
   );
 }
 update_calendar(data: any): Observable<any> {var email=localStorage.getItem('email');
@@ -53,13 +54,13 @@ update_calendar(data: any): Observable<any> {var email=localStorage.getItem('ema
     'Accept': 'application/json',
     'Content-Type': 'application/json'
   });
-
-  return this.http.post(
-  `https://api-project-6hj8.onrender.com/send-otp/send-to-email?email=${email}`,
-    {
-      headers: headers,
-      body: data
-    }
+//`https://api-project-6hj8.onrender.com/send-otp/send-to-email?email=${email}`
+  return this.http.put(
+  `https://api-project-6hj8.onrender.com/api/calendar-alerts/update?userEmail=aseelghaleb2088@gmail.com`,
+   
+     data , { headers: headers}
+    
+    
   );
 }
 //`https://api-project-6hj8.onrender.com/send-otp/send-to-email?email=${email}`;

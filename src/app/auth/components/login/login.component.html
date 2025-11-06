@@ -1,24 +1,18 @@
-
-<ion-content  class="login-content" [scrollY]="true" style="--background: url('assets/icon/imagee.jpeg') no-repeat center center / cover;   
-    position: relative;
-    width: 100vw;
-    height: 100vh;
-    
-    z-index: -1;">
-<form #loginForm="ngForm" >
+ <div style="position: fixed; width: 100vw; height: 215vw; top: 0; left: 0; background: url('assets/icon/imagee.jpeg') no-repeat center center / cover; z-index: -1;">
+  <!-- عنصر الخلفية ثابت على كامل العرض والارتفاع -->
+</div>
+<ion-content  class="login-content" [scrollY]="true"  >
+   
+<form #loginForm="ngForm">
 <!--style="background: url('assets/icon/imagee.jpeg') no-repeat center center / cover;   "!-->
  <div style="display: flex; flex-direction: row;text-align: center;align-items: center;margin-bottom: 1.5%;">
   <img 
     src="assets/icon/Group 88.png" 
     alt="Login Image" 
     class="login-image"
-    
     style="display: block;height:35vw;; width: 90%;margin-inline-start: 10%;"
   />
 </div>
- 
-
-
 <div class="logo" 
      style="display: flex; align-items: center; gap: 10px; flex-direction: row-reverse; margin-top: -2%;">
   <img src="assets/icon/mosque.png" alt="Login Image" class="img" >
@@ -95,4 +89,5 @@
 />
 
   </form>
+
 </ion-content>

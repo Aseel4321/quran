@@ -10,7 +10,8 @@ import { MainServiceService } from 'src/app/main-service/main/main-service.servi
 })
 export class AddCalendarComponent implements OnInit{  keyboardWillShowListener: any;
   date:string='';
-  d:any;
+  d:any;  
+  english:any;
   keyboardWillHideListener: any;isKeyboardOpen: boolean = false;isModalOpen = false;constructor(private main:MainServiceService){}
   ngOnInit(): void {   this.date=this.main.date;
       console.log(this.main.date)
@@ -52,12 +53,10 @@ valid(){
     return 'button'
   }else{ console.log(this.note);  this.disabled=false; return'button-activee'; }
 }
-add() { 
-const email = localStorage.getItem('email'); 
-const arabic = "الخميس، ٦ نوفمبر ٢٠٢٥";
-const english = this.arabicDateToEnglish(arabic);
-console.log(english);
-const dateObj = new Date(this.date);
+add() { const email = localStorage.getItem('email'); 
+  if (localStorage.getItem('lang') === 'ar'){const arabic = this.date;
+this.english = this.arabicDateToEnglish(arabic);}else{this.english=this.date}
+const dateObj = new Date(this.english);
 const year = dateObj.getFullYear();
 const month = dateObj.getMonth();
 const day = dateObj.getDate();
@@ -68,7 +67,7 @@ const minutes = Number(dateObj1.getMinutes().toString().padStart(2,'0'));; // م
 console.log(hours);console.log(minutes);
 const utcDate = new Date(Date.UTC(year, month, day,hours,minutes));console.log("UTC Date:", utcDate.toISOString());
 //console.log(utcDate.toISOString());
-/*this.main.add_calendar({
+this.main.add_calendar({
   "userEmail": "aseelghaleb2088@gmail.com",
   "alertAddress": "string",
   "note": "string",
@@ -78,7 +77,7 @@ const utcDate = new Date(Date.UTC(year, month, day,hours,minutes));console.log("
 console.log(data)
     },(error: HttpErrorResponse)=>{
       
-      console.log(error.status)})*/
+      console.log(error.status)})
  
 }
  arabicDateToEnglish(arabicDate: string): string {

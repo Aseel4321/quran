@@ -15,6 +15,7 @@ indx:string='';
   monthDays: (Date | null)[] = [];
   weekDays = localStorage.getItem('lang')=='ar'?['الأحد', 'الإثنين', 'الثلاثاء', 'الأربعاء', 'الخميس', 'الجمعة', 'السبت']:['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
 ;
+utc:any;
   selectedDates:date[] = [];
 
   selectedFullDate: string | null = null;
@@ -253,7 +254,12 @@ update(){ var email=localStorage.getItem('email');
 }
 color_day(day){
 
-if(this.formatFullDatear(day)==this.indx){return '#2743bdff'}else if(this.formatFullDateen(day)==this.indx){return '#2743bdff'}
+
+if(this.formatFullDatear(day)==this.indx){const localDate = new Date(day);
+const utcString = localDate.toISOString();console.log(utcString);
+return '#2743bdff'}else if(this.formatFullDateen(day)==this.indx){
+
+ return '#2743bdff'}
 }
 
   constructor(private location: Location,private router: Router,private main:MainServiceService ) {

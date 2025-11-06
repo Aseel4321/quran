@@ -49,7 +49,7 @@ add_calendar(data: any): Observable<any> {
     
   );
 }
-range_calendar(): Observable<any> {var email=localStorage.getItem('email');
+range_calendar(): Observable<any> {//var email=localStorage.getItem('email');
   const headers = new HttpHeaders({
     'Accept': 'application/json',
     'Content-Type': 'application/json'

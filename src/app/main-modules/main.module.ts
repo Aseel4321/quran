@@ -28,7 +28,14 @@ import { SwiperModule } from 'swiper/angular';
 import { MorninAdhkarComponent } from '../components/mornin-adhkar/mornin-adhkar.component';
 import { SupplicationsComponent } from '../components/supplications/supplications.component';
 import { SorahComponent } from '../components/sorah/sorah.component';
-
+import {
+  trigger,
+  transition,
+  style,
+  animate,
+  query,
+  stagger
+} from '@angular/animations';
 @NgModule({
   declarations: [SorahComponent,SupplicationsComponent,MorninAdhkarComponent,TasbeehComponent,CalendarComponent,NotificationsComponent,PageComponent,SurahComponent,PartComponent,QuranComponent,HomePageComponent,ProfileComponent,ProfileDetailsComponent,SettingsComponent,DeleteAccountComponent,AddCalendarComponent ],
   imports: [ CalendarModule, CommonModule,

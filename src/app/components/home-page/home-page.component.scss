@@ -6,8 +6,36 @@
          /* أو تحدد ارتفاعًا ثابتًا حسب الحاجة */
 }
 
+.cards‑container {
+  position: relative;
+  width: 100%;
+  height: 13.5vh;  /* نفس ارتفاع البطاقات */
+  overflow: hidden;
+}
 
+.card‑item {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 70vw;
+  height: 13.5vh;
+  border‑radius: 8vw;
+  opacity: 0;
+  transition: opacity 0.5s ease‑in‑out;
+}
 
+.card‑item.active {
+  opacity: 1;
+}
+.card‑item:nth‑child(1) { animation‑delay: 0s; }
+.card‑item:nth‑child(2) { animation‑delay: 5s; }
+@keyframes showHide {
+  0%   { opacity: 0; }
+  10%  { opacity: 1; }   /* تظهر خلال أول 0.5s مثلا */
+  40%  { opacity: 1; }   /* تبقى ظاهرة */
+  50%  { opacity: 0; }   /* تختفي بحلول منتصف الخمسة ثواني */
+  100% { opacity: 0; }   /* تبقى مخفية حتى تبدّل الدورة */
+}
 /* تغيير لون النصوص داخل القائمة */
 ion-menu.red-menu.menu-open ion-label {
   color: rgb(169, 20, 20);

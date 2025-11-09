@@ -2,23 +2,39 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/auth/auth-service/auth.service';
 import { Geolocation } from '@capacitor/geolocation';// ✅ مكتبة Capacitor فقط
-import { AlertController } from '@ionic/angular';
+import { AlertController, IonSlides } from '@ionic/angular';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { MainServiceService } from 'src/app/main-service/main/main-service.service';
 import { LocationAccuracy } from '@ionic-native/location-accuracy/ngx';
 import cron from 'node-cron';
+import { transition } from '@angular/animations';
 
 @Component({
   selector: 'app-home-page',
   templateUrl: './home-page.component.html',
   styleUrls: ['./home-page.component.scss'],
+
 })
-export class HomePageComponent implements OnInit {
+export class HomePageComponent implements OnInit { currentIndex: number = 0;
+  intervalId1: any;
+
+
+  slideOpts = {
+    initialSlide: 0,
+    speed: 400,
+    // يمكنك إضافة تكوينات إضافية
+  };
+
   items = ['aa', 'kk', 'yy', 'yyy', 'hhh', 'aa', 'kk'];
   latitude: number = 0;
   longitude: number = 0;
   city: any;
+  prayer_timee_7_s:any;
   city_api:any;
+  city_api_s:any;
+  prayer_s:any;
+  prayer_timee_6_s:any;
+  prayer_timee_9_s:any;
   country_api:any;
 prayer_name :any=[];
 prayer_timee :any=[];
@@ -58,8 +74,11 @@ keyboardOpen: boolean = false;
    "assets/icon/cloudy.png",
    "assets/icon/cloud.png",
     "assets/icon/moon.png",
-  ]; ngOnInit(): void {   
-   
+  ]; ngOnInit(): void {this.time_now=this.service.time_now;this.prayer_timee_9_s=this.service.prayer_timee_9;
+this.prayer_timee_7_s=this.service.prayer_timee_7;this.prayer_timee_6_s=this.service.prayer_timee_6; this.prayer_s=this.service.prayer;this.city_api_s= this.service.city_api;
+     this.intervalId1 = setInterval(() => {
+     this.currentIndex=1;
+    }, 5000);
  this.checkLocationEnabled();  
  
    window.addEventListener('resize', () => {
@@ -74,7 +93,15 @@ keyboardOpen: boolean = false;
     });
     const userData = localStorage.getItem('User');
      this.user = JSON.parse(userData);
-  } ngOnDestroy() {
+  }
+  showCard(index){
+if(index==this.currentIndex){
+  return false;
+}else{return true;}
+  }
+   ngOnDestroy() { if (this.intervalId1) {
+      clearInterval(this.intervalId);
+    }
     // 🛑 عند إغلاق الصفحة أو الانتقال منها، أوقف التكرار
     if (this.intervalId) {
       clearInterval(this.intervalId);
@@ -89,7 +116,8 @@ keyboardOpen: boolean = false;
   ) {
  
 
-this.intervalId = setInterval(() => {
+this.intervalId = setInterval(() => {this.service.time_now=this.time_now;
+this.time_now=this.service.time_now;
       const now = new Date();
       this.time_now = now.toLocaleTimeString('en-US');
 
@@ -115,7 +143,7 @@ this.intervalId = setInterval(() => {
         this.prayer_times();
       }
 
-    }, 1000);
+   this.prayer();  }, 1000);
 }
 
  list_type(){
@@ -123,16 +151,14 @@ this.intervalId = setInterval(() => {
   return  localStorage.getItem('lang') === 'ar' ?[
     { name: "التسبيح", image: 'assets/icon/beads.png' },
     { name: "اختبار", image: 'assets/icon/exam.png' },
-    { name: "الحديث الشريف", image: 'assets/icon/prayer.png' },
-    { name: "التفسير", image: 'assets/icon/teachings.png' },
+   
     { name: "القرآن الكريم", image: 'assets/icon/quran.png' },
     { name: "الدعاء", image: 'assets/icon/exam.png' },
     { name: "الاذكار", image: 'assets/icon/praying.png' }
   ]:[
     { name: "Tesbeeh", image: 'assets/icon/beads.png' },
     { name: "Test", image: 'assets/icon/exam.png' },
-    { name: "AL-Hadith", image: 'assets/icon/prayer.png' },
-    { name: "Tafsir", image: 'assets/icon/teachings.png' },
+ 
     { name: "Al-Quran", image: 'assets/icon/quran.png' },
     { name: "Dua", image: 'assets/icon/exam.png' },
     { name: "Adhkar", image: 'assets/icon/praying.png' }
@@ -150,10 +176,10 @@ this.intervalId = setInterval(() => {
   }list_card(){ return  localStorage.getItem('lang') === 'ar' ? [
     { name: "إتمام القرآن", title: 'آخر قراءة للقرآن: ', number: 55, per: "4%", image: 'assets/icon/islamic.png' },
     
-    { name: "اختبار حفظ القرآن", title: 'آخر مشاركة في اختبار الحفظ: 06-03-2025', number: null, per: "90%", image: 'assets/icon/prayer.png' },
+    
     { name:this.timePeriod=="AM"? "أذكار الصباح":this.timePeriod=="PM"?"أذكار المساء":'', title: 'آخر أذكار تم قراءتها:', number: 6, per: "76%", image: 'assets/icon/prayer.png' },
   ]:[
-    { name: "Quran Completion", title: 'Last Read Al-Quran : ', number: 55, per: "4%", image: 'assets/icon/islamic.png' },  { name: "Quran Memorization Test", title: 'Last entry for Quran Memorization :', number: 66, per: "90%", image: 'assets/icon/prayer.png' },
+    { name: "Quran Completion", title: 'Last Read Al-Quran : ', number: 55, per: "4%", image: 'assets/icon/islamic.png' },
     { name:this.timePeriod=="AM"? "Morning Adhkar":this.timePeriod=="PM"?"Evening Adhkar":'', title:this.timePeriod=="AM"?'Last Read Morning remembrance : ':this.timePeriod=="PM"?'Last Read Evening remembrance : ':'', number: 6, per: "76%", image: 'assets/icon/prayer.png' },
   
   ]
@@ -199,7 +225,10 @@ async prayer_times() {
 
     // استخراج أوقات الصلوات
 this.prayer_timee = Object.values(data);
-
+this.service.prayer_timee_9=this.prayer_timee[9];
+this.service.prayer_timee_7=this.prayer_timee[7];
+this.prayer_timee_9_s=this.service.prayer_timee_9;
+this.prayer_timee_7_s=this.service.prayer_timee_7;
 // نأخذ التاريخ (سواء "4-4-2025" أو "24 Sep 2025")
 const rawDate = this.prayer_timee[6];
 
@@ -217,14 +246,16 @@ if (rawDate.includes("-") && rawDate.split("-").length === 3) {
     year: "numeric",
     month: "long",
     day: "numeric"
-  }).format(parsed);
+  }).format(parsed);this.service.prayer_timee_6=this.prayer_timee[6] ;
+this.prayer_timee_6_s=this.service.prayer_timee_6;
 } else {
-  if(localStorage.getItem('lang') === 'ar'){  this.prayer_timee[6] = new Intl.DateTimeFormat("ar-EG", {
+  if(localStorage.getItem('lang') === 'ar'){  this.prayer_timee[6]= new Intl.DateTimeFormat("ar-EG", {
     weekday: "long",
     year: "numeric",
     month: "long",
     day: "numeric"
-  }).format(dateValue);}
+  }).format(dateValue);this.service.prayer_timee_6=this.prayer_timee[6] ;
+this.prayer_timee_6_s=this.service.prayer_timee_6;}
   // إذا كان التاريخ أصلاً مفهوم (زي Sep أو غيره)
 
 }
@@ -437,6 +468,8 @@ getCityFromCoordinates(latitude: number, longitude: number) {      console.log('
       const country = props.country || 'غير معروف';
 
       this.city_api = this.removeDiacritics(city);
+      this.service.city_api=this.city_api;
+      this.city_api_s= this.service.city_api;
       this.country_api = this.removeDiacritics(country);
       this.city = `${this.city_api}, ${this.country_api}`;
        this.prayer_times();
@@ -646,12 +679,13 @@ prayer() {
 
   if (lang === 'ar') {
     for (const name of Array.from(myMap.keys())) {
-      if (name === this.prayer_timee[8]) {
-        return myMap.get(name); // ✅ استخدم get بدلاً من [name]
+      if (name === this.prayer_timee[8]) {this.service.prayer=myMap.get(name);
+this.prayer_s=this.service.prayer;
+        //return myMap.get(name); // ✅ استخدم get بدلاً من [name]
       }
     }
-  } else {
-    return this.prayer_timee[8];
+  } else {this.service.prayer=this.prayer_timee[8];this.prayer_s=this.service.prayer;
+    
   }
 }val(v: string) {console.log(v);
   if (v === 'Tesbeeh' || v === 'التسبيح') {
@@ -681,3 +715,31 @@ interface Model {
   time: string;
   image: string
 }
+
+function trigger(arg0: string, arg1: any[]): any {
+  throw new Error('Function not implemented.');
+}
+
+
+function query(arg0: string, arg1: any[]): any {
+  throw new Error('Function not implemented.');
+}
+
+
+function style(arg0: { opacity: number; transform: string; }): any {
+  throw new Error('Function not implemented.');
+}
+
+
+function stagger(arg0: number, arg1: any[]): any {
+  throw new Error('Function not implemented.');
+}
+
+
+function animate(arg0: string, arg1: any): any {
+  throw new Error('Function not implemented.');
+}
+function ViewChild(IonSlides: any): (target: HomePageComponent, propertyKey: "slides") => void {
+  throw new Error('Function not implemented.');
+}
+

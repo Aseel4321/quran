@@ -8,6 +8,12 @@ import { Observable } from 'rxjs';
 export class MainServiceService {
   adkar:any;
  date:any='';
+ prayer:any;
+ city_api:any;
+ prayer_timee_9:any;
+ prayer_timee_7:any;
+ prayer_timee_6:any;
+ time_now:any;
 delete(data: any): Observable<any> {
   const headers = new HttpHeaders({
     'Accept': 'application/json',

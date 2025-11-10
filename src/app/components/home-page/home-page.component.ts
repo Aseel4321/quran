@@ -48,6 +48,7 @@ timess:any=['h','h']
 time_now:any; 
   currentTime: string = '';
   timePeriod: string = '';
+  timePeriodday: string = '';
  num=0;
   userRoles: Map<string,string> = new Map();
    lastPeriod = ''; 
@@ -74,7 +75,7 @@ keyboardOpen: boolean = false;
    "assets/icon/cloudy.png",
    "assets/icon/cloud.png",
     "assets/icon/moon.png",
-  ]; ngOnInit(): void {this.time_now=this.service.time_now;this.prayer_timee_9_s=this.service.prayer_timee_9;
+  ]; ngOnInit(): void {this.timePeriodday=this.service.timePeriodday;this.times=this.service.times;this.time_now=this.service.time_now;this.prayer_timee_9_s=this.service.prayer_timee_9;
 this.prayer_timee_7_s=this.service.prayer_timee_7;this.prayer_timee_6_s=this.service.prayer_timee_6; this.prayer_s=this.service.prayer;this.city_api_s= this.service.city_api;
      this.intervalId1 = setInterval(() => {
      this.currentIndex=1;
@@ -173,16 +174,27 @@ this.time_now=this.service.time_now;
 
     
 
-  }list_card(){ return  localStorage.getItem('lang') === 'ar' ? [
-    { name: "إتمام القرآن", title: 'آخر قراءة للقرآن: ', number: 55, per: "4%", image: 'assets/icon/islamic.png' },
+  }list_card(){if(localStorage.getItem('lang') === 'ar'){if(this.timePeriod=="PM"){this.service.timePeriodday="أذكار المساء";
+    this.timePeriodday=this.service.timePeriodday;
+   
+  }else if(this.timePeriod=="AM"){this.service.timePeriodday="أذكار الصباح"
+    this.timePeriodday=this.service.timePeriodday; }}else{
+    if(this.timePeriod=="PM"){this.service.timePeriodday="Evening Adhkar";
+    this.timePeriodday=this.service.timePeriodday;
+   
+  }else if(this.timePeriod=="AM"){this.service.timePeriodday="Morning Adhkar";
+    this.timePeriodday=this.service.timePeriodday;}
+  }
+ if(localStorage.getItem('lang') === 'ar'){ return [
+   
     
     
-    { name:this.timePeriod=="AM"? "أذكار الصباح":this.timePeriod=="PM"?"أذكار المساء":'', title: 'آخر أذكار تم قراءتها:', number: 6, per: "76%", image: 'assets/icon/prayer.png' },
-  ]:[
-    { name: "Quran Completion", title: 'Last Read Al-Quran : ', number: 55, per: "4%", image: 'assets/icon/islamic.png' },
-    { name:this.timePeriod=="AM"? "Morning Adhkar":this.timePeriod=="PM"?"Evening Adhkar":'', title:this.timePeriod=="AM"?'Last Read Morning remembrance : ':this.timePeriod=="PM"?'Last Read Evening remembrance : ':'', number: 6, per: "76%", image: 'assets/icon/prayer.png' },
+    { name:this.timePeriodday==''?'......':this.timePeriodday, title: 'آخر أذكار تم قراءتها:', number: 6, per: "76%", image: 'assets/icon/prayer.png' }, { name: "إتمام القرآن", title: 'آخر قراءة للقرآن: ', number: 55, per: "4%", image: 'assets/icon/islamic.png' },
+  ]}else{return  [
+   
+    { name:this.timePeriodday==''?'......':this.timePeriodday, title:'Last Read remembrance : ', number: 6, per: "76%", image: 'assets/icon/prayer.png' }, { name: "Quran Completion", title: 'Last Read Al-Quran : ', number: 55, per: "4%", image: 'assets/icon/islamic.png' },
   
-  ]
+  ]}
    
      }
   /*list_card(){
@@ -270,17 +282,17 @@ this.prayer_timee_6_s=this.service.prayer_timee_6;}
 
     // تفريغ المصفوفة قبل إعادة تعبئتها
     this.times = [];
-
+this.service.times=[];
     // تعبئة أول 6 صلوات فقط مع الصور
     Object.keys(data).forEach((key, index) => {
       if (index < 6) {
-        this.times.push({
+        this.service.times.push({
           name: key,
           time: data[key],
           image: this.list_time1[index]
         });
       }
-    });
+    });this.times=this.service.times;
 
     console.log('أوقات الصلاة:', this.times);
 

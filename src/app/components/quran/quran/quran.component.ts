@@ -18,12 +18,15 @@ keyboardOpen: boolean = false;
   keyboardWillHideListener: any;
 private lockInProgress = false;
   constructor(private platform: Platform,private location: Location,private router: Router){}
+  receiveMessage(msg: string) {
+  console.log('القيمة من الابن:', msg);
+}
   ngOnInit(): void {
     this.lockInProgress = false;
 
   this.platform.ready().then(() => {
-    this.initialHeight = window.innerHeight; // حفظ الارتفاع الأصلي
-
+    this.initialHeight = window.innerHeight; 
+    
     if (Capacitor.isNativePlatform() && !this.lockInProgress) {
       this.lockInProgress = true;
       setTimeout(() => {
@@ -63,7 +66,7 @@ private lockInProgress = false;
         'font-family': '"El Messiri", sans-serif',
       'font-weight': '600',
       'text-align': 'center',
-      'margin-top': '-3vw',
+      'margin-top': '-1vw',
     
     };
   } else {
@@ -71,7 +74,7 @@ private lockInProgress = false;
   'font-family': '"Jomolhari", serif',  // تغيير الخط هنا
   'font-weight': '500',
   'text-align': 'center',
-  'margin-top': '-3vw',
+  'margin-top': '-1vw',
   'font-size': '9.5vw'
 };
 
@@ -120,6 +123,18 @@ style_image2() {
     return baseStyle + 'left : 0;';
   } else {
     return baseStyle + 'right: 0;';
+  }
+}
+style_image() {
+ 
+
+  const baseStyle = "position: fixed; width: 60%;margin-inline-end: 90%;margin-top: 12%;margin-bottom: 0%;";
+  const lang = localStorage.getItem('lang');
+
+  if (lang === 'ar') { return baseStyle + ' transform: scaleX(-1);';
+   
+  } else {
+     return baseStyle + 'left : 0;';
   }
 }
 }

@@ -1,14 +1,14 @@
- <ion-content style=" --background: url('assets/icon/imagee.jpeg') no-repeat center center / cover;" scroll-y="false" ><div style="display: flex;flex-direction: column;width: 100vw;height: 100vh;"> 
-  <div style="display: flex; flex-direction: row;text-align: center;align-items: center;height: 12vw;width:100vw ;"> 
+ <ion-content [keyboardResize]="'none'" style=" --background: url('assets/icon/imagee.jpeg') no-repeat center center / cover;" scroll-y="true" ><div style="display: flex;flex-direction: column;width: 100vw;height: 100vh;"> 
+
+  <div style="margin-top: 1% ;">  <div style="display: flex; flex-direction: row;text-align: center;align-items: center;height: 12vw;width:100vw ;"> 
   <img 
     src="assets/icon/Group 88 (1).png" 
     alt="Login Image" 
-    class="login-image2"
-    
-    style="display: block; width: 60%;margin-inline-end: 90%;margin-top: 14%;margin-bottom: 0%;"
+  
+
+    [style]="style_image()"
   />
-</div>
-  <div style="margin-top: 1% ;"> <ion-icon (click)="goBack()" name="close" style="margin-inline-start: 4%;margin-top:-6% ;margin-bottom: 0%;"></ion-icon><h1 style=" align-items: center;text-align: center;justify-content: center;margin-bottom:8%;" [ngStyle]="title()">{{ 'QURAN' | translate }}</h1>
+</div> <ion-icon (click)="goBack()" name="close" style="margin-inline-start: 4%;margin-top:-6% ;margin-bottom: 0%;"></ion-icon><h1 style=" align-items: center;text-align: center;justify-content: center;margin-bottom:8%;" [ngStyle]="title()">{{ 'QURAN' | translate }}</h1>
 <ion-card
   style="
     margin-left: 12vw;
@@ -21,7 +21,7 @@
 >
   <div style="display: flex; flex-direction: row;">
     <!-- القسم الأيسر -->
-    <div style="display: flex; flex-direction: column; flex: 1;">
+    <div style="display: flex; flex-direction: column; ">
       <!-- العنوان -->
       <div
         style="
@@ -83,7 +83,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        flex: 1;
+      
         text-align: center;
       "
     >
@@ -103,7 +103,7 @@
   {{ item }}
 </div>
 </div>
-<div style="flex: 1;width: 100vw;height: 100vh;">
+<div style="width: 100vw;">
  <app-surah *ngIf="show==='surah'"></app-surah>
   <app-page *ngIf="show==='page'"></app-page>
   <app-part *ngIf="show==='part'"></app-part>

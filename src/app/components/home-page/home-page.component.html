@@ -71,8 +71,8 @@
    
     <p style="font-size: 3vw; margin-top: 0%;color: black;">{{ item.time }}</p>
   </div></div>
-  <ng-container *ngIf="times && times.length > 0; else noData"><div style="display: flex; flex-direction: row; width: 100%; gap: 2%;margin-top: -4%;">
-  <div *ngFor="let item of times; let i = index" style="flex: 1; display: flex; flex-direction: column; align-items: center; text-align: center;">
+  <ng-container *ngIf="times && times.length > 0; else noData"><div style="display: flex; flex-direction: row; width: 100%; gap: 2%;margin-top: -4%;height: 2%;">
+  <div *ngFor="let item of times; let i = index" style="flex: 1; display: flex; flex-direction: column; align-items: center; text-align: center;height: 2%;">
     <p style="font-size: 3vw; margin-top: 0%;color: black;">{{ item.time }}</p>
   </div>
 </div></ng-container>
@@ -175,7 +175,7 @@
   </ion-content>
 </div>
 <ng-template #noData>
-<div style="display: flex; flex-direction: row; width: 100%; gap: 2%;margin-top: -5%;">
+<div style="display: flex; flex-direction: row; width: 100%; gap: 2%;margin-top: -5%;height: 2%;">
   <div *ngFor="let item of list_time1; let i = index" style="flex: 1; display: flex; flex-direction: column; align-items: center; text-align: center;">
     <p style="font-size: 3vw; margin-top: 0%;">......</p>
   </div>

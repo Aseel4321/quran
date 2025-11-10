@@ -14,6 +14,10 @@ import { CalendarComponent } from '../components/calendar/calendar.component';
 import { TasbeehComponent } from '../components/tasbeeh/tasbeeh.component';
 import { MorninAdhkarComponent } from '../components/mornin-adhkar/mornin-adhkar.component';
 import { SupplicationsComponent } from '../components/supplications/supplications.component';
+import { HomePageListComponent } from '../home-page-list/home-page-list.component';
+import { HomePagePageComponent } from '../components/home-page-page/home-page-page.component';
+
+
 
 
 
@@ -28,6 +32,7 @@ const routes: Routes = [
  {path:'quran',component:QuranComponent},
  {path:'notifi',component:NotificationsComponent},
  {path:'calendar',component:CalendarComponent},{path:'tasbeeh',component:TasbeehComponent},{path:'morning-adhkar',component:MorninAdhkarComponent}, { path: 'Supplications', component: SupplicationsComponent },
+ {path:"home-page-list",component:HomePageListComponent},{path:"home-page-list-page",component:HomePagePageComponent}
 ];
 
 @NgModule({

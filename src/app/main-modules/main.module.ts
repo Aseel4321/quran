@@ -36,8 +36,11 @@ import {
   query,
   stagger
 } from '@angular/animations';
+import { HomePageListComponent } from '../home-page-list/home-page-list.component';
+import { HomePagePageComponent } from '../components/home-page-page/home-page-page.component';
+
 @NgModule({
-  declarations: [SorahComponent,SupplicationsComponent,MorninAdhkarComponent,TasbeehComponent,CalendarComponent,NotificationsComponent,PageComponent,SurahComponent,PartComponent,QuranComponent,HomePageComponent,ProfileComponent,ProfileDetailsComponent,SettingsComponent,DeleteAccountComponent,AddCalendarComponent ],
+  declarations: [HomePagePageComponent,HomePageListComponent,SorahComponent,SupplicationsComponent,MorninAdhkarComponent,TasbeehComponent,CalendarComponent,NotificationsComponent,PageComponent,SurahComponent,PartComponent,QuranComponent,HomePageComponent,ProfileComponent,ProfileDetailsComponent,SettingsComponent,DeleteAccountComponent,AddCalendarComponent ],
   imports: [ CalendarModule, CommonModule,
       IonicModule,
       FormsModule,SwiperModule,
@@ -45,7 +48,7 @@ import {
       TranslateModule,
       NgxIntlTelInputModule,
       BrowserAnimationsModule,
-      MainRoutingModule,
+      MainRoutingModule
      
   ], schemas: [CUSTOM_ELEMENTS_SCHEMA],  providers: [LocationAccuracy,
     Geolocation

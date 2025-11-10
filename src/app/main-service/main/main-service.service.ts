@@ -14,6 +14,8 @@ export class MainServiceService {
  prayer_timee_7:any;
  prayer_timee_6:any;
  time_now:any;
+ timePeriodday: string = '';
+ times:Model[]=[];
 delete(data: any): Observable<any> {
   const headers = new HttpHeaders({
     'Accept': 'application/json',
@@ -97,4 +99,9 @@ prayer_times(data: any): Observable<any> {
 }
 
   constructor(private http: HttpClient) { }
+}
+interface Model {
+  name: string;
+  time: string;
+  image: string
 }

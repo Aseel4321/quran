@@ -9,7 +9,7 @@ import { SettingsComponent } from '../components/settings/settings.component';
 import { DeleteAccountComponent } from '../components/delete-account/delete-account.component';
 import { AddCalendarComponent } from '../components/add-calendar/add-calendar.component';
 import { QuranComponent } from '../components/quran/quran/quran.component';
-import { NotificationsComponent } from '../components/notifications/notifications.component';
+import { NotificationsComponent } from '../components/notification/notifications/notifications.component';
 import { CalendarComponent } from '../components/calendar/calendar.component';
 import { TasbeehComponent } from '../components/tasbeeh/tasbeeh.component';
 import { MorninAdhkarComponent } from '../components/mornin-adhkar/mornin-adhkar.component';

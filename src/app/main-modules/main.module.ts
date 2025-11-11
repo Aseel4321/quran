@@ -19,7 +19,7 @@ import { QuranComponent } from '../components/quran/quran/quran.component';
 import { PartComponent } from '../components/quran/part/part.component';
 import { SurahComponent } from '../components/quran/surah/surah.component';
 import { PageComponent } from '../components/quran/page/page.component';
-import { NotificationsComponent } from '../components/notifications/notifications.component';
+import { NotificationsComponent } from '../components/notification/notifications/notifications.component';
 import { CalendarComponent } from '../components/calendar/calendar.component';
 import { CalendarModule } from 'ion2-calendar';
 import { MatDatepickerModule } from '@angular/material/datepicker';
@@ -38,9 +38,11 @@ import {
 } from '@angular/animations';
 import { HomePageListComponent } from '../home-page-list/home-page-list.component';
 import { HomePagePageComponent } from '../components/home-page-page/home-page-page.component';
+import { ReadComponent } from '../components/notification/read/read.component';
+import { UnreadComponent } from '../components/notification/unread/unread.component';
 
 @NgModule({
-  declarations: [HomePagePageComponent,HomePageListComponent,SorahComponent,SupplicationsComponent,MorninAdhkarComponent,TasbeehComponent,CalendarComponent,NotificationsComponent,PageComponent,SurahComponent,PartComponent,QuranComponent,HomePageComponent,ProfileComponent,ProfileDetailsComponent,SettingsComponent,DeleteAccountComponent,AddCalendarComponent ],
+  declarations: [UnreadComponent,ReadComponent,HomePagePageComponent,HomePageListComponent,SorahComponent,SupplicationsComponent,MorninAdhkarComponent,TasbeehComponent,CalendarComponent,NotificationsComponent,PageComponent,SurahComponent,PartComponent,QuranComponent,HomePageComponent,ProfileComponent,ProfileDetailsComponent,SettingsComponent,DeleteAccountComponent,AddCalendarComponent ],
   imports: [ CalendarModule, CommonModule,
       IonicModule,
       FormsModule,SwiperModule,

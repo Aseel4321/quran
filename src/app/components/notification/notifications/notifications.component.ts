@@ -9,9 +9,13 @@ import { Location } from '@angular/common';
   styleUrls: ['./notifications.component.scss'],
 })
 export class NotificationsComponent {
-user=['t','f']
+user=['t','f'];
   constructor(private location: Location,private router: Router,) { }
+selectedSection: string = 'read'; // الافتراضي
 
+showSection(section: string) {
+  this.selectedSection = section;
+}
 goBack() {
   this.router.navigate(['/setting']);
 }

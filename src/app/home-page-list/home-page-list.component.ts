@@ -6,6 +6,7 @@ import { Keyboard } from '@capacitor/keyboard';
 import Swiper from 'swiper/types/swiper-class';
 import { AuthService } from '../auth/auth-service/auth.service';
 import { ScreenOrientation } from '@capacitor/screen-orientation';
+import { MainServiceService } from '../main-service/main/main-service.service';
 @Component({
   selector: 'app-home-page-list',
   templateUrl: './home-page-list.component.html',
@@ -20,22 +21,37 @@ export class HomePageListComponent  implements OnInit{
     { text: 'Supplications upon Waking Up', image: 'assets/icon/waking-up.png' },
     { text: 'Supplications after Prayer', image: 'assets/icon/prayerr.png' }
   ];
-  list_type() {
-  return localStorage.getItem('lang') === 'ar'
+  list_type() {if(this.service.text_name=='AL-Hadith'){
+ return localStorage.getItem('lang') === 'ar'
     ? [
-        { text: 'أذكار الصباح', image: 'assets/icon/morning.png' },
-        { text: 'أذكار المساء', image: 'assets/icon/evning.png' },
-        { text: 'أذكار النوم', image: 'assets/icon/sleep.png' },
-        { text: 'أذكار الاستيقاظ', image: 'assets/icon/waking-up.png' },
-        { text: 'أذكار بعد الصلاة', image: 'assets/icon/prayerr.png' },
+        { text: 'أحاديث عن طلب العلم', image: 'assets/icon/morning.png' },
+        { text: 'أحاديث عن فضل القرآن', image: 'assets/icon/evning.png' },
+        { text: 'أحاديث عن الأخلاق', image: 'assets/icon/sleep.png' },
+        { text: 'احاديث عن النية والإخلاص', image: 'assets/icon/waking-up.png' },
+     
       ]
     : [
-        { text: 'Morning Supplications', image: 'assets/icon/morning.png' },
-        { text: 'Evening Supplications', image: 'assets/icon/evning.png' },
-        { text: 'Supplications before Sleep', image: 'assets/icon/sleep.png' },
-        { text: 'Supplications upon Waking Up', image: 'assets/icon/waking-up.png' },
-        { text: 'Supplications after Prayer', image: 'assets/icon/prayerr.png' },
+        { text: 'Hadiths About Seeking Knowledge', image: 'assets/icon/morning.png' },
+        { text: 'Hadiths About the Virtue of the Qur’an', image: 'assets/icon/evning.png' },
+        { text: 'Hadiths About Good Manners', image: 'assets/icon/sleep.png' },
+        { text: 'Hadiths About Intention and Sincerity', image: 'assets/icon/waking-up.png' },
       ];
+  }else{ return localStorage.getItem('lang') === 'ar'
+    ? [
+        { text: 'صلاة السفر', image: 'assets/icon/morning.png' },
+        { text: 'دعاء الخروج من المنزل', image: 'assets/icon/evning.png' },
+        { text: 'صلاة من أجل المتوفى', image: 'assets/icon/sleep.png' },
+        { text: 'دعاء للقلق والحزن', image: 'assets/icon/waking-up.png' },
+        { text: 'دعاء زيارة القبور', image: 'assets/icon/prayerr.png' },
+      ]
+    : [
+        { text: 'Prayer for Travel', image: 'assets/icon/morning.png' },
+        { text: 'Prayer When Leaving the House', image: 'assets/icon/evning.png' },
+        { text: 'Prayer for the Deceased', image: 'assets/icon/sleep.png' },
+        { text: 'Prayer for Worry and Sadness', image: 'assets/icon/waking-up.png' },
+        { text: 'Prayer for Visiting Graves', image: 'assets/icon/prayerr.png' },
+      ];}
+ 
 }title() {
   if (localStorage.getItem('lang') === 'ar') {
     return {
@@ -65,7 +81,7 @@ swiperRef!: Swiper;
   keyboardWillShowListener: any;
   keyboardWillHideListener: any;
 private lockInProgress = false;
-  constructor(private platform: Platform,private cdr: ChangeDetectorRef,private router: Router,private servicea: AuthService ){}
+  constructor(private platform: Platform,private cdr: ChangeDetectorRef,private router: Router,private servicea: AuthService,private service: MainServiceService ){}
   ngOnInit(): void {
     this.lockInProgress = false;
 

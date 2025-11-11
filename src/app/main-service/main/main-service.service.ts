@@ -14,6 +14,7 @@ export class MainServiceService {
  prayer_timee_7:any;
  prayer_timee_6:any;
  time_now:any;
+ text_name:string='AL-Hadith';
  timePeriodday: string = '';
  times:Model[]=[];
 delete(data: any): Observable<any> {

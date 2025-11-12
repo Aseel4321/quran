@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./sorah.component.scss'],
 })
 export class SorahComponent implements OnInit {
-
+list = ['بِسْمِ اللَّهِ الرَّحْمَـٰنِ الرَّحِيمِ', 'الـحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ', ' الرَّحْمَـٰنِ الرَّحِيمِ مَالِكِ يوم الدين','إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ'];
   constructor() { }
 
   ngOnInit() {}

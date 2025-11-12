@@ -16,13 +16,15 @@ import { MorninAdhkarComponent } from '../components/mornin-adhkar/mornin-adhkar
 import { SupplicationsComponent } from '../components/supplications/supplications.component';
 import { HomePageListComponent } from '../home-page-list/home-page-list.component';
 import { HomePagePageComponent } from '../components/home-page-page/home-page-page.component';
+import { SurahComponent } from '../components/quran/surah/surah.component';
+import { SorahComponent } from '../components/sorah/sorah.component';
 
 
 
 
 
 
-const routes: Routes = [ 
+const routes: Routes = [{path:'sorah',component:SorahComponent},
   { path: 'home-page', component: HomePageComponent },
  {path:'profile',component:ProfileComponent},
  {path:'profile-details',component:ProfileDetailsComponent},

@@ -1,4 +1,76 @@
+<ion-content class="login-content">
+<div style="
+  width: 100vw;
+  height: 6vh;
+ 
+  border: 2px solid black;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2vw;
+">
+  <!-- اليسار -->
+  <div style="display: flex; gap: 0.5vw; align-items: center;">
+    <img src="assets/icon/islam 3.png" alt="صورة" style="width: 10vw; height: 5vh;">
+    <img src="assets/icon/islam 3.png" alt="صورة" style="width: 10vw; height: 4vh; margin-top: 2%;">
+  </div>
 
-<span *ngFor="let item of list; let i = index;" >
-  <span style="font-size: 7vw;">{{ item }}</span > <span style="font-size: 4vw;margin-inline-start: 1vw;margin-inline-end: 1vw;">{{i}}</span>&nbsp;
-</span>
+  <!-- الوسط -->
+  <div style="
+    display: flex;
+    align-items: center;
+ justify-content: center;
+    width: 55vw;
+    height: 7vh;
+    position: relative;
+  ">
+    <img src="assets/icon/label 1.png" alt="صورة" style="    width: 50vw;
+ object-fit: contain;">
+    <!-- مثال نص فوق الصورة -->
+    <div style="
+      position: absolute;
+      color: rgb(164, 8, 8);
+      font-weight: bold;
+      font-size: 1.2vw;
+    ">
+      <div style="font-size: 5vw;">سوره الفاتحه</div> 
+    </div>
+  </div>
+
+  <!-- اليمين -->
+  <div style="display: flex; gap: 0.5vw; align-items: center;">
+    <img src="assets/icon/islam 3.png" alt="صورة" style="width: 10vw; height: 4vh; margin-top: 2%;">
+    <img src="assets/icon/islam 3.png" alt="صورة" style="width: 10vw; height: 5vh;">
+  </div>
+</div>
+
+  <div style="justify-content: center;width: 100vw;margin-left: 2%;margin-right:2%;"><span *ngFor="let item of list; let i = index;" >
+  <span style="font-size: 7vw;">{{ item }}</span ><div style="
+  position: relative;
+  width: 7vw;
+  height: 3vh;
+  display: inline-block;
+  margin-inline-start: 1%;
+">
+  <img src="assets/icon/star.png" 
+       alt="صورة" 
+       style="width: 100%; height: 100%; object-fit: contain;">
+       
+  <div style="
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: black; /* غيّر اللون حسب لون الصورة */
+    font-size: 1vw;
+    font-weight: bold;
+    text-align: center;
+  ">
+   <div style="font-size: 2vw;">{{i}}</div>
+  </div>
+</div>
+&nbsp;
+</span></div>
+
+</ion-content>

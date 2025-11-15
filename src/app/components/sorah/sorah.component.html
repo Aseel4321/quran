@@ -1,4 +1,4 @@
-<ion-content class="login-content">
+<ion-content class="login-content" style=" --background: url('assets/icon/imagee.jpeg') no-repeat center center / cover;">
 <div style="
   width: 100vw;
   height: 6vh;
@@ -45,13 +45,24 @@
   </div>
 </div>
 
-  <div style="justify-content: center;width: 100vw;margin-left: 2%;margin-right:2%;"><span *ngFor="let item of list; let i = index;" >
-  <span style="font-size: 7vw;">{{ item }}</span ><div style="
+  <div style="justify-content: center;width: 100vw;margin-left: 2%;margin-right:2%;">
+   <div style="text-align: center; font-size: 5vw; margin: 3% 0;">
+  بسم الله الرحمن الرحيم
+</div>
+    <span *ngFor="let item of list; let i = index;" style="position: relative;">
+   <span style="position: absolute;margin-top: -3vh;"><div style="
+  width: 20vw;
+  height: 4vh;
+  background-color: #4caf50;
+  border-radius: 10px;
+"></div></span>  
+  <span (click)="click(i)" [style]="Style(i)">{{ item }}</span>
+   <div style="
   position: relative;
   width: 7vw;
   height: 3vh;
   display: inline-block;
-  margin-inline-start: 1%;
+ 
 ">
   <img src="assets/icon/star.png" 
        alt="صورة" 

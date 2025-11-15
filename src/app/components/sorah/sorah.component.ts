@@ -5,7 +5,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './sorah.component.html',
   styleUrls: ['./sorah.component.scss'],
 })
-export class SorahComponent implements OnInit {
+export class SorahComponent  {i:any=0;
 list = [
     'بِسْمِ اللَّهِ الرَّحْمَـٰنِ الرَّحِيمِ',
     'الـحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ',
@@ -16,8 +16,18 @@ list = [
     'صِرَاطَ الَّذِينَ أَنْعَمْتَ عَلَيْهِمْ',
     'غَيْرِ الْمَغْضُوبِ عَلَيْهِمْ وَلَا الضَّالِّينَ'
 ]
-  constructor() { }
-
-  ngOnInit() {}
-
+ 
+click(i:number){
+this.i=i;
+console.log(this.i);
 }
+Style(i){
+if(i===this.i){
+  return {
+  'font-size': '7vw',
+  'background-color':'rgb(233, 233, 193)'
+    }; 
+}else{ return {
+  'font-size': '7vw',
+    };}
+}}

@@ -42,7 +42,10 @@ update_profile(data: any): Observable<any> {
     data,
     { headers: headers }
   );
-}
+}Servers
+
+
+
 add_calendar(data: any): Observable<any> {
   const headers = new HttpHeaders({
     'Accept': 'application/json',
@@ -50,7 +53,7 @@ add_calendar(data: any): Observable<any> {
   });
 
   return this.http.post(
-    'https://api-project-6hj8.onrender.com/api/calendar-alerts/add',  // استخدم البروكسي هنا
+    'https://margherita-circadian-minta.ngrok-free.dev/api/calendar-alerts/add',  // استخدم البروكسي هنا
   
      data ,
      { headers: headers }

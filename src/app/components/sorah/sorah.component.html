@@ -1,4 +1,4 @@
-<ion-content class="login-content" style=" --background: url('assets/icon/imagee.jpeg') no-repeat center center / cover;">
+<ion-content class="login-content" style=" --background: url('assets/icon/imagee.jpeg') no-repeat center center / cover;display: flex; flex-direction: column;height: 100vh;"[scrollY]="false" >
 <div style="
   width: 100vw;
   height: 6vh;
@@ -9,7 +9,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 0 2vw;
-">
+"(click)="onclick()">
   <!-- اليسار -->
   <div style="display: flex; gap: 0.5vw; align-items: center;">
     <img src="assets/icon/islam 3.png" alt="صورة" style="width: 10vw; height: 5vh;">
@@ -45,7 +45,7 @@
   </div>
 </div>
 
-  <div style="justify-content: center;width: 100vw;margin-left: 2%;margin-right:2%;">
+  <div style="justify-content: center;width: 100vw;margin-left: 2%;margin-right:2%;" >
    <div style="text-align: center; font-size: 5vw; margin: 3% 0;">
   بسم الله الرحمن الرحيم
 </div>
@@ -79,5 +79,5 @@
 </div>
 &nbsp;
 </span></div>
-
+<div style="height:100%;"(click)="onclick()"></div>
 </ion-content>

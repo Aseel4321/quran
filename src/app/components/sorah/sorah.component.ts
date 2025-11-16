@@ -5,7 +5,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './sorah.component.html',
   styleUrls: ['./sorah.component.scss'],
 })
-export class SorahComponent  {i:any=0;
+export class SorahComponent  {i:any='.';
 list = [
     'بِسْمِ اللَّهِ الرَّحْمَـٰنِ الرَّحِيمِ',
     'الـحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ',
@@ -18,7 +18,10 @@ list = [
 ]
  
 click(i:number){
-this.i=i;
+ this.i=i;
+ 
+ 
+
 console.log(this.i);
 }
 Style(i){
@@ -30,6 +33,9 @@ if(i===this.i){
 }else{ return {
   'font-size': '7vw',
     };}
+}
+onclick(){
+  this.i='.';
 }
 Style_r(i) {
   if (i === this.i) {

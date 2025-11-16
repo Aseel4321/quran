@@ -30,4 +30,24 @@ if(i===this.i){
 }else{ return {
   'font-size': '7vw',
     };}
-}}
+}
+Style_r(i) {
+  if (i === this.i) {
+    return {
+      
+      display: 'flex',
+      flexDirection: 'row',
+      justifyContent:  'flex-end',  // ← هذا يجعل المربع يكون في نهاية السطر
+      width: '15vw',
+      height: '4vh',
+      backgroundColor: '#4caf50',
+      borderRadius: '10px',
+      alignItems: 'center',
+    
+    };
+  } else {
+    return { display: 'none' };
+  }
+}
+
+}

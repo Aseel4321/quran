@@ -50,12 +50,7 @@
   بسم الله الرحمن الرحيم
 </div>
     <span *ngFor="let item of list; let i = index;" style="position: relative;">
-   <span style="position: absolute;margin-top: -3vh;"><div style="
-  width: 20vw;
-  height: 4vh;
-  background-color: #4caf50;
-  border-radius: 10px;
-"></div></span>  
+   <span style="position: absolute;margin-top: -3vh;" ><span [style]="Style_r(i)"> <img src="assets/icon/save.png" alt="صورة" style="height:4vh;width: 4.6vw;"><img src="assets/icon/save.png" alt="صورة" style="height: 4vh;width: 4.6vw;"> <img src="assets/icon/save.png" alt="صورة" style="height: 4vh;width: 4.6vw;"></span></span>  
   <span (click)="click(i)" [style]="Style(i)">{{ item }}</span>
    <div style="
   position: relative;
@@ -77,6 +72,7 @@
     font-size: 1vw;
     font-weight: bold;
     text-align: center;
+    
   ">
    <div style="font-size: 2vw;">{{i}}</div>
   </div>

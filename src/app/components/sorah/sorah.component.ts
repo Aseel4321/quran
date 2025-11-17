@@ -5,8 +5,13 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './sorah.component.html',
   styleUrls: ['./sorah.component.scss'],
 })
-export class SorahComponent  {i:any='.';
-list = [
+export class SorahComponent  {i:any='.';lang = 'en';slideOpts = {
+  initialSlide: 0,
+  speed: 400,
+  slidesPerView: 1, // كل شريحة تعرض عنصر واحد
+  direction: 'horizontal', // يمكنك تغييرها إلى vertical إذا أحببت
+};
+list1 = [
     'بِسْمِ اللَّهِ الرَّحْمَـٰنِ الرَّحِيمِ',
     'الـحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ',
     'الرَّحْمَـٰنِ الرَّحِيمِ',
@@ -16,7 +21,9 @@ list = [
     'صِرَاطَ الَّذِينَ أَنْعَمْتَ عَلَيْهِمْ',
     'غَيْرِ الْمَغْضُوبِ عَلَيْهِمْ وَلَا الضَّالِّينَ'
 ]
- 
+ list = [ 
+    "hhhh1",'hhhhhhhhdf2','gggdfdg3','ffffff fffffffff ffffff ffffffffff4','dfsaedsedfaaaa sfsddddd ddfsdf5','fff hhhhhh ff6'
+]
 click(i:number){
  this.i=i;
  
@@ -26,12 +33,13 @@ console.log(this.i);
 }
 Style(i){
 if(i===this.i){
-  return {
+  return { 
   'font-size': '7vw',
-  'background-color':'rgb(233, 233, 193)'
+  'background-color':'rgb(233, 233, 193)',
+ 'margin-inline-end': '1vw','margin-inline-start': '-1vw',
     }; 
 }else{ return {
-  'font-size': '7vw',
+  'font-size': '7vw','margin-inline-end': '1vw','margin-inline-start': '-1vw',
     };}
 }
 onclick(){
@@ -40,7 +48,6 @@ onclick(){
 Style_r(i) {
   if (i === this.i) {
     return {
-      
       display: 'flex',
       flexDirection: 'row',
       justifyContent:  'flex-end',  // ← هذا يجعل المربع يكون في نهاية السطر

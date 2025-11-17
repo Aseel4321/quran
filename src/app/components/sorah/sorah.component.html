@@ -78,6 +78,74 @@
   </div>
 </div>
 &nbsp;
-</span></div>
+</span>
+
+
+ 
+/////
+
+<!--<div style="direction: ltr; text-align: left;position: relative;"> <span style="position: absolute;margin-top: -3vh;" ><span [style]="Style_r(i)"> <img src="assets/icon/save.png" alt="صورة" style="height:4vh;width: 4.6vw;"><img src="assets/icon/save.png" alt="صورة" style="height: 4vh;width: 4.6vw;"> <img src="assets/icon/save.png" alt="صورة" style="height: 4vh;width: 4.6vw;"></span></span>  
+  <span style="position: absolute;margin-top: -3vh;" ><span *ngFor="let item of list; let i = index;" style="display: inline-block; margin-right: 0.5em;">
+    {{ item }}{{ i + 1 }}222<div style="
+  position: relative;
+  width: 7vw;
+  height: 3vh;
+  display: inline-block;
+ 
+">
+
+  <img src="assets/icon/star.png" 
+       alt="صورة" 
+       style="width: 100%; height: 100%; object-fit: contain;">
+       
+  <div style="
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: black; /* غيّر اللون حسب لون الصورة */
+    font-size: 1vw;
+    font-weight: bold;
+    text-align: center;
+    
+  ">
+   <div style="font-size: 2vw;">{{i}}</div>
+  </div>
+</div></span>
+  </span> 
+
+</div>---------
+<ion-slides [options]="slideOpts">
+  <ion-slide *ngFor="let item of list; let i = index;">
+    <div style="text-align: center; font-size: 5vw; margin: 3% 0;">
+      {{ item }}
+    </div>
+
+    <span style="position: relative;">
+      <span style="position: absolute; margin-top: -3vh;">
+        <span [style]="Style_r(i)">
+          <img src="assets/icon/save.png" style="height:4vh;width:4.6vw;">
+          <img src="assets/icon/save.png" style="height:4vh;width:4.6vw;">
+          <img src="assets/icon/save.png" style="height:4vh;width:4.6vw;">
+        </span>
+      </span>
+
+      <span (click)="click(i)" [style]="Style(i)">
+        {{ item }}
+      </span>
+
+      <div style="position: relative; width: 7vw; height: 3vh; display: inline-block;">
+        <img src="assets/icon/star.png" style="width: 100%; height: 100%; object-fit: contain;">
+        <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: black; font-size: 1vw; font-weight: bold; text-align: center;">
+          <div style="font-size: 2vw;">{{i}}</div>
+        </div>
+      </div>
+    </span>
+  </ion-slide>
+</ion-slides>
+!-->
+
+
+</div>
 <div style="height:100%;"(click)="onclick()"></div>
-</ion-content>
+</ion-content>   

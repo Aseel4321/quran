@@ -8,16 +8,16 @@
  --background: transparent;
   width:100vw ;
 
- 
-
+ .image-logo{display: flex; flex-direction: row;text-align: center;align-items: center;margin-bottom: 1.5%;}
+.image{position: fixed; width: 100vw; height: 215vw; top: 0; left: 0;}
 
 p {
   margin-top: 0; 
   font-size: 1em;
 }
-
+.title{margin-inline-start:30%;margin-top: -5% ;}
  .logo {
-
+ align-items: center; gap: 10px; flex-direction: row-reverse; margin-top: -2%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -38,7 +38,7 @@ p {
     color: #444;
   }
 }
-
+.lod{text-align: center;margin-top: 1%;}
 
 .input-box {height: 45px;
   --background: #fff;
@@ -68,7 +68,9 @@ p {
  
 
 }
+
 .icon{margin-inline-end:0%;}
+.login-image{display: block;height:35vw;; width: 90%;margin-inline-start: 10%;}
 .input-border {
   flex: 1;
   font: size 1rem;;

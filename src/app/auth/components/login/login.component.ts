@@ -16,7 +16,7 @@ export class LoginComponent implements OnInit {
     this.platform.backButton.subscribeWithPriority(9999, () => {
     
   });    this.platform.ready().then(() => {
-      // منع الشاشة من التحرك عند فتح الكيبورد
+      
       Keyboard.setResizeMode({ mode: 'none' as any});
     });
   }
@@ -92,12 +92,11 @@ Keyboard.addListener('keyboardWillShow', info => {
 Keyboard.addListener('keyboardWillHide', () => {
   document.body.style.paddingBottom = '0px';
 });
-    // مراقبة فتح الكيبورد
+
     window.addEventListener('resize', () => {
       const currentHeight = window.innerHeight;
       this.keyboardOpen = currentHeight < this.initialHeight - 100;
 
-      // تحديث CSS يدويًا لو أردت
       const img = document.querySelector('.login-image2') as HTMLElement;
       if (img) {
         img.style.cssText = this.style_image2();
@@ -105,7 +104,7 @@ Keyboard.addListener('keyboardWillHide', () => {
     });
   });
    this.keyboardWillShowListener = Keyboard.addListener('keyboardWillShow', () => {
-      this.isKeyboardOpen = true; // السماح بالتمرير
+      this.isKeyboardOpen = true; 
     });
 
     this.keyboardWillHideListener = Keyboard.addListener('keyboardWillHide', () => {
@@ -114,7 +113,7 @@ Keyboard.addListener('keyboardWillHide', () => {
     if (activeElement && typeof activeElement.blur === 'function') {
       activeElement.blur();
     }
-       // منع التمرير عند إغلاق الكيبورد
+ 
     });
 }
 ionViewWillLeave() {

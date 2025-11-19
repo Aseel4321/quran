@@ -1,4 +1,4 @@
-.login-content {
+.signup-content {
 
   display: flex; 
   flex-direction: column; 
@@ -10,6 +10,12 @@
 
 
 }
+.container{margin-top: 2%; text-align: center; margin-left: 4%; margin-right: 4%; align-items: center; justify-content: center; width: 90%;}
+.password-color{height:3.5vw;font-size:2vw;margin-top: -2%;margin-bottom: 3%}
+.text-password{height:4vw;;margin-top: -2%;}
+.date{margin-inline-start: 29%;font-weight: 200;}
+.img{width: 45px; height: 45px; border-radius: 50%;margin-left: 0%;margin-top:-1%;}
+.form{display: flex; flex-direction: row;text-align: center;align-items: center;margin-bottom: 1.5%;}
 .icon{margin-inline-end:0%;}
 
 :host-context([dir="rtl"]) .login-image2 {
@@ -27,7 +33,7 @@ p {
   margin-top: 0; /* يمنع إضافة مسافة من الأعلى */
   font-size: 1em;
 }
- .logo {
+ .logo {display: flex; align-items: center;flex-direction: row-reverse; margin-top:-1%;margin-bottom: 0%;
   display: flex;
   flex-direction: column;
   justify-content: center;

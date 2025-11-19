@@ -1,9 +1,9 @@
 
-<ion-content class="login-content">
-<div style="position: fixed; width: 100vw; height: 215vw; top: 0; left: 0; background: url('assets/icon/imagee.jpeg') no-repeat center center / cover; z-index: -1;">
-  <!-- عنصر الخلفية ثابت على كامل العرض والارتفاع -->
+<ion-content class="signup-content">
+ <div  style="position: fixed; width: 100vw; height: 220vw; top: 0; left: 0;background: url('assets/icon/imagee.jpeg') no-repeat center center / cover; z-index: -1;">
+  
 </div>
-  <form > <div style="display: flex; flex-direction: row;text-align: center;align-items: center;margin-bottom: 1.5%;">
+  <form > <div class="form">
   <img 
     src="assets/icon/Group 88.png" 
     alt="Login Image" 
@@ -13,7 +13,7 @@
   />
 </div>
     <div class="logo" style="display: flex; align-items: center;flex-direction: row-reverse; margin-top:-1%;margin-bottom: 0%;">
-      <img [src]="img" alt="Login Image" style="width: 45px; height: 45px; border-radius: 50%;margin-left: 0%;margin-top:-1%;">
+      <img [src]="img" alt="Login Image" class="img">
       <div>
         <h1 style="margin-right: 0%;">{{ 'Registration' | translate }}</h1>
       </div>
@@ -86,7 +86,7 @@
       </ion-icon>
     </div>
        <div
-        style="margin-top: 2%; text-align: center; margin-left: 4%; margin-right: 4%; align-items: center; justify-content: center; width: 90%;"
+       class="container"
       >
         <div class="rectangle-container">
           <div
@@ -95,7 +95,7 @@
             [style.backgroundColor]="color(i)"
           ></div>
         </div>
- <div [style.color]="password_color" style="height:3.5vw;font-size:2vw;margin-top: -2%;margin-bottom: 3%">{{Text}}</div>
+ <div [style.color]="password_color" class="password-color">{{Text}}</div>
       </div><div class="input-box">
       <ion-icon name="lock-closed-outline" class="icon"  slot="start"></ion-icon>
       <ion-input  
@@ -113,7 +113,7 @@
         (click)="eye_repassword()">
       </ion-icon>
     </div>
-    <div style="height:4vw;;margin-top: -2%;"> <div [ngStyle]="color_password()">{{text_password}}</div></div>
+    <div class="text-password"> <div [ngStyle]="color_password()">{{text_password}}</div></div>
 
  
    <ion-grid>
@@ -122,7 +122,7 @@
  
 
   
-<ion-label position="floating" style="margin-inline-start: 31%;font-weight: 200;">{{ 'Date_Of_Birth' | translate }}</ion-label>
+<ion-label position="floating" class="date">{{ 'Date_Of_Birth' | translate }}</ion-label>
 <ion-datetime-button datetime="datetime"></ion-datetime-button>
 
 <ion-modal [keepContentsMounted]="true" [(isOpen)]="isModalOpen">

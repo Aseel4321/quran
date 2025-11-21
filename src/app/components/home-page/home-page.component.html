@@ -3,7 +3,7 @@
   " >
   <div ><div class="profile-image-container " 
    > <div style="flex:3;"></div> <img [src]="img()" alt="Splash Logo" class="profile-image">
- <!--<button (click)="logout()">oooo</button>-->
+ 
   <div style="flex: 3;"></div>
     </div>  <ion-item lines="none" style="margin-top: 10%;  --background:color= none">
           <ion-icon name="person-outline" style="margin-inline-end: 5%;"></ion-icon>
@@ -34,7 +34,7 @@
     <div style="display: flex;height:7%;margin-top: 2%;
   flex-direction: row;width: 100vw"><ion-menu-toggle>
             <img src="assets/icon/aplication.png" alt="Login Image" style="width:8vw; height:3vh;margin-inline-start: 50%;">
-    </ion-menu-toggle> <div class="header-row"><img src="assets/icon/calendar.png" alt="Login Image" style="width:4vw; height:3vh;margin-inline-end:15%;"routerLink="/calendar"> <img routerLink="/notifi" src="assets/icon/notification.png" alt="Login Image" style="width:4vw; height:3vh;margin-inline-end: 30%;"></div> 
+    </ion-menu-toggle> <div class="header-row"> <img routerLink="/notifi" src="assets/icon/notification.png" alt="Login Image" style="width:5vw; height:3vh;margin-inline-end: 30%;"></div> 
 
 
 </div><div style="display: flex;align-items: center;text-align: center;justify-content: center;border-radius: 30px;"><ion-card  style="background-color: #9D9D9D3D;border-radius: 30px;margin-left: 8vw;margin-right: 8vw;width: 100vw;"><div style="display: flex;align-items: center;text-align: center;justify-content: center;background-color: #9D9D9D3D;border-radius: 30px;">
@@ -91,17 +91,17 @@
 
 </div>
 
- <!-- حاوية التمرير الأفقي -->
+ 
 <div style="display: flex; overflow-x: auto; white-space: nowrap; width: 100%; margin-top: 2%;">
 
-  <!-- العنصر المتكرر -->
+ 
   <div *ngFor="let item of list_card()"
        style="flex: 0 0 auto; width: 70vw; height:13.5vh;  border-radius:8vw; margin-inline-end:0.7vw; display: flex; flex-direction: column; align-items: center; text-align: center;margin-inline-start: 0.7%;">
       <div style="display: flex; flex-direction: row;width: 100%; height: 12.5vh;background-color: linear-gradient(to right, #A6988A, #CFBCA8);border-radius:8vw;"><ion-card  style="display: flex; flex-direction: row; width: 100%; height: 12vh; background: linear-gradient(to right, #A6988A, #CFBCA8);border-radius:8vw;">
-    <!-- المحتوى الداخلي -->
+  
     <div style="display: flex; flex-direction: row; width: 100%; padding: 2vw;" (click)="val1(item.name)">
       
-      <!-- النصوص -->
+     
       <div style="flex: 3; display: flex; flex-direction: column; justify-content: center;  text-align: start; padding-inline-start:2vw;">
         <p style="font-size: 4vw; margin-top: 0.5%;color: black;">{{item.name}}</p>
 
@@ -143,7 +143,8 @@
   <!-- العنصر المتكرر -->
   <div *ngFor="let item of list_type()"
        style=" height: 10vh; width: 100%; display: flex; align-items: center; flex-direction: row; border-radius: 4vw;">
-          <div style="display: flex; flex-direction: row; border-radius: 4vw;"><ion-card  style="display: flex; flex-direction: row; height:auto ;width: 25vw;height:9vh ; background:#D9D9D9;border-radius: 4vw;">
+          <div style="display: flex; flex-direction: row; border-radius: 4vw;  align-items: center;
+  justify-content: space-between;"><ion-card  style="display: flex; flex-direction: row; height:auto ;width: 25vw;height:9vh ; background:#D9D9D9;border-radius: 4vw;">
 
     <!-- النص -->
     <div style="display: flex; align-items: center; flex: 2; justify-content: flex-start; margin: 0%;"(click)='val(item.name)'>
@@ -169,9 +170,7 @@
   class="login-image3"
  [style]="style_image3()"
 />
- <!--<ion-button (click)="prayer_times()">Get Location</ion-button>
-  <p *ngIf="latitude && longitude"></p>
-  <ion-button >Start Watching Location</ion-button>!-->
+
   </ion-content>
 </div>
 <ng-template #noData>

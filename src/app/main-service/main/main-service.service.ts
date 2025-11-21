@@ -24,7 +24,7 @@ delete(data: any): Observable<any> {
   });
 
   return this.http.delete(
-    'https://api-project-6hj8.onrender.com/account/delete',  // استخدم البروكسي هنا
+    'margherita-circadian-minta.ngrok-free.dev/account/delete',  
     {
       headers: headers,
       body: data
@@ -38,7 +38,7 @@ update_profile(data: any): Observable<any> {
   });
 
   return this.http.post(
-    'https://api-project-6hj8.onrender.com/setting/update-profile',
+    'margherita-circadian-minta.ngrok-free.dev/setting/update-profile',
     data,
     { headers: headers }
   );
@@ -68,7 +68,7 @@ range_calendar(): Observable<any> {//var email=localStorage.getItem('email');
   });
 
   return this.http.get(
-    'https://api-project-6hj8.onrender.com/api/calendar-alerts/user/d/range?startTime=2025-11-03T21%3A50%3A41.543Z&endTime=2025-11-03T21%3A50%3A41.543Z',  // استخدم البروكسي هنا
+    'https://margherita-circadian-minta.ngrok-free.dev/user/d/range?startTime=2025-11-03T21%3A50%3A41.543Z&endTime=2025-11-03T21%3A50%3A41.543Z',  // استخدم البروكسي هنا
      { headers: headers }
       
     
@@ -79,16 +79,16 @@ update_calendar(data: any): Observable<any> {var email=localStorage.getItem('ema
     'Accept': 'application/json',
     'Content-Type': 'application/json'
   });
-//`https://api-project-6hj8.onrender.com/send-otp/send-to-email?email=${email}`
+
   return this.http.put(
-  `https://api-project-6hj8.onrender.com/api/calendar-alerts/update?userEmail=aseelghaleb2088@gmail.com`,
+  `https://margherita-circadian-minta.ngrok-free.dev/api/calendar-alerts/update?userEmail=aseelghaleb2088@gmail.com`,
    
      data , { headers: headers}
     
     
   );
 }
-//`https://api-project-6hj8.onrender.com/send-otp/send-to-email?email=${email}`;
+
 prayer_times(data: any): Observable<any> {
   const headers = new HttpHeaders({
     'Accept': 'application/json',
@@ -96,7 +96,7 @@ prayer_times(data: any): Observable<any> {
   });
 
   return this.http.post(
-    'https://api-project-6hj8.onrender.com/feature/prayer-times',
+    'https://margherita-circadian-minta.ngrok-free.dev/feature/prayer-times',
     data,
     { headers: headers }
   );

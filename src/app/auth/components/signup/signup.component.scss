@@ -30,8 +30,16 @@
 }
 .login-image{ display: block;height:35vw;; width: 90%;margin-inline-start: 10%;}
 p {
-  margin-top: 0; /* يمنع إضافة مسافة من الأعلى */
+  margin-top: 0; 
   font-size: 1em;
+}.page-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+ height: 225vw;
+  background-image: url('../../../../assets/icon/imagee.jpeg');background-size: cover;
+  z-index: -1;
 }
  .logo {display: flex; align-items: center;flex-direction: row-reverse; margin-top:-1%;margin-bottom: 0%;
   display: flex;
@@ -39,14 +47,14 @@ p {
   justify-content: center;
   align-items: center;
   text-align: center;
-  height: 15%; // أو حسب المساحة التي تريدها
+  height: 15%;
   margin-bottom: 10%;
 
  h1 {
-  //font-weight: bold;
+  
   font-size: 2rem;
   text-shadow: 1px 1px 2px #aaa;
-  font-family: 'Cairo', sans-serif; /* ← هنا يتم تغيير الخط */
+  font-family: 'Cairo', sans-serif; 
 }
 
   p {margin-inline-start: 20%;

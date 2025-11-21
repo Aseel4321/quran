@@ -19,6 +19,8 @@ import { ProfileComponent } from 'src/app/components/profile/profile.component';
 
 import { NewPasswordComponent } from '../components/new-password/new-password.component';
 import { MainModule } from 'src/app/main-modules/main.module';
+import { Keyboard } from '@capacitor/keyboard';
+
 
 @NgModule({
   declarations: [

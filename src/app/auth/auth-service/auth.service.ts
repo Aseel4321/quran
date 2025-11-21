@@ -34,6 +34,8 @@ otp:string='5555';
 
 
 
+
+
 }title() {
   if (localStorage.getItem('lang') === 'ar') {
     return {
@@ -61,7 +63,7 @@ otp:string='5555';
   });
 
   return this.http.post(
-     'https://api-project-6hj8.onrender.com/setting/change-password',  // <-- هنا استخدم البروكسي
+     'https://margherita-circadian-minta.ngrok-free.dev/setting/change-password',  // <-- هنا استخدم البروكسي
     data,
     { headers }
   );
@@ -74,7 +76,7 @@ otp:string='5555';
   });
 
   return this.http.post(
-     'https://api-project-6hj8.onrender.com/account/register',  // <-- هنا استخدم البروكسي
+     'https://margherita-circadian-minta.ngrok-free.dev/account/register',  // <-- هنا استخدم البروكسي
     data,
     { headers }
   );
@@ -84,7 +86,7 @@ send_otp(email:string): Observable<any> {
     'Accept': 'application/json',
     'Content-Type': 'application/json'
   });
-  const url = `https://api-project-6hj8.onrender.com/send-otp/send-to-email?email=${email}`;
+  const url = `https://margherita-circadian-minta.ngrok-free.dev/send-otp/send-to-email?email=${email}`;
 
   return this.http.post(url, null, { headers });
 }
@@ -93,7 +95,7 @@ verity_otp(email:any,otp:any): Observable<any> {
     'Accept': 'application/json',
     'Content-Type': 'application/json'
   });
-  const url = `https://api-project-6hj8.onrender.com/verify-otp/verify-to-email?email=${email}&otp=${otp}`;
+  const url = `https://margherita-circadian-minta.ngrok-free.dev/verify-otp/verify-to-email?email=${email}&otp=${otp}`;
 
   return this.http.post(url, null, { headers });
 }
@@ -104,7 +106,7 @@ verity_otp(email:any,otp:any): Observable<any> {
   });
 
   return this.http.post(
-     'https://api-project-6hj8.onrender.com/setting/forgot-password',  // <-- هنا استخدم البروكسي
+     'https://margherita-circadian-minta.ngrok-free.dev/setting/forgot-password',  // <-- هنا استخدم البروكسي
     data,
     { headers }
   );

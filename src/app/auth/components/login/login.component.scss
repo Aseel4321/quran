@@ -39,7 +39,20 @@ p {
   }
 }
 .lod{text-align: center;margin-top: 1%;}
+.page-bg {
+ 
 
+  background-image: url('../../../../assets/icon/imagee.jpeg');background-size: cover;
+  
+}.page-bg1 {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+ height: 50%;
+  background-image: url('../../../../assets/icon/imagee.jpeg');background-size: cover;
+  z-index: -1;
+}
 .input-box {height: 45px;
   --background: #fff;
   display: flex;

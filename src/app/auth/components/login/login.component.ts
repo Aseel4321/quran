@@ -15,10 +15,7 @@ export class LoginComponent implements OnInit {
   constructor(private screenOrientation: ScreenOrientation,private router: Router,private Service:AuthService,private alertController: AlertController,private platform: Platform) {
     this.platform.backButton.subscribeWithPriority(9999, () => {
     
-  });    this.platform.ready().then(() => {
-      
-      Keyboard.setResizeMode({ mode: 'none' as any});
-    });
+  });      Keyboard.setResizeMode({ mode: 'none' as any});
   }
   initialHeight: number = window.innerHeight;
 keyboardOpen: boolean = false;

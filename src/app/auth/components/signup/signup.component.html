@@ -168,10 +168,9 @@
     <p class="signup-text">
       {{ 'you_have_account' | translate }}
       <a (click)="login()">{{ 'LOGIN' | translate }}</a>
-    </p><div *ngIf="isLoading" style="text-align: center;height: 50px;">
-  <img src="assets/icon/hold-on1.webp" alt="Login Image"
-       style="width: 65px; height: 65px; border-radius: 10%;">
-       <br/><br/>
+    </p><div *ngIf="isLoading; else notLoading" style="text-align: center; margin-top: 1%;">
+  <ion-spinner name="crescent" style="width: 50px; height: 50px; color:#3880ff;"></ion-spinner>
+  <br/><br/>
 </div></div>
     <img 
   src="assets/icon/Group89.png" 
@@ -180,7 +179,10 @@
  [style]="style_image2()"
 />
   </form>
-</ion-content>
+</ion-content><ng-template #notLoading>
+ 
+  <div ></div>
+</ng-template>
 <ng-template #Q>
  <div class="gender-birth-container"><div class="gender-button1" [ngStyle]="{'background-color':'#D3D3D3'}" 
      (click)="setGender('female')"

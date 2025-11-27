@@ -117,7 +117,7 @@ if(index==this.currentIndex){
   ) {
  
 
-this.intervalId = setInterval(() => {this.service.time_now=this.time_now;
+this.intervalId = setInterval(async () => {this.service.time_now=this.time_now;
 this.time_now=this.service.time_now;
       const now = new Date();
       this.time_now = now.toLocaleTimeString('en-US');
@@ -131,7 +131,7 @@ this.time_now=this.service.time_now;
         }
 
         this.lastPeriod = currentPeriod;
-        this.prayer_times();
+       await this.prayer_times();
 
       } else {
         const currentPeriod = this.time_now.includes('AM') ? 'AM' : 'PM';
@@ -141,10 +141,10 @@ this.time_now=this.service.time_now;
         }
 
         this.lastPeriod = currentPeriod;
-        this.prayer_times();
+       await this.prayer_times();
       }
 
-   this.prayer();  }, 1000);
+    this.prayer();  }, 1000);
 }
 
  list_type(){
@@ -253,15 +253,22 @@ if (rawDate.includes("-") && rawDate.split("-").length === 3) {
   const [day, month, year] = rawDate.split("-");
   // ننتبه: الأشهر تبدأ من 0
   const parsed = new Date(Number(year), Number(month) - 1, Number(day));
-  this.prayer_timee[6] = new Intl.DateTimeFormat("ar-EG", {
+  if(localStorage.getItem('lang') === 'en'){ this.prayer_timee[6] = new Intl.DateTimeFormat("ar-EG", {
     weekday: "long",
     year: "numeric",
     month: "long",
     day: "numeric"
   }).format(parsed);this.service.prayer_timee_6=this.prayer_timee[6] ;
-this.prayer_timee_6_s=this.service.prayer_timee_6;
+this.prayer_timee_6_s=this.service.prayer_timee_6;}
+ 
 } else {
   if(localStorage.getItem('lang') === 'ar'){  this.prayer_timee[6]= new Intl.DateTimeFormat("ar-EG", {
+    weekday: "long",
+    year: "numeric",
+    month: "long",
+    day: "numeric"
+  }).format(dateValue);this.service.prayer_timee_6=this.prayer_timee[6] ;
+this.prayer_timee_6_s=this.service.prayer_timee_6;}else{ this.prayer_timee[6]= new Intl.DateTimeFormat("en-US", {
     weekday: "long",
     year: "numeric",
     month: "long",
@@ -693,10 +700,11 @@ prayer() {
     for (const name of Array.from(myMap.keys())) {
       if (name === this.prayer_timee[8]) {this.service.prayer=myMap.get(name);
 this.prayer_s=this.service.prayer;
-        //return myMap.get(name); // ✅ استخدم get بدلاً من [name]
+        
       }
     }
-  } else {this.service.prayer=this.prayer_timee[8];this.prayer_s=this.service.prayer;
+  } else { 
+    this.service.prayer=this.prayer_timee[8];this.prayer_s=this.service.prayer;
     
   }
 }val(v: string) {console.log(v);
@@ -709,16 +717,16 @@ this.prayer_s=this.service.prayer;
   } else if (v === 'Tafsir' || v === 'التفسير') {
   
   } else if (v === 'Dua' || v === 'الدعاء') {
-    this.router.navigate(['/Supplications']);
+    this.router.navigate(['/home-page-list']);
   } else if (v === 'Adhkar' || v === 'الاذكار') {
-   
+   this.router.navigate(['/Supplications']);
   } else if (v === 'Test' || v === 'اختبار') {
    
-  }
+  }else if(v=="Morning Adhkar"||v=="أذكار الصباح"){}
 }
 val1(v){
   if(v=='Quran Completion'||v=="إتمام القرآن"){}else if(v=='Evening Adhkar'||v== "أذكار المساء"){this.router.navigate(['/morning-adhkar']);}else if(v=='Quran Memorization Test'||v=="اختبار حفظ القرآن"){this.router.navigate(['/quran']);}
-  else if(v=="Morning Adhkar"||v=="أذكار الصباح"){this.router.navigate(['/quran']);}
+  else if(v=="Morning Adhkar"||v=="أذكار الصباح"){ this.router.navigate(['/quran']);}
 }
 }
 

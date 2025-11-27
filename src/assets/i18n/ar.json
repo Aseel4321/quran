@@ -23,7 +23,7 @@
   "NEW_PASSWORD": "كلمة المرور الجديدة",
   "SECURITY_SETTINGS": "إعدادات الأمان",
     "FORGOT_PASSWORD": "نسيت كلمة المرور",
-     "Supplications":"الأدعيه",
+     "Supplications":"الأذكار",
   "FORGOT_PASSWORD_INSTRUCTIONS": "يرجى إدخال بريدك الإلكتروني لإعادة تعيين كلمة المرور","Tesbeeh":"التسبيح", "QURAN": "القرآن الكريم",
   "LAST_READ": "آخر قراءة",
   "SURAH": "سورة",
@@ -41,7 +41,7 @@
    "Male":"ذكر","save":"حفظ",
  "Female":"انثى",
 "Didntreceive":"لم يصل الرمز؟ " ,
-"SendtoEmail":"اعاده الارسال ","Morning_Adhkar":"اذكار الصباح",
+"SendtoEmail":"اعاده الارسال ","Morning_Adhkar":"اذكار الصباح","Dua":"الأدعيه",
   "otp": {
     "title": "رمز التحقق",
     "verify": "تحقق!",

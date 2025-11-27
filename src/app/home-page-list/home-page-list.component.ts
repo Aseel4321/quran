@@ -21,7 +21,7 @@ export class HomePageListComponent  implements OnInit{
     { text: 'Supplications upon Waking Up', image: 'assets/icon/waking-up.png' },
     { text: 'Supplications after Prayer', image: 'assets/icon/prayerr.png' }
   ];
-  list_type() {if(this.service.text_name=='AL-Hadith'){
+  list_type() {if(this.service.text_name!='AL-Hadith'){
  return localStorage.getItem('lang') === 'ar'
     ? [
         { text: 'أحاديث عن طلب العلم', image: 'assets/icon/morning.png' },
@@ -38,9 +38,9 @@ export class HomePageListComponent  implements OnInit{
       ];
   }else{ return localStorage.getItem('lang') === 'ar'
     ? [
-        { text: 'صلاة السفر', image: 'assets/icon/morning.png' },
+        { text: 'دعاء السفر', image: 'assets/icon/morning.png' },
         { text: 'دعاء الخروج من المنزل', image: 'assets/icon/evning.png' },
-        { text: 'صلاة من أجل المتوفى', image: 'assets/icon/sleep.png' },
+        { text: 'دعاء من أجل المتوفى', image: 'assets/icon/sleep.png' },
         { text: 'دعاء للقلق والحزن', image: 'assets/icon/waking-up.png' },
         { text: 'دعاء زيارة القبور', image: 'assets/icon/prayerr.png' },
       ]

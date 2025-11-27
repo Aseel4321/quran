@@ -48,7 +48,7 @@
   "language": "Language",
   "notificationPreferences": "Notification Preferences",
   "deleteAccount": "Delete Account",
-  "logout": "Logout","Add-Calendar":"Add Calendar","cancel":"cancel","title":"title","notes":"notes","alert":"alert","notifications":"notifications","save":"save","Delete_Account":"Delete Account ",
+  "logout": "Logout","Add-Calendar":"Add Calendar","cancel":"cancel","title":"title","notes":"notes","alert":"alert","notifications":"notifications","save":"save","Delete_Account":"Delete Account ","Dua":"Dua",
   "otp": {
     "title": "OTP",
     "verify": "Verify!","Write_the_page_number":"Write the page number",

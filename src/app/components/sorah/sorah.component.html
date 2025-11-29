@@ -49,8 +49,8 @@
    <div style="text-align: center; font-size: 5vw; margin: 3% 0;">
   بسم الله الرحمن الرحيم
 </div>
-    <span *ngFor="let item of list; let i = index;" style="position: relative;">
-   <span style="position: absolute;margin-top: -3vh;" ><span [style]="Style_r(i)"> <img src="assets/icon/save.png" alt="صورة" style="height:4vh;width: 4.6vw;"><img src="assets/icon/save.png" alt="صورة" style="height: 4vh;width: 4.6vw;"> <img src="assets/icon/save.png" alt="صورة" style="height: 4vh;width: 4.6vw;"></span></span>  
+    <span *ngFor="let item of list1; let i = index;" style="position: relative;">
+   <span style="position: absolute;margin-top: -3vh;" ><span [style]="Style_r(i)"> <img src="assets/icon/save.png" alt="صورة" style="height:4vh;width: 4.6vw;" (click)="toggle()"><img src="assets/icon/save.png" alt="صورة" style="height: 4vh;width: 4.6vw;"> <img src="assets/icon/save.png" alt="صورة" style="height: 4vh;width: 4.6vw;"></span></span>  
   <span (click)="click(i)" [style]="Style(i)">{{ item }}</span>
    <div style="
   position: relative;
@@ -79,9 +79,14 @@
 </div>
 &nbsp;
 </span>
+<button (click)="toggle()">فتح القائمة</button>
+
+<div class="bottom-sheet" [class.open]="open">
+  <h3>القائمة</h3>
+  <p>محتوى هنا...</p>
+</div>
 
 
- 
 /////
 
 <!--<div style="direction: ltr; text-align: left;position: relative;"> <span style="position: absolute;margin-top: -3vh;" ><span [style]="Style_r(i)"> <img src="assets/icon/save.png" alt="صورة" style="height:4vh;width: 4.6vw;"><img src="assets/icon/save.png" alt="صورة" style="height: 4vh;width: 4.6vw;"> <img src="assets/icon/save.png" alt="صورة" style="height: 4vh;width: 4.6vw;"></span></span>  

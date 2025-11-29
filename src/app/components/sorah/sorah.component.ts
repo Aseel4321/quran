@@ -31,6 +31,20 @@ click(i:number){
 
 console.log(this.i);
 }
+isSheetOpen = false;
+
+openSheet() {
+  this.isSheetOpen = true;
+}
+closeSheet() {
+  this.isSheetOpen = false;
+}
+ open = false;
+
+
+toggle() {
+  this.open = !this.open;
+}
 Style(i){
 if(i===this.i){
   return { 
@@ -50,13 +64,15 @@ Style_r(i) {
     return {
       display: 'flex',
       flexDirection: 'row',
-      justifyContent:  'flex-end',  // ← هذا يجعل المربع يكون في نهاية السطر
+      justifyContent: 'space-between',
+  // ← هذا يجعل المربع يكون في نهاية السطر
       width: '15vw',
       height: '4vh',
       backgroundColor: '#4caf50',
       borderRadius: '10px',
       alignItems: 'center',
-    
+   
+
     };
   } else {
     return { display: 'none' };

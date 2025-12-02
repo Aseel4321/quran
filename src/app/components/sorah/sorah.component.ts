@@ -38,12 +38,13 @@ openSheet() {
 }
 closeSheet() {
   this.isSheetOpen = false;
+  
 }
  open = false;
 
 
 toggle() {
-  this.open = !this.open;
+  this.open = true;
 }
 Style(i){
 if(i===this.i){
@@ -57,7 +58,7 @@ if(i===this.i){
     };}
 }
 onclick(){
-  this.i='.';
+  this.i='.';this.open=false;
 }
 Style_r(i) {
   if (i === this.i) {

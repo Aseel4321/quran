@@ -58,7 +58,10 @@ if(i===this.i){
     };}
 }
 onclick(){
-  this.i='.';this.open=false;
+  this.i='.';
+}
+onclickclose(){
+  this.open=false;
 }
 Style_r(i) {
   if (i === this.i) {

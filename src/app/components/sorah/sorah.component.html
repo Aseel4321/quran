@@ -1,4 +1,6 @@
+
 <ion-content class="login-content" style=" --background: url('assets/icon/imagee.jpeg') no-repeat center center / cover;display: flex; flex-direction: column;height: 100vh;"[scrollY]="false" >
+<div style="display: flex;flex-direction: row;justify-content: space-between;"> <div style="display: flex;flex-direction: row;"> gggg tttttgggg</div><div>gggggg</div></div>
 <div style="
   width: 100vw;
   height: 6vh;
@@ -79,15 +81,18 @@
 </div>
 &nbsp;
 </span>
-<button (click)="toggle()">فتح القائمة</button>
+
 
 <div class="bottom-sheet" [class.open]="open">
-  <h3>القائمة</h3>
-  <p>محتوى هنا...</p>
+    <div class="box">
+    <i class="fa-solid fa-cog icon"></i>   <!-- أيقونة ضبط على اليسار -->
+    <span class="center-text">Tafsir Al-Jalalayn</span>   <!-- النص في الوسط الفعلي -->
+    <i (click)="onclickclose()" class="fa-solid fa-times-circle icon"></i> <!-- أيقونة غلق على اليمين -->
+  </div>
 </div>
 
 
-/////
+
 
 <!--<div style="direction: ltr; text-align: left;position: relative;"> <span style="position: absolute;margin-top: -3vh;" ><span [style]="Style_r(i)"> <img src="assets/icon/save.png" alt="صورة" style="height:4vh;width: 4.6vw;"><img src="assets/icon/save.png" alt="صورة" style="height: 4vh;width: 4.6vw;"> <img src="assets/icon/save.png" alt="صورة" style="height: 4vh;width: 4.6vw;"></span></span>  
   <span style="position: absolute;margin-top: -3vh;" ><span *ngFor="let item of list; let i = index;" style="display: inline-block; margin-right: 0.5em;">

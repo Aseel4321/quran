@@ -76,7 +76,9 @@ private lockInProgress = false;
       this.inputs.first.setFocus();
     }, 300);
   }
-
+goBack() {
+  this.router.navigate(['/login']);
+}
   onInputChange(event: any, index: number) {
     const input = event.target.value;
 

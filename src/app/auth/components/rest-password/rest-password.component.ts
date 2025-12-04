@@ -80,24 +80,24 @@ const user = userString ? JSON.parse(userString) : null;
   ngOnInit() {}
     color(i:any){
       if(this.num.length==0){
-        return '#cac9c9'
+        return '#E5E4E2'
       }else{
 if(this.num.length==1){
 if(i==0){
   return '#FF0000'
-}else{return '#cac9c9'}
+}else{return '#E5E4E2'}
 }else if(this.num.length==2){
 if(i<=1){
   return '#b4b42aff'
-}else{return '#cac9c9'}
+}else{return '#E5E4E2'}
         }else if(this.num.length==3){
 if(i<=2){
   return '#90EE90'
-}else{return '#cac9c9'}
+}else{return '#E5E4E2'}
         }else if(this.num.length==4){
           if(i<=4){
   return '#006400'
-}else{return '#cac9c9'}
+}else{return  '#E5E4E2'}
         }
       }
     }

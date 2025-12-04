@@ -24,7 +24,7 @@ delete(data: any): Observable<any> {
   });
 
   return this.http.delete(
-    'margherita-circadian-minta.ngrok-free.dev/account/delete',  
+    'https://margherita-circadian-minta.ngrok-free.dev/account/delete',  
     {
       headers: headers,
       body: data
@@ -38,11 +38,11 @@ update_profile(data: any): Observable<any> {
   });
 
   return this.http.post(
-    'margherita-circadian-minta.ngrok-free.dev/setting/update-profile',
+    'https://margherita-circadian-minta.ngrok-free.dev/setting/update-profile',
     data,
     { headers: headers }
   );
-}Servers
+}
 
 
 

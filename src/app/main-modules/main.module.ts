@@ -36,7 +36,7 @@ import {
   query,
   stagger
 } from '@angular/animations';
-import { HomePageListComponent } from '../home-page-list/home-page-list.component';
+import { HomePageListComponent } from '../components/home-page-list/home-page-list.component';
 import { HomePagePageComponent } from '../components/home-page-page/home-page-page.component';
 import { ReadComponent } from '../components/notification/read/read.component';
 import { UnreadComponent } from '../components/notification/unread/unread.component';

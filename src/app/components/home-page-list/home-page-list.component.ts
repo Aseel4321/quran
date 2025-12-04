@@ -4,9 +4,9 @@ import { Capacitor } from '@capacitor/core';
 import { Platform } from '@ionic/angular';
 import { Keyboard } from '@capacitor/keyboard';
 import Swiper from 'swiper/types/swiper-class';
-import { AuthService } from '../auth/auth-service/auth.service';
+import { AuthService } from '../../auth/auth-service/auth.service';
 import { ScreenOrientation } from '@capacitor/screen-orientation';
-import { MainServiceService } from '../main-service/main/main-service.service';
+import { MainServiceService } from '../../main-service/main/main-service.service';
 @Component({
   selector: 'app-home-page-list',
   templateUrl: './home-page-list.component.html',

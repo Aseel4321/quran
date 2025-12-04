@@ -14,7 +14,7 @@ import { CalendarComponent } from '../components/calendar/calendar.component';
 import { TasbeehComponent } from '../components/tasbeeh/tasbeeh.component';
 import { MorninAdhkarComponent } from '../components/mornin-adhkar/mornin-adhkar.component';
 import { SupplicationsComponent } from '../components/supplications/supplications.component';
-import { HomePageListComponent } from '../home-page-list/home-page-list.component';
+import { HomePageListComponent } from '../components/home-page-list/home-page-list.component';
 import { HomePagePageComponent } from '../components/home-page-page/home-page-page.component';
 import { SurahComponent } from '../components/quran/surah/surah.component';
 import { SorahComponent } from '../components/sorah/sorah.component';

@@ -202,12 +202,12 @@ ion-segment-button::part(indicator-background) {
 }*/
 
 .login-content {
- --background: #fff;
+
   display: flex; // تأكد من وجودها
   flex-direction: column; // لضمان الترتيب عموديًا
   justify-content: center; // تمركز عمودي
   align-items: center; // تمركز أفقي
- height: 100vh;
+ min-height: 100vh;
  margin-top: 10%;
   /* يقلل المسافة بين العنوان والفقرة */
 

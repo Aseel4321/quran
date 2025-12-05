@@ -8,7 +8,12 @@
  * For more information on global stylesheets, visit the documentation:
  * https://ionicframework.com/docs/layout/global-stylesheets
  */
-
+.bg {
+  background: url('assets/icon/imagee.jpeg') no-repeat center center / cover;  position: fixed;
+  width: 100vw;
+  height: 200vw;
+  z-index: -1;
+}
 /* Core CSS required for Ionic components to work properly */
 @import "~@ionic/angular/css/core.css";
 @import "~swiper/swiper-bundle.min.css";

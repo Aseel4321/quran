@@ -82,9 +82,8 @@ delete(){const userData = localStorage.getItem('User');
   this.service.delete({
     "emailOrPhone":this.user.email,
     "password":this.password,
-}).subscribe((data:any)=>{
-    
-
+}).subscribe((data:any)=>{if(localStorage.getItem('lang')=='ar'){this.name = '';}else{this.name = '';}
+this.presentAlert();
   },(error: HttpErrorResponse)=>{this.isLoading=false;
     console.log(error?.error?.arDescription)
       if(localStorage.getItem('lang')=='ar'){  this.name = error?.error?.arDescription;
@@ -139,11 +138,27 @@ login() {
 }async presentAlert() {
     if(localStorage.getItem('lang')=='ar'){  const alert = await this.alertController.create({
     message: this.name,
-    buttons: ['موافق']
+    buttons:[
+      {
+        text:'موافق' ,
+        role: 'confirm',
+        handler: () => {
+          // ← هنا ينفذ الحدث عند الضغط
+        }
+      }
+    ]
   });await alert.present();}else{const alert = await this.alertController.create({
     //header: 'dddddd',
     message: this.name,
-    buttons: ['ok']
+    buttons: [
+      {
+        text: 'OK',
+        role: 'confirm',
+        handler: () => {
+           // ← هنا ينفذ الحدث عند الضغط
+        }
+      }
+    ]
   });await alert.present();}
 
 

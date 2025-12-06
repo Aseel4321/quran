@@ -82,7 +82,7 @@ delete(){const userData = localStorage.getItem('User');
   this.service.delete({
     "emailOrPhone":this.user.email,
     "password":this.password,
-}).subscribe((data:any)=>{if(localStorage.getItem('lang')=='ar'){this.name = '';}else{this.name = '';}
+}).subscribe((data:any)=>{if(localStorage.getItem('lang')=='ar'){this.name = 'تم حذف حسابك بنجاح';}else{this.name = 'Your account has been successfully deleted';}
 this.presentAlert();
   },(error: HttpErrorResponse)=>{this.isLoading=false;
     console.log(error?.error?.arDescription)
@@ -135,15 +135,15 @@ login() {
     
     }
   );*/
-}async presentAlert() {
+}async presentAlert() {this.isLoading = false;
     if(localStorage.getItem('lang')=='ar'){  const alert = await this.alertController.create({
     message: this.name,
     buttons:[
       {
         text:'موافق' ,
         role: 'confirm',
-        handler: () => {
-          // ← هنا ينفذ الحدث عند الضغط
+        handler: () => { if(this.name === 'تم حذف حسابك بنجاح'){this.router.navigate(['/login']);}
+          // ← هنا ينفذ الحدث عند الضغط-
         }
       }
     ]
@@ -154,7 +154,7 @@ login() {
       {
         text: 'OK',
         role: 'confirm',
-        handler: () => {
+        handler: () => {if(this.name === 'Your account has been successfully deleted'){this.router.navigate(['/login']);}
            // ← هنا ينفذ الحدث عند الضغط
         }
       }

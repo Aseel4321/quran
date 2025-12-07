@@ -8,9 +8,9 @@ import { Component, OnInit } from '@angular/core';
 export class SorahComponent  {i:any='.';lang = 'en';slideOpts = {
   initialSlide: 0,
   speed: 400,
-  slidesPerView: 1, // كل شريحة تعرض عنصر واحد
-  direction: 'horizontal', // يمكنك تغييرها إلى vertical إذا أحببت
-};
+  slidesPerView: 1, 
+  direction: 'horizontal', 
+};showItem = false;Tafsir(){this.showItem=true;}
 list1 = [
     'بِسْمِ اللَّهِ الرَّحْمَـٰنِ الرَّحِيمِ',
     'الـحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ',
@@ -20,6 +20,8 @@ list1 = [
     'اهْدِنَا الصِّرَاطَ الْمُسْتَقِيمَ',
     'صِرَاطَ الَّذِينَ أَنْعَمْتَ عَلَيْهِمْ',
     'غَيْرِ الْمَغْضُوبِ عَلَيْهِمْ وَلَا الضَّالِّينَ'
+];list11 = [
+    '1'
 ]
  list = [ 
     "hhhh1",'hhhhhhhhdf2','gggdfdg3','ffffff fffffffff ffffff ffffffffff4','dfsaedsedfaaaa sfsddddd ddfsdf5','fff hhhhhh ff6'
@@ -49,12 +51,12 @@ toggle() {
 Style(i){
 if(i===this.i){
   return { 
-  'font-size': '7vw',
+  'font-size': '5.5vw',
   'background-color':'rgb(233, 233, 193)',
  'margin-inline-end': '1vw','margin-inline-start': '-1vw',
     }; 
 }else{ return {
-  'font-size': '7vw','margin-inline-end': '1vw','margin-inline-start': '-1vw',
+  'font-size': '5.5vw','margin-inline-end': '1vw','margin-inline-start': '-1vw',
     };}
 }
 onclick(){
@@ -69,7 +71,6 @@ Style_r(i) {
       display: 'flex',
       flexDirection: 'row',
       justifyContent: 'space-between',
-  // ← هذا يجعل المربع يكون في نهاية السطر
       width: '15vw',
       height: '4vh',
       backgroundColor: '#4caf50',

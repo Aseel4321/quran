@@ -5,13 +5,23 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './sorah.component.html',
   styleUrls: ['./sorah.component.scss'],
 })
-export class SorahComponent  {i:any='.';lang = 'en';slideOpts = {
+export class SorahComponent  {i:any='.';lang = 'en';flipStyle1 = {
+  width: '12vw',
+  cursor: 'pointer',
+  userSelect: 'none',
+  transform: 'scaleX(-1)'
+};
+flipStyle = {
+  width: '12vw',
+  cursor: 'pointer',
+  userSelect: 'none',
+};slideOpts = {
   initialSlide: 0,
   speed: 400,
   slidesPerView: 1, 
   direction: 'horizontal', 
 };showItem = false;Tafsir(){this.showItem=true;}
-list1 = [
+list = [
     'بِسْمِ اللَّهِ الرَّحْمَـٰنِ الرَّحِيمِ',
     'الـحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ',
     'الرَّحْمَـٰنِ الرَّحِيمِ',
@@ -23,8 +33,11 @@ list1 = [
 ];list11 = [
     '1'
 ]
- list = [ 
-    "hhhh1",'hhhhhhhhdf2','gggdfdg3','ffffff fffffffff ffffff ffffffffff4','dfsaedsedfaaaa sfsddddd ddfsdf5','fff hhhhhh ff6'
+ list1 = [ 
+    "aseel",'hadeel','ghaleb','aseellllll43rrrrr ghaleb hammad shitiwi','hadeel',"aseel",'hadeel','ghaleb','aseel ghaleb hammad shitiwi4ee','hadeel'
+,"aseel hammad shitiwi",'hadeel hammad shitiwi','ghaleb','aseel ghaleb hammad shitiwi','hadeel','ghaleb','aseellllll43rrrrr ghaleb hammad shitiwi','hadeel',"aseel",'hadeel','ghaleb','aseel ghaleb hammad shitiwi4ee','hadeel'
+,"aseel hammad shitiwi",'hadeel hammad shitiwi','ghaleb','aseel ghaleb hammad shitiwi aseel ghaleb hammad shitiwi ',
+
 ]
 click(i:number){
  this.i=i;
@@ -48,7 +61,7 @@ closeSheet() {
 toggle() {
   this.open = true;
 }
-Style(i){
+Style1(i){
 if(i===this.i){
   return { 
   'font-size': '5.5vw',
@@ -57,6 +70,16 @@ if(i===this.i){
     }; 
 }else{ return {
   'font-size': '5.5vw','margin-inline-end': '1vw','margin-inline-start': '-1vw',
+    };}
+}Style(i){
+if(i===this.i){
+  return { 
+  'font-size': '4vw',
+  'background-color':'rgb(233, 233, 193)',
+ 'margin-inline-end': '-20vw','margin-inline-start': '35vw',
+    }; 
+}else{ return {
+  'font-size': '4vw','margin-inline-end': '1vw','margin-inline-start': '-1vw',
     };}
 }
 onclick(){
@@ -83,5 +106,21 @@ Style_r(i) {
     return { display: 'none' };
   }
 }
+flip(){
+  const lang = localStorage.getItem('lang');
 
+    if (lang === 'ar') {
+      return this.flipStyle;
+    } else {
+      return this.flipStyle1;
+    }
+}flip1(){
+  const lang = localStorage.getItem('lang');
+
+    if (lang === 'ar') {
+      return this.flipStyle1
+    } else {
+      return this.flipStyle;;
+    }
+}
 }

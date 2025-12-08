@@ -1,7 +1,4 @@
-<ion-slides [options]="slideOpts">
-  <ion-slide *ngFor="let item of list; let i = index;">
-<ion-content class="login-content" style=" --background: url('assets/icon/imagee.jpeg') no-repeat center center / cover;display: flex; flex-direction: column;height: 100vh;"[scrollY]="false" >
-<div *ngIf="showItem"
+<div><div *ngIf="showItem"
      style="
       position: fixed;
       top: 50%;
@@ -13,7 +10,7 @@
       border-radius: 20px;
       display: flex;
       flex-direction: column;
-      z-index: 9999;
+      z-index: 99999;
       box-shadow: 0 0 20px rgba(0,0,0,0.3);
       overflow: hidden;
 ">
@@ -61,7 +58,118 @@
       <div style="margin-bottom: 1vh;">العنصر 4</div>
   </div>
 
-</div><div style="display: flex;flex-direction: row;justify-content: space-between;"> <div style="display: flex;flex-direction: row;"> gggg tttttgggg</div><div>gggggg</div></div>
+</div>
+<div *ngIf="showItem"
+     style="
+      position: fixed;
+      top: 80%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 70vw;
+      height: 15vh;
+      background: white;
+      border-radius: 20px;
+      display: flex;
+      flex-direction: column;
+      z-index: 99999;
+      box-shadow: 0 0 20px rgba(0,0,0,0.3);
+      overflow: hidden;
+">
+  
+  
+  <div style="
+    width: 100%;
+    height: 8vh;
+    background: #f2f2f2;
+    
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 4vw;
+    font-weight: bold;
+    padding: 0 4vw;
+"> <img
+  src="assets/icon/remove.png"
+  (click)="showItem = false"
+  style="
+    width: 6vw;
+    cursor: pointer;
+    user-select: none;
+  "
+/>
+  <span>عنوان أو نص علوي</span>
+
+ <img
+  src="assets/icon/account-settings.png"
+  (click)="showItem = false"
+  style="
+    width: 6vw;
+    cursor: pointer;
+    user-select: none;
+  "
+/>
+</div>
+
+
+   <div style="
+    width: 100%;
+    height: 8vh;
+    background: #f2f2f2;
+   
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    font-size: 4vw;
+    font-weight: bold;
+    padding: 0 4vw;
+"> <img
+  src="assets/icon/next-button1.png"
+  (click)="showItem = false"
+  [style]='flip()'
+/>
+  
+ <img
+  src="assets/icon/play(2).png"
+  (click)="showItem = false"
+ [style]='flip1()'
+/>
+
+ <img
+  src="assets/icon/next-button1.png"
+  (click)="showItem = false"
+ [style]='flip1()'
+/>
+</div>
+    <div style="
+    width: 100%;
+    height: 8vh;
+  background: #f2f2f2;
+    
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 4vw;
+    font-weight: bold;
+    padding: 0 4vw;
+"> 
+<img
+  src="assets/icon/repeat (1).png"
+  (click)="showItem = false"
+  style="
+    width: 6vw;
+    cursor: pointer;
+    user-select: none;
+  "
+/>
+</div>
+
+</div>
+<ion-slides [options]="slideOpts" >
+  <ion-slide *ngFor="let item of list; let i = index;" >
+<ion-content class="login-content" style=" --background: url('assets/icon/imagee.jpeg') no-repeat center center / cover;display: flex; flex-direction: column;height: 100vh;"[scrollY]="false" >
+
+<div style="display: flex;flex-direction: row;justify-content: space-between;"> <div style="display: flex;flex-direction: row;"> gggg tttttgggg</div><div>gggggg</div></div>
 <div style="
   width: 100vw;
   height: 6vh;
@@ -120,6 +228,7 @@
   width: 7vw;
   height: 3vh;
   display: inline-block;
+  
  
 ">
   <img src="assets/icon/star.png" 
@@ -144,19 +253,19 @@
 </span>
 
 
-<div class="bottom-sheet" [class.open]="open">
+
+</div>
+<div style="height:100%;"(click)="onclick()"></div>
+</ion-content>  </ion-slide>
+</ion-slides><div class="bottom-sheet" [class.open]="open">
     <div class="box">
     <i class="fa-solid fa-cog icon" (click)="Tafsir()"></i>   
     <span class="center-text">Tafsir Al-Jalalayn</span>   
     <i (click)="onclickclose()" class="fa-solid fa-times-circle icon"></i> 
   </div>
-</div>
-</div>
-<div style="height:100%;"(click)="onclick()"></div>
-</ion-content>  </ion-slide>
-</ion-slides>
+</div></div>
 ////
-<ion-slides [options]="slideOpts">
+<!--<ion-slides [options]="slideOpts">
   <ion-slide *ngFor="let item of list; let i = index;">
     <div style="text-align: center; font-size: 5vw; margin: 3% 0;">
       {{ item }}
@@ -181,7 +290,7 @@
           <div style="font-size: 2vw;">{{i}}</div>
         </div>
       </div>
-    </span>
+    </span>-->
   
 <!-- ❌ تمت إزالة </div> الزائدة هنا -->
 

@@ -1,0 +1,53 @@
+.chats-content {
+ --background: #e5e6e4;
+  display: flex; 
+  flex-direction: column; 
+  justify-content: flex-start;
+  align-items: center; 
+  min-height: 100vh;
+  width:100vw ;
+}.rounded-rect{
+  width: 50vw;         /* عرض نسبي ليتناسب مع الشاشات */
+  max-width: 420px;    /* أقصى عرض */
+  height: 3vh;        /* ارتفاع نسبي */
+  box-sizing: border-box;
+  background: #ffffff;
+  border: 2px solid #222;   /* لون سمك الحد */
+  border-radius: 12px;      /* درجة الدوران */
+  display: flex;
+  align-items: center;
+
+  font-size: 1rem;
+}
+.search-box {
+  width: 65vw;
+  height: 3vh;
+  border: 2px solid #000;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  padding-inline: 2vw;
+  background: #fff;
+}
+
+.search-box .icon {
+  width: 4.5vw;
+  margin-inline-end: 2vw;
+}
+
+.search-input {
+  width: 100%;
+  border: none;
+  outline: none;
+  font-size: 4vw;
+  background: transparent;
+}
+.circle-img {
+  width: 10vw;
+  height: 10vw;           /* خليها متساوية للحصول على دائرة حقيقية */
+  cursor: pointer;
+  user-select: none;
+  margin-inline-start: 3%;
+  border-radius: 50%;     /* هذا يحوّل الصورة لدائرة */
+  object-fit: cover;      /* لتعبئة الدائرة بدون تشويه الصورة */
+}

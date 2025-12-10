@@ -1,0 +1,88 @@
+.circle-img {
+  width: 10vw;
+  height: 10vw;           /* خليها متساوية للحصول على دائرة حقيقية */
+  cursor: pointer;
+  user-select: none;
+  margin-inline-start: 3%;
+  border-radius: 50%;     /* هذا يحوّل الصورة لدائرة */
+  object-fit: cover;      /* لتعبئة الدائرة بدون تشويه الصورة */
+}
+.box {  
+  display: flex;
+  flex-direction: row;
+
+}
+.search-box .icon {
+  width: 4.5vw;
+  margin-inline-end: 2vw;
+}
+.chats-content {
+ --background: #e5e6e4;
+  display: flex; 
+  flex-direction: column; 
+  justify-content: flex-start;
+  align-items: center; 
+  min-height: 100vh;
+  width:100vw ;
+}
+.search-input {
+  width: 100%;
+  border: none;
+  outline: none;
+  font-size: 4vw;
+  background: transparent;
+}.footer-bar {  display: flex;
+ 
+  position: fixed;
+  bottom: 0;
+ justify-content: center;
+  width: 100vw;
+height: 20vh;
+
+  align-items: center;
+   /* ← يجعلهم جنب بعض */
+  padding: 2vw;
+
+  background: #755c5c; /* حتى يظهر فوق المحتوى */
+}
+
+/* صندوق البحث */
+.search-box {
+  width:70vw;
+  height: 5vh;                 /* ارتفاع مناسب للـ textarea */
+  border: 2px solid #000;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  padding-inline: 2vw;
+  background: #fff;
+}
+
+/* أيقونة البحث */
+.icon {
+  width: 6vw;
+  margin-inline-end: 2vw;
+}
+
+/* textarea */
+.search-area {
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+  resize: none;                /* يمنع تغيير الحجم */
+  font-size: 4vw;
+  background: transparent;
+  padding-top: 1vh;
+  box-sizing: border-box;
+}
+
+
+/* صورة المستخدم */
+.user-img {
+  width: 12vw;
+  height: 12vw;
+  border-radius: 50%;
+  object-fit: cover;
+  cursor: pointer;margin-inline-start: 80vw;margin-bottom: 2%;
+}

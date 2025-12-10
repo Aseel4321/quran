@@ -18,7 +18,9 @@ import { HomePageListComponent } from '../components/home-page-list/home-page-li
 import { HomePagePageComponent } from '../components/home-page-page/home-page-page.component';
 import { SurahComponent } from '../components/quran/surah/surah.component';
 import { SorahComponent } from '../components/sorah/sorah.component';
-import { ChatsComponent } from '../chats/chats.component';
+import { ChatsComponent } from '../components/chats/chats.component';
+import { MessagesPageComponent } from '../components/messages-page/messages-page.component';
+
 
 
 
@@ -35,7 +37,7 @@ const routes: Routes = [{path:'sorah',component:SorahComponent},
  {path:'quran',component:QuranComponent},
  {path:'notifi',component:NotificationsComponent},
  {path:'calendar',component:CalendarComponent},{path:'tasbeeh',component:TasbeehComponent},{path:'morning-adhkar',component:MorninAdhkarComponent}, { path: 'Supplications', component: SupplicationsComponent },
- {path:"home-page-list",component:HomePageListComponent},{path:"home-page-list-page",component:HomePagePageComponent},{path:"chats",component:ChatsComponent}
+ {path:"home-page-list",component:HomePageListComponent},{path:"home-page-list-page",component:HomePagePageComponent},{path:"chats",component:ChatsComponent},{path:"messages",component:MessagesPageComponent}
 ];
 
 @NgModule({

@@ -40,10 +40,12 @@ import { HomePageListComponent } from '../components/home-page-list/home-page-li
 import { HomePagePageComponent } from '../components/home-page-page/home-page-page.component';
 import { ReadComponent } from '../components/notification/read/read.component';
 import { UnreadComponent } from '../components/notification/unread/unread.component';
-import { ChatsComponent } from '../chats/chats.component';
+import { ChatsComponent } from '../components/chats/chats.component';
+import { MessagesPageComponent } from '../components/messages-page/messages-page.component';
+
 
 @NgModule({
-  declarations: [ChatsComponent,SorahComponent,UnreadComponent,ReadComponent,HomePagePageComponent,HomePageListComponent,SorahComponent,SupplicationsComponent,MorninAdhkarComponent,TasbeehComponent,CalendarComponent,NotificationsComponent,PageComponent,SurahComponent,PartComponent,QuranComponent,HomePageComponent,ProfileComponent,ProfileDetailsComponent,SettingsComponent,DeleteAccountComponent,AddCalendarComponent ],
+  declarations: [MessagesPageComponent,ChatsComponent,SorahComponent,UnreadComponent,ReadComponent,HomePagePageComponent,HomePageListComponent,SorahComponent,SupplicationsComponent,MorninAdhkarComponent,TasbeehComponent,CalendarComponent,NotificationsComponent,PageComponent,SurahComponent,PartComponent,QuranComponent,HomePageComponent,ProfileComponent,ProfileDetailsComponent,SettingsComponent,DeleteAccountComponent,AddCalendarComponent ],
   imports: [ CalendarModule, CommonModule,
       IonicModule,
       FormsModule,SwiperModule,

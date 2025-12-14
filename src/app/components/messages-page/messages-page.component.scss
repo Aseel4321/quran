@@ -10,7 +10,7 @@
 .box {  
   display: flex;
   flex-direction: row;
-
+   
 }
 .custom-box-left {
   width: 200px;
@@ -19,8 +19,8 @@
   
   border-radius: 20px;
   border-bottom-left-radius: 0;
-margin-inline-start: 5%;
- /* يجعل العنصر ثابتًا في النافذة */
+  margin-inline-start: 5%;
+ /* يبتًا في النافذة */
      /* يلصقه على أقصى اليسار */
        /* يمكنك تغير القيمة حسب ما تريد (المسافة من الأعلى) */
 }

@@ -24,7 +24,10 @@ private lockInProgress = false;
   ngOnInit(): void {
     this.lockInProgress = false;
 
-  this.platform.ready().then(() => {
+  this.platform.ready().then(() => {const height = this.platform.height(); document.documentElement.style.setProperty('--screen-h', `${height}px`);
+      const width = this.platform.width();
+      console.log('Screen Height:', height);
+      console.log('Screen Width:', width);
     this.initialHeight = window.innerHeight; 
     
     if (Capacitor.isNativePlatform() && !this.lockInProgress) {
@@ -66,7 +69,7 @@ private lockInProgress = false;
         'font-family': '"El Messiri", sans-serif',
       'font-weight': '600',
       'text-align': 'center',
-      'margin-top': '-1vw',
+      'margin-top': '-4vw',
     
     };
   } else {
@@ -74,7 +77,7 @@ private lockInProgress = false;
   'font-family': '"Jomolhari", serif',  // تغيير الخط هنا
   'font-weight': '500',
   'text-align': 'center',
-  'margin-top': '-1vw',
+  'margin-top': '-4vw',
   'font-size': '9.5vw'
 };
 

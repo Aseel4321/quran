@@ -34,7 +34,7 @@
     <div style="display: flex;height:7%;margin-top: 2%;
   flex-direction: row;width: 100vw"><ion-menu-toggle>
             <img src="assets/icon/aplication.png" alt="Login Image" style="width:8vw; height:3vh;margin-inline-start: 50%;">
-    </ion-menu-toggle> <div class="header-row"> <img routerLink="/notifi" src="assets/icon/notification.png" alt="Login Image" style="width:5vw; height:3vh;margin-inline-end: 30%;"></div> 
+    </ion-menu-toggle> <div class="header-row"> <img routerLink="/notifi" src="assets/icon/notification.png" alt="Login Image" style="width:5.5vw; height:3vh;margin-inline-end: 10%;"></div> 
 
 
 </div><div style="display: flex;align-items: center;text-align: center;justify-content: center;border-radius: 30px;"><ion-card  style="background-color: #9D9D9D3D;border-radius: 30px;margin-left: 8vw;margin-right: 8vw;width: 100vw;"><div style="display: flex;align-items: center;text-align: center;justify-content: center;background-color: #9D9D9D3D;border-radius: 30px;">
@@ -46,7 +46,7 @@
  
    <div style="display: flex;flex-direction: column;height:10vh;flex:4 ;align-items: center;margin-top: 7%;">
 <p style="height: 10px;font-size: 1.5vh;margin-bottom: 5% ;color: black;">{{prayer_s}} - {{city_api_s}}</p>
-<p style="height: 10px;font-weight: 500 ;font-size: 3vh;margin-top: 5% ;color: rgb(31, 29, 29);">{{prayer_timee_9_s}}</p>
+<p style="height: 10px;font-weight: 400 ;font-size: 3vh;margin-top: 5% ;color: black">{{prayer_timee_9_s}}</p>
   </div>
      <div style="display: flex;flex-direction: column;height:10vh;flex: 2;align-items: center;justify-content: center;margin-top: 3%;">
       <div style="height: 2vh;font-size:1vh;margin-bottom:3%;color: black;">{{time_now}}</div>
@@ -144,18 +144,13 @@
   <div *ngFor="let item of list_type()"
        style=" height: 10vh; width: 100%; display: flex; align-items: center; flex-direction: row; border-radius: 4vw;">
           <div style="display: flex; flex-direction: row; border-radius: 4vw;  align-items: center;
-  justify-content: space-between;"><ion-card  style="display: flex; flex-direction: row; height:auto ;width: 25vw;height:9vh ; background:#D9D9D9;border-radius: 4vw;">
-
-    <!-- النص -->
-    <div style="display: flex; align-items: center; flex: 2; justify-content: flex-start; margin: 0%;"(click)='val(item.name)'>
-      <p style="font-size: 3.3vw; margin-inline-start:25% ;color: black;">{{item.name}}</p>
-    </div>
-
-    <!-- الصورة -->
-    <div style="flex: 1; display: flex; justify-content: center; align-items: center;margin: 0%;">
-      <img [src]="item.image" style="height: 5vh;width:10vw ; margin-inline-end: 25%;">
-    </div>
-</ion-card></div>
+  justify-content: space-between;"><ion-card class="item-card" (click)="val(item.name)">
+  <div class="item-content">
+    <p class="item-text">{{item.name}}</p>
+    <img class="item-img" [src]="item.image">
+  </div>
+</ion-card>
+</div>
   </div>
 </div>
 <img 

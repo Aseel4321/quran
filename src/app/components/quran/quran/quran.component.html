@@ -1,4 +1,4 @@
- <ion-content [keyboardResize]="'none'" class="otp-container bg" scroll-y="true" > <div >  <div style="display: flex; flex-direction: row;text-align: center;align-items: center;height: 12vw;width:100vw ;"> 
+ <ion-content [keyboardResize]="'none'" class="otp-container" scroll-y="true" > <div class="bg"></div><div>  <div style="display: flex; flex-direction: row;text-align: center;align-items: center;height: 12vw;width:100vw ;"> 
   <img 
     src="assets/icon/Group 88 (1).png" 
     alt="Login Image" 
@@ -8,12 +8,12 @@
   />
 </div> <ion-icon (click)="goBack()" name="close" style="margin-inline-start: 4%;margin-top:-6% ;margin-bottom: 0%;"></ion-icon><div > 
 
-<h1 style=" align-items: center;text-align: center;justify-content: center;margin-bottom:8%;" [ngStyle]="title()">{{ 'QURAN' | translate }}</h1>
+<h1 style=" align-items: center;text-align: center;justify-content: center;margin-bottom:10%;" [ngStyle]="title()">{{ 'QURAN' | translate }}</h1>
 <ion-card
   style="
-    margin-left: 12vw;
-    margin-right: 12vw;
-    background-color: #f5da8c;
+    margin-left: 14vw;
+    margin-right: 14vw;
+    --background: url('assets/icon/image5.jpg') no-repeat center center / cover;
     border-radius: 25px;
     padding: 3% 5%;
     height: 40vw;

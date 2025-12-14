@@ -209,7 +209,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { Component, ViewChild, AfterViewInit, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Keyboard } from '@capacitor/keyboard';
-import { AlertController, IonInput, Platform } from '@ionic/angular';
+import { AlertController, IonInput, Platform} from '@ionic/angular';
 import { AuthService } from 'src/app/auth/auth-service/auth.service';
 import { MainServiceService } from 'src/app/main-service/main/main-service.service';
 import { Location } from '@angular/common';
@@ -246,7 +246,7 @@ list_langCountries = localStorage.getItem('lang') == "ar"
   { name: this.list_langCountries[7], flag: "assets/icon/man8.png", dial_code: '+973' }, // البحرين
 ];
 constructor(private platform: Platform, private service: MainServiceService ,private servicea: AuthService ,private alertController: AlertController,private router: Router,private location: Location,){}
-  ngOnInit(): void {
+  ngOnInit(): void {  this.platform.ready().then(() => { this.service.Platform()});
    this.keyboardWillShowListener = Keyboard.addListener('keyboardWillShow', () => {
       this.isKeyboardOpen = true; // السماح بالتمرير
     });

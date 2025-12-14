@@ -11,7 +11,7 @@
 .bg {
   background: url('assets/icon/imagee.jpeg') no-repeat center center / cover;  position: fixed;
   width: 100vw;
-  height: 200vw;
+  height: var(--screen-h); 
   z-index: -1;
 }
 /* Core CSS required for Ionic components to work properly */

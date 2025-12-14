@@ -1,11 +1,14 @@
+import { PlatformModule } from '@angular/cdk/platform';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Platform } from '@ionic/angular';
+
 import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
-export class MainServiceService {
+export class MainServiceService {  constructor(private http: HttpClient,private platform: Platform) { }
   adkar:any;
  date:any='';
  prayer:any;
@@ -17,6 +20,7 @@ export class MainServiceService {
  text_name:string='AL-Hadith';
  timePeriodday: string = '';
  times:Model[]=[];
+
 delete(data: any): Observable<any> {
   const headers = new HttpHeaders({
     'Accept': 'application/json',
@@ -73,6 +77,11 @@ range_calendar(): Observable<any> {//var email=localStorage.getItem('email');
       
     
   );
+}Platform(){
+const height = this.platform.height(); document.documentElement.style.setProperty('--screen-h', `${height}px`);
+      const width = this.platform.width();
+      console.log('Screen Height:', height);
+      console.log('Screen Width:', width);
 }
 update_calendar(data: any): Observable<any> {var email=localStorage.getItem('email');
   const headers = new HttpHeaders({
@@ -102,7 +111,7 @@ prayer_times(data: any): Observable<any> {
   );
 }
 
-  constructor(private http: HttpClient) { }
+
 }
 interface Model {
   name: string;

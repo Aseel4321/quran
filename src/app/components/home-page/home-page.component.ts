@@ -152,17 +152,16 @@ this.time_now=this.service.time_now;
   return  localStorage.getItem('lang') === 'ar' ?[
     { name: "التسبيح", image: 'assets/icon/beads.png' },
     { name: "مجموعه القران", image: 'assets/icon/group.png' },
-   
     { name: "القرآن الكريم", image: 'assets/icon/quran.png' },
-    { name: "الدعاء", image: 'assets/icon/prayer.png' },
-    { name: "الاذكار", image: 'assets/icon/praying.png' }
+    { name: "الدعاء", image: 'assets/icon/praying.png' },
+    { name: "دردشه", image: 'assets/icon/chat.png' }
   ]:[
     { name: "Tesbeeh", image: 'assets/icon/beads.png' },
     { name: "Quran group", image: 'assets/icon/group.png' },
  
     { name: "Al-Quran", image: 'assets/icon/quran.png' },
-    { name: "Dua", image: 'assets/icon/prayer.png' },
-    { name: "Adhkar", image: 'assets/icon/praying.png' }
+    { name: "Dua", image: 'assets/icon/praying.png' },
+    { name: "Chat", image: 'assets/icon/chat.png' }
   ]
  }
     updateTime() {

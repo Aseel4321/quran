@@ -35,7 +35,10 @@ goBack() {
 }
   ngOnInit() {  this.lockInProgress = false;
 
-  this.platform.ready().then(() => {
+  this.platform.ready().then(() => {const height = this.platform.height(); document.documentElement.style.setProperty('--screen-h', `${height}px`);
+      const width = this.platform.width();
+      console.log('Screen Height:', height);
+      console.log('Screen Width:', width);
     this.initialHeight = window.innerHeight; // حفظ الارتفاع الأصلي
 
     if (Capacitor.isNativePlatform() && !this.lockInProgress) {

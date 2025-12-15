@@ -12,7 +12,7 @@
 </div><ion-icon   name="close" (click)="goBack()" style="margin-inline-start: 5%;"></ion-icon>
   <div class="header">
     <p class="title" [ngStyle]="title()">{{ 'Dua' | translate }}</p>
-    <img src="assets/icon/prayer.png" class="icon" />
+    <img src="assets/icon/praying.png" class="icon" />
   </div>
 <div style="
   display: flex;
@@ -24,7 +24,7 @@ margin-top: 10%;
   text-align: center;
 ">
   <div *ngFor="let card of list_type()" class="card">
-    <p class="card-text">{{ card.text }}</p>
+    <p style="margin-top: 5%;">{{ card.text }}</p>
     
   </div>
 </div>

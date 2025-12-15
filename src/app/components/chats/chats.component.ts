@@ -45,7 +45,7 @@ if(name==this.Name){
     marginInlineStart: '3%'
   };}
  
-}ff
+}
 cir(name){console.log(name);
   if(name==this.Name){
     return 'circley';

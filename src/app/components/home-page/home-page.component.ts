@@ -154,7 +154,7 @@ this.time_now=this.service.time_now;
     { name: "مجموعه القران", image: 'assets/icon/group.png' },
     { name: "القرآن الكريم", image: 'assets/icon/quran.png' },
     { name: "الدعاء", image: 'assets/icon/praying.png' },
-    { name: "دردشه", image: 'assets/icon/chat.png' }
+    { name: "محادثه", image: 'assets/icon/chat.png' }
   ]:[
     { name: "Tesbeeh", image: 'assets/icon/beads.png' },
     { name: "Quran group", image: 'assets/icon/group.png' },
@@ -713,8 +713,8 @@ this.prayer_s=this.service.prayer;
     this.router.navigate(['/quran']);
   } else if (v === 'AL-Hadith' || v === 'الحديث الشريف') {
    
-  } else if (v === 'Tafsir' || v === 'التفسير') {
-  
+  } else if (v === 'Chat' || v === 'محادثه') {
+  this.router.navigate(['/chats']);
   } else if (v === 'Dua' || v === 'الدعاء') {
     this.router.navigate(['/home-page-list']);
   } else if (v === 'Adhkar' || v === 'الاذكار') {

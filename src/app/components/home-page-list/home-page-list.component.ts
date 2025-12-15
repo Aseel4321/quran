@@ -7,6 +7,7 @@ import Swiper from 'swiper/types/swiper-class';
 import { AuthService } from '../../auth/auth-service/auth.service';
 import { ScreenOrientation } from '@capacitor/screen-orientation';
 import { MainServiceService } from '../../main-service/main/main-service.service';
+import { HttpErrorResponse } from '@angular/common/http';
 @Component({
   selector: 'app-home-page-list',
   templateUrl: './home-page-list.component.html',
@@ -14,6 +15,18 @@ import { MainServiceService } from '../../main-service/main/main-service.service
 })
 export class HomePageListComponent  implements OnInit{
 
+
+  login() {
+    this.service.remembrance().subscribe(
+      (data: any) => {
+        console.log(data);
+      },
+      (e: HttpErrorResponse) => {
+        console.log(e);
+    
+      }
+    );
+  }
    cards = [
     { text: 'Morning Supplications', image: 'assets/icon/morning.png' },
     { text: 'Evening Supplications', image: 'assets/icon/evning.png' },
@@ -82,7 +95,7 @@ swiperRef!: Swiper;
   keyboardWillHideListener: any;
 private lockInProgress = false;
   constructor(private platform: Platform,private cdr: ChangeDetectorRef,private router: Router,private servicea: AuthService,private service: MainServiceService ){}
-  ngOnInit(): void {
+  ngOnInit(): void {this.login(); 
     this.lockInProgress = false;
 
   this.platform.ready().then(() => {

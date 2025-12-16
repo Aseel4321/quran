@@ -12,9 +12,9 @@
   flex-direction: row;
    
 }
-.custom-box-left {
-  width: 200px;
-  height: 100px;
+.custom-box-left {padding-right: 3%; padding-left: 3%;
+ max-width: 150px;
+  max-height: 100px;
   background: #D9D9D9;
   
   border-radius: 20px;
@@ -25,10 +25,10 @@
        /* يمكنك تغير القيمة حسب ما تريد (المسافة من الأعلى) */
 }
 
-.custom-box-right {
-  width: 200px;
-  height: 100px;
-  background: #D9D9D9;
+.custom-box-right {padding-right: 3%; padding-left: 3%;
+   max-width: 150px;
+  max-height: 100px;
+  background: #F8D36CD6;
 margin-inline-end: 5%;
   border-radius: 20px; /* يدير كل الزوايا */
    /* نلغي التدوير على اليسار */
@@ -72,12 +72,12 @@ height: 20vh;
 .search-box {
   width:70vw;
   height: 5vh;                 /* ارتفاع مناسب للـ textarea */
-  border: 2px solid #000;
+ 
   border-radius: 12px;
   display: flex;
   align-items: center;
   padding-inline: 2vw;
-  background: #fff;
+  background: #D5D5D5;
 }
 
 /* أيقونة البحث */

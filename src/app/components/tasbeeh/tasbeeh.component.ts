@@ -12,7 +12,8 @@ import { Router } from '@angular/router';
   templateUrl: './tasbeeh.component.html',
   styleUrls: ['./tasbeeh.component.scss'],
 })
-export class TasbeehComponent  implements OnInit{ @ViewChild(IonSlides) slides!: IonSlides;
+export class TasbeehComponent  implements OnInit{ //@ViewChild(IonSlides) slides!: IonSlides;
+  @ViewChild('slides', { static: false }) slides!: IonSlides;
   slideOpts = {
   initialSlide: 0,
   slidesPerView: 1,
@@ -38,8 +39,8 @@ swiperRef!: Swiper;
 private lockInProgress = false;
   constructor(private platform: Platform,private cdr: ChangeDetectorRef,private location: Location,private router: Router){}
   ngOnInit(): void {
+ 
     this.lockInProgress = false;
-
   this.platform.ready().then(() => {
     this.initialHeight = window.innerHeight; // حفظ الارتفاع الأصلي
 
@@ -169,9 +170,21 @@ c3_image(){
   } else {
     return 'border-radius: 50%;background-color: hsla(0, 0%, 85%, 1);margin-top: 7%;height: 13vw;width: 13vw;margin-inline-end: 20vw;position: absolute;margin-top:3vw';
   }
-}goBack() {
+}async goBack() { 
  this.router.navigate(['/home-page']);
 }
+  async goNext() {
+  if (this.slides) {
+      await this.slides.slideNext(); // انتقل للسلايد التالي
+    }
+  }
+
+  async goPrev() {
+    if (this.slides) {
+      await this.slides.slidePrev(); // انتقل للسلايد السابق
+    }
+  }
+
   slid = ['A', 'B', 'C', 'D', 'E','Y']; // يمكنك وضع أي بيانات بدلًا من A وB وC...
  
 

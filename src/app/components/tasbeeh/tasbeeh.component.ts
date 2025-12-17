@@ -6,6 +6,8 @@ import { ScreenOrientation } from '@capacitor/screen-orientation';
 import SwiperCore, { Swiper, SwiperOptions } from 'swiper';
 import { Location } from '@angular/common';
 import { Router } from '@angular/router';
+import { MainServiceService } from 'src/app/main-service/main/main-service.service';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-tasbeeh',
@@ -37,10 +39,12 @@ swiperRef!: Swiper;
   keyboardWillShowListener: any;
   keyboardWillHideListener: any;
 private lockInProgress = false;
-  constructor(private platform: Platform,private cdr: ChangeDetectorRef,private location: Location,private router: Router){}
-  ngOnInit(): void {
+name:any;
+  constructor(private platform: Platform,private cdr: ChangeDetectorRef,private location: Location,private router: Router,private service: MainServiceService){}
  
-    this.lockInProgress = false;
+  ngOnInit(): void {this.name=this.service.name1;
+    this.login()
+this.lockInProgress = false;
   this.platform.ready().then(() => {
     this.initialHeight = window.innerHeight; // حفظ الارتفاع الأصلي
 
@@ -157,6 +161,18 @@ c2_image(){
   }
 
 }
+  login(){
+    this.service.remembrance1(localStorage.getItem('lang') === 'ar'?'AR':'EN',this.service.name1).subscribe(
+      (data: any) => {
+      this.slid=data;
+        console.log(data);
+      },
+      (e: HttpErrorResponse) => {  console.log('e');
+        console.log(e); console.log('ee');
+    
+      }
+    );
+  }
 c3_image(){
   if (this.keyboardOpen) {
     return 'display: none;';
@@ -222,7 +238,7 @@ onSwiper(swiper: Swiper) {
     'margin-inline-end': '10%',
     'background-color': bgColor,
   };
-}
+} 
 count() {
   this.num = this.num + 1;
    // تحويل الرقم العربي

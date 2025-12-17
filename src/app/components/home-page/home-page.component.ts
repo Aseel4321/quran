@@ -707,15 +707,15 @@ this.prayer_s=this.service.prayer;
     
   }
 }val(v: string) {console.log(v);
-  if (v === 'Tesbeeh' || v === 'التسبيح') {
-    this.router.navigate(['/tasbeeh']);
+  if (v === 'Tesbeeh' || v === 'التسبيح') {this.service.name=v;
+    this.router.navigate(['/home-page-list']);
   } else if (v === 'Al-Quran' || v === 'القرآن الكريم') {
     this.router.navigate(['/quran']);
   } else if (v === 'AL-Hadith' || v === 'الحديث الشريف') {
    
   } else if (v === 'Chat' || v === 'محادثه') {
   this.router.navigate(['/chats']);
-  } else if (v === 'Dua' || v === 'الدعاء') {
+  } else if (v === 'Dua' || v === 'الدعاء') {this.service.name=v;
     this.router.navigate(['/home-page-list']);
   } else if (v === 'Adhkar' || v === 'الاذكار') {
    this.router.navigate(['/Supplications']);

@@ -11,7 +11,7 @@
     style="display: block; width: 50%;margin-inline-end: 65%;margin-top: 9%;"
   />
 </div><ion-icon (click)="goBack()" name="close" style="margin-inline-start: 5%;margin-top:0% ;margin-bottom: 0%;"></ion-icon>
-<h1 style=" align-items: center;text-align: center;justify-content: center;font-weight: 400;margin-top: -2%;" [ngStyle]="title()">{{'Tesbeeh' | translate }}</h1>
+<h1 style=" align-items: center;text-align: center;justify-content: center;font-weight: 400;margin-top: -2%;" [ngStyle]="title()">{{name}}</h1>
 
 <ion-slides
   #slides
@@ -20,16 +20,17 @@
   style="height:85%; width:100%;"
 >
   <ion-slide *ngFor="let item of slid">
-    <div style="display: flex;flex-direction: column;width: 100vw;"> <div class="slide-box">{{ item }}</div>
-    <div style="width:  90%; height:0.7%; color: rgb(198, 193, 193); border: 1px solid #ccc; border-radius: 10px; background-color: rgb(198, 193, 193); margin: 0 auto;"></div>
-    <div class="slide-box">{{ item }}</div></div>
+    <div style="display: flex;flex-direction: column;width: 100vw;"> 
+      
+   
+    <div class="slide-box">{{ item.description}}</div></div>
    
   </ion-slide>
 </ion-slides>
 
 
 
-<!-- المؤشرات -->
+
 <div
   style="text-align:center; align-items:center; justify-content:center; display:flex; flex-direction:row; width:100vw; margin-top:-15%;"
 >

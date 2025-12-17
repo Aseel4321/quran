@@ -8,6 +8,7 @@ import Swiper from 'swiper/types/swiper-class';
 
 import { ScreenOrientation } from '@capacitor/screen-orientation';
 import { AuthService } from 'src/app/auth/auth-service/auth.service';
+import { HttpErrorResponse } from '@angular/common/http';
 @Component({
   selector: 'app-home-page-page',
   templateUrl: './home-page-page.component.html',
@@ -60,6 +61,7 @@ export class HomePagePageComponent
 
   }
 }
+
     initialHeight: number = window.innerHeight;
 keyboardOpen: boolean = false;
  isKeyboardOpen: boolean = false;

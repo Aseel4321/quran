@@ -19,9 +19,9 @@ export class MainServiceService {  constructor(private http: HttpClient,private 
  time_now:any;
  text_name:string='AL-Hadith';
  timePeriodday: string = '';
- times:Model[]=[];
+ times:Model[]=[];name1:any;
  r='AR';
- r1='الدعاء';
+name='الدعاء';
 remembrance(lang,name): Observable<any> {
   const headers = new HttpHeaders({
     'Accept': 'application/json',
@@ -30,6 +30,17 @@ remembrance(lang,name): Observable<any> {
   });
 
   const url = `https://margherita-circadian-minta.ngrok-free.dev/remembrance/get-categories?language=${lang}&category=${name}`;
+
+  return this.http.get(url, { headers });
+}
+remembrance1(lang,name): Observable<any> {
+  const headers = new HttpHeaders({
+    'Accept': 'application/json',
+    'Content-Type': 'application/json',
+    'ngrok-skip-browser-warning': 'true'
+  });
+
+  const url = `https://margherita-circadian-minta.ngrok-free.dev/remembrance/get-remembrance?language=${lang}&categoryName=${name}`;
 
   return this.http.get(url, { headers });
 }

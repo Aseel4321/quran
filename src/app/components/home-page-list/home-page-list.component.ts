@@ -13,12 +13,11 @@ import { HttpErrorResponse } from '@angular/common/http';
   templateUrl: './home-page-list.component.html',
   styleUrls: ['./home-page-list.component.scss'],
 })
-export class HomePageListComponent  implements OnInit{list:[]=[];
+export class HomePageListComponent  implements OnInit{list:[]=[];name:string;
 
 
   login(){
-    
-    this.service.remembrance(localStorage.getItem('lang') === 'ar'?'AR':'EN','الدعاء').subscribe(
+    this.service.remembrance(localStorage.getItem('lang') === 'ar'?'AR':'EN',this.service.name).subscribe(
       (data: any) => {
         this.list=data;
         console.log(data);
@@ -29,6 +28,7 @@ export class HomePageListComponent  implements OnInit{list:[]=[];
       }
     );
   }
+  
    cards = [
     { text: 'Morning Supplications', image: 'assets/icon/morning.png' },
     { text: 'Evening Supplications', image: 'assets/icon/evning.png' },
@@ -97,7 +97,8 @@ swiperRef!: Swiper;
   keyboardWillHideListener: any;
 private lockInProgress = false;
   constructor(private platform: Platform,private cdr: ChangeDetectorRef,private router: Router,private servicea: AuthService,private service: MainServiceService ){}
-  ngOnInit(): void {this.login(); 
+  ngOnInit(): void {this.name=this.service.name
+    this.login(); 
     this.lockInProgress = false;
 
   this.platform.ready().then(() => {
@@ -135,7 +136,10 @@ private lockInProgress = false;
        // منع التمرير عند إغلاق الكيبورد
     });
   }
-
+click(v){console.log(v)
+  this.service.name1=v;
+  this.router.navigate(['/tasbeeh']);
+}
  goBack() {
   this.router.navigate(['/home-page']);
 }

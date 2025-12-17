@@ -11,13 +11,13 @@
   />
 </div><ion-icon   name="close" (click)="goBack()" style="margin-inline-start: 5%;"></ion-icon>
   <div class="header">
-    <p class="title" [ngStyle]="title()">{{ 'Dua' | translate }}</p>
+    <p class="title" [ngStyle]="title()">{{name}}</p>
     <img src="assets/icon/praying.png" class="icon" />
   </div>
 <div class="page">
   <div class="cards-scroll">
-    <div *ngFor="let card of list" class="card">
-      <div>{{ card }}</div>
+    <div *ngFor="let card of list" class="card" (click)="click(card)">
+      <div >{{ card }}</div>
     </div>
   </div>
 </div>

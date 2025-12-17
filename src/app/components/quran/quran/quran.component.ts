@@ -69,8 +69,8 @@ private lockInProgress = false;
         'font-family': '"El Messiri", sans-serif',
       'font-weight': '600',
       'text-align': 'center',
-      'margin-top': '-4vw',
-    
+      'margin-top': '-3.5vw',
+    'font-size': '7vw'
     };
   } else {
    return {

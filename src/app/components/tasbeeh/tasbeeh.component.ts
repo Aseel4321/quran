@@ -28,6 +28,8 @@ export class TasbeehComponent  implements OnInit{ //@ViewChild(IonSlides) slides
   'Slide 3',
   'Slide 4',
   'Slide 5'
+
+  
 ];
 num:any=0;num1:any;
     initialHeight: number = window.innerHeight;

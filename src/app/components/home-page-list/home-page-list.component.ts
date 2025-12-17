@@ -13,16 +13,18 @@ import { HttpErrorResponse } from '@angular/common/http';
   templateUrl: './home-page-list.component.html',
   styleUrls: ['./home-page-list.component.scss'],
 })
-export class HomePageListComponent  implements OnInit{
+export class HomePageListComponent  implements OnInit{list:[]=[];
 
 
-  login() {
-    this.service.remembrance().subscribe(
+  login(){
+    
+    this.service.remembrance(localStorage.getItem('lang') === 'ar'?'AR':'EN','الدعاء').subscribe(
       (data: any) => {
+        this.list=data;
         console.log(data);
       },
-      (e: HttpErrorResponse) => {
-        console.log(e);
+      (e: HttpErrorResponse) => {  console.log('e');
+        console.log(e); console.log('ee');
     
       }
     );
@@ -37,17 +39,17 @@ export class HomePageListComponent  implements OnInit{
   list_type() {if(this.service.text_name!='AL-Hadith'){
  return localStorage.getItem('lang') === 'ar'
     ? [
-        { text: 'أحاديث عن طلب العلم', image: 'assets/icon/morning.png' },
-        { text: 'أحاديث عن فضل القرآن', image: 'assets/icon/evning.png' },
-        { text: 'أحاديث عن الأخلاق', image: 'assets/icon/sleep.png' },
-        { text: 'احاديث عن النية والإخلاص', image: 'assets/icon/waking-up.png' },
+        { text: 'أحاديث عن طلب العلم'},
+        { text: 'أحاديث عن فضل القرآن'},
+        { text: 'أحاديث عن الأخلاق'},
+        { text: 'احاديث عن النية والإخلاص'},
      
       ]
     : [
-        { text: 'Hadiths About Seeking Knowledge', image: 'assets/icon/morning.png' },
-        { text: 'Hadiths About the Virtue of the Qur’an', image: 'assets/icon/evning.png' },
-        { text: 'Hadiths About Good Manners', image: 'assets/icon/sleep.png' },
-        { text: 'Hadiths About Intention and Sincerity', image: 'assets/icon/waking-up.png' },
+        { text: 'Hadiths About Seeking Knowledge'},
+        { text: 'Hadiths About the Virtue of the Qur’an'},
+        { text: 'Hadiths About Good Manners'},
+        { text: 'Hadiths About Intention and Sincerity'},
       ];
   }else{ return localStorage.getItem('lang') === 'ar'
     ? [

@@ -14,20 +14,14 @@
     <p class="title" [ngStyle]="title()">{{ 'Dua' | translate }}</p>
     <img src="assets/icon/praying.png" class="icon" />
   </div>
-<div style="
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-margin-top: 10%;
-  width: 100vw;
-  min-height: 100vh;
-  text-align: center;
-">
-  <div *ngFor="let card of list_type()" class="card">
-    <p style="margin-top: 5%;">{{ card.text }}</p>
-    
+<div class="page">
+  <div class="cards-scroll">
+    <div *ngFor="let card of list" class="card">
+      <div>{{ card }}</div>
+    </div>
   </div>
 </div>
+
 
  
 

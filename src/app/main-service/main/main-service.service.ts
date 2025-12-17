@@ -20,18 +20,20 @@ export class MainServiceService {  constructor(private http: HttpClient,private 
  text_name:string='AL-Hadith';
  timePeriodday: string = '';
  times:Model[]=[];
- r='EN';
- r1='Dua';
-remembrance(): Observable<any> {
+ r='AR';
+ r1='الدعاء';
+remembrance(lang,name): Observable<any> {
   const headers = new HttpHeaders({
     'Accept': 'application/json',
-    'Content-Type': 'application/json'
+    'Content-Type': 'application/json',
+    'ngrok-skip-browser-warning': 'true'
   });
 
-  const url = `http://margherita-circadian-minta.ngrok-free.dev/remembrance/get-categories?language=${this.r}&category=${this.r1}`;
+  const url = `https://margherita-circadian-minta.ngrok-free.dev/remembrance/get-categories?language=${lang}&category=${name}`;
 
   return this.http.get(url, { headers });
 }
+//`https://margherita-circadian-minta.ngrok-free.dev/remembrance/get-categories?language=${this.r}&category=${this.r1}`
 delete(data: any): Observable<any> {
   const headers = new HttpHeaders({
     'Accept': 'application/json',

@@ -30,15 +30,34 @@ width:20vw; height:46vw;
   justify-content: center; /* لتوسيط عمودياً */
   min-height: 100vh;       /* لتملأ الصفحة عمودياً */
 }
-.card {margin-bottom: 6%;
+.card {
+  margin-bottom: 6%;
   display: flex;
-  justify-content: center; 
-  align-items: center;    
-  width: 62%;
-  height:11vw ;
-  padding: 10px;
+  justify-content: center;  /* توسيط أفقي للنص */
+  align-items: center;      /* توسيط عمودي للنص */
+  width: 70%;
+  height: 11vw;
+  padding: 5%;
   border-radius: 25px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  text-align: center;       /* توسيط النص داخل البلوك */
+}
+
+
+.page {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center; 
+}
+
+.cards-scroll {padding-top:7%;padding-bottom: 5%;
+  width: 100%;
+  height:85%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;     /* توسيط العناصر */
+  overflow-y: auto;        /* تفعيل السكروول */
 }
 
 

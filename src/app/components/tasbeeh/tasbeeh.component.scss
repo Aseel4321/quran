@@ -17,9 +17,8 @@
 .half-circle-left {position: relative;
 width:20vw; height:46vw;
      background:linear-gradient(to right, #FFBC42, #a78c71); // لون رمادي عند invalid
-;;
-  border-top-left-radius: 200px;
-  border-bottom-left-radius: 200px;
+  border-top-left-radius:50vw;
+  border-bottom-left-radius:50vw;
 }
 
 swiper-slide {height: 70%;

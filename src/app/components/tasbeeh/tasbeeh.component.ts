@@ -28,9 +28,8 @@ export class TasbeehComponent  implements OnInit{ //@ViewChild(IonSlides) slides
   'Slide 3',
   'Slide 4',
   'Slide 5'
-
-  
 ];
+repeatCount:any;
 num:any=0;num1:any;
     initialHeight: number = window.innerHeight;
 keyboardOpen: boolean = false;
@@ -42,9 +41,10 @@ swiperRef!: Swiper;
   keyboardWillHideListener: any;
 private lockInProgress = false;
 name:any;
+name1:any;
   constructor(private platform: Platform,private cdr: ChangeDetectorRef,private location: Location,private router: Router,private service: MainServiceService){}
  
-  ngOnInit(): void {this.name=this.service.name1;
+  ngOnInit(): void {this.name=this.service.name1;this.name1=this.service.name;
     this.login()
 this.lockInProgress = false;
   this.platform.ready().then(() => {
@@ -203,7 +203,7 @@ c3_image(){
     }
   }
 
-  slid = ['A', 'B', 'C', 'D', 'E','Y']; // يمكنك وضع أي بيانات بدلًا من A وB وC...
+  slid:SlideItem[] =[]; // يمكنك وضع أي بيانات بدلًا من A وB وC...
  
 
  list1 = [1, 2, 3,]; // بعدد السلايدات
@@ -222,6 +222,9 @@ onSwiper(swiper: Swiper) {
  onSlideChange() {
     this.slides.getActiveIndex().then(index => {
       this.currentSlide = index;
+      this.repeatCount=this.slid[this.currentSlide].repeatCount;
+      console.log('this.repeatCount');
+      console.log(this.repeatCount);
       this.num=0;
       console.log('Current slide:', this.currentSlide);
     });
@@ -241,8 +244,8 @@ onSwiper(swiper: Swiper) {
     'background-color': bgColor,
   };
 } 
-count() {
-  this.num = this.num + 1;
+count() {if(this.slid[this.currentSlide].repeatCount>this.num){this.num = this.num + 1;}else{}
+  
    // تحويل الرقم العربي
 }title() {
   if (localStorage.getItem('lang') === 'ar') {
@@ -276,3 +279,7 @@ im(): string {
 
 
 
+interface SlideItem {id:number; description:string;
+  repeatCount: number;
+  // أي خصائص أخرى موجودة
+}

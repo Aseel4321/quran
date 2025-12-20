@@ -28,7 +28,22 @@ export class HomePageListComponent  implements OnInit{list:[]=[];name:string;
       }
     );
   }
+  delete(){
+   
+    this.service.delete11({
+      "email":'aseelghaleb2088@gmail.com',
+      "status":'hhh',
+  }).subscribe((data:any)=>{ console.log('ggggghhhhhhhhhhhhhhhhhhhhhhhhhdddddddddddddd');console.log(data);if(localStorage.getItem('lang')=='ar'){}else{}
+ 
+    },(error: HttpErrorResponse)=>{
+      console.log(error?.error?.arDescription)
+        if(localStorage.getItem('lang')=='ar'){  
+        console.error(error.error);
   
+        }else{ }
+    });
+  
+   }
    cards = [
     { text: 'Morning Supplications', image: 'assets/icon/morning.png' },
     { text: 'Evening Supplications', image: 'assets/icon/evning.png' },
@@ -98,7 +113,7 @@ swiperRef!: Swiper;
 private lockInProgress = false;
   constructor(private platform: Platform,private cdr: ChangeDetectorRef,private router: Router,private servicea: AuthService,private service: MainServiceService ){}
   ngOnInit(): void {this.name=this.service.name
-    this.login(); 
+    this.login(); this.delete();
     this.lockInProgress = false;
 
   this.platform.ready().then(() => {

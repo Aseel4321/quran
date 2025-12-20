@@ -43,6 +43,19 @@ remembrance1(lang,name): Observable<any> {
   const url = `https://margherita-circadian-minta.ngrok-free.dev/remembrance/get-remembrance?language=${lang}&categoryName=${name}`;
 
   return this.http.get(url, { headers });
+}delete11(data: any): Observable<any> {
+  const headers = new HttpHeaders({
+    'Accept': 'application/json',
+    'Content-Type': 'application/json'
+  });
+
+  return this.http.post(
+    'https://margherita-circadian-minta.ngrok-free.dev/api/notifications/get',  
+    {
+      headers: headers,
+      body: data
+    }
+  );
 }
 //`https://margherita-circadian-minta.ngrok-free.dev/remembrance/get-categories?language=${this.r}&category=${this.r1}`
 delete(data: any): Observable<any> {

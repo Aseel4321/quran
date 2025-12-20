@@ -173,15 +173,15 @@ this.time_now=this.service.time_now;
 
     
 
-  }list_card(){if(localStorage.getItem('lang') === 'ar'){if(this.timePeriod=="PM"){this.service.timePeriodday="أذكار المساء";
+  }list_card(){if(localStorage.getItem('lang') === 'ar'){if(this.timePeriod=="PM"){this.service.timePeriodday="أذكار المساء";this.service.name1='المساء';
     this.timePeriodday=this.service.timePeriodday;
    
-  }else if(this.timePeriod=="AM"){this.service.timePeriodday="أذكار الصباح"
+  }else if(this.timePeriod=="AM"){this.service.timePeriodday="أذكار الصباح";this.service.name1='الصباح';
     this.timePeriodday=this.service.timePeriodday; }}else{
-    if(this.timePeriod=="PM"){this.service.timePeriodday="Evening Adhkar";
+    if(this.timePeriod=="PM"){this.service.timePeriodday="Evening Adhkar";this.service.name1='Evening';
     this.timePeriodday=this.service.timePeriodday;
    
-  }else if(this.timePeriod=="AM"){this.service.timePeriodday="Morning Adhkar";
+  }else if(this.timePeriod=="AM"){this.service.timePeriodday="Morning Adhkar";this.service.name1='Morning';
     this.timePeriodday=this.service.timePeriodday;}
   }
  if(localStorage.getItem('lang') === 'ar'){ return [
@@ -724,8 +724,8 @@ this.prayer_s=this.service.prayer;
   }else if(v=="Morning Adhkar"||v=="أذكار الصباح"){}
 }
 val1(v){
-  if(v=='Quran Completion'||v=="إتمام القرآن"){}else if(v=='Evening Adhkar'||v== "أذكار المساء"){this.router.navigate(['/morning-adhkar']);}else if(v=='Quran Memorization Test'||v=="اختبار حفظ القرآن"){this.router.navigate(['/quran']);}
-  else if(v=="Morning Adhkar"||v=="أذكار الصباح"){ this.router.navigate(['/quran']);}
+  if(v=='Quran Completion'||v=="إتمام القرآن"){}else if(v=='Evening Adhkar'||v== "أذكار المساء"){this.router.navigate(['/tasbeeh']);}else if(v=='Quran Memorization Test'||v=="اختبار حفظ القرآن"){this.router.navigate(['/quran']);}
+  else if(v=="Morning Adhkar"||v=="أذكار الصباح"){ this.router.navigate(['/tasbeeh']);}
 }
 }
 

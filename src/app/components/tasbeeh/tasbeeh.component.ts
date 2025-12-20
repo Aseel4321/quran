@@ -179,8 +179,6 @@ c3_image(){
   if (this.keyboardOpen) {
     return 'display: none;';
   }
-
- 
   const lang = localStorage.getItem('lang');
 
    if (lang === 'ar') {

@@ -26,11 +26,11 @@ export class HomePageListComponent  implements OnInit{list:[]=[];name:string;
         console.log(e); console.log('ee');
     
       }
-    );
+    );   
   }
   delete(){
    
-    this.service.delete11({
+    this.service.notifications_get({
       "email":'aseelghaleb2088@gmail.com',
       "status":'hhh',
   }).subscribe((data:any)=>{ console.log('ggggghhhhhhhhhhhhhhhhhhhhhhhhhdddddddddddddd');console.log(data);if(localStorage.getItem('lang')=='ar'){}else{}
@@ -41,6 +41,32 @@ export class HomePageListComponent  implements OnInit{list:[]=[];name:string;
         console.error(error.error);
   
         }else{ }
+    });
+  
+   } 
+   delete4(){
+   
+    this.service.notifications_user().subscribe((data:any)=>{ console.log('ggggghhhhhhhhhhhhhhhhhhhhhhhhhdddddddddddddd');console.log(data);if(localStorage.getItem('lang')=='ar'){}else{}
+ 
+    },(error: HttpErrorResponse)=>{  console.error(error); 
+      console.log(error?.error?.arDescription)
+        if(localStorage.getItem('lang')=='ar'){  
+       
+  
+        }else{  }
+    });
+  
+   }
+    delete3(){
+   
+    this.service.notifications_read().subscribe((data:any)=>{ console.log('ggggghhhhhhhhhhhhhhhhhhhhhhhhhdddddddddddddd');console.log(data);if(localStorage.getItem('lang')=='ar'){}else{}
+ 
+    },(error: HttpErrorResponse)=>{
+      console.log(error?.error?.arDescription)
+        if(localStorage.getItem('lang')=='ar'){  
+        console.error(error.error);
+  
+        }else{    console.error(error.error); }
     });
   
    }
@@ -113,7 +139,7 @@ swiperRef!: Swiper;
 private lockInProgress = false;
   constructor(private platform: Platform,private cdr: ChangeDetectorRef,private router: Router,private servicea: AuthService,private service: MainServiceService ){}
   ngOnInit(): void {this.name=this.service.name
-    this.login(); this.delete();
+    this.login(); this.delete3();
     this.lockInProgress = false;
 
   this.platform.ready().then(() => {

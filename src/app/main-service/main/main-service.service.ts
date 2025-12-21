@@ -43,20 +43,8 @@ remembrance1(lang,name): Observable<any> {
   const url = `https://margherita-circadian-minta.ngrok-free.dev/remembrance/get-remembrance?language=${lang}&categoryName=${name}`;
 
   return this.http.get(url, { headers });
-}delete11(data: any): Observable<any> {
-  const headers = new HttpHeaders({
-    'Accept': 'application/json',
-    'Content-Type': 'application/json'
-  });
-
-  return this.http.post(
-    'https://margherita-circadian-minta.ngrok-free.dev/api/notifications/get',  
-    {
-      headers: headers,
-      body: data
-    }
-  );
 }
+
 //`https://margherita-circadian-minta.ngrok-free.dev/remembrance/get-categories?language=${this.r}&category=${this.r1}`
 delete(data: any): Observable<any> {
   const headers = new HttpHeaders({
@@ -85,9 +73,47 @@ update_profile(data: any): Observable<any> {
     { headers: headers }
   );
 }
+notifications_get(data: any): Observable<any> {
+  const headers = new HttpHeaders({
+    'Accept': 'application/json',
+    'Content-Type': 'application/json','ngrok-skip-browser-warning': 'true'
+  });
 
+  return this.http.post(
+    'https://margherita-circadian-minta.ngrok-free.dev/api/notifications/get',  
+    {
+      headers: headers,
+      body: data
+    }
+  );
+}
 
+notifications_read(): Observable<any> {//var email=localStorage.getItem('email');
+  const headers = new HttpHeaders({
+    'Accept': 'application/json',
+    'Content-Type': 'application/json','ngrok-skip-browser-warning': 'true'
+  });
 
+  return this.http.put(
+    'https://margherita-circadian-minta.ngrok-free.dev/api/notifications/2/read?email=aseelghaleb@gmail.com',  // استخدم البروكسي هنا
+     { headers: headers }
+      
+    
+  );
+}notifications_user(): Observable<any> {
+  const headers = new HttpHeaders({
+    'Accept': 'application/json',
+    'Content-Type': 'application/json',
+    'ngrok-skip-browser-warning': 'true'
+  });
+
+  return this.http.get(
+    'https://margherita-circadian-minta.ngrok-free.dev/api/notifications/user/aseelghaleb@gmail.com',  // استخدم البروكسي هنا
+     { headers: headers }
+      
+    
+  );
+}
 add_calendar(data: any): Observable<any> {
   const headers = new HttpHeaders({
     'Accept': 'application/json',
@@ -108,7 +134,6 @@ range_calendar(): Observable<any> {//var email=localStorage.getItem('email');
     'Accept': 'application/json',
     'Content-Type': 'application/json'
   });
-
   return this.http.get(
     'https://margherita-circadian-minta.ngrok-free.dev/user/d/range?startTime=2025-11-03T21%3A50%3A41.543Z&endTime=2025-11-03T21%3A50%3A41.543Z',  // استخدم البروكسي هنا
      { headers: headers }

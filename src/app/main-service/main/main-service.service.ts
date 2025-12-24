@@ -81,10 +81,9 @@ notifications_get(data: any): Observable<any> {
 
   return this.http.post(
     'https://margherita-circadian-minta.ngrok-free.dev/api/notifications/get',  
-    {
-      headers: headers,
-      body: data
-    }
+  data ,
+     { headers: headers }
+      
   );
 }
 
@@ -95,7 +94,7 @@ notifications_read(): Observable<any> {//var email=localStorage.getItem('email')
   });
 
   return this.http.put(
-    'https://margherita-circadian-minta.ngrok-free.dev/api/notifications/2/read?email=aseelghaleb@gmail.com',  // استخدم البروكسي هنا
+    'https://margherita-circadian-minta.ngrok-free.dev/api/notifications/1/read?email=aseelghaleb2088@gmail.com',  // استخدم البروكسي هنا
      { headers: headers }
       
     
@@ -109,6 +108,20 @@ notifications_read(): Observable<any> {//var email=localStorage.getItem('email')
 
   return this.http.get(
     'https://margherita-circadian-minta.ngrok-free.dev/api/notifications/user/aseelghaleb@gmail.com',  // استخدم البروكسي هنا
+     { headers: headers }
+      
+    
+  );
+}notifications_create(data): Observable<any> {
+  const headers = new HttpHeaders({
+    'Accept': 'application/json',
+    'Content-Type': 'application/json',
+    'ngrok-skip-browser-warning': 'true'
+  });
+
+  return this.http.post(
+    'https://margherita-circadian-minta.ngrok-free.dev/api/notifications/create',  // استخدم البروكسي هنا
+ data ,
      { headers: headers }
       
     

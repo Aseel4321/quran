@@ -31,13 +31,13 @@
 
   <!-- الأزرار -->
   <div style="display: flex; justify-content: center; margin-top: 3%;">
-    <button (click)="showSection('read')" 
+    <button (click)="showSection('READ')" 
             [ngStyle]="{ 'background-color': selectedSection === 'read' ? '#dcdcdc' : 'white' }"
             style="padding: 8px 20px; border: 1px solid #000; border-radius: 20px;margin-inline-start: 5%;margin-inline-end: 5%;">
       Read
     </button>
 
-    <button (click)="showSection('unread')" 
+    <button (click)="showSection('UNREAD')" 
             [ngStyle]="{ 'background-color': selectedSection === 'unread' ? '#dcdcdc' : 'white' }"
             style="padding: 8px 20px; border: 1px solid #000; border-radius: 20px;">
       Unread
@@ -46,8 +46,9 @@
 
   <!-- المكونات -->
   <div style="margin-top: 5%;">
-    <app-read *ngIf="selectedSection === 'read'"></app-read>
-    <app-unread *ngIf="selectedSection === 'unread'"></app-unread>
+<div style="width: 100vw;margin-top: 15%;height:50vh ;">
+  <div style="margin-bottom: 2%;margin-top: 2%; margin-left: 5%;margin-right: 5%; height:7vh;background-color: #fdf6e2;border-radius: 15px;" *ngFor="let list of list;">  {{ list.message }}</div>
+</div>
   </div>
 
 </ion-content>

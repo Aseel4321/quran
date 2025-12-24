@@ -31,9 +31,9 @@ export class HomePageListComponent  implements OnInit{list:[]=[];name:string;
   delete(){
    
     this.service.notifications_get({
-      "email":'aseelghaleb2088@gmail.com',
-      "status":'hhh',
-  }).subscribe((data:any)=>{ console.log('ggggghhhhhhhhhhhhhhhhhhhhhhhhhdddddddddddddd');console.log(data);if(localStorage.getItem('lang')=='ar'){}else{}
+  "email": "aseelghaleb2088@gmail.com",
+  "status": "READ"
+}).subscribe((data:any)=>{ console.log('ASWWWWWd');console.log(data);if(localStorage.getItem('lang')=='ar'){}else{}
  
     },(error: HttpErrorResponse)=>{
       console.log(error?.error?.arDescription)
@@ -138,8 +138,8 @@ swiperRef!: Swiper;
   keyboardWillHideListener: any;
 private lockInProgress = false;
   constructor(private platform: Platform,private cdr: ChangeDetectorRef,private router: Router,private servicea: AuthService,private service: MainServiceService ){}
-  ngOnInit(): void {this.name=this.service.name
-    this.login(); this.delete3();
+  ngOnInit(): void {this.name=this.service.name;
+    this.login(); this.delete();
     this.lockInProgress = false;
 
   this.platform.ready().then(() => {

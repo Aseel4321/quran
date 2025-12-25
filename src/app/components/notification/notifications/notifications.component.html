@@ -32,13 +32,13 @@
   <!-- الأزرار -->
   <div style="display: flex; justify-content: center; margin-top: 3%;">
     <button (click)="showSection('READ')" 
-            [ngStyle]="{ 'background-color': selectedSection === 'read' ? '#dcdcdc' : 'white' }"
+            [ngStyle]="{ 'background-color': selectedSection === 'READ' ? '#dcdcdc' : 'white' }"
             style="padding: 8px 20px; border: 1px solid #000; border-radius: 20px;margin-inline-start: 5%;margin-inline-end: 5%;">
       Read
     </button>
 
     <button (click)="showSection('UNREAD')" 
-            [ngStyle]="{ 'background-color': selectedSection === 'unread' ? '#dcdcdc' : 'white' }"
+            [ngStyle]="{ 'background-color': selectedSection === 'UNREAD' ? '#dcdcdc' : 'white' }"
             style="padding: 8px 20px; border: 1px solid #000; border-radius: 20px;">
       Unread
     </button>
@@ -47,7 +47,32 @@
   <!-- المكونات -->
   <div style="margin-top: 5%;">
 <div style="width: 100vw;margin-top: 15%;height:50vh ;">
-  <div style="margin-bottom: 2%;margin-top: 2%; margin-left: 5%;margin-right: 5%; height:7vh;background-color: #fdf6e2;border-radius: 15px;" *ngFor="let list of list;">  {{ list.message }}</div>
+  <div style="margin-bottom: 2%;margin-top: 2%; margin-left: 5%;margin-right: 5%; height:7vh;border-radius: 15px;" *ngFor="let list of list;let i = index"> <ion-item-sliding class="notification-sliding">
+
+  <ion-item
+    button
+    class="notification-item"
+    (click)="notifications_read(list.id)"
+  >
+    <ion-label>
+      <h3 class="title">إشعار</h3>
+      <p class="message">{{ list.message }}</p>
+    </ion-label>
+  </ion-item>
+
+  <ion-item-options side="end">
+    <ion-item-option
+      color="danger"
+      class="delete-option"
+      (click)="notifications_delete(list.id)"
+    >
+      <ion-icon name="trash-outline"></ion-icon>
+      <span>حذف</span>
+    </ion-item-option>
+  </ion-item-options>
+
+</ion-item-sliding>
+ </div>
 </div>
   </div>
 

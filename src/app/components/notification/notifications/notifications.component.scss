@@ -22,3 +22,55 @@ z-index: -1;
   //background-image: url('../../../../assets/icon/imagee.jpeg');background-size: cover;
   
 }
+/* الحاوية */
+.notification-sliding {
+  margin-top: 10%;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+/* العنصر الأساسي */
+.notification-item {height:10vh ;
+  --background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+/* العنوان */
+.notification-item .title {
+  font-size: 15px;
+  font-weight: 600;
+  color: #222;
+  margin-bottom: 4px;
+}
+
+/* النص */
+.notification-item .message {
+  font-size: 13px;
+  color: #666;
+  line-height: 1.4;
+}
+
+/* زر الحذف */
+.delete-option {height:10vh ;
+  width: 90px;                 /* أوسع لسهولة الضغط */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 13px;
+  border-radius: 12px;         /* حواف دائرية */
+  transition: background 0.3s; /* حركة سلسة عند الضغط */
+}
+
+/* أيقونة الحذف */
+.delete-option ion-icon {
+  font-size: 22px;
+  margin-bottom: 4px;          /* مسافة بين الأيقونة والنص */
+  color: white;                /* لون أيقونة واضح على الأحمر */
+}
+
+/* لون الخلفية عند الضغط */
+.delete-option:active {
+  background-color: #c0392b;   /* غامق عند الضغط */
+}

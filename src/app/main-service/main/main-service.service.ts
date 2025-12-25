@@ -87,19 +87,32 @@ notifications_get(data: any): Observable<any> {
   );
 }
 
-notifications_read(): Observable<any> {//var email=localStorage.getItem('email');
+notifications_read(email,id): Observable<any> {//var email=localStorage.getItem('email');
   const headers = new HttpHeaders({
     'Accept': 'application/json',
     'Content-Type': 'application/json','ngrok-skip-browser-warning': 'true'
   });
 
   return this.http.put(
-    'https://margherita-circadian-minta.ngrok-free.dev/api/notifications/1/read?email=aseelghaleb2088@gmail.com',  // استخدم البروكسي هنا
+        `https://margherita-circadian-minta.ngrok-free.dev/api/notifications/${id}/read?email=${email}`,  // استخدم البروكسي هنا
      { headers: headers }
       
     
   );
-}notifications_user(): Observable<any> {
+}notifications_delete(email,id): Observable<any> {//var email=localStorage.getItem('email');
+  const headers = new HttpHeaders({
+    'Accept': 'application/json',
+    'Content-Type': 'application/json','ngrok-skip-browser-warning': 'true'
+  });
+
+  return this.http.delete(
+        `https://margherita-circadian-minta.ngrok-free.dev/api/notifications/${id}?email=${email}`,  // استخدم البروكسي هنا
+     { headers: headers }
+      
+    
+  );
+}
+notifications_user(): Observable<any> {
   const headers = new HttpHeaders({
     'Accept': 'application/json',
     'Content-Type': 'application/json',

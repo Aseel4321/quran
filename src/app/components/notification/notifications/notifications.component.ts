@@ -12,14 +12,41 @@ import { MainServiceService } from 'src/app/main-service/main/main-service.servi
   templateUrl: './notifications.component.html',
   styleUrls: ['./notifications.component.scss'],
 })
-export class NotificationsComponent implements OnInit{list=[];constructor(private platform: Platform,private cdr: ChangeDetectorRef,private router: Router,private servicea: AuthService,private service: MainServiceService ){}
-  ngOnInit(): void {
+export class NotificationsComponent implements OnInit{user:any;
+  list=[];constructor(private platform: Platform,private cdr: ChangeDetectorRef,private router: Router,private servicea: AuthService,private service: MainServiceService ){}
+  ngOnInit(): void { const userData = localStorage.getItem('User');
+     this.user = JSON.parse(userData);
    this.notifications_get();
-  }
+  }notifications_read(id){
+   
+    this.service.notifications_read(this.user.email,id).subscribe((data:any)=>{ console.log('ggggghhhhhhhhhhhhhhhhhhhhhhhhhdddddddddddddd');console.log(data);if(localStorage.getItem('lang')=='ar'){}else{}
+ 
+    },(error: HttpErrorResponse)=>{
+      console.log(error?.error?.arDescription)
+        if(localStorage.getItem('lang')=='ar'){  
+        console.error(error.error);
+  
+        }else{    console.error(error.error); }
+    });
+  
+   }notifications_delete(id){
+   
+    this.service.notifications_delete(this.user.email,id).subscribe((data:any)=>{ console.log('ggggghhhhhhhhhhhhhhhhhhhhhhhhhdddddddddddddd');console.log(data);if(localStorage.getItem('lang')=='ar'){}else{}
+ 
+    },(error: HttpErrorResponse)=>{
+      console.log(error?.error?.arDescription)
+        if(localStorage.getItem('lang')=='ar'){  
+        console.error(error.error);
+  
+        }else{    console.error(error.error); }
+    });
+  
+   }
   notifications_get(){
-
+ const userData = localStorage.getItem('User');
+     this.user = JSON.parse(userData);
     this.service.notifications_get({
-  "email": "aseelghaleb2088@gmail.com",
+  "email": this.user.email,
   "status": this.selectedSection
 }).subscribe((data:any)=>{ console.log('ASWWWWWd');console.log(data);if(localStorage.getItem('lang')=='ar'){this.list=data}else{this.list=data}
  

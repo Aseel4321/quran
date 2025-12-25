@@ -57,7 +57,7 @@ export class HomePageListComponent  implements OnInit{list:[]=[];name:string;
     });
   
    }
-    delete3(){
+    /*delete3(){
    
     this.service.notifications_read().subscribe((data:any)=>{ console.log('ggggghhhhhhhhhhhhhhhhhhhhhhhhhdddddddddddddd');console.log(data);if(localStorage.getItem('lang')=='ar'){}else{}
  
@@ -69,7 +69,7 @@ export class HomePageListComponent  implements OnInit{list:[]=[];name:string;
         }else{    console.error(error.error); }
     });
   
-   }
+   }*/
    cards = [
     { text: 'Morning Supplications', image: 'assets/icon/morning.png' },
     { text: 'Evening Supplications', image: 'assets/icon/evning.png' },

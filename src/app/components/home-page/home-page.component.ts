@@ -68,6 +68,7 @@ imgg='';
  intervalId: any;
   initialHeight: number = window.innerHeight;
 keyboardOpen: boolean = false;
+unreadCount:number=0;
   list_time1: any[] = [
    "assets/icon/sunny.png",
    "assets/icon/sunrise.png",
@@ -75,9 +76,11 @@ keyboardOpen: boolean = false;
    "assets/icon/cloudy.png",
    "assets/icon/cloud.png",
     "assets/icon/moon.png",
-  ]; ngOnInit(): void {this.timePeriodday=this.service.timePeriodday;this.times=this.service.times;this.time_now=this.service.time_now;this.prayer_timee_9_s=this.service.prayer_timee_9;
+  ]; ngOnInit(): void {const userData = localStorage.getItem('User');
+     this.user = JSON.parse(userData);this.notifications_count();
+    this.timePeriodday=this.service.timePeriodday;this.times=this.service.times;this.time_now=this.service.time_now;this.prayer_timee_9_s=this.service.prayer_timee_9;
 this.prayer_timee_7_s=this.service.prayer_timee_7;this.prayer_timee_6_s=this.service.prayer_timee_6; this.prayer_s=this.service.prayer;this.city_api_s= this.service.city_api;
-     this.intervalId1 = setInterval(() => {
+   this.intervalId1 = setInterval(() => {
      this.currentIndex=1;
     }, 5000);
  this.checkLocationEnabled();  
@@ -92,14 +95,26 @@ this.prayer_timee_7_s=this.service.prayer_timee_7;this.prayer_timee_6_s=this.ser
         img.style.cssText = this.style_image2();
       }
     });
-    const userData = localStorage.getItem('User');
-     this.user = JSON.parse(userData);
+    
   }
   showCard(index){
 if(index==this.currentIndex){
   return false;
 }else{return true;}
-  }
+  }  notifications_count(){
+     this.service.notifications_count(this.user.email).subscribe((data:any)=>{ 
+      this.unreadCount=data.unreadCount;console.log(this.service.unreadCount);console.log(this.service.unreadCount);
+      
+      if(localStorage.getItem('lang')=='ar'){}else{}
+ 
+    },(error: HttpErrorResponse)=>{
+      console.log(error?.error?.arDescription)
+        if(localStorage.getItem('lang')=='ar'){  
+        console.error(error.error);
+  
+        }else{    console.error(error.error); }
+    });
+   }
    ngOnDestroy() { if (this.intervalId1) {
       clearInterval(this.intervalId);
     }

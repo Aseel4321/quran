@@ -23,10 +23,10 @@
       {{ 'notifications' | translate }}
     </div>
 
-    <!-- يمين -->
-    <img src="assets/icon/trach.png"
+ <div  style="width: 5.5vw; height: 3vh; margin-inline-start: 20%; margin-inline-end: 10%;"></div>
+    <!--<img src="assets/icon/trach.png"
          alt="Trash"
-         style="width: 5.5vw; height: 3vh; margin-inline-start: 20%; margin-inline-end: 10%;">
+         style="width: 5.5vw; height: 3vh; margin-inline-start: 20%; margin-inline-end: 10%;">-->
   </div>
 
   <!-- الأزرار -->
@@ -64,7 +64,7 @@
     <ion-item-option
       color="danger"
       class="delete-option"
-      (click)="notifications_delete(list.id)"
+      (click)="notifications_delete(list.id,i)"
     >
       <ion-icon name="trash-outline"></ion-icon>
       <span>حذف</span>

@@ -9,6 +9,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class MainServiceService {  constructor(private http: HttpClient,private platform: Platform) { }
+unreadCount:any=0;
   adkar:any;
  date:any='';
  prayer:any;
@@ -107,6 +108,20 @@ notifications_read(email,id): Observable<any> {//var email=localStorage.getItem(
 
   return this.http.delete(
         `https://margherita-circadian-minta.ngrok-free.dev/api/notifications/${id}?email=${email}`,  // استخدم البروكسي هنا
+     { headers: headers }
+      
+    
+  );
+}
+notifications_count(email): Observable<any> {//var email=localStorage.getItem('email');
+  const headers = new HttpHeaders({
+    'Accept': 'application/json',
+    'Content-Type': 'application/json',
+    'ngrok-skip-browser-warning': 'true'
+  });
+
+  return this.http.get(
+        `https://margherita-circadian-minta.ngrok-free.dev/api/notifications/user/${email}/count`,  // استخدم البروكسي هنا
      { headers: headers }
       
     

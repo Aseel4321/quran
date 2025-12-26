@@ -14,10 +14,13 @@ import { MainServiceService } from 'src/app/main-service/main/main-service.servi
 })
 export class NotificationsComponent implements OnInit{user:any;
   list=[];constructor(private platform: Platform,private cdr: ChangeDetectorRef,private router: Router,private servicea: AuthService,private service: MainServiceService ){}
-  ngOnInit(): void { const userData = localStorage.getItem('User');
-     this.user = JSON.parse(userData);
-   this.notifications_get();
-  }notifications_read(id){
+  ngOnInit(): void {
+    const userData = localStorage.getItem('User');
+     this.user = JSON.parse(userData); 
+  this.notifications_get();
+  }
+
+  notifications_read(id){
    
     this.service.notifications_read(this.user.email,id).subscribe((data:any)=>{ console.log('ggggghhhhhhhhhhhhhhhhhhhhhhhhhdddddddddddddd');console.log(data);if(localStorage.getItem('lang')=='ar'){}else{}
  
@@ -29,10 +32,11 @@ export class NotificationsComponent implements OnInit{user:any;
         }else{    console.error(error.error); }
     });
   
-   }notifications_delete(id){
+   }notifications_delete(id,i){
    
-    this.service.notifications_delete(this.user.email,id).subscribe((data:any)=>{ console.log('ggggghhhhhhhhhhhhhhhhhhhhhhhhhdddddddddddddd');console.log(data);if(localStorage.getItem('lang')=='ar'){}else{}
- 
+    this.service.notifications_delete(this.user.email,id).subscribe((data:any)=>{ console.log('ggggghhhhhhhhhhhhhhhhhhhhhhhhhdddddddddddddd');
+      console.log(data);if(localStorage.getItem('lang')=='ar'){}else{}
+ this.list.splice(i, 1);
     },(error: HttpErrorResponse)=>{
       console.log(error?.error?.arDescription)
         if(localStorage.getItem('lang')=='ar'){  

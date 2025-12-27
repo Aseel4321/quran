@@ -34,7 +34,7 @@ export class NotificationsComponent implements OnInit{user:any;
   
    }notifications_delete(id,i){
    
-    this.service.notifications_delete(this.user.email,id).subscribe((data:any)=>{ console.log('ggggghhhhhhhhhhhhhhhhhhhhhhhhhdddddddddddddd');
+    this.service.notifications_delete(this.user.email,id).subscribe((data:any)=>{ console.log('ggggdddd');
       console.log(data);if(localStorage.getItem('lang')=='ar'){}else{}
  this.list.splice(i, 1);
     },(error: HttpErrorResponse)=>{
@@ -51,15 +51,16 @@ export class NotificationsComponent implements OnInit{user:any;
      this.user = JSON.parse(userData);
     this.service.notifications_get({
   "email": this.user.email,
-  "status": this.selectedSection
-}).subscribe((data:any)=>{ console.log('ASWWWWWd');console.log(data);if(localStorage.getItem('lang')=='ar'){this.list=data}else{this.list=data}
+  "status": this.selectedSection,
+  "language":localStorage.getItem('lang')=='ar'?'AR':'EN'
+}).subscribe((data:any)=>{console.log('ASWWWWWd');console.log(data);if(localStorage.getItem('lang')=='ar'){ this.list=data}else{this.list=data}
  
     },(error: HttpErrorResponse)=>{
       console.log(error?.error?.arDescription)
         if(localStorage.getItem('lang')=='ar'){  
         console.error(error.error);
   
-        }else{ }
+        }else{}
     });
   
    } 

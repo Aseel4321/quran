@@ -1,10 +1,9 @@
-<ion-content class="login-content" scroll-y='false' >
+<ion-content class="login-content" scroll="false">
 <div class="bg"></div>
   <!-- الشريط العلوي -->
   <div style="display: flex;
               height: 7%;
               margin-top: 5%;
-              border-bottom: 2px solid black;
               flex-direction: row;
               width: 100vw;
               align-items: center;
@@ -16,7 +15,7 @@
 
     <img src="assets/icon/notification.png"
          alt="Notification"
-         style="width: 7vw; height: 3vh; margin-inline-start: 20%;">
+         style="width: 7vw; height: 3vh; margin-inline-start: 20%;margin-top: 2%;">
 
     <!-- النص في المنتصف -->
     <div style="flex: 1; text-align: center; font-weight: bold; margin-inline-start: 5%;" [ngStyle]="title()">
@@ -30,52 +29,59 @@
   </div>
 
   <!-- الأزرار -->
-  <div style="display: flex; justify-content: center; margin-top: 3%;">
+  <div style="display: flex; justify-content: center;margin-top: 3%;">
     <button (click)="showSection('READ')" 
-            [ngStyle]="{ 'background-color': selectedSection === 'READ' ? '#dcdcdc' : 'white' }"
-            style="padding: 8px 20px; border: 1px solid #000; border-radius: 20px;margin-inline-start: 5%;margin-inline-end: 5%;">
-      Read
+        
+            [style]="setStyle('READ')">
+       {{ 'READ' | translate }}
     </button>
 
     <button (click)="showSection('UNREAD')" 
-            [ngStyle]="{ 'background-color': selectedSection === 'UNREAD' ? '#dcdcdc' : 'white' }"
-            style="padding: 8px 20px; border: 1px solid #000; border-radius: 20px;">
-      Unread
+          [style]="setStyle('UNREAD')" 
+          >
+      {{ 'UNREAD' | translate }}
     </button>
   </div>
-
-  <!-- المكونات -->
-  <div style="  display: flex;flex-direction: column;   margin-top: 0%;  padding-top: -5%;        /* يأخذ المساحة المتبقية */ 
- 
+  <div style="  display: flex;flex-direction: column;   margin-top: 0%;  padding-top: -5%;        
   ">
 <div style="width: 100vw;margin-bottom: 13%;;overflow-y: scroll;height: 85vh;  padding-bottom: 5%; ">
-  <div style="margin-bottom: 2%;margin-top: 2%; margin-left: 5%;margin-right: 5%; height:7vh;border-radius: 15px;" *ngFor="let list of list;let i = index"> <ion-item-sliding class="notification-sliding">
+  <div *ngIf="list && list.length > 0  else loading">
 
-  <ion-item
-    button
-    class="notification-item"
-    (click)="notifications_read(list.id)"
+  <div
+    *ngFor="let item of list; let i = index"
+    style="margin-bottom: 2%; margin-top: 2%; margin-left: 5%; margin-right: 5%; height: 7vh; border-radius: 15px;"
   >
-    <ion-label>
-      <h3 class="title">إشعار</h3>
-      <p class="message">{{ list.message }}</p>
-    </ion-label>
-  </ion-item>
+    <ion-item-sliding class="notification-sliding">
 
-  <ion-item-options side="end">
-    <ion-item-option
-      color="danger"
-      class="delete-option"
-      (click)="notifications_delete(list.id,i)"
-    >
-      <ion-icon name="trash-outline"></ion-icon>
-      <span>حذف</span>
-    </ion-item-option>
-  </ion-item-options>
+      <ion-item
+        button
+        class="notification-item"
+        (click)="notifications_read(item.id)"
+      >
+        <ion-label>
+          <h3 class="title">إشعار</h3>
+          <p class="message">{{ item.message }}</p>
+        </ion-label>
+      </ion-item>
 
-</ion-item-sliding>
- </div>
-</div>
+      <ion-item-options side="end">
+        <ion-item-option
+          color="danger"
+          class="delete-option"
+          (click)="notifications_delete(item.id, i)"
+        >
+          <ion-icon name="trash-outline"></ion-icon>
+          <span>حذف</span>
+        </ion-item-option>
+      </ion-item-options>
+
+    </ion-item-sliding>
   </div>
 
+</div>
+</div>
+  </div>
+<ng-template #loading>
+ لايوجد اشعارات
+</ng-template>
 </ion-content>

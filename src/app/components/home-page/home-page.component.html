@@ -41,7 +41,7 @@
       alt="Notification"
       class="notification-icon"
     >
-    <ion-badge class="notification-badge" color="danger">
+    <ion-badge class="notification-badge" color="danger" *ngIf=" unreadCount > 0">
       {{unreadCount}}
     </ion-badge>
   </div>

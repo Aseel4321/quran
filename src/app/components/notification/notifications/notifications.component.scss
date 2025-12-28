@@ -1,10 +1,13 @@
 .login-content {
 
+ --overflow: hidden;
   display: flex; 
   flex-direction: column; 
-
+ 
+  align-items: center; 
+  min-height: 100vh;
+  width:100vw ;
   
-  height: 100vh;
 }.page-bg {
   position: fixed;
 
@@ -53,20 +56,20 @@ z-index: -1;
 
 /* زر الحذف */
 .delete-option {height:10vh ;
-  width: 90px;                 /* أوسع لسهولة الضغط */
+  width: 30%;                 /* أوسع لسهولة الضغط */
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  font-size: 13px;
+  align-items: end;
+  font-size: 5vw;
   border-radius: 12px;         /* حواف دائرية */
   transition: background 0.3s; /* حركة سلسة عند الضغط */
 }
 
 /* أيقونة الحذف */
 .delete-option ion-icon {
-  font-size: 22px;
-  margin-bottom: 4px;          /* مسافة بين الأيقونة والنص */
+  font-size: 5vw;
+  margin-bottom: 2%;          /* مسافة بين الأيقونة والنص */
   color: white;                /* لون أيقونة واضح على الأحمر */
 }
 

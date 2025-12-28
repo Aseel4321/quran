@@ -14,7 +14,14 @@ import { MainServiceService } from 'src/app/main-service/main/main-service.servi
 })
 export class NotificationsComponent implements OnInit{user:any;
   list=[];constructor(private platform: Platform,private cdr: ChangeDetectorRef,private router: Router,private servicea: AuthService,private service: MainServiceService ){}
-  ngOnInit(): void {
+  isScrollEnabled:boolean = false;
+  isLoading:any=false;
+  ngOnInit(): void { this.platform.ready().then(() => {      const height = this.platform.height(); 
+    document.documentElement.style.setProperty('--screen-h', `${height}px`);
+      const width = this.platform.width();
+      console.log('Screen Height:', height);
+      console.log('Screen Width:', width);
+  });
     const userData = localStorage.getItem('User');
      this.user = JSON.parse(userData); 
   this.notifications_get();
@@ -46,14 +53,14 @@ export class NotificationsComponent implements OnInit{user:any;
     });
   
    }
-  notifications_get(){
+  notifications_get(){this.isLoading=true;
  const userData = localStorage.getItem('User');
      this.user = JSON.parse(userData);
     this.service.notifications_get({
   "email": this.user.email,
   "status": this.selectedSection,
   "language":localStorage.getItem('lang')=='ar'?'AR':'EN'
-}).subscribe((data:any)=>{console.log('ASWWWWWd');console.log(data);if(localStorage.getItem('lang')=='ar'){ this.list=data}else{this.list=data}
+}).subscribe((data:any)=>{ this.isLoading=false;console.log('ASWWWWWd');console.log(data);if(localStorage.getItem('lang')=='ar'){ this.list=data}else{this.list=data}
  
     },(error: HttpErrorResponse)=>{
       console.log(error?.error?.arDescription)
@@ -66,10 +73,12 @@ export class NotificationsComponent implements OnInit{user:any;
    } 
 
 
-selectedSection: string = 'UNREAD'; // الافتراضي
+selectedSection: string = 'UNREAD'; 
 
 showSection(section: string) {
-  this.selectedSection = section;this.notifications_get();
+  this.selectedSection = section;
+  if(localStorage.getItem('lang') === 'ar'){}else{}
+  this.notifications_get();
 }
 goBack() {
   this.router.navigate(['/setting']);
@@ -89,5 +98,20 @@ title() {
       'margin-top': '1vh'
     };
   }
+}boxStyle: any = {};
+
+setStyle(name) {
+  if(this.selectedSection === name){return {
+    'font-family': '"El Messiri", sans-serif',
+    'border-radius': '20px',
+    'margin-inline-start': '5%',
+    'margin-inline-end': '5%','color':'#969468'
+  };}else{return {
+      'font-family': '"El Messiri", sans-serif',
+    'border-radius': '20px',
+    'margin-inline-start': '5%',
+    'margin-inline-end': '5%',
+  };}
+  
 }
 }

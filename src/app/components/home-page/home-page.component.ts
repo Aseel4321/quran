@@ -525,7 +525,7 @@ getCityFromCoordinates(latitude: number, longitude: number) {      console.log('
 async showAlertno(message: string) {
   const alert = await this.alertController.create({
     header:this.loc,
-    message: message, //backdropDismiss: false, 
+    message: message, backdropDismiss: false, 
     buttons: [
       {
         text: this.text,

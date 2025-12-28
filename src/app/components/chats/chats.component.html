@@ -14,7 +14,7 @@
   <img
     src="assets/icon/sort.png"
     style="
-      width: 6vw;height: 2vh;
+      width: 6vw;height: 3vw;
       cursor: pointer;
       user-select: none;
       margin-inline-start: 3%;margin-top: 2%;
@@ -28,8 +28,7 @@
       
       <div *ngIf="item=='All'; else elsee" style="text-align: center;display: flex;flex-direction: row;justify-content: center;" (click)="name(item)">
         <div style="font-size: 4vw;">{{ item }}</div>
-        
-       <div [ngClass]="cir(item)"><div style="font-size: 2.5vw;" >4</div></div>
+       <div [ngClass]="cir(item)"><div style="font-size: 2.5vw;">4</div></div>
       </div>
       <img
     [src]="image(item)"

@@ -19,7 +19,7 @@ Name:string='All';
     });
   }
   list = [
-  'All','Unread','Read'
+  'All','Unread','Read',
 ];
 name(name){
  this.Name=name;

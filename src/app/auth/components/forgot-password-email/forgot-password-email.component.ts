@@ -19,7 +19,10 @@ keyboardOpen: boolean = false;
  keyboardWillShowListener: any;
 private lockInProgress = false;
   constructor(private screenOrientation: ScreenOrientation,private platform: Platform,private router: Router,private Service:AuthService,private alertController: AlertController) {}
-   ngOnInit(): void {
+   ngOnInit(): void {  const height = this.platform.height(); document.documentElement.style.setProperty('--screen-h', `${height}px`);
+      const width = this.platform.width();
+      console.log('Screen Height:', height);
+      console.log('Screen Width:', width);
     window.addEventListener('resize', () => {
       const currentHeight = window.innerHeight;
       this.keyboardOpen = currentHeight < this.initialHeight - 100;

@@ -57,9 +57,25 @@ export class HomePageListComponent  implements OnInit{list:[]=[];name:string;
     });
   
    }
-    /*delete3(){
+   follow(){
+    this.service.follow({
+   userId: '25120423213215690',
+    targetUserId: '25112120553613034'
+}).subscribe((data:any)=>{ console.log('follow');console.log(data);if(localStorage.getItem('lang')=='ar'){}else{}
+ 
+    },(error: HttpErrorResponse)=>{
+      console.log(error?.error?.arDescription)
+        if(localStorage.getItem('lang')=='ar'){  
+        console.error(error.error);
+        }else{console.error(error.error); }
+    });
+   }
+  reject(){
    
-    this.service.notifications_read().subscribe((data:any)=>{ console.log('ggggghhhhhhhhhhhhhhhhhhhhhhhhhdddddddddddddd');console.log(data);if(localStorage.getItem('lang')=='ar'){}else{}
+    this.service.reject({
+  "userId":'25112120553613034',
+ "targetUserId":'25120423213215690'
+}).subscribe((data:any)=>{ console.log('follodw');console.log(data);if(localStorage.getItem('lang')=='ar'){}else{}
  
     },(error: HttpErrorResponse)=>{
       console.log(error?.error?.arDescription)
@@ -69,7 +85,38 @@ export class HomePageListComponent  implements OnInit{list:[]=[];name:string;
         }else{    console.error(error.error); }
     });
   
-   }*/
+   } 
+   accept(){
+   
+    this.service.accept({
+   userId:'25112120553613034' ,
+    targetUserId:'25120423213215690'
+}).subscribe((data:any)=>{ console.log('follodw');console.log(data);if(localStorage.getItem('lang')=='ar'){}else{}
+ 
+    },(error: HttpErrorResponse)=>{
+      console.log(error?.error?.arDescription)
+        if(localStorage.getItem('lang')=='ar'){  
+        console.error(error.error);
+  
+        }else{    console.error(error.error); }
+    });
+  
+   }
+  unfollow(){
+    this.service.unfollow({
+  "userId":'25120423213215690',
+ "targetUserId":'25112120553613034'
+}).subscribe((data:any)=>{ console.log('follodw');console.log(data);if(localStorage.getItem('lang')=='ar'){}else{}
+ 
+    },(error: HttpErrorResponse)=>{
+      console.log(error?.error?.arDescription)
+        if(localStorage.getItem('lang')=='ar'){  
+        console.error(error.error);
+  
+        }else{    console.error(error.error); }
+    });
+  
+   }
    cards = [
     { text: 'Morning Supplications', image: 'assets/icon/morning.png' },
     { text: 'Evening Supplications', image: 'assets/icon/evning.png' },
@@ -138,7 +185,7 @@ swiperRef!: Swiper;
   keyboardWillHideListener: any;
 private lockInProgress = false;
   constructor(private platform: Platform,private cdr: ChangeDetectorRef,private router: Router,private servicea: AuthService,private service: MainServiceService ){}
-  ngOnInit(): void {this.name=this.service.name;
+  ngOnInit(): void {this.name=this.service.name;this.follow();
     this.login(); this.delete();
     this.lockInProgress = false;
 

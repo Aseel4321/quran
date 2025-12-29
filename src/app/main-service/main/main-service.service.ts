@@ -100,6 +100,7 @@ notifications_read(email,id): Observable<any> {//var email=localStorage.getItem(
       
     
   );
+ 
 }notifications_delete(email,id): Observable<any> {//var email=localStorage.getItem('email');
   const headers = new HttpHeaders({
     'Accept': 'application/json',
@@ -112,8 +113,57 @@ notifications_read(email,id): Observable<any> {//var email=localStorage.getItem(
       
     
   );
+} follow(data: any): Observable<any> {
+  const headers = new HttpHeaders({
+    'Accept': 'application/json',
+    'Content-Type': 'application/json',
+    'ngrok-skip-browser-warning': 'true'
+  });
+
+  return this.http.post(
+    'https://margherita-circadian-minta.ngrok-free.dev/api/contacts/follow',
+    data,                 // ✅ body الصحيح
+    { headers }            // ✅ options
+  );
+}accept(data: any): Observable<any> {
+  const headers = new HttpHeaders({
+    'Accept': 'application/json',
+    'Content-Type': 'application/json',
+    'ngrok-skip-browser-warning': 'true'
+  });
+
+  return this.http.post(
+    'https://margherita-circadian-minta.ngrok-free.dev/api/contacts/follow/accept',
+    data,                 // ✅ body الصحيح
+    { headers }            // ✅ options
+  );
+}unfollow(data: any): Observable<any> {
+  const headers = new HttpHeaders({
+    'Accept': 'application/json',
+    'Content-Type': 'application/json',
+    'ngrok-skip-browser-warning': 'true'
+  });
+
+  return this.http.post(
+    'https://margherita-circadian-minta.ngrok-free.dev/api/contacts/unfollow',
+    data,                
+    { headers }           
+  );
 }
-notifications_count(email): Observable<any> {//var email=localStorage.getItem('email');
+reject(data: any): Observable<any> {
+  const headers = new HttpHeaders({
+    'Accept': 'application/json',
+    'Content-Type': 'application/json',
+    'ngrok-skip-browser-warning': 'true'
+  });
+
+  return this.http.post(
+    'https://margherita-circadian-minta.ngrok-free.dev/api/contacts/follow/reject',
+    data,                
+    { headers }           
+  );
+}
+notifications_count(email): Observable<any> {
   const headers = new HttpHeaders({
     'Accept': 'application/json',
     'Content-Type': 'application/json',
@@ -123,8 +173,6 @@ notifications_count(email): Observable<any> {//var email=localStorage.getItem('e
   return this.http.get(
         `https://margherita-circadian-minta.ngrok-free.dev/api/notifications/user/${email}/count`,  // استخدم البروكسي هنا
      { headers: headers }
-      
-    
   );
 }
 notifications_user(): Observable<any> {

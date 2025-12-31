@@ -22,15 +22,12 @@ flipStyle = {
   direction: 'horizontal', 
 };showItem = false;Tafsir(){this.showItem=true;}
 list = [
-    'بِسْمِ اللَّهِ الرَّحْمَـٰنِ الرَّحِيمِ',
-    'الـحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ',
-    'الرَّحْمَـٰنِ الرَّحِيمِ',
-    'مَالِكِ يَوْمِ الدِّينِ',
-    'إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ',
-    'اهْدِنَا الصِّرَاطَ الْمُسْتَقِيمَ',
-    'صِرَاطَ الَّذِينَ أَنْعَمْتَ عَلَيْهِمْ',
-    'غَيْرِ الْمَغْضُوبِ عَلَيْهِمْ وَلَا الضَّالِّينَ'
-];list11 = [
+  'إِنَّ الَّذِينَ كَفَرُوا سَوَاءٌ عَلَيْهِمْ أَأَنْذَرْتَهُمْ أَمْ لَمْ تُنْذِرْهُمْ لَا يُؤْمِنُونَ',
+  'خَتَمَ اللَّهُ عَلَىٰ قُلُوبِهِمْ وَعَلَىٰ سَمْعِهِمْ ۖ وَعَلَىٰ أَبْصَارِهِمْ غِشَاوَةٌ ۖ وَلَهُمْ عَذَابٌ عَظِيمٌ',
+  'وَمِنَ النَّاسِ مَنْ يَقُولُ آمَنَّا بِاللَّهِ وَبِالْيَوْمِ الْآخِرِ وَمَا هُمْ بِمُؤْمِنِينَ',
+  'يُخَادِعُونَ اللَّهَ وَالَّذِينَ آمَنُوا وَمَا يَخْدَعُونَ إِلَّا أَنْفُسَهُمْ وَمَا يَشْعُرُونَ',
+  'فِي قُلُوبِهِمْ مَرَضٌ فَزَادَهُمُ اللَّهُ مَرَضًا ۖ وَلَهُمْ عَذَابٌ أَلِيمٌ بِمَا كَانُوا يَكْذِبُونَ'
+];;list11 = [
     '1'
 ]
  list1 = [ 
@@ -69,17 +66,17 @@ if(i===this.i){
  'margin-inline-end': '1vw','margin-inline-start': '-1vw',
     }; 
 }else{ return {
-  'font-size': '5.5vw','margin-inline-end': '1vw','margin-inline-start': '-1vw',
+  'font-size': '4vw','margin-inline-end': '1vw','margin-inline-start': '-10vw',
     };}
 }Style(i){
 if(i===this.i){
   return { 
-  'font-size': '4vw',
+  'font-size': '6.5vw',
   'background-color':'rgb(233, 233, 193)',
- 'margin-inline-end': '-20vw','margin-inline-start': '35vw',
+ 'margin-inline-end': '0vw','margin-inline-start': '0vw',
     }; 
-}else{ return {
-  'font-size': '4vw','margin-inline-end': '1vw','margin-inline-start': '-1vw',
+}else{ return {  'line-height': '1.8em',
+  'font-size': '6vw','margin-inline-end': '0.8vw','margin-inline-start': '0vw',
     };}
 }
 onclick(){

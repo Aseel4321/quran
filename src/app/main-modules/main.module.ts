@@ -42,10 +42,11 @@ import { ReadComponent } from '../components/notification/read/read.component';
 import { UnreadComponent } from '../components/notification/unread/unread.component';
 import { ChatsComponent } from '../components/chats/chats.component';
 import { MessagesPageComponent } from '../components/messages-page/messages-page.component';
+import { ChatsSearchComponent } from '../chats-search/chats-search.component';
 
 
 @NgModule({
-  declarations: [MessagesPageComponent,ChatsComponent,SorahComponent,UnreadComponent,ReadComponent,HomePagePageComponent,HomePageListComponent,SorahComponent,SupplicationsComponent,MorninAdhkarComponent,TasbeehComponent,CalendarComponent,NotificationsComponent,PageComponent,SurahComponent,PartComponent,QuranComponent,HomePageComponent,ProfileComponent,ProfileDetailsComponent,SettingsComponent,DeleteAccountComponent,AddCalendarComponent ],
+  declarations: [ChatsSearchComponent,MessagesPageComponent,ChatsComponent,SorahComponent,UnreadComponent,ReadComponent,HomePagePageComponent,HomePageListComponent,SorahComponent,SupplicationsComponent,MorninAdhkarComponent,TasbeehComponent,CalendarComponent,NotificationsComponent,PageComponent,SurahComponent,PartComponent,QuranComponent,HomePageComponent,ProfileComponent,ProfileDetailsComponent,SettingsComponent,DeleteAccountComponent,AddCalendarComponent ],
   imports: [ CalendarModule, CommonModule,
       IonicModule,
       FormsModule,SwiperModule,

@@ -13,7 +13,7 @@ import { OtpEmailComponent } from 'src/app/auth/components/otp-email/otp-email.c
 import { RestPasswordComponent } from '../components/rest-password/rest-password.component';
 import { ProfileComponent } from 'src/app/components/profile/profile.component';
 import { NewPasswordComponent } from '../components/new-password/new-password.component';
-import { DeleteAccountComponent } from 'src/app/components/delete-account/delete-account.component';
+import { DeleteAccountComponent } from 'src/app/auth/components/delete-account/delete-account.component';
 import { AddCalendarComponent } from 'src/app/components/add-calendar/add-calendar.component';
 import { QuranComponent } from 'src/app/components/quran/quran/quran.component';
 import { TasbeehComponent } from 'src/app/components/tasbeeh/tasbeeh.component';

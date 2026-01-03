@@ -1,0 +1,36 @@
+<ion-content class="content" [scroll]="false"> <div class="bg"></div>
+ <div style="display: flex;flex-direction: row;margin-top: 10%;justify-content:center;margin-inline-start: 2%;margin-inline-end: 2%;">
+<ion-icon name="chevron-back"style="margin-top:0.5vh;margin-inline-end: auto;"></ion-icon> 
+ <div style="display: flex;flex-direction: row;justify-content: center;width: 90vw;"><div style="font-size: 8vw;">Quran group</div><div style="display: flex;flex-direction: row;justify-content: center;margin-inline-start: 5%;"></div> <div class="yellow-circle"><div>+</div></div></div>
+
+ <div style="display: flex;flex-direction: row;justify-content: center;"></div>
+</div>
+<div style="display: flex;flex-direction:column;justify-content: center;text-align: center; margin-top: 8%;align-items: center;">
+  <div style="font-size: 5vw;font-weight: 500;margin-inline-end:auto ;">Groups I Manage</div>
+  <div style="margin-top: 7%;font-size: 4vw;font-weight: 400;">You haven’t created any groups yet</div>
+  <div class="thin-line"></div>
+   <div style="font-size: 5vw;font-weight: 500;margin-inline-end:auto ;">Groups I’ve Joined</div>
+<div class="thin-line"></div>
+<div style="display: flex;flex-direction: column;margin-top: 5%;">
+    <div *ngFor="let item of list" style="margin-inline-end: 10px;margin-top: 7%;">
+      <div style="display: flex;flex-direction: row;width: 95vw;"><div></div>
+  <img
+  src="assets/icon/user1.jpg" 
+  class="circle-img"
+/><div style="display: flex;flex-direction: column;width: 90%;margin-top: 1%;text-align: start;"> <div style="margin-inline-start: 3vw;font-size:3.8vw;font-weight: 500;">مجموعة ختمة رمضان</div> <div style="margin-inline-start: 3vw;font-size: 2.5vw;width: 40vw;color: rgb(167, 167, 167);">Supervisor: Aleen , Ahmad , ......
+ 40 members 
+</div></div><div style="display: flex;flex-direction: column; text-align: start;font-size: 2.7vw;width: 20vw;justify-content: center;"> <p style="font-size: 2.5vw;margin-bottom: -2%;">Completed</p>  <div class="circle"><div style="font-size: 2.5vw;">delete 4-1-2026</div></div></div><ion-icon style="margin-top: 5%;" name="chevron-forward"></ion-icon>
+
+      </div>
+    </div>
+</div>
+</div>
+ <button 
+  class="button"
+  type="submit"
+  
+>
+ Create New Group +
+</button>
+</ion-content>
+

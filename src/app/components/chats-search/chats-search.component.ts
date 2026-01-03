@@ -2,7 +2,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { Platform } from '@ionic/angular';
-import { MainServiceService } from '../main-service/main/main-service.service';
+import { MainServiceService } from '../../main-service/main/main-service.service';
 
 @Component({
   selector: 'app-chats-search',

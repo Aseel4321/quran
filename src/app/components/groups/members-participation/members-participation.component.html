@@ -1,0 +1,24 @@
+<ion-content  class="content" 
+> 
+<div style="text-align: center;">Members participation</div><div style="text-align: center;">
+  12 members 
+</div><div style="display: flex; flex-direction: row; justify-content: center;margin-top: 4%;">
+  
+  <div class="search-box" >
+    <img src="assets/icon/loupe.png" class="icon" />
+    <input #searchInput type="text" placeholder="Search here..." class="search-input" />
+  </div>
+</div><div style="display: flex;flex-direction: column;margin-top: 10%;margin-left: 12%;margin-right:12% ;">
+    <div *ngFor="let item of list" style="margin-inline-end: 10px;margin-top: 7%;">
+      <div style="display: flex; flex-direction: row; border-bottom: 3px solid rgb(236, 236, 236);padding-bottom: 5%;margin-top: -3%;">
+  <img
+  src="assets/icon/user1.jpg" 
+  class="circle-img"
+/><div style="display: flex;flex-direction: column;width: 90%;margin-top: 1%;justify-content: center;"> 
+  <div style="margin-inline-start: 3vw;font-size:3.5vw;">John Smith</div> 
+</div>
+
+      </div>
+    </div>
+</div>
+</ion-content>

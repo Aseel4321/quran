@@ -10,7 +10,7 @@ import { NgxIntlTelInputModule } from 'ngx-intl-tel-input';
 import { MainRoutingModule } from './main-routing.module';
 import { ProfileDetailsComponent } from '../components/profile-details/profile-details.component';
 import { SettingsComponent } from '../components/settings/settings.component';
-import { DeleteAccountComponent } from '../components/delete-account/delete-account.component';
+import { DeleteAccountComponent } from '../auth/components/delete-account/delete-account.component';
 import { LocationAccuracy } from '@ionic-native/location-accuracy/ngx';
 import { AddCalendarComponent } from '../components/add-calendar/add-calendar.component';
 
@@ -42,11 +42,14 @@ import { ReadComponent } from '../components/notification/read/read.component';
 import { UnreadComponent } from '../components/notification/unread/unread.component';
 import { ChatsComponent } from '../components/chats/chats.component';
 import { MessagesPageComponent } from '../components/messages-page/messages-page.component';
-import { ChatsSearchComponent } from '../chats-search/chats-search.component';
+import { ChatsSearchComponent } from '../components/chats-search/chats-search.component';
+import { WelcomeGroupsComponent } from '../components/groups/welcome-groups/welcome-groups.component';
+import { GroupsAdminComponent } from '../components/groups/groups-admin/groups-admin.component';
+import { MembersParticipationComponent } from '../components/groups/members-participation/members-participation.component';
 
 
 @NgModule({
-  declarations: [ChatsSearchComponent,MessagesPageComponent,ChatsComponent,SorahComponent,UnreadComponent,ReadComponent,HomePagePageComponent,HomePageListComponent,SorahComponent,SupplicationsComponent,MorninAdhkarComponent,TasbeehComponent,CalendarComponent,NotificationsComponent,PageComponent,SurahComponent,PartComponent,QuranComponent,HomePageComponent,ProfileComponent,ProfileDetailsComponent,SettingsComponent,DeleteAccountComponent,AddCalendarComponent ],
+  declarations: [MembersParticipationComponent,GroupsAdminComponent,WelcomeGroupsComponent,ChatsSearchComponent,MessagesPageComponent,ChatsComponent,SorahComponent,UnreadComponent,ReadComponent,HomePagePageComponent,HomePageListComponent,SorahComponent,SupplicationsComponent,MorninAdhkarComponent,TasbeehComponent,CalendarComponent,NotificationsComponent,PageComponent,SurahComponent,PartComponent,QuranComponent,HomePageComponent,ProfileComponent,ProfileDetailsComponent,SettingsComponent,DeleteAccountComponent,AddCalendarComponent ],
   imports: [ CalendarModule, CommonModule,
       IonicModule,
       FormsModule,SwiperModule,

@@ -29,11 +29,10 @@ export class HomePageListComponent  implements OnInit{list:[]=[];name:string;
     );   
   }
   delete(){
-   
-    this.service.notifications_get({
-  "email": "aseelghaleb2088@gmail.com",
-  "status": "READ"
-}).subscribe((data:any)=>{ console.log('ASWWWWWd');console.log(data);if(localStorage.getItem('lang')=='ar'){}else{}
+    this.service.search(
+  "aseelghaleb2088@gmail.com"
+ 
+).subscribe((data:any)=>{ console.log('ASWWWWWd');console.log(data);if(localStorage.getItem('lang')=='ar'){}else{}
  
     },(error: HttpErrorResponse)=>{
       console.log(error?.error?.arDescription)
@@ -70,8 +69,7 @@ export class HomePageListComponent  implements OnInit{list:[]=[];name:string;
         }else{console.error(error.error); }
     });
    }
-  reject(){
-   
+  reject(){ 
     this.service.reject({
   "userId":'25112120553613034',
  "targetUserId":'25120423213215690'
@@ -185,7 +183,7 @@ swiperRef!: Swiper;
   keyboardWillHideListener: any;
 private lockInProgress = false;
   constructor(private platform: Platform,private cdr: ChangeDetectorRef,private router: Router,private servicea: AuthService,private service: MainServiceService ){}
-  ngOnInit(): void {this.name=this.service.name;this.follow();
+  ngOnInit(): void {this.name=this.service.name;
     this.login(); this.delete();
     this.lockInProgress = false;
 

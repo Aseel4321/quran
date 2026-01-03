@@ -17,7 +17,7 @@
   display: flex;
   align-items: center;
   font-size: 1rem;
-}.circular-btn {
+}.circular-btn-f {
   width: 17vw;             
   height: 2.5vh;            
   border-radius: 15px;      /* <-- هذا يجعل الزوايا مستديرة جزئياً */
@@ -34,7 +34,23 @@
   /* تأثير عند الضغط */
   transition: transform 0.1s ease, box-shadow 0.1s ease; 
 }
+.circular-btn-uf {
+  width: 17vw;             
+  height: 2.5vh;            
+  border-radius: 15px;      /* <-- هذا يجعل الزوايا مستديرة جزئياً */
+  border: none;            
+  background-color: #25b9b9; 
+  color: #BC9327;            
+  font-size: 3vw;         
+  cursor: pointer;         
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.1s ease;   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); 
 
+  /* تأثير عند الضغط */
+  transition: transform 0.1s ease, box-shadow 0.1s ease; 
+}
 .circular-btn:active {
   transform: scale(0.95);  /* تأثير الضغط */
 }

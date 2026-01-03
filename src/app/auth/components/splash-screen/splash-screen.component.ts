@@ -13,7 +13,7 @@ constructor(private router: Router) {}
  
       setTimeout(() => {
         if(localStorage.getItem('user')==="true")
-          {this.router.navigate(['/sorah']);}else{
+          {this.router.navigate(['/home-page']);}else{
            this.router.navigate(['/login']); 
           }
         

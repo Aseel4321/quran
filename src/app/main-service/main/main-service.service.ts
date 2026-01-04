@@ -188,7 +188,8 @@ notifications_count(email): Observable<any> {
         `https://margherita-circadian-minta.ngrok-free.dev/api/notifications/user/${email}/count`,  // استخدم البروكسي هنا
      { headers: headers }
   );
-}mutual(): Observable<any> {
+}mutual(): Observable<any> {const userData = localStorage.getItem('User');
+     const user = JSON.parse(userData);
   const headers = new HttpHeaders({
     'Accept': 'application/json',
     'Content-Type': 'application/json',
@@ -196,7 +197,7 @@ notifications_count(email): Observable<any> {
   });
 
   return this.http.get(
-        `https://margherita-circadian-minta.ngrok-free.dev/api/contacts/mutual/25112111593265894`,  // استخدم البروكسي هنا
+        `https://margherita-circadian-minta.ngrok-free.dev/api/contacts/mutual/2601042138368739`,  // استخدم البروكسي هنا
      { headers: headers }
   );
 }
@@ -227,6 +228,20 @@ notifications_user(): Observable<any> {
       
     
   );
+}following(data): Observable<any> {
+  const headers = new HttpHeaders({
+    'Accept': 'application/json',
+    'Content-Type': 'application/json',
+    'ngrok-skip-browser-warning': 'true'
+  });
+
+  return this.http.get(
+    'https://margherita-circadian-minta.ngrok-free.dev/api/contacts/following/2601042138368739',  // استخدم البروكسي هنا
+ { headers: headers },
+ 
+      
+    
+  );
 }
 add_calendar(data: any): Observable<any> {
   const headers = new HttpHeaders({
@@ -238,7 +253,7 @@ add_calendar(data: any): Observable<any> {
     'https://margherita-circadian-minta.ngrok-free.dev/api/calendar-alerts/add',  // استخدم البروكسي هنا
   
      data ,
-     { headers: headers }
+     
       
     
   );

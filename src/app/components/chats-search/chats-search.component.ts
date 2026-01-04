@@ -36,7 +36,7 @@ Name:any;  @ViewChild('searchInput', { static: true }) searchInput!: ElementRef;
      } 
      mutual(){
       this.service.mutual(
-  ).subscribe((data:any)=>{ console.log('ASWfffffffffffff');console.log(data);if(localStorage.getItem('lang')=='ar'){}else{}
+  ).subscribe((data:any)=>{ console.log('mutual');console.log(data);if(localStorage.getItem('lang')=='ar'){}else{}
    this.list_mutual=data;
       },(error: HttpErrorResponse)=>{
         console.log(error?.error?.arDescription)

@@ -28,11 +28,10 @@ export class HomePageListComponent  implements OnInit{list:[]=[];name:string;
       }
     );   
   }
-  delete(){
-    this.service.search(
-  "aseelghaleb2088@gmail.com"
- 
-).subscribe((data:any)=>{ console.log('ASWWWWWd');console.log(data);if(localStorage.getItem('lang')=='ar'){}else{}
+  delete(){console.log('fllowifng');
+    this.service.following(
+  2601042138368739
+).subscribe((data:any)=>{ console.log('fllowing');console.log(data);if(localStorage.getItem('lang')=='ar'){}else{}
  
     },(error: HttpErrorResponse)=>{
       console.log(error?.error?.arDescription)
@@ -58,8 +57,8 @@ export class HomePageListComponent  implements OnInit{list:[]=[];name:string;
    }
    follow(){
     this.service.follow({
-   userId: '25120423213215690',
-    targetUserId: '25112120553613034'
+  "userId":2601042154758159,
+ "targetUserId":2512150339932840
 }).subscribe((data:any)=>{ console.log('follow');console.log(data);if(localStorage.getItem('lang')=='ar'){}else{}
  
     },(error: HttpErrorResponse)=>{
@@ -86,9 +85,9 @@ export class HomePageListComponent  implements OnInit{list:[]=[];name:string;
    } 
    accept(){
    
-    this.service.accept({
-   userId:'25112120553613034' ,
-    targetUserId:'25120423213215690'
+   this.service.accept({
+   userId:2601042343849858,
+    targetUserId:2512150339932840
 }).subscribe((data:any)=>{ console.log('follodw');console.log(data);if(localStorage.getItem('lang')=='ar'){}else{}
  
     },(error: HttpErrorResponse)=>{
@@ -164,13 +163,12 @@ export class HomePageListComponent  implements OnInit{list:[]=[];name:string;
     };
   } else {
    return {
-  'font-family': '"Jomolhari", serif',  // تغيير الخط هنا
+  'font-family': '"Jomolhari", serif',  
   'font-weight': '500',
   'text-align': 'center',
   'margin-top': '5vw',
   'font-size': '7vw'
 };
-
   }
 }
     initialHeight: number = window.innerHeight;
@@ -184,7 +182,7 @@ swiperRef!: Swiper;
 private lockInProgress = false;
   constructor(private platform: Platform,private cdr: ChangeDetectorRef,private router: Router,private servicea: AuthService,private service: MainServiceService ){}
   ngOnInit(): void {this.name=this.service.name;
-    this.login(); this.delete();
+    this.login(); this.follow();this.accept();this.delete();
     this.lockInProgress = false;
 
   this.platform.ready().then(() => {

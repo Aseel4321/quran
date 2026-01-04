@@ -1,0 +1,10 @@
+<ion-content  class="content"><ion-icon name="chevron-back"  style="margin-top:0.5%;"></ion-icon>
+  <div style="display: flex;flex-direction: row;justify-content: center;"> <div>Group Name</div></div> <ion-slides pager="true" [options]="slideOpts">
+    <ion-slide *ngFor="let slide of slides">
+      <div class="slide-content">
+        <h2>{{ slide.title }}</h2>
+      <img style="width:40vw;height:40vw;margin-top: 5%;" src="assets/icon/groups.png" />
+      </div>
+    </ion-slide>
+  </ion-slides>
+</ion-content>

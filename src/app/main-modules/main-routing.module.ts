@@ -24,6 +24,7 @@ import { ChatsSearchComponent } from '../components/chats-search/chats-search.co
 import { WelcomeGroupsComponent } from '../components/groups/welcome-groups/welcome-groups.component';
 import { GroupsAdminComponent } from '../components/groups/groups-admin/groups-admin.component';
 import { MembersParticipationComponent } from '../components/groups/members-participation/members-participation.component';
+import { CreateGroupComponent } from '../components/groups/create-group/create-group.component';
 
 
 
@@ -31,7 +32,7 @@ import { MembersParticipationComponent } from '../components/groups/members-part
 
 
 
-const routes: Routes = [{path:'sorah',component:SorahComponent},{path:'welcome-groups',component:WelcomeGroupsComponent},{path:'groups-admin',component:GroupsAdminComponent},
+const routes: Routes = [{path:'sorah',component:SorahComponent},{path:'welcome-groups',component:WelcomeGroupsComponent},{path:'groups-admin',component:GroupsAdminComponent},{path:'create-group',component:CreateGroupComponent},
   { path: 'home-page', component: HomePageComponent },{ path: 'Members-Participation', component: MembersParticipationComponent },
  {path:'profile',component:ProfileComponent},
  {path:'profile-details',component:ProfileDetailsComponent},

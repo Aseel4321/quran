@@ -46,10 +46,11 @@ import { ChatsSearchComponent } from '../components/chats-search/chats-search.co
 import { WelcomeGroupsComponent } from '../components/groups/welcome-groups/welcome-groups.component';
 import { GroupsAdminComponent } from '../components/groups/groups-admin/groups-admin.component';
 import { MembersParticipationComponent } from '../components/groups/members-participation/members-participation.component';
+import { CreateGroupComponent } from '../components/groups/create-group/create-group.component';
 
 
 @NgModule({
-  declarations: [MembersParticipationComponent,GroupsAdminComponent,WelcomeGroupsComponent,ChatsSearchComponent,MessagesPageComponent,ChatsComponent,SorahComponent,UnreadComponent,ReadComponent,HomePagePageComponent,HomePageListComponent,SorahComponent,SupplicationsComponent,MorninAdhkarComponent,TasbeehComponent,CalendarComponent,NotificationsComponent,PageComponent,SurahComponent,PartComponent,QuranComponent,HomePageComponent,ProfileComponent,ProfileDetailsComponent,SettingsComponent,DeleteAccountComponent,AddCalendarComponent ],
+  declarations: [CreateGroupComponent,MembersParticipationComponent,GroupsAdminComponent,WelcomeGroupsComponent,ChatsSearchComponent,MessagesPageComponent,ChatsComponent,SorahComponent,UnreadComponent,ReadComponent,HomePagePageComponent,HomePageListComponent,SorahComponent,SupplicationsComponent,MorninAdhkarComponent,TasbeehComponent,CalendarComponent,NotificationsComponent,PageComponent,SurahComponent,PartComponent,QuranComponent,HomePageComponent,ProfileComponent,ProfileDetailsComponent,SettingsComponent,DeleteAccountComponent,AddCalendarComponent ],
   imports: [ CalendarModule, CommonModule,
       IonicModule,
       FormsModule,SwiperModule,

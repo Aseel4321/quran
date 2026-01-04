@@ -71,12 +71,12 @@ if(i===this.i){
 }Style(i){
 if(i===this.i){
   return { 
-  'font-size': '6.5vw',
+  'font-size': '4.5vw',
   'background-color':'rgb(233, 233, 193)',
  'margin-inline-end': '0vw','margin-inline-start': '0vw',
     }; 
 }else{ return {  'line-height': '1.8em',
-  'font-size': '6vw','margin-inline-end': '0.8vw','margin-inline-start': '0vw',
+  'font-size': '4vw','margin-inline-end': '0vw','margin-inline-start': '0vw',
     };}
 }
 onclick(){

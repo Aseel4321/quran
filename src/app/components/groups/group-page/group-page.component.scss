@@ -47,13 +47,12 @@ margin-inline-start: 5%;
   border-radius: 80px;
 }
 .custom-box-right {padding-right: 3%; padding-left: 3%;
-   max-width: 150px;
+  max-width: 150px;
   max-height: 100px;
   background: #F8D36CD6;
-margin-inline-end: 5%;
-  border-radius: 20px; /* يدير كل الزوايا */
-   /* نلغي التدوير على اليسار */
-  border-bottom-right-radius: 0;  /* نلغي التدوير على اليسار */
+  margin-inline-end: 5%;
+  border-radius: 20px; 
+  border-bottom-right-radius: 0;  
 }
 .search-box .icon {
   width: 4.5vw;

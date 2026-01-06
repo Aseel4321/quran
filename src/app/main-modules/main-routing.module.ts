@@ -24,7 +24,11 @@ import { ChatsSearchComponent } from '../components/chats-search/chats-search.co
 import { WelcomeGroupsComponent } from '../components/groups/welcome-groups/welcome-groups.component';
 import { GroupsAdminComponent } from '../components/groups/groups-admin/groups-admin.component';
 import { MembersParticipationComponent } from '../components/groups/members-participation/members-participation.component';
-import { CreateGroupComponent } from '../components/groups/create-group/create-group.component';
+import { CreateGroupComponent } from '../components/groups/create-groups/create-group/create-group.component';
+import { GroupNameComponent } from '../components/groups/create-groups/group-name/group-name.component';
+import { SelectMembersComponent } from '../components/groups/create-groups/select-members/select-members.component';
+import { GroupSettingsComponent } from '../components/groups/create-groups/group-settings/group-settings.component';
+import { QuranChallengeNotificationsComponent } from '../components/groups/create-groups/quran-challenge-notifications/quran-challenge-notifications.component';
 
 
 
@@ -32,14 +36,15 @@ import { CreateGroupComponent } from '../components/groups/create-group/create-g
 
 
 
-const routes: Routes = [{path:'sorah',component:SorahComponent},{path:'welcome-groups',component:WelcomeGroupsComponent},{path:'groups-admin',component:GroupsAdminComponent},{path:'create-group',component:CreateGroupComponent},
+
+const routes: Routes = [{path:'Challenge-Notifications',component:QuranChallengeNotificationsComponent},{path:'Group-Settings',component:GroupSettingsComponent},{path:'sorah',component:SorahComponent},{path:'welcome-groups',component:WelcomeGroupsComponent},{path:'groups-admin',component:GroupsAdminComponent},{path:'create-group',component:CreateGroupComponent},{path:'group-name',component:GroupNameComponent},
   { path: 'home-page', component: HomePageComponent },{ path: 'Members-Participation', component: MembersParticipationComponent },
  {path:'profile',component:ProfileComponent},
  {path:'profile-details',component:ProfileDetailsComponent},
  {path:'setting',component:SettingsComponent},
  {path:'delete',component:DeleteAccountComponent},
  {path:'add-calendar',component:AddCalendarComponent},
- {path:'quran',component:QuranComponent},
+ {path:'quran',component:QuranComponent}, {path:'Select-Members',component:SelectMembersComponent},
  {path:'notifi',component:NotificationsComponent},
  {path:'calendar',component:CalendarComponent},{path:"chat-search",component:ChatsSearchComponent},{path:'tasbeeh',component:TasbeehComponent},{path:'morning-adhkar',component:MorninAdhkarComponent}, { path: 'Supplications', component: SupplicationsComponent },
  {path:"home-page-list",component:HomePageListComponent},{path:"home-page-list-page",component:HomePagePageComponent},{path:"chats",component:ChatsComponent},{path:"messages",component:MessagesPageComponent}

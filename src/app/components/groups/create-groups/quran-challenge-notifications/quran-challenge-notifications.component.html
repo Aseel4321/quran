@@ -1,0 +1,35 @@
+ <div class="slide-content">
+        <h2>hhhh</h2>
+      <div style="display: flex;flex-direction: row;justify-content: center;align-items: center;"><div>ffffff</div><img style="width:10vw;height:10vw;margin-top: 5%;" src="assets/icon/groups.png"/></div><div style="display: flex;flex-direction: row; justify-content: center;"><div class="thin-line"></div></div>
+    <div style="display: flex;flex-direction: row;justify-content: center;align-items: center;"><div>ffffff</div><img style="width:10vw;height:10vw;margin-top: 5%;" src="assets/icon/groups.png"/></div><div lines="none" class="rounded-input">
+  <ion-input
+    placeholder="اكتب هنا..."
+    [(ngModel)]="text"
+    clearInput="false">
+  </ion-input>
+  <ion-icon slot="end" 
+    *ngIf="text"
+    name="close-outline"
+    slot="end"
+    class="clear-icon"
+    (click)="text = ''">
+  </ion-icon>
+</div> 
+<div style="display: flex;flex-direction: row;width: 90%;justify-content: center;align-items: center;"><div>fffjjvbj</div> <ion-col size="6" class="gender-segment">
+    <ion-segment value="male" >
+  <ion-segment-button value="male" >
+   {{ 'Male' | translate }}
+  </ion-segment-button>
+  <ion-segment-button value="famale"> 
+   {{ 'Female' | translate }}
+  </ion-segment-button>
+ 
+</ion-segment>
+
+        </ion-col></div>
+<button 
+  class="button"
+  type="submit">
+ Create New Group +
+</button> 
+      </div>

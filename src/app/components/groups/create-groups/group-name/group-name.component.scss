@@ -1,0 +1,70 @@
+.slide-content {width:70vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+  background: #f5f5f5;
+}
+
+.slide-content h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.slide-content p {
+  font-size: 16px;
+  color: #555;
+}.rounded-input {display: flex;margin-top: 5%;
+  align-items: center; 
+  background-color: #ffffff;      /* لون خلفية المستطيل */
+  border: 1px solid #ccc;         /* الحد الخارجي */
+  
+  width: calc(100% - 30px);       /* ليشغل العرض بالكامل مع المارجن */
+  height: 5vh;                   /* ارتفاع محدد */
+  width: 55vw;
+             /* مساحة خارجية */
+  
+  box-sizing: border-box;         /* يحسب البادينج ضمن العرض */
+  font-size: 16px;                /* خط مناسب */
+  
+  /* الحواف المختلفة لكل زاوية */
+  border-top-left-radius: 80px;    
+  border-top-right-radius: 80px;   
+  border-bottom-left-radius: 80px; 
+  border-bottom-right-radius: 80px;
+  
+  overflow: hidden;               /* مهم للـ border-radius مع عناصر داخلية */
+}
+
+
+.rounded-input ion-input {
+  --padding-start: 5%;margin-top:0%;    /* مسافة من اليسار */
+  --color: #333;            /* لون النص */
+  font-size: 16px;
+}
+
+.clear-icon {
+  font-size: 22px;
+  color: #999;
+  cursor: pointer;
+padding: 5%;
+  /* محاذاة عمودية وسط input */
+  
+}.button {
+  border-radius: 25px;
+  background: linear-gradient(to right, #ccc, #aaa); // لون رمادي عند invalid
+  color: #fff;
+  font-size: 18px;
+  text-shadow: 1px 1px 2px #000;
+  padding: 3% 5%;
+  margin-top: 15%;
+  width: 70%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  opacity: 0.6;
+  cursor: not-allowed;
+  transition: all 0.3s ease;
+}

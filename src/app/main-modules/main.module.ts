@@ -46,12 +46,19 @@ import { ChatsSearchComponent } from '../components/chats-search/chats-search.co
 import { WelcomeGroupsComponent } from '../components/groups/welcome-groups/welcome-groups.component';
 import { GroupsAdminComponent } from '../components/groups/groups-admin/groups-admin.component';
 import { MembersParticipationComponent } from '../components/groups/members-participation/members-participation.component';
-import { CreateGroupComponent } from '../components/groups/create-group/create-group.component';
+import { CreateGroupComponent } from '../components/groups/create-groups/create-group/create-group.component';
+import { GroupNameComponent } from '../components/groups/create-groups/group-name/group-name.component';
+import { SelectMembersComponent } from '../components/groups/create-groups/select-members/select-members.component';
+import { GroupSettingsComponent } from '../components/groups/create-groups/group-settings/group-settings.component';
+import { QuranChallengeNotificationsComponent } from '../components/groups/create-groups/quran-challenge-notifications/quran-challenge-notifications.component';
+
 
 
 @NgModule({
-  declarations: [CreateGroupComponent,MembersParticipationComponent,GroupsAdminComponent,WelcomeGroupsComponent,ChatsSearchComponent,MessagesPageComponent,ChatsComponent,SorahComponent,UnreadComponent,ReadComponent,HomePagePageComponent,HomePageListComponent,SorahComponent,SupplicationsComponent,MorninAdhkarComponent,TasbeehComponent,CalendarComponent,NotificationsComponent,PageComponent,SurahComponent,PartComponent,QuranComponent,HomePageComponent,ProfileComponent,ProfileDetailsComponent,SettingsComponent,DeleteAccountComponent,AddCalendarComponent ],
-  imports: [ CalendarModule, CommonModule,
+  declarations: [QuranChallengeNotificationsComponent,GroupSettingsComponent,SelectMembersComponent ,GroupNameComponent,CreateGroupComponent,MembersParticipationComponent,GroupsAdminComponent,WelcomeGroupsComponent,ChatsSearchComponent,MessagesPageComponent,ChatsComponent,SorahComponent,UnreadComponent,ReadComponent,HomePagePageComponent,HomePageListComponent,SorahComponent,SupplicationsComponent,MorninAdhkarComponent,TasbeehComponent,CalendarComponent,NotificationsComponent,PageComponent,SurahComponent,PartComponent,QuranComponent,HomePageComponent,ProfileComponent,ProfileDetailsComponent,SettingsComponent,DeleteAccountComponent,AddCalendarComponent ],
+  imports: [ 
+      CalendarModule,
+      CommonModule,
       IonicModule,
       FormsModule,SwiperModule,
       ReactiveFormsModule,
@@ -59,9 +66,9 @@ import { CreateGroupComponent } from '../components/groups/create-group/create-g
       NgxIntlTelInputModule,
       BrowserAnimationsModule,
       MainRoutingModule
-     
   ], schemas: [CUSTOM_ELEMENTS_SCHEMA],  providers: [LocationAccuracy,
     Geolocation
   ],
 })
 export class MainModule { }
+ 

@@ -1,0 +1,67 @@
+.slide-content {width:70vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+  background: #f5f5f5;
+}
+
+.slide-content h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.slide-content p {
+  font-size: 16px;
+  color: #555;
+}
+.thin-line {margin-top: 5%;margin-bottom: 3%;align-items: center;
+  width:20vw;           /* طول الخط */
+  height:0.3vh;        /* سماكة رفيعة */
+  background-color: #941515;
+  border-radius: 50px;  
+}.rounded-input {display: flex;margin-top: 5%;
+  align-items: center; 
+  background-color: #ffffff;      /* لون خلفية المستطيل */
+  border: 1px solid #ccc;         /* الحد الخارجي */
+  
+  width: calc(100% - 30px);       /* ليشغل العرض بالكامل مع المارجن */
+  height: 5vh;                   /* ارتفاع محدد */
+  width: 55vw;
+             /* مساحة خارجية */
+  
+  box-sizing: border-box;         /* يحسب البادينج ضمن العرض */
+  font-size: 16px;                /* خط مناسب */
+  
+  /* الحواف المختلفة لكل زاوية */
+  border-top-left-radius: 80px;    
+  border-top-right-radius: 80px;   
+  border-bottom-left-radius: 80px; 
+  border-bottom-right-radius: 80px;
+  
+  overflow: hidden;               /* مهم للـ border-radius مع عناصر داخلية */
+}.clear-icon {
+  font-size: 22px;
+  color: #999;
+  cursor: pointer;
+padding: 5%;
+  /* محاذاة عمودية وسط input */
+  
+}ion-segment-button {font-weight: 300;
+  --indicator-color: #1dc76c;
+}
+
+
+ion-segment-button.md {
+  --color: #000;
+  --color-checked: #1dc76c;
+  --indicator-height: 2px;
+}
+
+
+ion-segment-button.ios {font-size:2.5vw;
+  --color: #101006;
+  --color-checked: #8f1717;
+  --border-radius: 5px;
+}

@@ -1,0 +1,25 @@
+ <div class="slide-content">
+        <h2>hhhh</h2>
+      <img style="width:40vw;height:40vw;margin-top: 5%;" src="assets/icon/groups.png"/><div lines="none" class="rounded-input">
+  <ion-input
+    placeholder="اكتب هنا..."
+    [(ngModel)]="text"
+    clearInput="false">
+  </ion-input>
+
+  <ion-icon slot="end" 
+    *ngIf="text"
+    name="close-outline"
+    slot="end"
+    class="clear-icon"
+    (click)="text = ''">
+  </ion-icon>
+</div>
+<button 
+  class="button"
+  type="submit"
+  
+>
+ Create New Group +
+</button>
+      </div>

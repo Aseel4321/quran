@@ -1,0 +1,29 @@
+ 
+<div class="slide-content"> 
+<div style="display: flex; flex-direction: row; justify-content: center;margin-top: 4%;">
+  
+  <div class="search-box">
+    
+    <input type="text" placeholder="Search here..." class="search-input"/>
+  </div>
+
+
+</div>
+
+<div style="display: flex;flex-direction: column;margin-top: 5%;">
+    <div *ngFor="let item of list" style="margin-inline-end: 10px;margin-top: 7%;">
+      <div style="display: flex;flex-direction: row;">
+  <img
+  src="assets/icon/user1.jpg" 
+  class="circle-img"
+/><div style="display: flex;flex-direction: column;width: 90%;margin-top: 1%;"> <div style="margin-inline-start: 3vw;font-size:3.5vw;">John Smith</div> <div style="margin-inline-start: 3vw;font-size: 2.7vw;">How are you ?</div></div><div style="display: flex;flex-direction:row; text-align: end;font-size: 2.7vw;width: 20vw;justify-content: center;align-items: center;"> <div style="font-size: 2.5vw;">Just Now</div>  <div class="circle"><div style="font-size: 2.5vw;">4</div></div></div>
+
+      </div> <div style="display: flex;flex-direction: row; justify-content: center;"><div class="thin-line"></div></div>
+    </div>
+</div><button 
+  class="button"
+  type="submit"
+  
+>
+ Create New Group +
+</button></div>

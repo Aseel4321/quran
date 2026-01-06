@@ -29,6 +29,8 @@ import { GroupNameComponent } from '../components/groups/create-groups/group-nam
 import { SelectMembersComponent } from '../components/groups/create-groups/select-members/select-members.component';
 import { GroupSettingsComponent } from '../components/groups/create-groups/group-settings/group-settings.component';
 import { QuranChallengeNotificationsComponent } from '../components/groups/create-groups/quran-challenge-notifications/quran-challenge-notifications.component';
+import { ChatsGroupsComponent } from '../components/groups/chats-groups/chats-groups.component';
+import { GroupPageComponent } from '../components/groups/group-page/group-page.component';
 
 
 
@@ -37,8 +39,8 @@ import { QuranChallengeNotificationsComponent } from '../components/groups/creat
 
 
 
-const routes: Routes = [{path:'Challenge-Notifications',component:QuranChallengeNotificationsComponent},{path:'Group-Settings',component:GroupSettingsComponent},{path:'sorah',component:SorahComponent},{path:'welcome-groups',component:WelcomeGroupsComponent},{path:'groups-admin',component:GroupsAdminComponent},{path:'create-group',component:CreateGroupComponent},{path:'group-name',component:GroupNameComponent},
-  { path: 'home-page', component: HomePageComponent },{ path: 'Members-Participation', component: MembersParticipationComponent },
+const routes: Routes = [{path:'Group-Page',component:GroupPageComponent},{path:'Challenge-Notifications',component:QuranChallengeNotificationsComponent},{path:'Group-Settings',component:GroupSettingsComponent},{path:'sorah',component:SorahComponent},{path:'welcome-groups',component:WelcomeGroupsComponent},{path:'groups-admin',component:GroupsAdminComponent},{path:'create-group',component:CreateGroupComponent},{path:'group-name',component:GroupNameComponent},
+  { path: 'home-page', component: HomePageComponent },{ path: 'Chats-Groups', component:ChatsGroupsComponent},{ path: 'Members-Participation', component: MembersParticipationComponent },
  {path:'profile',component:ProfileComponent},
  {path:'profile-details',component:ProfileDetailsComponent},
  {path:'setting',component:SettingsComponent},

@@ -51,11 +51,13 @@ import { GroupNameComponent } from '../components/groups/create-groups/group-nam
 import { SelectMembersComponent } from '../components/groups/create-groups/select-members/select-members.component';
 import { GroupSettingsComponent } from '../components/groups/create-groups/group-settings/group-settings.component';
 import { QuranChallengeNotificationsComponent } from '../components/groups/create-groups/quran-challenge-notifications/quran-challenge-notifications.component';
+import { ChatsGroupsComponent } from '../components/groups/chats-groups/chats-groups.component';
+import { GroupPageComponent } from '../components/groups/group-page/group-page.component';
 
 
 
 @NgModule({
-  declarations: [QuranChallengeNotificationsComponent,GroupSettingsComponent,SelectMembersComponent ,GroupNameComponent,CreateGroupComponent,MembersParticipationComponent,GroupsAdminComponent,WelcomeGroupsComponent,ChatsSearchComponent,MessagesPageComponent,ChatsComponent,SorahComponent,UnreadComponent,ReadComponent,HomePagePageComponent,HomePageListComponent,SorahComponent,SupplicationsComponent,MorninAdhkarComponent,TasbeehComponent,CalendarComponent,NotificationsComponent,PageComponent,SurahComponent,PartComponent,QuranComponent,HomePageComponent,ProfileComponent,ProfileDetailsComponent,SettingsComponent,DeleteAccountComponent,AddCalendarComponent ],
+  declarations: [GroupPageComponent,ChatsGroupsComponent,QuranChallengeNotificationsComponent,GroupSettingsComponent,SelectMembersComponent ,GroupNameComponent,CreateGroupComponent,MembersParticipationComponent,GroupsAdminComponent,WelcomeGroupsComponent,ChatsSearchComponent,MessagesPageComponent,ChatsComponent,SorahComponent,UnreadComponent,ReadComponent,HomePagePageComponent,HomePageListComponent,SorahComponent,SupplicationsComponent,MorninAdhkarComponent,TasbeehComponent,CalendarComponent,NotificationsComponent,PageComponent,SurahComponent,PartComponent,QuranComponent,HomePageComponent,ProfileComponent,ProfileDetailsComponent,SettingsComponent,DeleteAccountComponent,AddCalendarComponent ],
   imports: [ 
       CalendarModule,
       CommonModule,

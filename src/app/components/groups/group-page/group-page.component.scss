@@ -1,0 +1,131 @@
+.circle-img {
+  width: 10vw;
+  height: 10vw;           /* خليها متساوية للحصول على دائرة حقيقية */
+  cursor: pointer;
+  user-select: none;
+  margin-inline-start: 5%;
+  border-radius: 50%;     /* هذا يحوّل الصورة لدائرة */
+  object-fit: cover;
+        /* لتعبئة الدائرة بدون تشويه الصورة */
+}
+.box {  
+  display: flex;
+  flex-direction: row;
+   
+}
+.custom-box-left {
+padding-right: 3%; 
+padding-left: 3%;
+max-width: 150px;
+max-height: 100px;
+background: #D9D9D9;
+border-radius: 20px;
+border-bottom-left-radius: 0;
+margin-inline-start: 5%;
+}
+.round-rect {display: flex;flex-direction: row;justify-content: center;align-items: center;
+  width:27vw;
+  height: 5vh;
+  background-color: #ff9800;
+  border-radius: 25px;
+}.round-rect-h {
+  width:40vw;
+  height: 25vh;
+  background-color: #ff9800;
+  border-radius: 50px;
+}
+.round-rect-color {display: flex;flex-direction: row;justify-content: center;align-items: center; margin-top: 5%;margin-bottom: 5%;
+  width:70vw;
+  height: 12vh;
+  background-color: #ff9800;
+  border-radius: 80px;
+}
+.round-rect-color1 {margin-top: 15%;margin-bottom: 5%;
+  width:80vw;
+  height: 25vh;
+  background-color: #ff9800;
+  border-radius: 80px;
+}
+.custom-box-right {padding-right: 3%; padding-left: 3%;
+   max-width: 150px;
+  max-height: 100px;
+  background: #F8D36CD6;
+margin-inline-end: 5%;
+  border-radius: 20px; /* يدير كل الزوايا */
+   /* نلغي التدوير على اليسار */
+  border-bottom-right-radius: 0;  /* نلغي التدوير على اليسار */
+}
+.search-box .icon {
+  width: 4.5vw;
+  margin-inline-end: 2vw;
+}
+.chats-content {
+ --background: #e5e6e4;
+  display: flex; 
+  flex-direction: column; 
+  justify-content: flex-start;
+  align-items: center; 
+  min-height: 100vh;
+  width:100vw ;
+}
+.search-input {
+  width: 100%;
+  border: none;
+  outline: none;
+  font-size: 4vw;
+  background: transparent;
+}.footer-bar {  display: flex;
+ 
+  position: fixed;
+  bottom: 0;
+ justify-content: center;
+  width: 100vw;
+height: 20vh;
+
+  align-items: center;
+   /* ← يجعلهم جنب بعض */
+  padding: 2vw;
+
+  background: #755c5c; /* حتى يظهر فوق المحتوى */
+}
+
+/* صندوق البحث */
+.search-box {
+  width:70vw;
+  height: 5vh;                 /* ارتفاع مناسب للـ textarea */
+ 
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  padding-inline: 2vw;
+  background: #D5D5D5;
+}
+
+/* أيقونة البحث */
+.icon {
+  width: 6vw;
+  margin-inline-end: 2vw;
+}
+
+/* textarea */
+.search-area {
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+  resize: none;                /* يمنع تغيير الحجم */
+  font-size: 4vw;
+  background: transparent;
+  padding-top: 1vh;
+  box-sizing: border-box;
+}
+
+
+/* صورة المستخدم */
+.user-img {
+  width: 12vw;
+  height: 12vw;
+  border-radius: 50%;
+  object-fit: cover;
+  cursor: pointer;margin-inline-start: 80vw;margin-bottom: 2%;
+}

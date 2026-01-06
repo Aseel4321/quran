@@ -1,10 +1,15 @@
-.slide-content {width:70vw;
+.slide-content {width:70vw;padding-top: 15%; border-top-left-radius: 12px;    
+  border-top-right-radius: 12px;   
+  border-bottom-left-radius: 12px; 
+  border-bottom-right-radius: 12px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   height: 50vh;
-  background: #f5f5f5;
+  background: #D9D9D9;box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+
+
 }
 
 .slide-content h2 {
@@ -15,24 +20,23 @@
 .slide-content p {
   font-size: 16px;
   color: #555;
-}.rounded-input {display: flex;margin-top: 5%;
+}.rounded-input {
+  display: flex;
+  margin-top: 13%;
   align-items: center; 
   background-color: #ffffff;      /* لون خلفية المستطيل */
   border: 1px solid #ccc;         /* الحد الخارجي */
-  
   width: calc(100% - 30px);       /* ليشغل العرض بالكامل مع المارجن */
-  height: 5vh;                   /* ارتفاع محدد */
-  width: 55vw;
-             /* مساحة خارجية */
-  
+  height: 4vh;                   /* ارتفاع محدد */
+  width: 50vw;
   box-sizing: border-box;         /* يحسب البادينج ضمن العرض */
   font-size: 16px;                /* خط مناسب */
   
   /* الحواف المختلفة لكل زاوية */
-  border-top-left-radius: 80px;    
-  border-top-right-radius: 80px;   
-  border-bottom-left-radius: 80px; 
-  border-bottom-right-radius: 80px;
+  border-top-left-radius: 10px;    
+  border-top-right-radius: 10px;   
+  border-bottom-left-radius: 10px; 
+  border-bottom-right-radius: 10px;
   
   overflow: hidden;               /* مهم للـ border-radius مع عناصر داخلية */
 }
@@ -53,7 +57,7 @@ padding: 5%;
   
 }.button {
   border-radius: 25px;
-  background: linear-gradient(to right, #ccc, #aaa); // لون رمادي عند invalid
+  background: linear-gradient(to right, #F87F01B8, #D0D693);
   color: #fff;
   font-size: 18px;
   text-shadow: 1px 1px 2px #000;
@@ -64,7 +68,11 @@ padding: 5%;
   margin-left: auto;
   margin-right: auto;
   text-align: center;
+
   opacity: 0.6;
   cursor: not-allowed;
   transition: all 0.3s ease;
+
+  /* الحدود البيضاء */
+  border: 2px solid #fff;
 }

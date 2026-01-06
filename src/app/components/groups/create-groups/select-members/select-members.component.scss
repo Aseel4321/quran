@@ -5,7 +5,7 @@
   display: flex;
   align-items: center;
   padding-inline: 2vw;
-  background: #D9D9D9;
+  background: #EEEEEE;
   box-shadow: 0 4px 6px -2px rgba(0, 0, 0, 0.3);
 }
 
@@ -35,30 +35,34 @@
   border: none;
   outline: none;
   font-size: 3vw;
-  background: #D9D9D9;
+  background: #EEEEEE;
 }.thin-line {margin-top: 5%;margin-bottom: 3%;align-items: center;
-  width:90%;           /* طول الخط */
+  width:60vw;           /* طول الخط */
   height:0.3vh;        /* سماكة رفيعة */
-  background-color: #DDDADA;
+  background-color: #EBEBEB;
   border-radius: 50px;  
 }
 .circle-img {
-  width: 12vw;
-  height: 12vw;           /* خليها متساوية للحصول على دائرة حقيقية */
+  width: 10vw;
+  height: 10vw;           
   cursor: pointer;
   user-select: none;
   margin-inline-start: 3%;
-  border-radius: 50%;     /* هذا يحوّل الصورة لدائرة */
-  object-fit: cover;      /* لتعبئة الدائرة بدون تشويه الصورة */
-}.slide-content {width:70vw;padding-top: 5%;
+  border-radius: 50%;   
+  object-fit: cover;      
+}.slide-content {width:70vw;padding-top: 3%; border-top-left-radius: 12px;    
+  border-top-right-radius: 12px;   
+  border-bottom-left-radius: 12px; 
+  border-bottom-right-radius: 12px;
   display: flex;
   flex-direction: column;
-  justify-content:flex-start;
-
+  justify-content: flex-start;
+  align-items: center;
   height: 50vh;
-  background: #f5f5f5;
-}
+  background: #D9D9D9;box-shadow: 0 2px 8px rgba(0,0,0,0.12);
 
+
+}
 .slide-content h2 {
   font-size: 24px;
   margin-bottom: 10px;

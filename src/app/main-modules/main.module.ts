@@ -53,11 +53,12 @@ import { GroupSettingsComponent } from '../components/groups/create-groups/group
 import { QuranChallengeNotificationsComponent } from '../components/groups/create-groups/quran-challenge-notifications/quran-challenge-notifications.component';
 import { ChatsGroupsComponent } from '../components/groups/chats-groups/chats-groups.component';
 import { GroupPageComponent } from '../components/groups/group-page/group-page.component';
+import { GroupsSettingsComponent } from '../components/groups/groups-settings/groups-settings.component';
 
 
 
 @NgModule({
-  declarations: [GroupPageComponent,ChatsGroupsComponent,QuranChallengeNotificationsComponent,GroupSettingsComponent,SelectMembersComponent ,GroupNameComponent,CreateGroupComponent,MembersParticipationComponent,GroupsAdminComponent,WelcomeGroupsComponent,ChatsSearchComponent,MessagesPageComponent,ChatsComponent,SorahComponent,UnreadComponent,ReadComponent,HomePagePageComponent,HomePageListComponent,SorahComponent,SupplicationsComponent,MorninAdhkarComponent,TasbeehComponent,CalendarComponent,NotificationsComponent,PageComponent,SurahComponent,PartComponent,QuranComponent,HomePageComponent,ProfileComponent,ProfileDetailsComponent,SettingsComponent,DeleteAccountComponent,AddCalendarComponent ],
+  declarations: [GroupsSettingsComponent,GroupPageComponent,ChatsGroupsComponent,QuranChallengeNotificationsComponent,GroupSettingsComponent,SelectMembersComponent ,GroupNameComponent,CreateGroupComponent,MembersParticipationComponent,GroupsAdminComponent,WelcomeGroupsComponent,ChatsSearchComponent,MessagesPageComponent,ChatsComponent,SorahComponent,UnreadComponent,ReadComponent,HomePagePageComponent,HomePageListComponent,SorahComponent,SupplicationsComponent,MorninAdhkarComponent,TasbeehComponent,CalendarComponent,NotificationsComponent,PageComponent,SurahComponent,PartComponent,QuranComponent,HomePageComponent,ProfileComponent,ProfileDetailsComponent,SettingsComponent,DeleteAccountComponent,AddCalendarComponent ],
   imports: [ 
       CalendarModule,
       CommonModule,

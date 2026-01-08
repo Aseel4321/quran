@@ -1,0 +1,104 @@
+<ion-content  class="chats-content" [scrollY]="true" 
+><div class="bg"></div>
+<ion-icon name="pencil" style="margin-top: 5%;margin-inline-start: 10%;"></ion-icon>
+<div style="display: flex;flex-direction:column;justify-content: center;text-align: center;align-items: center;"><div style="display:flex;flex-direction: row;justify-content: center;margin-top: 0%;"><img
+  src="assets/icon/user1.jpg" 
+  class="circle-img"
+/>
+</div> <div style="display:flex;flex-direction:row;justify-content: center;"><div style="font-size:4vw;margin-top: 15%;">مجموعة سورة البقرة</div></div><div style="display:flex;flex-direction:row;justify-content: center;">
+  <div style="font-size:2.5vw;color: grey;" >Group. 12 members</div></div><div lines="none" class="rounded-input">
+  <ion-input
+    placeholder="Group name"
+    [(ngModel)]="text"
+    clearInput="false">
+  </ion-input>
+
+  <ion-icon slot="start" 
+    
+    name="close-outline"
+    slot="end"
+    class="clear-icon"
+    (click)="text = ''">
+  </ion-icon>
+</div><div style="display: flex;flex-direction: row;justify-content: space-between ;width: 70vw;margin-bottom: -5%;margin-top: 5%;"><ion-icon name="search-outline"></ion-icon><div style="display: flex;flex-direction: row;"><img
+        src="assets/icon/add1.png"
+        style="width: 6vw;height: 6vw;"
+      />
+<div>
+  12 members 
+</div></div></div></div>
+
+<div
+ style="
+    margin-left: 10vw;
+    margin-right: 10vw;
+    display: flex;
+    flex-direction: column;
+    margin-top: 5%;
+    
+    align-items: center;
+    background-color: #DDDDDD;
+    height: 30vh;
+    border-radius: 16px;      
+    padding: 12px;           
+  "
+>
+
+  <div
+    *ngFor="let item of list"
+    style="
+      width: 75vw;
+     border-bottom: 1px solid #ccc;
+      margin-top: 7%;
+      box-sizing: border-box;margin-left: 10vw;margin-right: 10vw;
+    "
+  >
+    <div style="display: flex; flex-direction: row; align-items: center;">
+      <img
+        src="assets/icon/user1.jpg"
+        class="circle-img1"
+      />
+
+      <div
+        style="
+          display: flex;
+          flex-direction: column;
+          width: 90%;
+          margin-top: 1%;
+        "
+      >
+        <div style="margin-inline-start: 3vw; font-size: 3.5vw;">
+          John Smith
+        </div>
+      </div>
+
+      <div
+        style="
+          display: flex;
+          flex-direction: column;
+          text-align: center;
+          font-size: 2.7vw;
+          width: 20vw;
+          justify-content: center;
+        "
+      >
+        <p style="font-size: 2.5vw;">Just Now</p>
+      </div>
+    </div>
+
+    
+  </div>
+</div>
+<div style="display: flex; justify-content: space-between; width: 70%; margin: 0 auto;">
+  <button 
+  class="button"
+  type="submit"
+  
+>Exit Group</button>
+ <button 
+  class="button"
+  type="submit"
+  
+>Delete Group</button>
+</div>
+</ion-content>

@@ -1,0 +1,80 @@
+.chats-content {
+ --background: #e5e6e4;
+  display: flex; 
+  flex-direction: column; 
+justify-content: center;
+  align-items: center; 
+  min-height: 100vh;
+  width:100vw ;
+}
+.circle-img {
+  width: 35vw;
+  height: 35vw;           /* خليها متساوية للحصول على دائرة حقيقية */
+  cursor: pointer;
+  user-select: none;
+  margin-inline-start: 5%;
+  border-radius: 50%;     /* هذا يحوّل الصورة لدائرة */
+  object-fit: cover;
+        /* لتعبئة الدائرة بدون تشويه الصورة */
+}.thin-line {margin-top: 5%;margin-bottom: 3%; align-items: center;
+  width:90vw;           /* طول الخط */
+  height:0.3vh;        /* سماكة رفيعة */
+  background-color: #941515;
+  border-radius: 50px;  
+}.button {
+  border-radius: 25px;
+  background: linear-gradient(to right, #F87F01B8, #D0D693);
+  color: #fff;
+  font-size: 18px;
+  text-shadow: 1px 1px 2px #000;
+  padding: 3% 5%;
+  margin-top: 15%;
+  width: 70%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+height: 10vw;
+  opacity: 0.6;
+  cursor: not-allowed;
+  transition: all 0.3s ease;
+
+  /* الحدود البيضاء */
+  border: 2px solid #fff;
+}
+.rounded-input {
+  display: flex;
+  margin-top: 5%;
+  align-items: center; 
+  background-color: #DDDDDD;     
+  border: 1px solid #ccc;        
+  width: calc(100% - 30px);     
+  height: 4vh;                 
+  width: 60vw;
+  box-sizing: border-box;         
+  font-size: 16px;               
+  border-top-left-radius: 10px;    
+  border-top-right-radius: 10px;   
+  border-bottom-left-radius: 10px; 
+  border-bottom-right-radius: 10px;
+  overflow: hidden;               
+}.rounded-input ion-input {
+  --padding-start: -5%;margin-top:0%;    /* مسافة من اليسار */
+  --color: #333;            /* لون النص */
+  font-size: 16px;
+}
+.circle-img1 {
+  width: 12vw;
+  height: 12vw;           
+  cursor: pointer;
+  user-select: none;
+  margin-inline-start: 3%;
+  border-radius: 50%;     
+  object-fit: cover;      
+}
+
+.rounded-input ion-input {
+  --padding-start: 5%;margin-top:0%;   
+  --color: #333;           
+  font-size: 16px;
+}

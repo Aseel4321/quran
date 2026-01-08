@@ -54,11 +54,13 @@ import { QuranChallengeNotificationsComponent } from '../components/groups/creat
 import { ChatsGroupsComponent } from '../components/groups/chats-groups/chats-groups.component';
 import { GroupPageComponent } from '../components/groups/group-page/group-page.component';
 import { GroupsSettingsComponent } from '../components/groups/groups-settings/groups-settings.component';
+import { MemberProgressTrackingComponent } from '../components/groups/member-progress-tracking/member-progress-tracking.component';
+import { ActiveChallengeComponent } from '../components/groups/active-challenge/active-challenge.component';
 
 
 
 @NgModule({
-  declarations: [GroupsSettingsComponent,GroupPageComponent,ChatsGroupsComponent,QuranChallengeNotificationsComponent,GroupSettingsComponent,SelectMembersComponent ,GroupNameComponent,CreateGroupComponent,MembersParticipationComponent,GroupsAdminComponent,WelcomeGroupsComponent,ChatsSearchComponent,MessagesPageComponent,ChatsComponent,SorahComponent,UnreadComponent,ReadComponent,HomePagePageComponent,HomePageListComponent,SorahComponent,SupplicationsComponent,MorninAdhkarComponent,TasbeehComponent,CalendarComponent,NotificationsComponent,PageComponent,SurahComponent,PartComponent,QuranComponent,HomePageComponent,ProfileComponent,ProfileDetailsComponent,SettingsComponent,DeleteAccountComponent,AddCalendarComponent ],
+  declarations: [ActiveChallengeComponent,MemberProgressTrackingComponent,GroupsSettingsComponent,GroupPageComponent,ChatsGroupsComponent,QuranChallengeNotificationsComponent,GroupSettingsComponent,SelectMembersComponent ,GroupNameComponent,CreateGroupComponent,MembersParticipationComponent,GroupsAdminComponent,WelcomeGroupsComponent,ChatsSearchComponent,MessagesPageComponent,ChatsComponent,SorahComponent,UnreadComponent,ReadComponent,HomePagePageComponent,HomePageListComponent,SorahComponent,SupplicationsComponent,MorninAdhkarComponent,TasbeehComponent,CalendarComponent,NotificationsComponent,PageComponent,SurahComponent,PartComponent,QuranComponent,HomePageComponent,ProfileComponent,ProfileDetailsComponent,SettingsComponent,DeleteAccountComponent,AddCalendarComponent ],
   imports: [ 
       CalendarModule,
       CommonModule,

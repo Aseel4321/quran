@@ -1,0 +1,50 @@
+<ion-content  class="chats-content"
+[scrollY]="false">
+<h2 style="margin-top: 10%;">Member Progress Tracking</h2>
+<div style="margin-top: 4%;color: #838282;margin-bottom: 20%;" >12 members</div>
+<div class="members-container">
+  <div
+    *ngFor="let member of members"
+    class="member-wrapper"
+  >
+    <ion-card class="member-card">
+      <div class="avatar-wrapper">
+        <ion-avatar>
+          <img src="assets/user1.jpg" />
+        </ion-avatar>
+        <h3 class="name">Ali Smith</h3>
+      </div>
+
+      <div class="progress-section">
+        <span class="label">Progress</span>
+
+        <ion-range
+          value="70"
+          min="0"
+          max="100"
+          disabled="true"
+          class="custom-range"
+        ></ion-range>
+
+        <span class="percent">70%</span>
+      </div>
+
+      <p class="commitment">
+        Commitment : <b>5 consecutive days</b> 🔥
+      </p>
+
+      <p class="last-activity">
+        Last activity: Today 8:30 PM
+      </p>
+
+      <ion-button fill="clear" class="message-btn">
+        Send a message ✉️
+      </ion-button>
+    </ion-card>
+  </div>
+</div>
+
+
+
+
+</ion-content>

@@ -32,6 +32,8 @@ import { QuranChallengeNotificationsComponent } from '../components/groups/creat
 import { ChatsGroupsComponent } from '../components/groups/chats-groups/chats-groups.component';
 import { GroupPageComponent } from '../components/groups/group-page/group-page.component';
 import { GroupsSettingsComponent } from '../components/groups/groups-settings/groups-settings.component';
+import { MemberProgressTrackingComponent } from '../components/groups/member-progress-tracking/member-progress-tracking.component';
+import { ActiveChallengeComponent } from '../components/groups/active-challenge/active-challenge.component';
 
 
 
@@ -40,7 +42,7 @@ import { GroupsSettingsComponent } from '../components/groups/groups-settings/gr
 
 
 
-const routes: Routes = [{path:'Group-Page',component:GroupPageComponent},{path:'Groups-Settings',component:GroupsSettingsComponent},{path:'Challenge-Notifications',component:QuranChallengeNotificationsComponent},{path:'Group-Settings',component:GroupSettingsComponent},{path:'sorah',component:SorahComponent},{path:'welcome-groups',component:WelcomeGroupsComponent},{path:'groups-admin',component:GroupsAdminComponent},{path:'create-group',component:CreateGroupComponent},{path:'group-name',component:GroupNameComponent},
+const routes: Routes = [{path:'Active-Challenge',component:ActiveChallengeComponent},{path:'Progress-Tracking',component:MemberProgressTrackingComponent},{path:'Group-Page',component:GroupPageComponent},{path:'Groups-Settings',component:GroupsSettingsComponent},{path:'Challenge-Notifications',component:QuranChallengeNotificationsComponent},{path:'Group-Settings',component:GroupSettingsComponent},{path:'sorah',component:SorahComponent},{path:'welcome-groups',component:WelcomeGroupsComponent},{path:'groups-admin',component:GroupsAdminComponent},{path:'create-group',component:CreateGroupComponent},{path:'group-name',component:GroupNameComponent},
   { path: 'home-page', component: HomePageComponent },{ path: 'Chats-Groups', component:ChatsGroupsComponent},{ path: 'Members-Participation', component: MembersParticipationComponent },
  {path:'profile',component:ProfileComponent},
  {path:'profile-details',component:ProfileDetailsComponent},

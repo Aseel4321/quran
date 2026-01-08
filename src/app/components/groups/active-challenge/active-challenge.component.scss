@@ -1,0 +1,102 @@
+.challenge-content {
+  --background: #f2f2f2;
+  padding: 16px;
+}
+
+.title {
+  text-align: center;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 14px;
+  margin-bottom: 10px;
+  color: #444;
+}
+
+.progress-card{margin-left: 7vw;margin-right: 7vw;
+  background: #eaeaea;
+  border-radius: 30px;
+padding-bottom: 4%;
+  margin-bottom: 20px;height: 6vh;
+}
+
+.members-card {
+ margin-left: 7vw;
+  margin-right: 7vw;
+  background: #eaeaea;
+  border-radius: 30px;
+  padding: 16px;
+  margin-bottom: 20px;
+
+}
+.members-card1 {
+ margin-left: 7vw;
+  margin-right: 7vw;
+  background: #eaeaea;
+  border-radius: 30px;
+  padding: 16px;
+  margin-bottom: 20px;
+height: 30vh;
+}
+.range-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.range-wrapper.small {
+  margin-top: 6px;
+}
+
+.percent {
+  font-size: 12px;
+  min-width: 30px;
+  text-align: right;
+}
+
+.member-row {
+  margin-bottom:0vh;
+}
+
+.member-name {
+  font-size: 14px;
+}
+
+.main-range {
+  --bar-background-active: linear-gradient(90deg, #f4d35e, #ee964b);
+}
+
+.stats-row {background-color:  #eaeaea;
+  display: flex;  border-radius: 25px;
+  justify-content: space-between;
+  gap: 12px;
+  margin-left: 5%;margin-right: 5%;
+}
+
+.stat-card {
+  flex: 1;
+  background: #eaeaea;
+  border-radius: 25px;
+  padding: 12px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+.stat-card1 {
+  flex: 1;
+  
+  border-radius: 25px;
+  padding: 12px;
+  text-align: center;
+
+}
+.stat-card p {
+  font-size: 12px;
+  margin: 0;
+}
+
+.stat-card b {
+  font-size: 18px;
+}

@@ -1,0 +1,61 @@
+<ion-content class="challenge-content">
+
+  <!-- Title -->
+  <h2 class="title">Active Challenge</h2>
+
+  <!-- Completion Progress -->  <p class="section-title">Completion Progress</p>
+  <div class="progress-card">
+  
+
+    <div class="range-wrapper">
+      <ion-range
+        [value]="completion"
+        min="0"
+        max="100"
+        disabled
+        class="main-range"
+      ></ion-range>
+      <span class="percent">{{ completion }}%</span>
+    </div>
+  </div>
+
+  <!-- Members List -->
+  <div class="members-card1">
+    <p class="section-title">Members List</p>
+
+    <div *ngFor="let m of members" class="member-row">
+      <span class="member-name">{{ m.name }}</span>
+
+      <div class="range-wrapper small">
+        <ion-range
+          [value]="m.progress"
+          min="0"
+          max="100"
+          disabled
+        ></ion-range>
+        <span class="percent">{{ m.progress }}%</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Daily Statistics -->
+  <p class="section-title">Daily Statistics</p>
+
+  <div class="stats-row">
+    <div class="stat-card">
+      <p>Active</p>
+      <b>{{ stats.active }}</b>
+    </div>
+
+    <div class="stat-card1">
+      <p>Missed</p>
+      <b>{{ stats.missed }}</b>
+    </div>
+
+    <div class="stat-card">
+      <p>Completed</p>
+      <b>{{ stats.completed }}</b>
+    </div>
+  </div>
+
+</ion-content>

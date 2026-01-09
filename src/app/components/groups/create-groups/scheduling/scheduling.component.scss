@@ -1,0 +1,72 @@
+.schedule-card {
+  width: 80vw;
+  max-width: 400px;
+  background: #f1f1f1;
+  border-radius: 20px;
+  padding: 20px;
+  margin: auto;
+  text-align: center;
+}
+
+.title {
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.label {
+  display: block;
+  text-align: left;
+  font-size: 14px;
+  margin: 15px 0 5px;
+}
+
+.input-box {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border-radius: 30px;
+  padding: 8px 15px;
+  margin-bottom: 15px;
+}
+
+.input-box input {
+  border: none;
+  outline: none;
+  flex: 1;
+  font-size: 14px;
+}
+
+.icon {
+  width: 18px;
+  height: 18px;
+}
+
+.chips {
+  display: flex;
+  gap: 10px;
+  margin: 10px 0 25px;
+}
+
+.chip {
+  padding: 6px 14px;
+  border-radius: 20px;
+  background: #e0e0e0;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.chip.active {
+  background: #d4d4d4;
+  font-weight: bold;
+}
+
+.continue-btn {
+  width: 100%;
+  border: none;
+  padding: 12px;
+  border-radius: 30px;
+  background: linear-gradient(to right, #cddc39, #ff9800);
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+}

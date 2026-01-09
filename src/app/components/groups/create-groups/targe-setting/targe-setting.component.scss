@@ -1,0 +1,113 @@
+.target-wrapper {
+  width: 75vw;
+  max-width: 400px;
+  margin: auto;
+  padding: 20px;
+  border-radius: 20px;
+  background: #f2f2f2;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.title {
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.select-box {
+  background: #fff;
+  padding: 12px 16px;
+  border-radius: 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.menu-icon {
+  font-size: 18px;
+}
+
+.dropdown {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 15px;
+}
+
+.dropdown button {
+  background: #fff;
+  border: none;
+  border-radius: 20px;
+  padding: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.section {
+  margin: 15px 0;
+  text-align: left;
+}
+
+.section-title {
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+
+.options button {
+  padding: 6px 14px;
+  border-radius: 20px;
+  border: none;
+  background: #e0e0e0;
+  cursor: pointer;
+}
+
+.options button.active {
+  background: #cfcfcf;
+}
+
+.or {
+  margin: 0 5px;
+  font-weight: bold;
+}
+
+.continue-btn {
+  margin-top: 20px;
+  width: 100%;
+  padding: 12px;
+  border-radius: 25px;
+  border: none;
+  font-size: 16px;
+  color: white;
+  background: linear-gradient(90deg, #9acd32, #ff9800);
+}
+.menu-icon {
+  font-size: 18px;
+  transition: transform 0.3s ease;
+}
+
+.menu-icon.rotate {
+  transform: rotate(90deg);
+}
+
+/* Dropdown animation */
+.dropdown {
+  animation: fadeSlide 0.25s ease;
+}
+
+@keyframes fadeSlide {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

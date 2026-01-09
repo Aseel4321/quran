@@ -56,11 +56,13 @@ import { GroupPageComponent } from '../components/groups/group-page/group-page.c
 import { GroupsSettingsComponent } from '../components/groups/groups-settings/groups-settings.component';
 import { MemberProgressTrackingComponent } from '../components/groups/member-progress-tracking/member-progress-tracking.component';
 import { ActiveChallengeComponent } from '../components/groups/active-challenge/active-challenge.component';
+import { TargeSettingComponent } from '../components/groups/create-groups/targe-setting/targe-setting.component';
+import { SchedulingComponent } from '../components/groups/create-groups/scheduling/scheduling.component';
 
 
 
 @NgModule({
-  declarations: [ActiveChallengeComponent,MemberProgressTrackingComponent,GroupsSettingsComponent,GroupPageComponent,ChatsGroupsComponent,QuranChallengeNotificationsComponent,GroupSettingsComponent,SelectMembersComponent ,GroupNameComponent,CreateGroupComponent,MembersParticipationComponent,GroupsAdminComponent,WelcomeGroupsComponent,ChatsSearchComponent,MessagesPageComponent,ChatsComponent,SorahComponent,UnreadComponent,ReadComponent,HomePagePageComponent,HomePageListComponent,SorahComponent,SupplicationsComponent,MorninAdhkarComponent,TasbeehComponent,CalendarComponent,NotificationsComponent,PageComponent,SurahComponent,PartComponent,QuranComponent,HomePageComponent,ProfileComponent,ProfileDetailsComponent,SettingsComponent,DeleteAccountComponent,AddCalendarComponent ],
+  declarations: [SchedulingComponent,TargeSettingComponent,ActiveChallengeComponent,MemberProgressTrackingComponent,GroupsSettingsComponent,GroupPageComponent,ChatsGroupsComponent,QuranChallengeNotificationsComponent,GroupSettingsComponent,SelectMembersComponent ,GroupNameComponent,CreateGroupComponent,MembersParticipationComponent,GroupsAdminComponent,WelcomeGroupsComponent,ChatsSearchComponent,MessagesPageComponent,ChatsComponent,SorahComponent,UnreadComponent,ReadComponent,HomePagePageComponent,HomePageListComponent,SorahComponent,SupplicationsComponent,MorninAdhkarComponent,TasbeehComponent,CalendarComponent,NotificationsComponent,PageComponent,SurahComponent,PartComponent,QuranComponent,HomePageComponent,ProfileComponent,ProfileDetailsComponent,SettingsComponent,DeleteAccountComponent,AddCalendarComponent ],
   imports: [ 
       CalendarModule,
       CommonModule,

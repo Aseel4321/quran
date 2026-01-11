@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./quran-challenge-notifications.component.scss'],
 })
 export class QuranChallengeNotificationsComponent implements OnInit {
-text: string = '';
+
   constructor() { }
 
   ngOnInit() {}

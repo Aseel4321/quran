@@ -242,6 +242,20 @@ notifications_user(): Observable<any> {
       
     
   );
+}pending_sent(data): Observable<any> {
+  const headers = new HttpHeaders({
+    'Accept': 'application/json',
+    'Content-Type': 'application/json',
+    'ngrok-skip-browser-warning': 'true'
+  });
+
+  return this.http.get(
+    'https://margherita-circadian-minta.ngrok-free.dev/api/contacts/pending/sent/2601042138368739',  // استخدم البروكسي هنا
+ { headers: headers },
+ 
+      
+    
+  );
 }
 add_calendar(data: any): Observable<any> {
   const headers = new HttpHeaders({

@@ -1,3 +1,56 @@
-<p>
-  quran-challenge-notifications works!
-</p>
+<div class="notify-card">
+
+  <h2 class="title">Customize notifications</h2>
+
+  <!-- Message Type -->
+  <div class="msg-type">
+    <div class="row">
+      <span>Pre-made message</span>
+      <ion-radio-group [(ngModel)]="messageType">
+        <ion-radio value="pre"></ion-radio>
+      </ion-radio-group>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="row">
+      <span>Custom message</span>
+      <ion-radio-group [(ngModel)]="messageType">
+        <ion-radio value="custom"></ion-radio>
+      </ion-radio-group>
+    </div>
+  </div>
+
+  <!-- Message Input -->
+  <div class="message-box" *ngIf="messageType === 'custom'">
+    <ion-icon name="chatbubble-ellipses-outline"></ion-icon>
+    <input type="text" placeholder="Message" />
+  </div>
+
+  <!-- Alert Sound -->
+  <div class="sound-section">
+    <span class="label">alert sound</span>
+
+    <div class="sound-options">
+      <div
+        class="sound-pill"
+        [class.active]="selectedSound === 'alarm'"
+        (click)="selectedSound = 'alarm'">
+        Alarm
+      </div>
+
+      <div
+        class="sound-pill"
+        [class.active]="selectedSound === 'nature'"
+        (click)="selectedSound = 'nature'">
+        Nature sounds
+      </div>
+    </div>
+  </div>
+
+  <!-- Button -->
+  <button class="create-btn">
+    Create Challenge
+  </button>
+
+</div>

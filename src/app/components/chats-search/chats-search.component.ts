@@ -42,7 +42,7 @@ export class ChatsSearchComponent implements OnInit, AfterViewInit {
     });
   }
 
-  /* ================= SEARCH ================= */
+
 
   search(event: any) {
     const value = event.target.value;
@@ -58,7 +58,7 @@ export class ChatsSearchComponent implements OnInit, AfterViewInit {
     );
   }
 
-  /* ================= LOAD FOLLOW STATUS ================= */
+
 
   loadStatuses() {
     this.service.following('').subscribe((data: User[]) => {
@@ -84,7 +84,6 @@ export class ChatsSearchComponent implements OnInit, AfterViewInit {
     });
   }
 
-  /* ================= CLICK ================= */
 
   click(id: number) {
     const status = this.userMap.get(id);
@@ -100,7 +99,6 @@ export class ChatsSearchComponent implements OnInit, AfterViewInit {
     }
   }
 
-  /* ================= API ================= */
 
   follow(id: number) {
     this.service.follow({

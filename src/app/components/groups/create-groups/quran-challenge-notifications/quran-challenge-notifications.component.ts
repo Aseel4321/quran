@@ -8,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
 export class QuranChallengeNotificationsComponent implements OnInit {
 
   constructor() { }
+messageType: string = 'pre';
+selectedSound: string = 'alarm';
 
   ngOnInit() {}
 

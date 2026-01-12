@@ -1,101 +1,174 @@
 .notify-card {
-  width: 85vw;
-  margin: auto;
-  padding: 22px;
-  background: #f6f6f6;
-  border-radius: 24px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+  width: 90%;
+  max-width: 400px;
+  padding: 20px;
+  border-radius: 16px;
+  background-color: #fff;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}.slide-content {width:70vw;padding-top: 5%; border-top-left-radius: 12px;    
+  border-top-right-radius: 12px;   
+  border-bottom-left-radius: 12px; 
+  border-bottom-right-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  height: 50vh;
+  background: #D9D9D9;box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+
+
 }
 
 .title {
+  font-size: 20px;
+  margin-bottom: 20px;
   text-align: center;
-  font-weight: 700;
-  font-size: 18px;
-  margin-bottom: 25px;
 }
 
+/* Row for message type */
+.notify-card {
+  width: 90%;
+  max-width: 400px;
+  padding: 20px;
+  border-radius: 16px;
+  background-color: #fff;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title {
+  font-size: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Row for message type */
 .msg-type .row {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  font-size: 14px;
-  margin: 10px 0;
+  width: 100%;
+  padding: 10px;
+  border-radius: 12px;
+  cursor: pointer;
+  position: relative;
+  transition: background 0.3s;
 }
 
+.msg-type .row:hover {
+  background-color: #f0f0f0;
+}
+
+.msg-type .row .label {
+  font-size: 16px;
+  transition: transform 0.3s, font-weight 0.3s;
+  margin-right: 10px; /* مسافة بين النص والدائرة */
+}
+
+.msg-type .row.active .label {
+  transform: translateX(3px); /* تحريك النص قليلًا عند الاختيار */
+  font-weight: bold;
+  color: #007aff;
+}
+
+/* Circle mark بجانب النص مباشرة */
+.msg-type .row .mark {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 2px solid #ccc;
+  transition: all 0.3s;
+  flex-shrink: 0; /* لا تقلص الدائرة */
+}
+
+.msg-type .row.active .mark {
+  background-color: #007aff;
+  border-color: #007aff;
+}
+
+/* Divider line */
 .divider {
-  height: 4px;
-  background: #e3e3e3;
-  border-radius: 10px;
-  margin: 15px 0;
+  width: 100%;
+  height: 1px;
+  background-color: #ccc;
+  margin: 5px 0;
 }
 
-ion-radio {
-  --color: #f9a825;
-}
-
-.message-box {
+/* Message input */
+.message-box {background-color: #ffffff;
   display: flex;
   align-items: center;
-  gap: 10px;
-  background: #ffffff;
-  padding: 12px;
-  border-radius: 14px;
-  margin-top: 15px;
-  box-shadow: inset 0 0 0 1px #eee;
+  width: 90%;margin-top: 4%;
+ margin-right: 5%;margin-left: 5%;
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 12px;
 }
 
 .message-box ion-icon {
+  margin-right: 8px;
   font-size: 20px;
-  color: #999;
 }
 
-.message-box input {
+.message-box input {background-color: #ffffff;
+  flex: 1;
   border: none;
   outline: none;
-  width: 100%;
-  font-size: 14px;
+  font-size: 16px;
 }
 
+/* Sound pills */
 .sound-section {
-  margin-top: 20px;
+  width: 100%;
+  margin-top: 15px;
 }
 
-.label {
-  font-size: 13px;
-  color: #666;
+.sound-section .label {
+  font-size: 14px;
+  margin-bottom: 8px;
+  display: block;
 }
 
 .sound-options {
   display: flex;
   gap: 10px;
-  margin-top: 10px;
 }
 
 .sound-pill {
-  padding: 8px 16px;
+  padding: 8px 12px;
   border-radius: 20px;
-  background: #ffffff;
-  font-size: 13px;
+  border: 1px solid #ccc;
   cursor: pointer;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.12);
-  transition: all 0.3s ease;
+  transition: all 0.3s;
 }
 
 .sound-pill.active {
-  background: linear-gradient(90deg, #fbc02d, #f57f17);
-  color: #fff;
-  font-weight: 600;
+  background-color: #007aff;
+  color: white;
+  font-weight: bold;
+  transform: translateY(-2px);
 }
 
+/* Create button */
 .create-btn {
-  width: 100%;
-  margin-top: 25px;
-  padding: 14px;
-  border-radius: 30px;
+  margin-top: 20px;
+  padding: 12px 20px;
+  border-radius: 12px;
+  background-color: #007aff;
+  color: white;
   border: none;
-  color: #fff;
-  font-weight: bold;
-  font-size: 15px;
-  background: linear-gradient(90deg, #9ccc65, #f9a825);
-  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.create-btn:hover {
+  background-color: #005bbb;
+}
+ion-radio {
+  display: none; /* أخفي عنصر ion-radio نفسه */
 }

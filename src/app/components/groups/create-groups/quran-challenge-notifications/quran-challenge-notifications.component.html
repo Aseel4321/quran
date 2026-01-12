@@ -1,24 +1,30 @@
-<div class="notify-card">
+<div class="slide-content">
 
   <h2 class="title">Customize notifications</h2>
 
   <!-- Message Type -->
   <div class="msg-type">
-    <div class="row">
-      <span>Pre-made message</span>
-      <ion-radio-group [(ngModel)]="messageType">
-        <ion-radio value="pre"></ion-radio>
-      </ion-radio-group>
+
+    <div
+      class="row"
+      [class.active]="messageType === 'pre'"
+      (click)="messageType = 'pre'">
+      <span class="label">Pre-made message</span>
+      <ion-radio value="pre" [(ngModel)]="messageType"></ion-radio>
+      <div class="mark"></div>
     </div>
 
     <div class="divider"></div>
 
-    <div class="row">
-      <span>Custom message</span>
-      <ion-radio-group [(ngModel)]="messageType">
-        <ion-radio value="custom"></ion-radio>
-      </ion-radio-group>
+    <div
+      class="row"
+      [class.active]="messageType === 'custom'"
+      (click)="messageType = 'custom'">
+      <span class="label">Custom message</span>
+      <ion-radio value="custom" [(ngModel)]="messageType"></ion-radio>
+      <div class="mark"></div>
     </div>
+
   </div>
 
   <!-- Message Input -->
@@ -29,7 +35,7 @@
 
   <!-- Alert Sound -->
   <div class="sound-section">
-    <span class="label">alert sound</span>
+    <span class="label">Alert sound</span>
 
     <div class="sound-options">
       <div

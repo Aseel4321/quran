@@ -1,13 +1,50 @@
- <div class="slide-content">
-      <img style="width:20vw;height:20vw;margin-top: 5%;" src="assets/icon/groups.png"/>
-      <div style="display: flex;flex-direction: row;justify-content: center;align-items: center;margin-top: 10%;margin-bottom: 4%;"> <img style="width:6vw;height:6vw;margin-top: 5%;margin-inline-end: 25%;" src="assets/icon/privacy.png"/> <div>Private</div><img style="width:5vw;height:5vw;margin-top: 5%;margin-inline-start: 25%;" src="assets/icon/check.png"/></div>
-      <div style="display: flex;flex-direction: row; justify-content: center;"><div class="thin-line"></div></div>
-      <div style="display: flex;flex-direction: row;justify-content: center;align-items: center;margin-top: 5%;"> <img style="width:5vw;height:5vw;margin-top: 5%;margin-inline-end: 25%;" src="assets/icon/earch.png"/> <div>Private</div><img style="width:5vw;height:5vw;margin-top: 5%;margin-inline-start: 25%;" src="assets/icon/check.png"/></div>
-<button 
-  class="button"
-  type="submit"
->
+<div class="slide-content">
 
- Create New Group +
-</button> 
+  <img style="width:18vw;height:9vh;margin-top: 5%;margin-bottom: 9%;" src="assets/icon/groups.png"/>
+
+  <ion-radio-group [(ngModel)]="groupType">
+
+    <!-- Private -->
+    <div
+      class="radio-row"
+      [class.active]="groupType === 'private'"
+      (click)="groupType = 'private'">
+
+      <img src="assets/icon/privacy.png" class="left-icon" />
+
+      <div class="label">
+        Private
       </div>
+
+      <div class="mark"></div>
+      <ion-radio value="private"></ion-radio>
+    </div>
+
+    <div class="separator">
+      <div class="thin-line"></div>
+    </div>
+
+    <!-- Public -->
+    <div
+      class="radio-row"
+      [class.active]="groupType === 'public'"
+      (click)="groupType = 'public'">
+
+      <img src="assets/icon/earch.png" class="left-icon" />
+
+      <div class="label">
+        Public
+      </div>
+
+      <div class="mark"></div>
+      <ion-radio value="public"></ion-radio>
+    </div>
+
+  </ion-radio-group>
+
+  <button class="button" type="submit">
+    Create New Group +
+  </button>
+
+</div>
+

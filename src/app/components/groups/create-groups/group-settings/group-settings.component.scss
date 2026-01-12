@@ -45,4 +45,85 @@
 
   /* الحدود البيضاء */
   border: 2px solid #fff;
+}.radio-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top: 8%;
+}
+
+.left-icon {
+  width: 5vw;
+  height: 5vw;
+  margin-inline-end: 25%;
+}
+
+.label {
+  font-size: 14px;
+}
+
+ion-radio {
+  margin-inline-start: 25%;
+  --color: #f9a825;
+}
+.radio-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 8%;
+  opacity: 0.4; /* غير مختار */
+  transition: all 0.3s ease;
+}
+
+/* عند الاختيار */
+.radio-row.active {
+  opacity: 1;
+}
+
+/* أيقونة الراديو */
+ion-radio {
+  display: none;
+}
+
+.radio-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 8%;
+  cursor: pointer;
+}
+
+/* الأيقونة */
+.left-icon {
+  width: 5vw;
+  height: 5vw;
+  margin-inline-end: 25%;
+}
+
+/* النص ثابت */
+.label {
+  font-size: 14px;
+  width: 90px;        /* تثبيت العرض */
+  text-align: start;
+}
+
+/* مكان العلامة ثابت حتى لو اختفت */
+.mark-wrapper {
+  width: 20px;        /* مهم جدًا */
+  display: flex;
+  justify-content: center;
+  margin-inline-start: 25%;
+}
+
+/* العلامة نفسها */
+.mark {
+  width: 10px;
+  height: 10px;
+  border: 2px solid #bbb;
+  border-radius: 50%;
+}
+.radio-row.active .mark {
+  background-color: #d4d41e; /* ملء الدائرة عند الاختيار */
+  border-color: #d4d41e;
 }

@@ -7,7 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GroupSettingsComponent implements OnInit {
 
+
   constructor() { }
+groupType: string | null = null; // لا يوجد اختيار مبدئي
 
   ngOnInit() {}
 

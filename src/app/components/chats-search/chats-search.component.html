@@ -3,9 +3,7 @@
 <div style="display: flex;flex-direction: row;margin-top: 10%;margin-inline-start: 5%;justify-content: start;">
  <ion-icon name="chevron-back" (click)="goBack()"  style="margin-top:0.5%;"></ion-icon>
 <div style="margin-inline-start: 3%;font-size: 5vw;">Chats</div>
-
 </div><div style="display: flex; flex-direction: row; justify-content: center;margin-top: 4%;">
-  
   <div class="search-box" >
     <img src="assets/icon/loupe.png" class="icon" />
     <input #searchInput type="text" placeholder="Search here..." class="search-input"  (keyup)="search($event)"/>
@@ -14,7 +12,7 @@
  {{userMap.get(1)}}
 <div style="display: flex;flex-direction: column;margin-top: 10%;">
   <div *ngFor="let item of list; let i = index; trackBy: trackByFn" style="margin-inline-end: 10px; margin-top: 7%;">
-  <div style="display: flex; flex-direction: row;">
+  <div style="display: flex; flex-direction: row;" (click)="connect(item.id)">
     <img src="assets/icon/user1.jpg" class="circle-img"/>
     <div style="display: flex; flex-direction: column; width: 90%; margin-top: 1%; justify-content: center;">
       <div style="margin-inline-start: 3vw; font-size: 3.5vw;">{{ item.id }}</div> 
@@ -26,11 +24,8 @@
   (click)="click(item.id)">
   {{ userMap.get(item.id) }}
 </button>
-
     </div>
   </div>
 </div>
-      
-
 </div>
 </ion-content>

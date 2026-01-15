@@ -135,7 +135,21 @@ export class ChatsSearchComponent implements OnInit, AfterViewInit {
       this.searchInput.nativeElement.focus();
     }, 300);
   }
-
+connect(id){console.log('connect');const userData = localStorage.getItem('User');
+   const user = JSON.parse(userData);
+    this.service.create_connection(
+ user.id,id
+).subscribe((data:any)=>{console.log('connect');console.log(data);
+ this.router.navigate(['/messages']);
+    },(error: HttpErrorResponse)=>{
+      console.log(error?.error?.arDescription)
+        if(localStorage.getItem('lang')=='ar'){  
+        console.error(error.error);
+  
+        }else{ }
+    });
+  
+   } 
   goBack() {
     this.router.navigate(['/home-page']);
   }

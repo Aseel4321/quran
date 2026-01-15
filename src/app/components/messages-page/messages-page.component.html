@@ -33,7 +33,7 @@
 >
   <div class="search-box">
     <img src="assets/icon/loupe.png" class="icon" />
-    <textarea placeholder="بحث..." class="search-area"></textarea>
+    <textarea placeholder="بحث..." class="search-area" [(ngModel)]="searchText"></textarea>
   </div>
 
   <img
@@ -44,7 +44,8 @@
       cursor: pointer;
       user-select: none;
       margin-inline-start: 3%;
-    "
+    "  
+    (click)="messages()"
   />
 </div>
 

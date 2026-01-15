@@ -127,7 +127,7 @@ notifications_read(email,id): Observable<any> {//var email=localStorage.getItem(
       
     
   );
-} follow(data: any): Observable<any> {
+}follow(data: any): Observable<any> {
   const headers = new HttpHeaders({
     'Accept': 'application/json',
     'Content-Type': 'application/json',
@@ -270,7 +270,7 @@ notifications_user(): Observable<any> {
       
     
   );
-}create_connection(data): Observable<any> {
+}create_connection(userId,otherUserId): Observable<any> {
   const headers = new HttpHeaders({
     'Accept': 'application/json',
     'Content-Type': 'application/json',
@@ -278,7 +278,7 @@ notifications_user(): Observable<any> {
   });
 
   return this.http.post(
-    'https://margherita-circadian-minta.ngrok-free.dev/api/chat/connect/2512150339932840/2601042138368739',  // استخدم البروكسي هنا
+    `https://margherita-circadian-minta.ngrok-free.dev/api/chat/connect/${userId}/${otherUserId}`,  // استخدم البروكسي هنا
  { headers: headers },
  
       
@@ -391,6 +391,28 @@ heartbeat(): Observable<any> {
 
   return this.http.post(
         `https://margherita-circadian-minta.ngrok-free.dev/api/status/heartbeat/2601042138368739`,  // استخدم البروكسي هنا
+     { headers: headers }
+  );
+}messages(data: any): Observable<any> {
+  const headers = new HttpHeaders({
+    'Accept': 'application/json',
+    'Content-Type': 'application/json'
+  });
+
+  return this.http.post(
+    'https://margherita-circadian-minta.ngrok-free.dev/api/chat/message',
+    data,
+    { headers: headers }
+  );
+}read_message(): Observable<any> {
+  const headers = new HttpHeaders({
+    'Accept': 'application/json',
+    'Content-Type': 'application/json',
+    'ngrok-skip-browser-warning': 'true'
+  });
+
+  return this.http.post(
+        `https://margherita-circadian-minta.ngrok-free.dev/api/chat/messages/read/2/2601042138368739`,  // استخدم البروكسي هنا
      { headers: headers }
   );
 }

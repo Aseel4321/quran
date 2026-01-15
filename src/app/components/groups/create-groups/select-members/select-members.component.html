@@ -1,37 +1,53 @@
- 
-<div class="slide-content"> 
-<div style="display: flex; flex-direction: row; justify-content: center;margin-top: 4%;">
-  
-  <div class="search-box">
-    
-    <input type="text" placeholder="Search here..." class="search-input"/>
+<div class="slide-content">
+
+  <div style="display: flex; flex-direction: row; justify-content: center; margin-top: 4%;">
+    <div class="search-box">
+      <input type="text" placeholder="Search here..." class="search-input"/>
+    </div>
   </div>
 
+  <div style="display: flex; flex-direction: column; margin-top: 5%;">
+    <div *ngFor="let item of list" style="margin-inline-end: 10px; margin-top: 7%;">
+      <div style="display: flex; flex-direction: row; align-items: center;">
+        
+        <img src="assets/icon/user1.jpg" class="circle-img" />
+
+        <div style="display: flex; flex-direction: column; width: 60%; margin-left: 3vw;">
+          <div style="font-size: 3vw;">{{item.name}}</div>
+        </div>
+
+        <div style="display: flex; flex-direction: row; gap: 5vw; justify-content: center; align-items: center; width: 25%;">
+          
+          <!-- اختيار عضو -->
+          <div (click)="toggleSelectMember(item)">
+            <img
+              src="assets/icon/check.png"
+              [style.opacity]="item.selected ? 1 : 0.3"
+              style="width: 5vw; height: 5vw; cursor: pointer;"
+            />
+          </div>
+
+          <!-- تعيين مشرف -->
+          <div (click)="toggleAdmin(item)">
+            <img
+              src="assets/icon/admin.png"
+              [style.opacity]="item.isAdmin ? 1 : 0.3"
+              style="width: 5vw; height: 5vw; cursor: pointer;"
+            />
+          </div>
+
+        </div>
+
+      </div>
+
+      <div style="display: flex; flex-direction: row; justify-content: center;">
+        <div class="thin-line"></div>
+      </div>
+    </div>
+  </div>
+
+  <button class="button" type="button" (click)="createGroup()">
+    Create New Group +
+  </button>
 
 </div>
-
-<div style="display: flex;flex-direction: column;margin-top: 5%;">
-    <div *ngFor="let item of list" style="margin-inline-end: 10px;margin-top: 7%;">
-      <div style="display: flex;flex-direction: row;">
-  <img
-  src="assets/icon/user1.jpg" 
-  class="circle-img"
-/><div style="display: flex;flex-direction: column;width: 90%;margin-top: 1%;justify-content: center;"> <div style="margin-inline-start: 3vw;font-size:3vw;">John Smith</div></div>
-<div style="display: flex;flex-direction:row; text-align: end;font-size: 2.7vw;width: 20vw;justify-content: center;align-items: center;margin-top: 2%;">
-  <div style="font-size: 2.5vw;margin-inline-end: 8%;"> <img
-  src="assets/icon/check.png" 
-  style="width: 5vw;height: 5vw;"
-/></div> <div style="font-size: 2.5vw;"> <img
-  src="assets/icon/admin.png" 
-  style="width: 5vw;height: 5vw;"
-/></div> </div>
-
-      </div> <div style="display: flex;flex-direction: row;justify-content: center;"><div class="thin-line"></div></div>
-    </div>
-</div><button 
-  class="button"
-  type="submit"
-  
->
- Create New Group +
-</button></div>

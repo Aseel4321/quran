@@ -3,13 +3,15 @@ import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { Location } from '@angular/common';
 import { AuthService } from 'src/app/auth/auth-service/auth.service';
+import { MainServiceService } from 'src/app/main-service/main/main-service.service';
+import { HttpErrorResponse } from '@angular/common/http';
 @Component({
   selector: 'app-settings',
   templateUrl: './settings.component.html',
   styleUrls: ['./settings.component.scss'],
 })
 export class SettingsComponent {
-  constructor(private translate: TranslateService,private router: Router,private cdRef: ChangeDetectorRef,private location: Location,private Service:AuthService,){}
+  constructor(private translate: TranslateService,private router: Router,private cdRef: ChangeDetectorRef,private location: Location,private Service:AuthService,private service: AuthService){}
    lang_text='';
    lang=[];
 lang_en:any = [{'code':'ar','lang':'Arabic'},{'code':'en','lang':'English'}];
@@ -69,12 +71,22 @@ this.lang=this.lang_ar;
 
   }
 }
-logout(){ console.log(localStorage.getItem('login'));
+logout(){ console.log(localStorage.getItem('login'));const userData = localStorage.getItem('User');
+   const user = JSON.parse(userData);
  localStorage.setItem('user','false'); 
  console.log(localStorage.getItem('login'));
  //const user = JSON.parse(localStorage.getItem('user') || '{}');
 localStorage.removeItem('User');
+this.service.logout(user.id).subscribe((data:any)=>{ console.log('convk');console.log(data);
  this.router.navigate(['/login']);
+    },(error: HttpErrorResponse)=>{  console.error(error); 
+      console.log(error?.error?.arDescription)
+        if(localStorage.getItem('lang')=='ar'){  
+       
+  
+        }else{  }
+    });
+ 
 
 }goBack() {
   this.router.navigate(['/home-page']);

@@ -11,17 +11,21 @@
 
   <!-- Daily reminder -->
   <div class="input-box">
-    <img src="assets/icon/bell.png" class="icon" />
-    <input type="time" placeholder="Daily reminder time" />
+ 
+    <input type="time" placeholder="Daily reminder time" />   <ion-icon name="time-outline" class="time-icon"></ion-icon>
   </div>
 
   <!-- Repeat reminder -->
   <label class="label">Repeat reminder</label>
   <div class="chips">
-    <span class="chip active">Daily</span>
-    <span class="chip">every 2 days</span>
-    <span class="chip">weekends only</span>
-  </div>
+  <span
+    class="chip"
+    *ngFor="let item of repeats"
+    [class.active]="selectedRepeat === item"
+    (click)="selectRepeat(item)">
+    {{ item }}
+  </span>
+</div>
 
   <!-- Button -->
   <button class="continue-btn">Continue</button>

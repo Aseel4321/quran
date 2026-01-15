@@ -8,7 +8,17 @@ import { Component, OnInit } from '@angular/core';
 export class SchedulingComponent implements OnInit {
 
   constructor() { }
+ repeats: string[] = [
+    'Daily',
+    'every 2 days',
+    'weekends only'
+  ];
 
+  selectedRepeat: string = 'Daily'; // القيمة الافتراضية
+
+  selectRepeat(value: string) {
+    this.selectedRepeat = value;
+  }
   ngOnInit() {}
 
 }

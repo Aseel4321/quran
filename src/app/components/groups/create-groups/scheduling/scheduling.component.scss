@@ -1,72 +1,130 @@
+/* ===== Card ===== */
 .schedule-card {
   width: 80vw;
   max-width: 400px;
-  background: #f1f1f1;
-  border-radius: 20px;
-  padding: 20px;
+  background: #f6f6f6;                 /* أنعم */
+  border-radius: 24px;                 /* تدوير أجمل */
+  padding: 22px 20px;
   margin: auto;
   text-align: center;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
 }
 
+/* ===== Title ===== */
 .title {
-  font-weight: bold;
-  margin-bottom: 20px;
+  font-weight: 700;
+  font-size: 18px;
+  margin-bottom: 22px;
+  color: #333;
 }
 
+/* ===== Labels ===== */
 .label {
   display: block;
   text-align: left;
-  font-size: 14px;
-  margin: 15px 0 5px;
+  font-size: 13px;
+  margin: 16px 0 6px;
+  color: #666;
 }
 
-.input-box {
+/* ===== Input Box ===== */
+.input-box {width:75% ;
   display: flex;
   align-items: center;
   background: #fff;
   border-radius: 30px;
-  padding: 8px 15px;
+  padding: 5% 10%;                  /* مريح أكثر */
   margin-bottom: 15px;
+  border: 1px solid #eaeaea;
+  transition: all 0.3s ease;
+}
+.time-icon {
+  font-size: 6vw;
+  color: #777;
+}.input-box {
+  pointer-events: none;
 }
 
+.input-box input,
+.input-box .icon {
+  pointer-events: auto;
+}
+/* عند التركيز */
+.input-box:focus-within {
+  border-color: #ff9800;
+  box-shadow: 0 0 0 2px rgba(255,152,0,0.15);
+}
+
+/* ===== Input ===== */
 .input-box input {
   border: none;
   outline: none;
   flex: 1;
   font-size: 14px;
+  background: transparent;
+  color: #333;
 }
 
-.icon {
-  width: 18px;
-  height: 18px;
-}
-
-.chips {
-  display: flex;
-  gap: 10px;
-  margin: 10px 0 25px;
-}
-
-.chip {
-  padding: 6px 14px;
-  border-radius: 20px;
-  background: #e0e0e0;
-  font-size: 12px;
+/* إزالة أيقونة التاريخ الافتراضية (اختياري) */
+.input-box input::-webkit-calendar-picker-indicator {
+  opacity: 0;
   cursor: pointer;
 }
 
-.chip.active {
-  background: #d4d4d4;
-  font-weight: bold;
+/* ===== Icon ===== */
+.icon {
+  width: 18px;
+  height: 18px;
+  opacity: 0.6;
 }
 
+/* ===== Chips ===== */
+.chips {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 12px 0 25px;
+}
+
+.chip {
+  padding: 7px 16px;
+  border-radius: 20px;
+  background: #e0e0e0;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.chip:hover {
+  background: #acacab;
+}
+
+.chip.active {
+  background: linear-gradient(to right, #e2dfd3, #9b9893);
+  color: #fff;
+  font-weight: 600;
+}
+
+/* ===== Button ===== */
 .continue-btn {
   width: 100%;
   border: none;
-  padding: 12px;
+  padding: 13px;
   border-radius: 30px;
   background: linear-gradient(to right, #cddc39, #ff9800);
   color: #fff;
   font-size: 16px;
+  font-weight: 600;
   cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.continue-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(255,152,0,0.3);
+}
+
+.continue-btn:active {
+  transform: scale(0.97);
 }

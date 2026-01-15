@@ -34,7 +34,7 @@
   </div>
 
   <!-- Alert Sound -->
-  <div class="sound-section">
+  <div class="sound-section" *ngIf="messageType === 'custom'">
     <span class="label">Alert sound</span>
 
     <div class="sound-options">
@@ -55,7 +55,7 @@
   </div>
 
   <!-- Button -->
-  <button class="create-btn">
+  <button class="button">
     Create Challenge
   </button>
 

@@ -48,16 +48,7 @@
 }
 
 /* Row for message type */
-.msg-type .row {
-  display: flex;
-  align-items: center;
-  width: 100%;
-  padding: 10px;
-  border-radius: 12px;
-  cursor: pointer;
-  position: relative;
-  transition: background 0.3s;
-}
+
 
 .msg-type .row:hover {
   background-color: #f0f0f0;
@@ -72,7 +63,7 @@
 .msg-type .row.active .label {
   transform: translateX(3px); /* تحريك النص قليلًا عند الاختيار */
   font-weight: bold;
-  color: #007aff;
+  color: #23272b;
 }
 
 /* Circle mark بجانب النص مباشرة */
@@ -86,15 +77,15 @@
 }
 
 .msg-type .row.active .mark {
-  background-color: #007aff;
-  border-color: #007aff;
+  background-color: #f0cb25;
+  border-color: #f0cb25;
 }
 
 /* Divider line */
 .divider {
   width: 100%;
-  height: 1px;
-  background-color: #ccc;
+  height:2%;
+  background-color: #EBEBEB;
   margin: 5px 0;
 }
 
@@ -102,7 +93,7 @@
 .message-box {background-color: #ffffff;
   display: flex;
   align-items: center;
-  width: 90%;margin-top: 4%;
+  width: 90%;margin-top: 10%;
  margin-right: 5%;margin-left: 5%;
   padding: 8px 12px;
   border: 1px solid #ccc;
@@ -122,13 +113,13 @@
 }
 
 /* Sound pills */
-.sound-section {
-  width: 100%;
-  margin-top: 15px;
+.sound-section {display: flex;flex-direction: row;justify-content: space-between;align-items: center;width: 95%;text-align: center;
+  
+  margin-top:5%;
 }
 
-.sound-section .label {
-  font-size: 14px;
+.sound-section .label {font-weight: 500;
+  font-size: 3vw;
   margin-bottom: 8px;
   display: block;
 }
@@ -137,7 +128,27 @@
   display: flex;
   gap: 10px;
 }
+.button {
+  border-radius: 25px;
+  background: linear-gradient(to right, #F87F01B8, #D0D693);
+  color: #fff;
+  font-size: 18px;
+  text-shadow: 1px 1px 2px #000;
+  padding: 3% 5%;
+  margin-top: 15%;
+  width: 70%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
 
+  opacity: 0.6;
+  cursor: not-allowed;
+  transition: all 0.3s ease;
+
+  /* الحدود البيضاء */
+  border: 2px solid #fff;
+}
 .sound-pill {
   padding: 8px 12px;
   border-radius: 20px;
@@ -147,7 +158,7 @@
 }
 
 .sound-pill.active {
-  background-color: #007aff;
+  background-color: #ffd900;
   color: white;
   font-weight: bold;
   transform: translateY(-2px);
@@ -166,9 +177,17 @@
   transition: background 0.3s;
 }
 
-.create-btn:hover {
-  background-color: #005bbb;
-}
+
 ion-radio {
   display: none; /* أخفي عنصر ion-radio نفسه */
+}.msg-type .row {
+  display: flex;
+  align-items:center;justify-content: space-between;
+  width: 50vw;
+  padding: 7%;
+  font-size:5%;
+  border-radius: 12px;
+  cursor: pointer;
+  position: relative;
+  transition: background 0.3s;
 }

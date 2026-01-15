@@ -110,5 +110,19 @@ verity_otp(email:any,otp:any): Observable<any> {
     data,
     { headers }
   );
+}logout(data): Observable<any> {
+  const headers = new HttpHeaders({
+    'Accept': 'application/json',
+    'Content-Type': 'application/json',
+    'ngrok-skip-browser-warning': 'true'
+  });
+
+  return this.http.post(
+    `https://margherita-circadian-minta.ngrok-free.dev/account/logout/${data}`,  // استخدم البروكسي هنا
+ { headers: headers },
+ 
+      
+    
+  );
 }
 }

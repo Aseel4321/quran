@@ -4,23 +4,39 @@
 
   <!-- Select reading method -->
   <div class="select-box" (click)="toggleDropdown()">
-  <span>Select reading method</span>
-  <div class="menu-icon" [class.rotate]="isOpen">☰</div>
-</div>
+    <span>
+      {{ readingMethod ? readingMethod : 'Select reading method' }}
+    </span>
+    <div class="menu-icon" [class.rotate]="isOpen">☰</div>
+  </div>
 
-<div class="dropdown" *ngIf="isOpen">
-  <button (click)="selectOption('surah')">Select Surah</button>
-  <button (click)="selectOption('page')">Page range</button>
-</div>
+  <div class="dropdown" *ngIf="isOpen">
+    <button (click)="selectOption('surah')">Select Surah</button>
+    <button (click)="selectOption('page')">Page range</button>
+  </div>
 
   <!-- Daily target -->
   <div class="section">
     <p class="section-title">daily target</p>
     <div class="options">
-      <button>verses</button>
-      <button class="active">pages</button>
-      <span class="or">Or</span>
-      <button>time-based</button>
+      <button
+        [class.active]="dailyTarget === 'verses'"
+        (click)="selectDailyTarget('verses')">
+        verses
+      </button>
+
+      <button
+        [class.active]="dailyTarget === 'pages'"
+        (click)="selectDailyTarget('pages')">
+        pages
+      </button>
+
+  
+      <button
+        [class.active]="dailyTarget === 'time'"
+        (click)="selectDailyTarget('time')">
+        time-based
+      </button>
     </div>
   </div>
 
@@ -28,9 +44,23 @@
   <div class="section">
     <p class="section-title">duration</p>
     <div class="options">
-      <button>Days</button>
-      <button class="active">Weeks</button>
-      <button>Months</button>
+      <button
+        [class.active]="duration === 'days'"
+        (click)="selectDuration('days')">
+        Days
+      </button>
+
+      <button
+        [class.active]="duration === 'weeks'"
+        (click)="selectDuration('weeks')">
+        Weeks
+      </button>
+
+      <button
+        [class.active]="duration === 'months'"
+        (click)="selectDuration('months')">
+        Months
+      </button>
     </div>
   </div>
 
@@ -38,13 +68,29 @@
   <div class="section">
     <p class="section-title">Difficulty level</p>
     <div class="options">
-      <button>beginner</button>
-      <button class="active">intermediate</button>
-      <button>advanced</button>
+      <button
+        [class.active]="difficulty === 'beginner'"
+        (click)="selectDifficulty('beginner')">
+        beginner
+      </button>
+
+      <button
+        [class.active]="difficulty === 'intermediate'"
+        (click)="selectDifficulty('intermediate')">
+        intermediate
+      </button>
+
+      <button
+        [class.active]="difficulty === 'advanced'"
+        (click)="selectDifficulty('advanced')">
+        advanced
+      </button>
     </div>
   </div>
 
   <!-- Continue -->
-  <button class="continue-btn">Continue</button>
+  <button class="continue-btn" (click)="continue()">
+    Continue
+  </button>
 
 </div>

@@ -28,10 +28,36 @@ export class HomePageListComponent  implements OnInit{list:[]=[];name:string;
       }
     );   
   }
-  delete(){console.log('fllowifng');
-    this.service.following(
-  2601042138368739
-).subscribe((data:any)=>{ console.log('fllowing');console.log(data);if(localStorage.getItem('lang')=='ar'){}else{}
+  online(){console.log('fllowifng');
+    this.service.online(
+ 
+).subscribe((data:any)=>{console.log('online');console.log(data);
+ 
+    },(error: HttpErrorResponse)=>{
+      console.log(error?.error?.arDescription)
+        if(localStorage.getItem('lang')=='ar'){  
+        console.error(error.error);
+  
+        }else{ }
+    });
+  
+   }  offline(){console.log('fllowifng');
+    this.service.offline(
+ 
+).subscribe((data:any)=>{console.log('online');console.log(data);
+ 
+    },(error: HttpErrorResponse)=>{
+      console.log(error?.error?.arDescription)
+        if(localStorage.getItem('lang')=='ar'){  
+        console.error(error.error);
+  
+        }else{ }
+    });
+  
+   }heartbeat(){console.log('fllowifng');
+    this.service.heartbeat(
+ 
+).subscribe((data:any)=>{console.log('onlidne');console.log(data);
  
     },(error: HttpErrorResponse)=>{
       console.log(error?.error?.arDescription)
@@ -45,6 +71,18 @@ export class HomePageListComponent  implements OnInit{list:[]=[];name:string;
    delete4(){
    
     this.service.notifications_user().subscribe((data:any)=>{ console.log('ggggghhhhhhhhhhhhhhhhhhhhhhhhhdddddddddddddd');console.log(data);if(localStorage.getItem('lang')=='ar'){}else{}
+ 
+    },(error: HttpErrorResponse)=>{  console.error(error); 
+      console.log(error?.error?.arDescription)
+        if(localStorage.getItem('lang')=='ar'){  
+       
+  
+        }else{  }
+    });
+  
+   }delete14(){
+   
+    this.service.unread_count({}).subscribe((data:any)=>{ console.log('conv');console.log(data);if(localStorage.getItem('lang')=='ar'){}else{}
  
     },(error: HttpErrorResponse)=>{  console.error(error); 
       console.log(error?.error?.arDescription)
@@ -182,7 +220,7 @@ swiperRef!: Swiper;
 private lockInProgress = false;
   constructor(private platform: Platform,private cdr: ChangeDetectorRef,private router: Router,private servicea: AuthService,private service: MainServiceService ){}
   ngOnInit(): void {this.name=this.service.name;
-    this.login(); this.follow();this.accept();this.delete();
+    this.login(); this.follow();this.accept();this.heartbeat();
     this.lockInProgress = false;
 
   this.platform.ready().then(() => {

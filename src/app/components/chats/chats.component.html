@@ -28,7 +28,11 @@
       
       <div *ngIf="item=='All'; else elsee" style="text-align: center;display: flex;flex-direction: row;justify-content: center;" (click)="name(item)">
         <div style="font-size: 4vw;">{{ item }}</div>
-       <div [ngClass]="cir(item)"><div style="font-size: 2.5vw;">4</div></div>
+       <div *ngIf="unread_Count > 0" [ngClass]="cir(item)">
+  <div style="font-size: 2.5vw;">
+    {{ unread_Count }}
+  </div>
+</div>
       </div>
       <img
     [src]="image(item)"

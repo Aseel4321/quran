@@ -1,16 +1,19 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Capacitor } from '@capacitor/core';
 import { Platform } from '@ionic/angular';
+import { MainServiceService } from 'src/app/main-service/main/main-service.service';
 
 @Component({
   selector: 'app-chats',
   templateUrl: './chats.component.html',
   styleUrls: ['./chats.component.scss'],
 })
-export class ChatsComponent  implements OnInit{constructor(private platform: Platform,private router: Router){}
+export class ChatsComponent  implements OnInit{constructor(private platform: Platform,private router: Router,private service: MainServiceService){}
 Name:string='All';
-  ngOnInit(): void {
+unread_Count:any;
+  ngOnInit(): void {this.unread_count();
     this.platform.ready().then(() => {
       const height = this.platform.height(); document.documentElement.style.setProperty('--screen-h', `${height}px`);
       const width = this.platform.width();
@@ -20,7 +23,21 @@ Name:string='All';
   }
   list = [
   'All','Unread','Read',
-];
+];unread_count(){
+   
+    this.service.unread_count({}).subscribe((data:any)=>{ console.log('conv');console.log(data);
+      this.unread_Count=data;
+      if(localStorage.getItem('lang')=='ar'){}else{}
+ 
+    },(error: HttpErrorResponse)=>{  console.error(error); 
+      console.log(error?.error?.arDescription)
+        if(localStorage.getItem('lang')=='ar'){  
+       
+  
+        }else{  }
+    });
+  
+   }
 name(name){
  this.Name=name;
 }

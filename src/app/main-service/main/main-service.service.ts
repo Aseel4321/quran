@@ -256,6 +256,48 @@ notifications_user(): Observable<any> {
       
     
   );
+}create_coversation(data): Observable<any> {
+  const headers = new HttpHeaders({
+    'Accept': 'application/json',
+    'Content-Type': 'application/json',
+    'ngrok-skip-browser-warning': 'true'
+  });
+
+  return this.http.get(
+    'https://margherita-circadian-minta.ngrok-free.dev/api/chat/conversation/2601042138368739/2512150339932840',  // استخدم البروكسي هنا
+ { headers: headers },
+ 
+      
+    
+  );
+}create_connection(data): Observable<any> {
+  const headers = new HttpHeaders({
+    'Accept': 'application/json',
+    'Content-Type': 'application/json',
+    'ngrok-skip-browser-warning': 'true'
+  });
+
+  return this.http.post(
+    'https://margherita-circadian-minta.ngrok-free.dev/api/chat/connect/2512150339932840/2601042138368739',  // استخدم البروكسي هنا
+ { headers: headers },
+ 
+      
+    
+  );
+}unread_count(data): Observable<any> {
+  const headers = new HttpHeaders({
+    'Accept': 'application/json',
+    'Content-Type': 'application/json',
+    'ngrok-skip-browser-warning': 'true'
+  });
+
+  return this.http.get(
+    'https://margherita-circadian-minta.ngrok-free.dev/api/chat/unread-count/2601042138368739',  // استخدم البروكسي هنا
+ { headers: headers },
+ 
+      
+    
+  );
 }
 add_calendar(data: any): Observable<any> {
   const headers = new HttpHeaders({
@@ -316,8 +358,42 @@ prayer_times(data: any): Observable<any> {
     { headers: headers }
   );
 }
+online(): Observable<any> {
+  const headers = new HttpHeaders({
+    'Accept': 'application/json',
+    'Content-Type': 'application/json',
+    'ngrok-skip-browser-warning': 'true'
+  });
 
+  return this.http.post(
+        `https://margherita-circadian-minta.ngrok-free.dev/api/status/online/2601042138368739`,  // استخدم البروكسي هنا
+     { headers: headers }
+  );
+}
+offline(): Observable<any> {
+  const headers = new HttpHeaders({
+    'Accept': 'application/json',
+    'Content-Type': 'application/json',
+    'ngrok-skip-browser-warning': 'true'
+  });
 
+  return this.http.post(
+        `https://margherita-circadian-minta.ngrok-free.dev/api/status/offline/2601042138368739`,  // استخدم البروكسي هنا
+     { headers: headers }
+  );
+}
+heartbeat(): Observable<any> {
+  const headers = new HttpHeaders({
+    'Accept': 'application/json',
+    'Content-Type': 'application/json',
+    'ngrok-skip-browser-warning': 'true'
+  });
+
+  return this.http.post(
+        `https://margherita-circadian-minta.ngrok-free.dev/api/status/heartbeat/2601042138368739`,  // استخدم البروكسي هنا
+     { headers: headers }
+  );
+}
 }
 interface Model {
   name: string;

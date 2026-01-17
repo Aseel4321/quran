@@ -404,7 +404,18 @@ heartbeat(): Observable<any> {
     data,
     { headers: headers }
   );
-}read_message(): Observable<any> {
+}messages_coversation(): Observable<any> {
+  const headers = new HttpHeaders({   'ngrok-skip-browser-warning': 'true',
+    'Accept': 'application/json',
+    'Content-Type': 'application/json'
+  });
+
+  return this.http.get(
+    'https://margherita-circadian-minta.ngrok-free.dev/api/chat/messages/2',
+    { headers: headers }
+  );
+}
+read_message(): Observable<any> {
   const headers = new HttpHeaders({
     'Accept': 'application/json',
     'Content-Type': 'application/json',
@@ -413,6 +424,17 @@ heartbeat(): Observable<any> {
 
   return this.http.post(
         `https://margherita-circadian-minta.ngrok-free.dev/api/chat/messages/read/2/2601042138368739`,  // استخدم البروكسي هنا
+     { headers: headers }
+  );
+}conversations(): Observable<any> {
+  const headers = new HttpHeaders({
+    'Accept': 'application/json',
+    'Content-Type': 'application/json',
+    'ngrok-skip-browser-warning': 'true'
+  });
+
+  return this.http.get(
+        `https://margherita-circadian-minta.ngrok-free.dev/api/chat/conversations/2601042138368739`,  // استخدم البروكسي هنا
      { headers: headers }
   );
 }

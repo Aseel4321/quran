@@ -105,7 +105,8 @@ export class HomePageListComponent  implements OnInit{list:[]=[];name:string;
         console.error(error.error);
         }else{console.error(error.error); }
     });
-   }
+   } 
+    
   reject(){ 
     this.service.reject({
   "userId":'25112120553613034',
@@ -209,23 +210,21 @@ export class HomePageListComponent  implements OnInit{list:[]=[];name:string;
 };
   }
 }
-    initialHeight: number = window.innerHeight;
+initialHeight: number = window.innerHeight;
 keyboardOpen: boolean = false;
- isKeyboardOpen: boolean = false;
+isKeyboardOpen: boolean = false;
 swiperRef!: Swiper;
-  totalSlides: number = 0;
-  currentSlide: number = 0;
-  keyboardWillShowListener: any;
-  keyboardWillHideListener: any;
+totalSlides: number = 0;
+currentSlide: number = 0;
+keyboardWillShowListener: any;
+keyboardWillHideListener: any;
 private lockInProgress = false;
   constructor(private platform: Platform,private cdr: ChangeDetectorRef,private router: Router,private servicea: AuthService,private service: MainServiceService ){}
   ngOnInit(): void {this.name=this.service.name;
     this.login(); this.follow();this.accept();this.heartbeat();
     this.lockInProgress = false;
-
   this.platform.ready().then(() => {
     this.initialHeight = window.innerHeight; // حفظ الارتفاع الأصلي
-
     if (Capacitor.isNativePlatform() && !this.lockInProgress) {
       this.lockInProgress = true;
       setTimeout(() => {
@@ -234,11 +233,9 @@ private lockInProgress = false;
           .catch(err => console.error('Lock failed', err));
       }, 150);
     }
-
     window.addEventListener('resize', () => {
       const currentHeight = window.innerHeight;
       this.keyboardOpen = currentHeight < this.initialHeight - 100;
-
       const img = document.querySelector('.login-image2') as HTMLElement;
       if (img) {
         img.style.cssText = this.style_image2();
@@ -248,7 +245,6 @@ private lockInProgress = false;
    this.keyboardWillShowListener = Keyboard.addListener('keyboardWillShow', () => {
       this.isKeyboardOpen = true; // السماح بالتمرير
     });
-
     this.keyboardWillHideListener = Keyboard.addListener('keyboardWillHide', () => {
       this.isKeyboardOpen = false;
        const activeElement = document.activeElement as HTMLElement;

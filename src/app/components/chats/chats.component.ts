@@ -13,14 +13,14 @@ import { MainServiceService } from 'src/app/main-service/main/main-service.servi
 export class ChatsComponent  implements OnInit{constructor(private platform: Platform,private router: Router,private service: MainServiceService){}
 Name:string='All';
 unread_Count:any;
-  ngOnInit(): void {this.unread_count();
+  ngOnInit(): void {this.unread_count();this.conversations();this.messages_coversation();
     this.platform.ready().then(() => {
       const height = this.platform.height(); document.documentElement.style.setProperty('--screen-h', `${height}px`);
       const width = this.platform.width();
       console.log('Screen Height:', height);
       console.log('Screen Width:', width);
     });
-  }
+  }list_item:ChatListItem[] = [];
   list = [
   'All','Unread','Read',
 ];unread_count(){
@@ -37,6 +37,33 @@ unread_Count:any;
         }else{  }
     });
   
+   }conversations(){ console.log('conversations');
+    this.service.conversations().subscribe((data:any)=>{ 
+      console.log('conversations');console.log(data);
+      this.list_item=data;
+      if(localStorage.getItem('lang')=='ar'){}else{}
+ 
+    },(error: HttpErrorResponse)=>{
+      console.log(error?.error?.arDescription)
+        if(localStorage.getItem('lang')=='ar'){  
+        console.error(error.error);
+        }else{console.error(error.error); }
+    });
+   }
+   messages_coversation(){console.log('conversations');
+    this.service.messages_coversation().subscribe((data:any)=>{ 
+      console.log('conversatiottttttttttttns');console.log(data);
+      
+      if(localStorage.getItem('lang')=='ar'){}else{}
+ 
+    },(error: HttpErrorResponse)=>{
+      console.log(error?.error?.arDescription)
+        if(localStorage.getItem('lang')=='ar'){  
+        console.error(error.error);
+        }else{console.error(error.error); }
+    });
+
+
    }
 name(name){
  this.Name=name;
@@ -71,4 +98,18 @@ cir(name){console.log(name);
 goBack() {
   this.router.navigate(['/home-page']);
 }
+}
+export interface ChatListItem {
+  id: number | string;
+  otherUserId: number | string;
+  otherUserName: string;
+  otherUserAvatar: string | null;
+  otherUserOnlineStatus: boolean | null;
+  lastMessage: string;
+  lastMessageTime: string;        // ISO 8601 string
+  lastMessageSenderId: number | string;
+  unreadCount: number;
+  isMuted: boolean;
+  isArchived: boolean;
+  createdAt: string;              // ISO 8601 string
 }

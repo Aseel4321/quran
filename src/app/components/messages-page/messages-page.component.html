@@ -6,28 +6,29 @@
   src="assets/icon/user1.jpg" 
   class="circle-img"
 />
-<div style="display: flex;flex-direction: column;width: 90%;"> <div style="margin-inline-start: 3vw;">John Smith</div> <div style="margin-inline-start: 3vw;font-size: 2.7vw;color: burlywood;">Online</div></div>
+<div style="display: flex;flex-direction: column;width: 90%;"> <div style="margin-inline-start: 3vw;">{{user_chat.otherUserName}}</div> <div style="margin-inline-start: 3vw;font-size: 2.7vw;color: burlywood;">Online</div></div>
 <div style="width:100% ;text-align: end;"><img
   src="assets/icon/phone.png" 
   style="width: 5vw;height: 5vw;margin-inline-end:4%;"
 /> <img
   src="assets/icon/menu.png" 
    style="width: 5vw;height: 5vw;"
-/></div></div>
-<div style="width: 100%;display: flex;flex-direction: row; justify-content: start;"><div class="custom-box-left">
-  هذا نص داخل المربعععع لارررررععععععععععععععععععععععععععععععععععععععععععععععععع
+/></div></div><div *ngFor="let msg of Messages" style="width: 100%;display: flex;flex-direction: column;background-color: aquamarine;">
+  
+  <div style="width: 100%;display: flex;flex-direction: row; justify-content: start;margin-top: 3%;"  *ngIf="msg.senderName === user_chat.otherUserName" ><div class="custom-box-left">
+{{msg.content}}</div></div>
+<div style="width: 100%;display: flex;flex-direction: row; justify-content: flex-end;margin-top: 3%;"  *ngIf="msg.senderName != user_chat.otherUserName"><div class="custom-box-right">
+{{msg.content}}
 </div></div>
-<div style="width: 100%;display: flex;flex-direction: row; justify-content: flex-end;"><div class="custom-box-right">
-  هذا نص داخل المربع
-</div></div>
+</div>
 <div
   style="
     display: flex;
     flex-direction: row;
     position: fixed;
     bottom: 3%;
-    width: 100%;               /* مهم جداً لتوسيط العناصر */
-    justify-content: center;   /* توسيط كامل */
+    width: 100%;              
+    justify-content: center;   
     align-items: center;
   "
 >

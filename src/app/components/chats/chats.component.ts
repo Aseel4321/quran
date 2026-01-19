@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { Capacitor } from '@capacitor/core';
 import { Platform } from '@ionic/angular';
 import { MainServiceService } from 'src/app/main-service/main/main-service.service';
+import { User } from '../chats-search/chats-search.component';
 
 @Component({
   selector: 'app-chats',
@@ -13,7 +14,9 @@ import { MainServiceService } from 'src/app/main-service/main/main-service.servi
 export class ChatsComponent  implements OnInit{constructor(private platform: Platform,private router: Router,private service: MainServiceService){}
 Name:string='All';
 unread_Count:any;
-  ngOnInit(): void {this.unread_count();this.conversations();this.messages_coversation();
+
+  ngOnInit(): void {
+    this.unread_count();this.conversations();
     this.platform.ready().then(() => {
       const height = this.platform.height(); document.documentElement.style.setProperty('--screen-h', `${height}px`);
       const width = this.platform.width();
@@ -37,7 +40,8 @@ unread_Count:any;
         }else{  }
     });
   
-   }conversations(){ console.log('conversations');
+   }
+   conversations(){ console.log('conversations');
     this.service.conversations().subscribe((data:any)=>{ 
       console.log('conversations');console.log(data);
       this.list_item=data;
@@ -50,21 +54,7 @@ unread_Count:any;
         }else{console.error(error.error); }
     });
    }
-   messages_coversation(){console.log('conversations');
-    this.service.messages_coversation().subscribe((data:any)=>{ 
-      console.log('conversatiottttttttttttns');console.log(data);
-      
-      if(localStorage.getItem('lang')=='ar'){}else{}
- 
-    },(error: HttpErrorResponse)=>{
-      console.log(error?.error?.arDescription)
-        if(localStorage.getItem('lang')=='ar'){  
-        console.error(error.error);
-        }else{console.error(error.error); }
-    });
 
-
-   }
 name(name){
  this.Name=name;
 }

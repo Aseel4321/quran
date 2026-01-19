@@ -4,11 +4,13 @@ import { Injectable } from '@angular/core';
 import { Platform } from '@ionic/angular';
 
 import { Observable } from 'rxjs';
+import { ChatUser, User } from 'src/app/components/chats-search/chats-search.component';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MainServiceService {  constructor(private http: HttpClient,private platform: Platform) { }
+user_chat:ChatUser;
 unreadCount:any=0;
   adkar:any;
  date:any='';
@@ -404,14 +406,13 @@ heartbeat(): Observable<any> {
     data,
     { headers: headers }
   );
-}messages_coversation(): Observable<any> {
+}messages_coversation(id): Observable<any> {
   const headers = new HttpHeaders({   'ngrok-skip-browser-warning': 'true',
     'Accept': 'application/json',
     'Content-Type': 'application/json'
   });
-
   return this.http.get(
-    'https://margherita-circadian-minta.ngrok-free.dev/api/chat/messages/2',
+    `https://margherita-circadian-minta.ngrok-free.dev/api/chat/messages/${id}`,
     { headers: headers }
   );
 }

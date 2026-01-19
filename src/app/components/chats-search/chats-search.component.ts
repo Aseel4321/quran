@@ -140,6 +140,7 @@ connect(id){console.log('connect');const userData = localStorage.getItem('User')
     this.service.create_connection(
  user.id,id
 ).subscribe((data:any)=>{console.log('connect');console.log(data);
+  this.service.user_chat=data;
  this.router.navigate(['/messages']);
     },(error: HttpErrorResponse)=>{
       console.log(error?.error?.arDescription)
@@ -163,5 +164,23 @@ export interface User {
   onlineStatus: 'ONLINE' | 'OFFLINE';
   lastActiveAt: string | null;
   followStatus: string | null;
-  isMutualFollow: boolean;
+  isMutualFollow: boolean;  
+  otherUserName?: string;
+}
+export interface ChatUser {
+  id: number;
+  otherUserId: number;
+  otherUserName: string;
+  otherUserAvatar: string;
+  otherUserOnlineStatus: string; // مثال: "Online" | "Offline"
+  
+  lastMessage: string;
+  lastMessageTime: string; // ISO Date
+  lastMessageSenderId: number;
+  
+  unreadCount: number;
+  isMuted: boolean;
+  isArchived: boolean;
+  
+  createdAt: string; // ISO Date
 }

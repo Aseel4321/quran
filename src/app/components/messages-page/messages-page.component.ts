@@ -13,8 +13,11 @@ export class MessagesPageComponent implements OnInit {
 searchText: string = '';
 user_chat:ChatUser;
 Messages:Message[];
+ user:any;
   constructor(private platform: Platform,private service: MainServiceService ) { }
-   messages_coversation(){console.log('conversations');console.log();
+   messages_coversation(){console.log('conversations');console.log();const userData = localStorage.getItem('User');
+    const user = JSON.parse(userData);
+    this.user=user.id;
     this.service.messages_coversation(this.user_chat.id).subscribe((data:any)=>{ 
       console.log('mes');
       this.Messages=data.content.reverse();

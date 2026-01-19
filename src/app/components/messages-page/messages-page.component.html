@@ -15,9 +15,9 @@
    style="width: 5vw;height: 5vw;"
 /></div></div><div *ngFor="let msg of Messages" style="width: 100%;display: flex;flex-direction: column;background-color: aquamarine;">
   
-  <div style="width: 100%;display: flex;flex-direction: row; justify-content: start;margin-top: 3%;"  *ngIf="msg.senderName === user_chat.otherUserName" ><div class="custom-box-left">
+  <div style="width: 100%;display: flex;flex-direction: row; justify-content: start;margin-top: 3%;"  *ngIf="msg.senderId === user" ><div class="custom-box-left">
 {{msg.content}}</div></div>
-<div style="width: 100%;display: flex;flex-direction: row; justify-content: flex-end;margin-top: 3%;"  *ngIf="msg.senderName != user_chat.otherUserName"><div class="custom-box-right">
+<div style="width: 100%;display: flex;flex-direction: row; justify-content: flex-end;margin-top: 3%;"  *ngIf="msg.senderId != user"><div class="custom-box-right">
 {{msg.content}}
 </div></div>
 </div>

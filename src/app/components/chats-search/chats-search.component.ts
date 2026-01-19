@@ -24,7 +24,7 @@ export class ChatsSearchComponent implements OnInit, AfterViewInit {
   list_pending_sent: User[] = [];
 
   userMap = new Map<number, 'follow' | 'unfollow' | 'acfollow'>();
-
+ user:any;
   Name: any;
 
   constructor(
@@ -33,7 +33,8 @@ export class ChatsSearchComponent implements OnInit, AfterViewInit {
     private service: MainServiceService
   ) {}
 
-  ngOnInit(): void {
+  ngOnInit(): void {const userData = localStorage.getItem('User');
+    this.user = JSON.parse(userData);
     this.platform.ready().then(() => {
       document.documentElement.style.setProperty(
         '--screen-h',
@@ -102,14 +103,14 @@ export class ChatsSearchComponent implements OnInit, AfterViewInit {
 
   follow(id: number) {
     this.service.follow({
-      userId: 2601042138368739,
+      userId:this.user,
       targetUserId: id
     }).subscribe();
   }
 
   unfollow(id: number) {
     this.service.unfollow({
-      userId: 2601042138368739,
+      userId: this.user,
       targetUserId: id
     }).subscribe();
   }

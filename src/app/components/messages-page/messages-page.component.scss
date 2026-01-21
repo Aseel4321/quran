@@ -38,13 +38,13 @@ margin-inline-end: 5%;
   width: 4.5vw;
   margin-inline-end: 2vw;
 }
-.chats-content {
+.chats-content { --overflow: hidden;
  --background: #e5e6e4;
   display: flex; 
   flex-direction: column; 
   justify-content: flex-start;
   align-items: center; 
-  min-height: 100vh;
+  height: 100vh;
   width:100vw ;
 }
 .search-input {

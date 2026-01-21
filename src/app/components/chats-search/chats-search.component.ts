@@ -53,7 +53,7 @@ export class ChatsSearchComponent implements OnInit, AfterViewInit {
         this.list = data;
         this.loadStatuses();
       },
-      (error: HttpErrorResponse) => {
+      (error: HttpErrorResponse) => {this.list=[];
         console.error(error);
       }
     );

@@ -1,4 +1,4 @@
-<ion-content  class="chats-content" [scrollY]="true" 
+<ion-content  class="chats-content"  
 > <div class="bg"></div>
 <div style="display: flex;flex-direction: row;margin-top: 10%;margin-inline-start: 5%;justify-content: start;">
  <ion-icon name="chevron-back" (click)="goBack()"  style="margin-top:0.5%;"></ion-icon>
@@ -10,12 +10,12 @@
   </div>
 </div>
  {{userMap.get(1)}}
-<div style="display: flex;flex-direction: column;margin-top: 10%;">
+<div style="display: flex;flex-direction: column;margin-top: 10%;overflow-y: auto;">
   <div *ngFor="let item of list; let i = index; trackBy: trackByFn" style="margin-inline-end: 10px; margin-top: 7%;">
   <div style="display: flex; flex-direction: row;" (click)="connect(item.id)">
     <img src="assets/icon/user1.jpg" class="circle-img"/>
     <div style="display: flex; flex-direction: column; width: 90%; margin-top: 1%; justify-content: center;">
-      <div style="margin-inline-start: 3vw; font-size: 3.5vw;">{{ item.id }}</div> 
+      <div style="margin-inline-start: 3vw; font-size: 3.5vw;">{{ item.fullName }}</div> 
     </div>
     <div style="display: flex; flex-direction: column; text-align: start; font-size: 2.7vw; width: 20vw; justify-content: center;">
      <button

@@ -1,5 +1,5 @@
 .chats-content {
-
+ --overflow: hidden;
   display: flex; 
   flex-direction: column; 
   justify-content: flex-start;
@@ -18,8 +18,8 @@
   align-items: center;
   font-size: 1rem;
 }.circular-btn-f {
-  width: 17vw;             
-  height: 2.5vh;            
+  width: 19vw;             
+  height:7vw;            
   border-radius: 15px;      /* <-- هذا يجعل الزوايا مستديرة جزئياً */
   border: none;            
   background-color: #D5D9D9; 
@@ -35,8 +35,8 @@
   transition: transform 0.1s ease, box-shadow 0.1s ease; 
 }
 .circular-btn-uf {
-  width: 17vw;             
-  height: 2.5vh;            
+  width: 19vw;             
+  height:7vw;            
   border-radius: 15px;      /* <-- هذا يجعل الزوايا مستديرة جزئياً */
   border: none;            
   background-color: #25b9b9; 

@@ -141,14 +141,50 @@ ion-menu::part(container) {width: 60%;
   box-shadow: 4px 0px 16px rgba(142, 144, 150, 0.18);
 }
 
-:host-context([dir="rtl"]) .login-image2 {
-  transform: rotateY(180deg);
-}[dir="rtl"] .login-image2 {
+.login-image2,
+.login-image3 {
+  position: fixed;
+  bottom: 0;
+  width: 30vw;
+  max-width: 160px;
+  height: auto;
+  z-index: 999;
+  pointer-events: none;
+}
+
+/* الصورة اليسار */
+.login-image2 {
+  left: 0;
+}
+
+/* الصورة اليمين */
+.login-image3 {
+  right: 0;
+}
+
+/* ================= RTL ================= */
+:host-context([dir="rtl"]) .login-image2,
+[dir="rtl"] .login-image2 {
+  right: 0;
+  left: auto;
   transform: rotateY(180deg);
 }
-:host-context([dir="ltr"]) .login-image3 {
-  transform: rotateY(180deg);
-}[dir="ltr"] .login-image3 {
+
+:host-context([dir="rtl"]) .login-image3,
+[dir="rtl"] .login-image3 {
+  left: 0;
+  right: auto;
+}
+
+/* ================= LTR ================= */
+:host-context([dir="ltr"]) .login-image2,
+[dir="ltr"] .login-image2 {
+  left: 0;
+}
+
+:host-context([dir="ltr"]) .login-image3,
+[dir="ltr"] .login-image3 {
+  right: 0;
   transform: rotateY(180deg);
 }
 .my-card {

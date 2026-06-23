@@ -640,31 +640,36 @@ afterOkPressed() {
 }
 style_image2() {
   if (this.keyboardOpen) {
-    return 'display: none;';
+    return 'display:none;';
   }
 
-  const baseStyle = 'width: 34%; position: fixed; bottom: 0; z-index: 10;';
   const lang = localStorage.getItem('lang');
 
-  if (lang === 'ar') {
-    return baseStyle + ' right: 0;';
-  } else {
-    return baseStyle + ' left: 0;';
-  }
+  return `
+    width:34%;
+    position:fixed;
+    bottom:0px;
+    ${lang === 'ar' ? 'right:0px;' : 'left:0px;'}
+    z-index:999;
+    pointer-events:none;
+  `;
 }
+
 style_image3() {
   if (this.keyboardOpen) {
-    return 'display: none;';
+    return 'display:none;';
   }
 
-  const baseStyle = 'width: 50%; position: fixed; bottom: 0; z-index: 10;';
   const lang = localStorage.getItem('lang');
 
-  if (lang === 'ar') {
-    return baseStyle + 'left : 0;';
-  } else {
-    return baseStyle + 'right: 0;';
-  }
+  return `
+    width:50%;
+    position:fixed;
+    bottom:0px;
+    ${lang === 'ar' ? 'left:0px;' : 'right:0px;'}
+    z-index:999;
+    pointer-events:none;
+  `;
 }
 sp(){const baseStyle = 'width:3vw; height:3vh; ';
    const lang = localStorage.getItem('lang');
